@@ -15,35 +15,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.DirectX", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.DirectX.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
 EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 4
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://tfs02.codeplex.com/
-		SccProjectUniqueName0 = Projects\\SharpInputSystem\\SharpInputSystem.Sdl.csproj
-		SccProjectTopLevelParentUniqueName0 = SharpInputSystem.sln
-		SccProjectName0 = ../../SharpInputSystem.Sdl
-		SccAuxPath0 = https://tfs02.codeplex.com
-		SccLocalPath0 = Projects\\SharpInputSystem
-		SccProvider0 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName1 = Projects\\SharpInputSystem\\SharpInputSystem.Xna.csproj
-		SccProjectTopLevelParentUniqueName1 = SharpInputSystem.sln
-		SccProjectName1 = ../../SharpInputSystem.Xna
-		SccAuxPath1 = https://tfs02.codeplex.com
-		SccLocalPath1 = Projects\\SharpInputSystem
-		SccProvider1 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName2 = Projects\\SharpInputSystem.Test.Console\\SharpInputSystem.Test.Console.DirectX.csproj
-		SccProjectTopLevelParentUniqueName2 = SharpInputSystem.sln
-		SccProjectName2 = ../../SharpInputSystem.Test.Console.DirectX
-		SccAuxPath2 = https://tfs02.codeplex.com
-		SccLocalPath2 = Projects\\SharpInputSystem.Test.Console
-		SccProvider2 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccProjectUniqueName3 = Projects\\SharpInputSystem\\SharpInputSystem.DirectX.csproj
-		SccProjectTopLevelParentUniqueName3 = SharpInputSystem.sln
-		SccProjectName3 = ../../SharpInputSystem.DirectX
-		SccAuxPath3 = https://tfs02.codeplex.com
-		SccLocalPath3 = Projects\\SharpInputSystem
-		SccProvider3 = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
