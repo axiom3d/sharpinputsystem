@@ -28,6 +28,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 using System;
 using System.Reflection;
+using System.Collections.Generic;
 
 using log4net;
 
@@ -57,6 +58,9 @@ namespace SharpInputSystem
     abstract public class InputManager
     {
 		private static readonly ILog log = LogManager.GetLogger( typeof( InputManager ) );
+
+		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
+		private List<KeyValuePair<InputObject, InputObjectFactory>> _createdInputObjects = new List<KeyValuePair<InputObject, InputObjectFactory>>();
 
 		/// <summary>
 		/// Initializes the static instance of the class
@@ -138,29 +142,38 @@ namespace SharpInputSystem
             }
         }
 
-        /// <summary>
-        /// Number of joysticks present
-        /// </summary>
-        abstract public int JoystickCount
-        {
-            get;
-        }
+		/// <summary>
+		/// Returns the number of the specified devices discovered by OIS
+		/// </summary>
+		/// <typeparam name="T">Type that you are interested in</typeparam>
+		/// <returns></returns>
+		public int DeviceCount<T>() where T : InputObject
+		{
+			int deviceCount = 0;
+			foreach ( InputObjectFactory factory in _factories )
+			{
+				deviceCount += factory.DeviceCount<T>();
+			}
+			return deviceCount;
+		}
 
-        /// <summary>
-        /// Number of mice present
-        /// </summary>
-        abstract public int MiceCount
-        {
-            get;
-        }
+		/// <summary>
+		/// Lists all unused devices
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<KeyValuePair<Type, string>> FreeDevices
+		{
+			get
+			{
+				List<KeyValuePair<Type, string>> freeDevices = new List<KeyValuePair<Type, string>>();
+				foreach ( InputObjectFactory factory in _factories )
+				{
+					freeDevices.AddRange( factory.FreeDevices );
+				}
+				return freeDevices;
+			}
+		}
 
-        /// <summary>
-        /// Number of keyboards present
-        /// </summary>
-        abstract public int KeyboardCount
-        {
-            get;
-        }
 
         /// <summary>
         /// Returns the type of input requested or raises Exception
@@ -169,13 +182,51 @@ namespace SharpInputSystem
         /// <param name="buffermode"></param>
         /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        abstract public T CreateInputObject<T>( bool bufferMode ) where T : InputObject; 
+		public T CreateInputObject<T>( bool bufferMode, string vendor ) where T : InputObject
+		{
+			InputObject obj = null;
+
+			foreach ( InputObjectFactory factory in _factories )
+			{
+				if ( factory.FreeDeviceCount<T>() > 0 )
+				{
+					if ( vendor == null || vendor == String.Empty || factory.VendorExists<T>( vendor ) )
+					{
+						obj = factory.CreateInputObject<T>( this, bufferMode, vendor );
+						_createdInputObjects.Add( new KeyValuePair<InputObject,InputObjectFactory>(obj, factory) );
+					}
+				}
+			}
+
+			if ( obj == null )
+				throw new Exception( "No devices match requested type." );
+
+			try
+			{
+				obj.initialize();
+			}
+			catch ( Exception e )
+			{
+				obj.Dispose();
+				obj = null;
+				throw e; //rethrow
+			}
+
+			return (T)obj;
+		}
 
         /// <summary>
         /// Destroys Input Object
         /// </summary>
         /// <param name="inputObject"></param>
-        abstract public void DestroyInputObject( InputObject inputObject );
+		virtual public void DestroyInputObject( InputObject inputObject )
+		{
+			if ( inputObject != null )
+			{
+				inputObject.Dispose();
+				inputObject = null;
+			}
+		}
 
         /// <summary>
         /// 
@@ -187,5 +238,14 @@ namespace SharpInputSystem
         {
         }
 
+		public void RegisterFactory( InputObjectFactory factory)
+		{
+			_factories.Add( factory );
+		}
+
+		public void UnregisterFactory( InputObjectFactory factory)
+		{
+			_factories.Remove( factory );
+		}
     }
 }

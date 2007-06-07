@@ -1,0 +1,12 @@
+obj\Debug\ResolveAssemblyReference.cache
+bin\Debug\Sdl\SharpInputSystem.Test.Console.Sdl.exe.config
+bin\Debug\Sdl\SDL.dll
+bin\Debug\Sdl\SharpInputSystem.Test.Console.Sdl.exe
+bin\Debug\Sdl\SharpInputSystem.Test.Console.Sdl.pdb
+bin\Debug\Sdl\log4net.dll
+bin\Debug\Sdl\SharpInputSystem.dll
+bin\Debug\Sdl\Tao.Sdl.dll
+bin\Debug\Sdl\Tao.Sdl.xml
+bin\Debug\Sdl\SharpInputSystem.pdb
+obj\Debug\SharpInputSystem.Test.Console.Sdl.exe
+obj\Debug\SharpInputSystem.Test.Console.Sdl.pdb

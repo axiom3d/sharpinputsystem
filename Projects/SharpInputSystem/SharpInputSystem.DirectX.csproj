@@ -57,6 +57,7 @@
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
     <Compile Include="DirectX\JoystickInfo.cs" />
+    <Compile Include="InputObjectFactory.cs" />
     <Compile Include="Joystick.cs" />
     <Compile Include="Keyboard.cs" />
     <Compile Include="Mouse.cs" />

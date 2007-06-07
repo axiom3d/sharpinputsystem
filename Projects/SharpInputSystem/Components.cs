@@ -33,123 +33,151 @@ using System;
 namespace SharpInputSystem
 {
 
-    /// <summary>
-    /// type specifier for all components (button, axis, etc)
-    /// </summary>
-    public enum ComponentType
-    {
-        Unknown,
-        Button,
-        Axis,
-        Slider,
-        Pov
-    }
+	/// <summary>
+	/// type specifier for all components (button, axis, etc)
+	/// </summary>
+	public enum ComponentType
+	{
+		Unknown,
+		Button,
+		Axis,
+		Slider,
+		Pov,
+		Vector3
+	}
 
-    /// <summary>
-    /// Base type for all device components (button, axis, etc)
-    /// </summary>
-    public class Component
-    {
-        public Component()
-        {
-        }
+	/// <summary>
+	/// Base type for all device components (button, axis, etc)
+	/// </summary>
+	public class Component
+	{
+		public Component()
+		{
+			this.Type = ComponentType.Unknown;
+		}
 
-        public Component( ComponentType type )
-        {
-            this.Type = type;
-        }
+		public Component( ComponentType type )
+		{
+			this.Type = type;
+		}
 
-        private ComponentType _type;
-        public ComponentType Type
-        {
-            get
-            {
-                return _type;
-            }
-            protected set
-            {
-                _type = value;
-            }
-        }
-    }
+		private ComponentType _type;
+		public ComponentType Type
+		{
+			get
+			{
+				return _type;
+			}
+			set
+			{
+				_type = value;
+			}
+		}
+	}
 
-    public class Button : Component
-    {
-        public Button()
-            : base( ComponentType.Button )
-        {
-        }
+	public class Button : Component
+	{
+		public Button()
+			: base( ComponentType.Button )
+		{
+		}
 
-        public Button( bool isPushed )
-            : base( ComponentType.Button )
-        {
-            this.IsPushed = isPushed;
-        }
+		public Button( bool isPushed )
+			: base( ComponentType.Button )
+		{
+			this.IsPushed = isPushed;
+		}
 
-        private bool _isPushed;
-        public bool IsPushed
-        {
-            get
-            {
-                return _isPushed;
-            }
-            protected set
-            {
-                _isPushed = value;
-            }
-        }
+		private bool _isPushed;
+		public bool IsPushed
+		{
+			get
+			{
+				return _isPushed;
+			}
+			protected set
+			{
+				_isPushed = value;
+			}
+		}
 
-    }
+	}
 
-    public class Axis : Component
-    {
-        public Axis()
-            : base( ComponentType.Axis )
-        {
-        }
+	public class Axis : Component
+	{
+		public Axis()
+			: base( ComponentType.Axis )
+		{
+		}
 
-        private int _absolute;
-        public int Absolute
-        {
-            get
-            {
-                return _absolute;
-            }
-            set
-            {
-                _absolute = value;
-            }
-        }
+		private int _absolute;
+		public int Absolute
+		{
+			get
+			{
+				return _absolute;
+			}
+			set
+			{
+				_absolute = value;
+			}
+		}
 
-        private int _relative;
-        public int Relative
-        {
-            get
-            {
-                return _relative;
-            }
-            set
-            {
-                _relative = value;
-            }
-        }
+		private int _relative;
+		public int Relative
+		{
+			get
+			{
+				return _relative;
+			}
+			set
+			{
+				_relative = value;
+			}
+		}
 
-        private bool _absoluteOnly;
-        public bool AbsoluteOnly
-        {
-            get
-            {
-                return _absoluteOnly;
-            }
-            set
-            {
-                _absoluteOnly = value;
-            }
-        }
+		private bool _absoluteOnly;
+		public bool AbsoluteOnly
+		{
+			get
+			{
+				return _absoluteOnly;
+			}
+			set
+			{
+				_absoluteOnly = value;
+			}
+		}
 
-        public void Clear()
-        {
-            _absolute = _relative = 0;
-        }
-    }
+		public void Clear()
+		{
+			_absolute = _relative = 0;
+		}
+	}
+
+	/// <summary>
+	/// A 3D Vector component (perhaps an orientation, as in the WiiMote)
+	/// </summary>
+	public class Vector3 : Component
+	{
+		private float _x, _y, _z;
+
+		public Vector3()
+		{
+		}
+
+		public Vector3( float x, float y, float z )
+			: base( ComponentType.Vector3 )
+		{
+			_x = x;
+			_y = y;
+			_z = z;
+		}
+
+		public void Clear()
+		{
+			_x = _y = _z = 0;
+		}
+
+	}
 }

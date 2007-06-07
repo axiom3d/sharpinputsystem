@@ -48,7 +48,7 @@ namespace SharpInputSystem
             }
             set
             {
-                ID = value;
+				_id = value;
             }
         }
 

@@ -60,6 +60,14 @@ namespace SharpInputSystem
             _coopSettings = coopSettings;
             Type = InputType.Mouse;
             EventListener = null;
+
+			if ( ( (DirectXInputManager)Creator ).mouseInUse )
+			{
+				throw new Exception( "No devices match requested type." );
+			}
+
+			( (DirectXInputManager)Creator ).mouseInUse = true;
+
         }
 
         protected override void _dispose( bool disposeManagedResources )
@@ -88,6 +96,8 @@ namespace SharpInputSystem
                         _mouse = null;
                     }
                 }
+				( (DirectXInputManager)Creator ).mouseInUse = false;
+
             }
             isDisposed = true;
 

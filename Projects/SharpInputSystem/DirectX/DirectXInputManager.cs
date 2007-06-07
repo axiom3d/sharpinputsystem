@@ -36,178 +36,227 @@ using MDI = Microsoft.DirectX.DirectInput;
 
 namespace SharpInputSystem
 {
-    /// <summary>
-    /// DirectX 9.0c InputManager specialization
-    /// </summary>
-    class DirectXInputManager : InputManager
-    {
-        private Dictionary<String, MDI.CooperativeLevelFlags> _settings = new Dictionary<string,Microsoft.DirectX.DirectInput.CooperativeLevelFlags>();
-        private JoystickInfoList _unusedJoysticks = new JoystickInfoList();
+	/// <summary>
+	/// DirectX 9.0c InputManager specialization
+	/// </summary>
+	class DirectXInputManager : InputManager, InputObjectFactory
+	{
+		private Dictionary<String, MDI.CooperativeLevelFlags> _settings = new Dictionary<string, Microsoft.DirectX.DirectInput.CooperativeLevelFlags>();
+		private JoystickInfoList _unusedJoysticks = new JoystickInfoList();
 
-        private SWF.Control _hwnd;
-        public SWF.Control WindowHandle
-        {
-            get
-            {
-                return _hwnd;
-            }
-        }
+		private bool _keyboardInUse = false;
+		internal bool keyboardInUse
+		{
+			get
+			{
+				return _keyboardInUse;
+			}
+			set
+			{
+				_keyboardInUse = value;
+			}
+		}
 
-        private int _joystickCount;
-        public override int JoystickCount
-        {
-            get
-            {
-                return _joystickCount;
-            }
-        }
+		private bool _mouseInUse = false;
+		internal bool mouseInUse
+		{
+			get
+			{
+				return _mouseInUse;
+			}
+			set
+			{
+				_mouseInUse = value;
+			}
+		}
 
-        public override int MiceCount
-        {
-            get
-            {
-                return 1;
-            }
-        }
+		private int _joystickCount = 0;
 
-        public override int KeyboardCount
-        {
-            get
-            {
-                return 1;
-            }
-        }
-        public override T CreateInputObject<T>( bool bufferMode )
-        {
-            string typeName = "DirectX" + typeof( T ).Name;
-            Type objectType;
-            T obj;
+		private SWF.Control _hwnd;
+		public SWF.Control WindowHandle
+		{
+			get
+			{
+				return _hwnd;
+			}
+		}
 
-            objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName);
+		internal DirectXInputManager()
+			: base()
+		{
+			RegisterFactory( this );
+		}
 
-            System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
+		protected override void _initialize( ParameterList args )
+		{
+			// Find the first Parameter entry with WINDOW
+			_hwnd = (SWF.Control)args.Find(
+											delegate( Parameter p )
+											{
+												return p.first.ToUpper() == "WINDOW";
+											}
+										  ).second;
 
-            obj = (T)objectType.InvokeMember( typeName,
-                                              bindingFlags,
-                                              null, 
-                                              null,
-                                              new object[] { this, null, bufferMode, _settings[ typeof( T ).Name ] } );     
+			if ( _hwnd is SWF.Form )
+			{
+				//_hwnd = _hwnd;
+			}
+			else if ( _hwnd is SWF.PictureBox )
+			{
+				// if the control is a picturebox, we need to grab its parent form
+				while ( !( _hwnd is SWF.Form ) && _hwnd != null )
+				{
+					_hwnd = _hwnd.Parent;
+				}
+			}
+			else
+			{
+				throw new Exception( "SharpInputSystem.DirectXInputManger requires the handle of either a PictureBox or a Form." );
+			}
 
-            try
-            {
-                obj.initialize();
-            }
-            catch ( Exception e )
-            {
-                obj.Dispose();
-                obj = null;
-                throw e; //rethrow
-            }
+			_settings.Add( typeof( Mouse ).Name, 0 );
+			_settings.Add( typeof( Keyboard ).Name, 0 );
+			_settings.Add( typeof( Joystick ).Name, 0 );
 
-	        return obj;
-        }
+			//Ok, now we have DirectInput, parse whatever extra settings were sent to us
+			_parseConfigSettings( args );
+			_enumerateDevices();
 
-        public override void DestroyInputObject( InputObject inputObject )
-        {
-            if ( inputObject != null )
-            {
-                inputObject.Dispose();
-                inputObject = null;
-            }
-        }
+		}
 
-        protected override void _initialize( ParameterList args )
-        {
-            // Find the first Parameter entry with WINDOW
-            _hwnd = (SWF.Control)args.Find( 
-                                            delegate( Parameter p ) 
-                                            { 
-                                                return p.first.ToUpper() == "WINDOW"; 
-                                            } 
-                                          ).second;
+		private void _enumerateDevices()
+		{
+			foreach ( MDI.DeviceInstance device in MDI.Manager.Devices )
+			{
+				if ( device.DeviceType == MDI.DeviceType.Joystick || device.DeviceType == MDI.DeviceType.Gamepad ||
+					 device.DeviceType == MDI.DeviceType.FirstPerson || device.DeviceType == MDI.DeviceType.Driving ||
+					 device.DeviceType == MDI.DeviceType.Flight )
+				{
+					JoystickInfo joystickInfo = new JoystickInfo();
+					joystickInfo.DeviceID = device.InstanceGuid;
+					joystickInfo.Vendor = device.ProductName;
+					joystickInfo.ID = _joystickCount++;
 
-            if ( _hwnd is SWF.Form )
-            {
-                //_hwnd = _hwnd;
-            }
-            else if ( _hwnd is SWF.PictureBox )
-            {
-                // if the control is a picturebox, we need to grab its parent form
-                while ( !( _hwnd is SWF.Form ) && _hwnd != null )
-                {
-                    _hwnd = _hwnd.Parent;
-                }
-            }
-            else
-            {
-                throw new Exception( "SharpInputSystem.DirectXInputManger requires the handle of either a PictureBox or a Form." );
-            }
+					this._unusedJoysticks.Add( joystickInfo );
+				}
+			}
+		}
 
-            _settings.Add( typeof( Mouse ).Name, 0 );
-            _settings.Add( typeof( Keyboard ).Name, 0 );
-            _settings.Add( typeof( Joystick ).Name, 0 );
+		private void _parseConfigSettings( ParameterList args )
+		{
+			System.Collections.Generic.Dictionary<String, MDI.CooperativeLevelFlags> valueMap = new System.Collections.Generic.Dictionary<string, MDI.CooperativeLevelFlags>();
 
-            //Ok, now we have DirectInput, parse whatever extra settings were sent to us
-            _parseConfigSettings( args );
-            _enumerateDevices();
+			valueMap.Add( "CLF_BACKGROUND", MDI.CooperativeLevelFlags.Background );
+			valueMap.Add( "CLF_FOREGROUND", MDI.CooperativeLevelFlags.Foreground );
+			valueMap.Add( "CLF_EXCLUSIVE", MDI.CooperativeLevelFlags.Exclusive );
+			valueMap.Add( "CLF_NONEXCLUSIVE", MDI.CooperativeLevelFlags.NonExclusive );
+			valueMap.Add( "CLF_NOWINDOWSKEY", MDI.CooperativeLevelFlags.NoWindowsKey );
 
-        }
+			foreach ( Parameter p in args )
+			{
+				switch ( p.first.ToUpper() )
+				{
+					case "W32_MOUSE":
+						_settings[ typeof( Mouse ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
+						break;
+					case "W32_KEYBOARD":
+						_settings[ typeof( Keyboard ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
+						break;
+					case "W32_JOYSTICK":
+						_settings[ typeof( Joystick ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
+						break;
+					default:
+						break;
+				}
+			}
 
-        private void _enumerateDevices()
-        {
-            foreach ( MDI.DeviceInstance device in MDI.Manager.Devices )
-            {
-                if ( device.DeviceType == MDI.DeviceType.Joystick || device.DeviceType == MDI.DeviceType.Gamepad ||
-                     device.DeviceType == MDI.DeviceType.FirstPerson || device.DeviceType == MDI.DeviceType.Driving ||
-                     device.DeviceType == MDI.DeviceType.Flight )
-                {
-                    JoystickInfo joystickInfo = new JoystickInfo();
-                    joystickInfo.DeviceID = device.InstanceGuid;
-                    joystickInfo.Vendor = device.ProductName;
-                    joystickInfo.ID = this.JoystickCount;
+			if ( _settings[ typeof( Mouse ).Name ] == 0 )
+				_settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
+			if ( _settings[ typeof( Keyboard ).Name ] == 0 )
+				_settings[ typeof( Keyboard ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
+			if ( _settings[ typeof( Joystick ).Name ] == 0 )
+				_settings[ typeof( Joystick ).Name ] = MDI.CooperativeLevelFlags.Exclusive | MDI.CooperativeLevelFlags.Foreground;
 
-                    this._joystickCount++;
+		}
 
-                    this._unusedJoysticks.Add( joystickInfo );
-                }
-            }
-        }
 
-        private void _parseConfigSettings( ParameterList args )
-        {
-            System.Collections.Generic.Dictionary<String, MDI.CooperativeLevelFlags> valueMap = new System.Collections.Generic.Dictionary<string, MDI.CooperativeLevelFlags>();
+		#region InputObjectFactory Members
 
-            valueMap.Add( "CLF_BACKGROUND", MDI.CooperativeLevelFlags.Background );
-            valueMap.Add( "CLF_FOREGROUND", MDI.CooperativeLevelFlags.Foreground );
-            valueMap.Add( "CLF_EXCLUSIVE", MDI.CooperativeLevelFlags.Exclusive );
-            valueMap.Add( "CLF_NONEXCLUSIVE", MDI.CooperativeLevelFlags.NonExclusive );
-            valueMap.Add( "CLF_NOWINDOWSKEY", MDI.CooperativeLevelFlags.NoWindowsKey );
+		IEnumerable<KeyValuePair<Type, string>> InputObjectFactory.FreeDevices
+		{
+			get
+			{
+				List<KeyValuePair<Type, string>> freeDevices = new List<KeyValuePair<Type, string>>();
+				if ( !_keyboardInUse )
+					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Keyboard ), this.InputSystemName ) );
+				if ( !_mouseInUse )
+					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Mouse ), this.InputSystemName ) );
+				foreach ( JoystickInfo joy in _unusedJoysticks )
+				{
+					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Joystick ), joy.Vendor ) );
+				}
+				return freeDevices;
+			}
+		}
 
-            foreach ( Parameter p in args )
-            {
-                switch ( p.first.ToUpper() )
-                {
-                    case "W32_MOUSE":
-                        _settings[ typeof( Mouse ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
-                        break;
-                    case "W32_KEYBOARD":
-                        _settings[ typeof( Keyboard ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
-                        break;
-                    case "W32_JOYSTICK":
-                        _settings[ typeof( Joystick ).Name ] |= valueMap[ p.second.ToString().ToUpper() ];
-                        break;
-                    default:
-                        break;
-                }
-            }
+		int InputObjectFactory.DeviceCount<T>()
+		{
+			if ( typeof( T ) == typeof( Keyboard ) )
+				return 1;
+			if ( typeof( T ) == typeof( Mouse ) )
+				return 1;
+			if ( typeof( T ) == typeof( Joystick ) )
+				return _joystickCount;
+			return 0;
+		}
 
-            if ( _settings[ typeof( Mouse ).Name ] == 0 )
-                _settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
-            if ( _settings[ typeof( Keyboard ).Name ] == 0 )
-                _settings[ typeof( Keyboard ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
-            if ( _settings[ typeof( Joystick ).Name ] == 0 )
-                _settings[ typeof( Joystick ).Name ] = MDI.CooperativeLevelFlags.Exclusive | MDI.CooperativeLevelFlags.Foreground;
+		int InputObjectFactory.FreeDeviceCount<T>()
+		{
+			if ( typeof( T ) == typeof( Keyboard ) )
+				return _keyboardInUse ? 0 : 1;
+			if ( typeof( T ) == typeof( Mouse ) )
+				return _mouseInUse ? 0 : 1;
+			if ( typeof( T ) == typeof( Joystick ) )
+				return _unusedJoysticks.Count;
+			return 0;
+		}
 
-        }
-    }
+		bool InputObjectFactory.VendorExists<T>( string vendor )
+		{
+			if ( typeof( T ) == typeof( Keyboard ) || typeof( T ) == typeof( Mouse ) || vendor.ToLower() == InputSystemName.ToLower() )
+			{
+				return true;
+			}
+			else
+			{
+				if ( typeof( T ) == typeof( Joystick ) )
+				{
+					foreach ( JoystickInfo joy in _unusedJoysticks )
+					{
+						if ( joy.Vendor.ToLower() == vendor.ToLower() )
+							return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
+		{
+			string typeName = this.InputSystemName + typeof( T ).Name;
+			Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
+			T obj;
+
+			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
+
+			obj = (T)objectType.InvokeMember( typeName,
+											  bindingFlags,
+											  null,
+											  null,
+											  new object[] { this, null, bufferMode, _settings[ typeof( T ).Name ] } );
+			return obj;
+		}
+
+		#endregion
+	}
 }

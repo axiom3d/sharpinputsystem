@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xna", "Xna", "{9E3E66E8-6C5
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.DirectX", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.DirectX.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.Sdl", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Sdl.csproj", "{ACD73819-0FEB-4E7A-9640-4D32ED664DC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +36,9 @@ Global
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ACD73819-0FEB-4E7A-9640-4D32ED664DC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ACD73819-0FEB-4E7A-9640-4D32ED664DC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ACD73819-0FEB-4E7A-9640-4D32ED664DC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -43,5 +48,6 @@ Global
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D} = {E40CACDB-5FE0-4D17-9655-38F278EF993C}
 		{C9BEFFCC-AB27-4EDA-A63B-D2AF7D3CFC48} = {9E3E66E8-6C50-4AA6-B85E-F97A52D902B1}
 		{CCF85198-D425-4156-8B41-CE451C3A0454} = {2E5D878F-450B-475C-87E9-B3CA624D7D08}
+		{ACD73819-0FEB-4E7A-9640-4D32ED664DC0} = {2E5D878F-450B-475C-87E9-B3CA624D7D08}
 	EndGlobalSection
 EndGlobal

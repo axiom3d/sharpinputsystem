@@ -7,6 +7,12 @@ using log4net;
 
 using SharpInputSystem;
 
+#if SIS_SDL_PLATFORM
+
+using Tao.Sdl;
+
+#endif
+
 namespace SharpInputSystem.Test.Console
 {
     class EventHandler : IKeyboardListener, IMouseListener
@@ -65,12 +71,23 @@ namespace SharpInputSystem.Test.Console
 
 		private static readonly ILog log = LogManager.GetLogger( typeof( Program ) );
 
+#if SIS_SDL_PLATFORM
+		static void InitSdl( Main frm )
+		{
+			Sdl.SDL_Init( Sdl.SDL_INIT_VIDEO ) ;
+			Sdl.SDL_SetVideoMode( 100, 100, 32, Sdl.SDL_OPENGL | Sdl.SDL_HWPALETTE );
+		}
+#endif
+
 		static void DoStartup()
         {
 	        ParameterList pl = new ParameterList();
             Main frm = new Main();
             pl.Add( new Parameter( "WINDOW", frm) );
 
+#if SIS_SDL_PLATFORM
+			InitSdl( frm );
+#endif
             //Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
             //pl.Add( new Parameter( "w32_mouse", "CLF_FOREGROUND" ) );
             //pl.Add( new Parameter( "w32_mouse", "CLF_NONEXCLUSIVE" ) );
@@ -80,29 +97,29 @@ namespace SharpInputSystem.Test.Console
 
 			log.Info( String.Format( "SIS Version : {0}", _inputManager.Version ) );
 			log.Info( String.Format( "Platform : {0}", _inputManager.InputSystemName ) );
-			log.Info( String.Format( "Number of Mice : {0}", _inputManager.MiceCount ) );
-			log.Info( String.Format( "Number of Keyboards : {0}", _inputManager.KeyboardCount ) );
-			log.Info( String.Format( "Number of Joys/Pads: {0}", _inputManager.JoystickCount ) );
+			log.Info( String.Format( "Number of Mice : {0}", _inputManager.DeviceCount<Mouse>() ) );
+			log.Info( String.Format( "Number of Keyboards : {0}", _inputManager.DeviceCount<Keyboard>()) );
+			log.Info( String.Format( "Number of Joys/Pads: {0}", _inputManager.DeviceCount<Joystick>() ) );
 
             bool buffered = true;
 
-            if ( _inputManager.KeyboardCount > 0 )
+            if ( _inputManager.DeviceCount<Keyboard>() > 0 )
             {
-                _kb = _inputManager.CreateInputObject<Keyboard>( buffered );
+                _kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
                 log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
                 _kb.EventListener = _handler;
             }
 
-            if( _inputManager.MiceCount > 0 )
-            {
-                _m = _inputManager.CreateInputObject<Mouse>( buffered );
-                log.Info( String.Format( "Created {0}buffered mouse", buffered ? "" : "un" ) );
-                _m.EventListener = _handler;
+			if ( _inputManager.DeviceCount<Mouse>() > 0 )
+			{
+				_m = _inputManager.CreateInputObject<Mouse>( buffered, "" );
+				log.Info( String.Format( "Created {0}buffered mouse", buffered ? "" : "un" ) );
+				_m.EventListener = _handler;
 
-                MouseState ms = _m.MouseState;
-                ms.Width = 100;
-                ms.Height = 100;
-            }
+				MouseState ms = _m.MouseState;
+				ms.Width = 100;
+				ms.Height = 100;
+			}
 
             ////This demo only uses at max 4 joys
             //int numSticks = g_InputManager->numJoysticks();

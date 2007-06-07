@@ -44,7 +44,6 @@ namespace SharpInputSystem
         private MDI.Device _device;
         private MDI.Device _keyboard;
 
-        private char _deadKey;
         private int[] _keyboardState = new int[256];
         
         #endregion Fields and Properties
@@ -60,7 +59,12 @@ namespace SharpInputSystem
             Type = InputType.Keyboard;
             EventListener = null;
 
-            _deadKey = '\0';
+			if ( ( (DirectXInputManager)Creator ).keyboardInUse )
+			{
+				throw new Exception( "No devices match requested type." );
+			}
+
+			( (DirectXInputManager)Creator ).keyboardInUse = true;
         }
 
         protected override void _dispose( bool disposeManagedResources )
@@ -86,6 +90,8 @@ namespace SharpInputSystem
                     _keyboard.Dispose();
                     _keyboard = null;
                 }
+				( (DirectXInputManager)Creator ).keyboardInUse = false;
+
             }
             isDisposed = true;
 
