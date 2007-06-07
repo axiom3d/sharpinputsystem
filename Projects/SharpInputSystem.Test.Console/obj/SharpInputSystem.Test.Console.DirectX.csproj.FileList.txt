@@ -1,9 +1,0 @@
-bin\Debug\DirectX\SharpInputSystem.Test.Console.DirectX.exe.config
-bin\Debug\DirectX\SharpInputSystem.Test.Console.DirectX.exe
-bin\Debug\DirectX\SharpInputSystem.Test.Console.DirectX.pdb
-bin\Debug\DirectX\log4net.dll
-bin\Debug\DirectX\SharpInputSystem.dll
-bin\Debug\DirectX\SharpInputSystem.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\SharpInputSystem.Test.Console.DirectX.exe
-obj\Debug\SharpInputSystem.Test.Console.DirectX.pdb

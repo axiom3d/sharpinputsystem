@@ -1,5 +1,0 @@
-..\bin\Debug\Sdl\SharpInputSystem.dll
-..\bin\Debug\Sdl\SharpInputSystem.pdb
-obj\Debug\ResolveAssemblyReference.cache
-obj\Debug\SharpInputSystem.dll
-obj\Debug\SharpInputSystem.pdb
