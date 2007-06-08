@@ -97,7 +97,6 @@ namespace SharpInputSystem
 				// if using buffered input, fire event
 				if ( IsBuffered && EventListener != null )
 				{
-					log.DebugFormat( " key : {0}; state : {1}; " ,key, (int)events[i].key.state);
 					if ( events[ i ].type == Sdl.SDL_KEYDOWN )
 					{
 						if ( EventListener.KeyPressed( new KeyEventArgs( this, key, (int)events[ i ].key.keysym.unicode ) ) == false )
