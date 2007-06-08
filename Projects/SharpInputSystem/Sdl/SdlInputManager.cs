@@ -39,8 +39,9 @@ namespace SharpInputSystem
 	/// <summary>
 	/// Sdl Inout Manager wrapper
 	/// </summary>
-	class SdlInputManager : InputManager
+	class SdlInputManager : InputManager, InputObjectFactory
 	{
+
 		private bool _grabbed;
 		public bool GrabMode
 		{
@@ -52,6 +53,38 @@ namespace SharpInputSystem
 			{
 				_grabbed = value;
 			}
+		}
+
+		private bool _keyboardInUse = false;
+		internal bool keyboardInUse
+		{
+			get
+			{
+				return _keyboardInUse;
+			}
+			set
+			{
+				_keyboardInUse = value;
+			}
+		}
+
+		private bool _mouseInUse = false;
+		internal bool mouseInUse
+		{
+			get
+			{
+				return _mouseInUse;
+			}
+			set
+			{
+				_mouseInUse = value;
+			}
+		}
+
+		internal SdlInputManager()
+			: base()
+		{
+			RegisterFactory( this );
 		}
 
 		private void _enumerateDevices()
@@ -66,40 +99,6 @@ namespace SharpInputSystem
 		#region InputManager Implementation
 
 		#region InputManager Methods
-
-		public override T CreateInputObject<T>( bool bufferMode, string vendor )
-		{
-			string typeName = this.InputSystemName + typeof( T ).Name;
-			Type objectType;
-			T obj;
-
-			objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
-			if ( objectType == null )
-			{
-				throw new Exception( String.Format( "Device type [{0}] not supported.", typeof( T ).Name ) );
-			}
-
-			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
-
-			obj = (T)objectType.InvokeMember( typeName,
-											  bindingFlags,
-											  null,
-											  null,
-											  new object[] { this, bufferMode } );
-
-			try
-			{
-				obj.initialize();
-			}
-			catch ( Exception e )
-			{
-				obj.Dispose();
-				obj = null;
-				throw e; //rethrow
-			}
-
-			return obj;
-		}
 
 		protected override void _initialize( ParameterList args )
 		{
@@ -117,5 +116,71 @@ namespace SharpInputSystem
 		#endregion InputManager Methods
 
 		#endregion InputManager Implementation
+
+		#region InputObjectFactory Members
+
+		IEnumerable<KeyValuePair<Type, string>> InputObjectFactory.FreeDevices
+		{
+			get
+			{
+				List<KeyValuePair<Type, string>> freeDevices = new List<KeyValuePair<Type, string>>();
+				if ( !_keyboardInUse )
+					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Keyboard ), this.InputSystemName ) );
+				if ( !_mouseInUse )
+					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Mouse ), this.InputSystemName ) );
+				return freeDevices;
+			}
+		}
+
+		int InputObjectFactory.DeviceCount<T>()
+		{
+			if ( typeof( T ) == typeof( Keyboard ) )
+				return 1;
+			if ( typeof( T ) == typeof( Mouse ) )
+				return 1;
+			return 0;
+		}
+
+		int InputObjectFactory.FreeDeviceCount<T>()
+		{
+			if ( typeof( T ) == typeof( Keyboard ) )
+				return _keyboardInUse ? 0 : 1;
+			if ( typeof( T ) == typeof( Mouse ) )
+				return _mouseInUse ? 0 : 1;
+			return 0;
+		}
+
+		bool InputObjectFactory.VendorExists<T>( string vendor )
+		{
+			if ( typeof( T ) == typeof( Keyboard ) || typeof( T ) == typeof( Mouse ) || vendor.ToLower() == InputSystemName.ToLower() )
+			{
+				return true;
+			}
+
+			return false;
+		}
+
+		InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
+		{
+			string typeName = this.InputSystemName + typeof( T ).Name;
+			Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
+			T obj;
+
+			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
+
+			obj = (T)objectType.InvokeMember( typeName,
+											  bindingFlags,
+											  null,
+											  null,
+											  new object[] { this, bufferMode } );
+			return obj;
+		}
+
+		void InputObjectFactory.DestroyInputObject( InputObject obj )
+		{
+			obj.Dispose();
+		}
+
+		#endregion
 	}
 }

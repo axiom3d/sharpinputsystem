@@ -60,7 +60,7 @@ namespace SharpInputSystem
 		private static readonly ILog log = LogManager.GetLogger( typeof( InputManager ) );
 
 		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
-		private List<KeyValuePair<InputObject, InputObjectFactory>> _createdInputObjects = new List<KeyValuePair<InputObject, InputObjectFactory>>();
+		private Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>();
 
 		/// <summary>
 		/// Initializes the static instance of the class
@@ -193,7 +193,7 @@ namespace SharpInputSystem
 					if ( vendor == null || vendor == String.Empty || factory.VendorExists<T>( vendor ) )
 					{
 						obj = factory.CreateInputObject<T>( this, bufferMode, vendor );
-						_createdInputObjects.Add( new KeyValuePair<InputObject,InputObjectFactory>(obj, factory) );
+						_createdInputObjects.Add( obj, factory );
 					}
 				}
 			}
@@ -223,8 +223,11 @@ namespace SharpInputSystem
 		{
 			if ( inputObject != null )
 			{
-				inputObject.Dispose();
-				inputObject = null;
+				if ( _createdInputObjects.ContainsKey( inputObject ) )
+				{
+					( (InputObjectFactory)_createdInputObjects[ inputObject ] ).DestroyInputObject( inputObject );
+					_createdInputObjects.Remove( inputObject );
+				}
 			}
 		}
 

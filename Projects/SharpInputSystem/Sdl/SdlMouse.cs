@@ -117,6 +117,7 @@ namespace SharpInputSystem
 			MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
 
 			Sdl.SDL_Event[] events = new Sdl.SDL_Event[ _BUFFER_SIZE ];
+			Sdl.SDL_PumpEvents();
 			int count = Sdl.SDL_PeepEvents( events, _BUFFER_SIZE, Sdl.SDL_GETEVENT, Sdl.SDL_MOUSEEVENTMASK );
 
 			bool mouseXYMoved = false;

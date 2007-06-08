@@ -38,13 +38,14 @@ namespace SharpInputSystem
 {
 	class SdlKeyboard : Keyboard
 	{
+		private static readonly ILog log = LogManager.GetLogger( typeof( SdlKeyboard ) );
+
 		protected const int _BUFFER_SIZE = 16;
 
-		Dictionary<int, KeyCode> _keyMap = new Dictionary<int, KeyCode>();
+		private Dictionary<int, KeyCode> _keyMap = new Dictionary<int, KeyCode>();
 
 		private int[] _keyboardState = new int[ 256 ];
 
-		private static readonly ILog log = LogManager.GetLogger( typeof( SdlKeyboard ) );
 
 		/// <summary>
 		/// Constructor
@@ -82,6 +83,7 @@ namespace SharpInputSystem
 		{
 			// Get SDL Events off the stack
 			Sdl.SDL_Event[] events = new Sdl.SDL_Event[ _BUFFER_SIZE ];
+			Sdl.SDL_PumpEvents();
 			int eventCount = Sdl.SDL_PeepEvents( events, _BUFFER_SIZE, Sdl.SDL_GETEVENT, ( Sdl.SDL_KEYDOWNMASK | Sdl.SDL_KEYUPMASK ) );
 
 			// For each event 
@@ -95,7 +97,8 @@ namespace SharpInputSystem
 				// if using buffered input, fire event
 				if ( IsBuffered && EventListener != null )
 				{
-					if ( events[ i ].key.state == Sdl.SDL_KEYDOWN )
+					log.DebugFormat( " key : {0}; state : {1}; " ,key, (int)events[i].key.state);
+					if ( events[ i ].type == Sdl.SDL_KEYDOWN )
 					{
 						if ( EventListener.KeyPressed( new KeyEventArgs( this, key, (int)events[ i ].key.keysym.unicode ) ) == false )
 							break;

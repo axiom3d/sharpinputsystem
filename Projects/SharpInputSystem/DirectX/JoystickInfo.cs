@@ -33,9 +33,6 @@ using System.Collections.Generic;
 
 namespace SharpInputSystem
 {
-    public class JoystickInfoList : List<JoystickInfo>
-    {
-    }
 
     public struct JoystickInfo
     {

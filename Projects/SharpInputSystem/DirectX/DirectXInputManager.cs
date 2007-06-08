@@ -31,6 +31,7 @@ using System.Collections.Generic;
 using SWF = System.Windows.Forms;
 
 using MDI = Microsoft.DirectX.DirectInput;
+using log4net;
 
 #endregion Namespace Declarations
 
@@ -41,8 +42,10 @@ namespace SharpInputSystem
 	/// </summary>
 	class DirectXInputManager : InputManager, InputObjectFactory
 	{
+		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
+
 		private Dictionary<String, MDI.CooperativeLevelFlags> _settings = new Dictionary<string, Microsoft.DirectX.DirectInput.CooperativeLevelFlags>();
-		private JoystickInfoList _unusedJoysticks = new JoystickInfoList();
+		private List<JoystickInfo> _unusedJoysticks = new List<JoystickInfo>();
 
 		private bool _keyboardInUse = false;
 		internal bool keyboardInUse
@@ -179,8 +182,7 @@ namespace SharpInputSystem
 
 		}
 
-
-		#region InputObjectFactory Members
+		#region InputObjectFactory Implementation
 
 		IEnumerable<KeyValuePair<Type, string>> InputObjectFactory.FreeDevices
 		{
@@ -257,6 +259,11 @@ namespace SharpInputSystem
 			return obj;
 		}
 
-		#endregion
+		void InputObjectFactory.DestroyInputObject( InputObject obj )
+		{
+			obj.Dispose();
+		}
+
+		#endregion InputObjectFactory Implementation
 	}
 }

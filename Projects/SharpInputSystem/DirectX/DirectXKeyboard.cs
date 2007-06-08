@@ -29,6 +29,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
 
 using MDI = Microsoft.DirectX.DirectInput;
+using log4net;
 
 #endregion Namespace Declarations
 
@@ -37,6 +38,8 @@ namespace SharpInputSystem
     class DirectXKeyboard : Keyboard
     {
         #region Fields and Properties
+
+		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXKeyboard ) );
 
         private const int _BUFFER_SIZE = 17;
 
@@ -65,6 +68,8 @@ namespace SharpInputSystem
 			}
 
 			( (DirectXInputManager)Creator ).keyboardInUse = true;
+
+			log.Debug( "DirectXKeyboard device created." );
         }
 
         protected override void _dispose( bool disposeManagedResources )
@@ -90,7 +95,10 @@ namespace SharpInputSystem
                     _keyboard.Dispose();
                     _keyboard = null;
                 }
+				
 				( (DirectXInputManager)Creator ).keyboardInUse = false;
+
+				log.Debug( "DirectXKeyboard device disposed." );
 
             }
             isDisposed = true;

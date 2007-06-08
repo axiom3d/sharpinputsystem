@@ -31,6 +31,7 @@ using System.Drawing;
 using SWF = System.Windows.Forms;
 
 using MDI = Microsoft.DirectX.DirectInput;
+using log4net;
 
 #endregion Namespace Declarations
 
@@ -39,6 +40,8 @@ namespace SharpInputSystem
     class DirectXMouse : Mouse
     {
         #region Fields and Properties
+
+		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
 
         private const int _BUFFER_SIZE = 64;
 
@@ -67,6 +70,8 @@ namespace SharpInputSystem
 			}
 
 			( (DirectXInputManager)Creator ).mouseInUse = true;
+
+			log.Debug( "DirectXMouse device created." );
 
         }
 
@@ -98,6 +103,7 @@ namespace SharpInputSystem
                 }
 				( (DirectXInputManager)Creator ).mouseInUse = false;
 
+				log.Debug( "DirectXMouse device disposed." );
             }
             isDisposed = true;
 
@@ -112,7 +118,7 @@ namespace SharpInputSystem
 
         private bool _doMouseClick( int mouseButton, MDI.BufferedData bufferedData )
         {
-            if ( ( bufferedData.Data & 0x80 ) == 0 )
+            if ( ( bufferedData.Data & 0x80 ) != 0 )
             {
                 MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
                 if ( EventListener != null && IsBuffered )
