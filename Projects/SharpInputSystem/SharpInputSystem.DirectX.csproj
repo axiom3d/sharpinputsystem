@@ -49,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components.cs" />
+    <Compile Include="DirectX\DeviceInfo.cs" />
+    <Compile Include="DirectX\DirectXForceFeedback.cs" />
+    <Compile Include="DirectX\DirectXJoystick.cs" />
     <Compile Include="DirectX\DirectXMouse.cs" />
     <Compile Include="DirectX\DirectXKeyboard.cs" />
     <Compile Include="DirectX\DirectXInputManager.cs" />
@@ -60,7 +63,9 @@
     <Compile Include="InputObjectFactory.cs" />
     <Compile Include="Joystick.cs" />
     <Compile Include="Keyboard.cs" />
+    <Compile Include="DirectX\KeyboardInfo.cs" />
     <Compile Include="Mouse.cs" />
+    <Compile Include="DirectX\MouseInfo.cs" />
     <Compile Include="Properties\DirectXAssemblyInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>

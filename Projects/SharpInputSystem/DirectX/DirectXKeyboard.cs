@@ -46,6 +46,7 @@ namespace SharpInputSystem
         private MDI.CooperativeLevelFlags _coopSettings;
         private MDI.Device _device;
         private MDI.Device _keyboard;
+		private KeyboardInfo _kbInfo;
 
         private int[] _keyboardState = new int[256];
         
@@ -62,12 +63,12 @@ namespace SharpInputSystem
             Type = InputType.Keyboard;
             EventListener = null;
 
-			if ( ( (DirectXInputManager)Creator ).keyboardInUse )
+			_kbInfo = (KeyboardInfo) ( (DirectXInputManager)Creator ).CaptureDevice<Keyboard>();
+
+			if ( _kbInfo == null )
 			{
 				throw new Exception( "No devices match requested type." );
 			}
-
-			( (DirectXInputManager)Creator ).keyboardInUse = true;
 
 			log.Debug( "DirectXKeyboard device created." );
         }
@@ -96,7 +97,7 @@ namespace SharpInputSystem
                     _keyboard = null;
                 }
 				
-				( (DirectXInputManager)Creator ).keyboardInUse = false;
+				( (DirectXInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
 
 				log.Debug( "DirectXKeyboard device disposed." );
 

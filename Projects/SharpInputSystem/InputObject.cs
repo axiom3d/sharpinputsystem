@@ -44,6 +44,10 @@ namespace SharpInputSystem
         Tablet
     }
 
+	public interface IInputObjectInterface
+	{
+	}
+
     abstract public class InputObjectEventArgs
     {
         private InputObject _device;
@@ -160,6 +164,11 @@ namespace SharpInputSystem
         /// 
         /// </summary>
         abstract internal void initialize();
+
+		virtual public IInputObjectInterface QueryInterface<T>() where T : IInputObjectInterface
+		{
+			return default( T );
+		}
 
         #region IDisposable Implementation
 

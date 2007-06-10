@@ -48,6 +48,7 @@ namespace SharpInputSystem
         private MDI.CooperativeLevelFlags _coopSettings;
         private MDI.Device _device;
         private MDI.Device _mouse;
+		private MouseInfo _msInfo;
 
         private SWF.Control _window;
 
@@ -64,12 +65,12 @@ namespace SharpInputSystem
             Type = InputType.Mouse;
             EventListener = null;
 
-			if ( ( (DirectXInputManager)Creator ).mouseInUse )
+			_msInfo = (MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
+
+			if ( _msInfo == null )
 			{
 				throw new Exception( "No devices match requested type." );
 			}
-
-			( (DirectXInputManager)Creator ).mouseInUse = true;
 
 			log.Debug( "DirectXMouse device created." );
 
@@ -101,7 +102,8 @@ namespace SharpInputSystem
                         _mouse = null;
                     }
                 }
-				( (DirectXInputManager)Creator ).mouseInUse = false;
+
+				( (DirectXInputManager)Creator ).ReleaseDevice<Mouse>( _msInfo );
 
 				log.Debug( "DirectXMouse device disposed." );
             }

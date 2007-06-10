@@ -27,52 +27,58 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #region Namespace Declarations
 
 using System;
+using System.Drawing;
+using SWF = System.Windows.Forms;
+
+using MDI = Microsoft.DirectX.DirectInput;
 using System.Collections.Generic;
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-
-    public class JoystickInfo : DeviceInfo
+    class DirectXForceFeedback : ForceFeedback
     {
-        private int _id;
-        public int ID
+        #region Construction and Destruction
+        public DirectXForceFeedback(DirectXJoystick parent)
         {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-				_id = value;
+        }
+        #endregion
+
+        #region ForceFeedback Implementation
+
+        #region Properties
+
+        public override float MasterGain
+        {
+            set { }
+        }
+
+        public override bool AutoCenterMode
+        {
+            set { }
+        }
+
+        public override int SupportedAxesCount
+        {
+            get 
+            { 
+                return 0; 
             }
         }
 
-        private Guid _deviceID;
-        public Guid DeviceID
-        {
-            get
-            {
-                return _deviceID;
-            }
-            set
-            {
-                _deviceID = value;
-            }
-        }
+        #endregion Properties
 
-        private string _vendor;
-        public string Vendor
-        {
-            get
-            {
-                return _vendor;
-            }
-            set
-            {
-                _vendor = value;
-            }
-        }
+        #region Methods
+
+        public override void Upload(Effect effect) { }
+
+        public override void Modify(Effect effect) { }
+        
+        public override void Remove(Effect effect) { }
+
+        #endregion Methods
+
+        #endregion ForceFeedback Implementation
     }
 }

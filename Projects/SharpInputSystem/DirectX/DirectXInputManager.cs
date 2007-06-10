@@ -42,11 +42,15 @@ namespace SharpInputSystem
 	/// </summary>
 	class DirectXInputManager : InputManager, InputObjectFactory
 	{
+		#region Fields and Properties
+
 		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
 
 		private Dictionary<String, MDI.CooperativeLevelFlags> _settings = new Dictionary<string, Microsoft.DirectX.DirectInput.CooperativeLevelFlags>();
-		private List<JoystickInfo> _unusedJoysticks = new List<JoystickInfo>();
+		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
+		private int _joystickCount = 0;
 
+		#region keyboardInUse Property
 		private bool _keyboardInUse = false;
 		internal bool keyboardInUse
 		{
@@ -59,7 +63,9 @@ namespace SharpInputSystem
 				_keyboardInUse = value;
 			}
 		}
+		#endregion keyboardInUse Property
 
+		#region mouseInUse Property
 		private bool _mouseInUse = false;
 		internal bool mouseInUse
 		{
@@ -72,9 +78,9 @@ namespace SharpInputSystem
 				_mouseInUse = value;
 			}
 		}
+		#endregion keyboardInUse Property
 
-		private int _joystickCount = 0;
-
+		#region WindowHandle Property
 		private SWF.Control _hwnd;
 		public SWF.Control WindowHandle
 		{
@@ -83,6 +89,9 @@ namespace SharpInputSystem
 				return _hwnd;
 			}
 		}
+		#endregion WindowHandle Property
+
+		#endregion Fields and Properties
 
 		internal DirectXInputManager()
 			: base()
@@ -129,6 +138,16 @@ namespace SharpInputSystem
 
 		private void _enumerateDevices()
 		{
+			KeyboardInfo keyboardInfo = new KeyboardInfo();
+			keyboardInfo.Vendor = this.InputSystemName;
+			keyboardInfo.ID = 0;
+			_unusedDevices.Add( keyboardInfo );
+
+			MouseInfo mouseInfo = new MouseInfo();
+			mouseInfo.Vendor = this.InputSystemName;
+			mouseInfo.ID = 0;
+			_unusedDevices.Add( mouseInfo );
+
 			foreach ( MDI.DeviceInstance device in MDI.Manager.Devices )
 			{
 				if ( device.DeviceType == MDI.DeviceType.Joystick || device.DeviceType == MDI.DeviceType.Gamepad ||
@@ -140,7 +159,7 @@ namespace SharpInputSystem
 					joystickInfo.Vendor = device.ProductName;
 					joystickInfo.ID = _joystickCount++;
 
-					this._unusedJoysticks.Add( joystickInfo );
+					this._unusedDevices.Add( joystickInfo );
 				}
 			}
 		}
@@ -182,6 +201,39 @@ namespace SharpInputSystem
 
 		}
 
+		internal DeviceInfo PeekDevice<T>() where T : InputObject
+		{
+			string devType = typeof( T ).Name + "Info";
+
+			foreach ( DeviceInfo device in _unusedDevices )
+			{
+				if ( devType == device.GetType().Name )
+					return device;
+			}
+
+			return null;
+		}
+
+		internal DeviceInfo CaptureDevice<T>() where T : InputObject
+		{
+			string devType = typeof(T).Name + "Info";
+
+			foreach ( DeviceInfo device in _unusedDevices )
+			{
+				if ( devType == device.GetType().Name )
+					_unusedDevices.Remove( device );
+				return device;
+			}
+
+			return null;
+		}
+
+		internal void ReleaseDevice<T>( DeviceInfo device ) where T : InputObject
+		{
+			_unusedDevices.Add( device );
+		}
+
+
 		#region InputObjectFactory Implementation
 
 		IEnumerable<KeyValuePair<Type, string>> InputObjectFactory.FreeDevices
@@ -189,13 +241,16 @@ namespace SharpInputSystem
 			get
 			{
 				List<KeyValuePair<Type, string>> freeDevices = new List<KeyValuePair<Type, string>>();
-				if ( !_keyboardInUse )
-					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Keyboard ), this.InputSystemName ) );
-				if ( !_mouseInUse )
-					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Mouse ), this.InputSystemName ) );
-				foreach ( JoystickInfo joy in _unusedJoysticks )
+				foreach ( DeviceInfo dev in _unusedDevices )
 				{
-					freeDevices.Add( new KeyValuePair<Type, string>( typeof( Joystick ), joy.Vendor ) );
+					if ( dev.GetType() == typeof(KeyboardInfo ) && !keyboardInUse )
+						freeDevices.Add( new KeyValuePair<Type, string>( typeof( Keyboard ), this.InputSystemName ) );
+
+					if ( dev.GetType() == typeof( KeyboardInfo ) && !_mouseInUse )
+						freeDevices.Add( new KeyValuePair<Type, string>( typeof( Mouse ), this.InputSystemName ) );
+
+					if ( dev.GetType() == typeof(JoystickInfo ) )
+						freeDevices.Add( new KeyValuePair<Type, string>( typeof( Joystick ), dev.Vendor ) );
 				}
 				return freeDevices;
 			}
@@ -214,13 +269,13 @@ namespace SharpInputSystem
 
 		int InputObjectFactory.FreeDeviceCount<T>()
 		{
-			if ( typeof( T ) == typeof( Keyboard ) )
-				return _keyboardInUse ? 0 : 1;
-			if ( typeof( T ) == typeof( Mouse ) )
-				return _mouseInUse ? 0 : 1;
-			if ( typeof( T ) == typeof( Joystick ) )
-				return _unusedJoysticks.Count;
-			return 0;
+			int deviceCount = 0;
+			foreach ( DeviceInfo dev in _unusedDevices )
+			{
+				if ( dev.GetType() == typeof( T ) )
+					deviceCount++;
+			}
+			return deviceCount;
 		}
 
 		bool InputObjectFactory.VendorExists<T>( string vendor )
@@ -233,10 +288,14 @@ namespace SharpInputSystem
 			{
 				if ( typeof( T ) == typeof( Joystick ) )
 				{
-					foreach ( JoystickInfo joy in _unusedJoysticks )
+					foreach ( DeviceInfo dev in _unusedDevices )
 					{
-						if ( joy.Vendor.ToLower() == vendor.ToLower() )
-							return true;
+						if ( dev.GetType() == typeof( JoystickInfo ) )
+						{
+							JoystickInfo joy = (JoystickInfo)dev;
+							if ( joy.Vendor.ToLower() == vendor.ToLower() )
+								return true;
+						}
 					}
 				}
 			}

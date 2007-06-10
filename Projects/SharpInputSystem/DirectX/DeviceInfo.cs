@@ -34,45 +34,24 @@ using System.Collections.Generic;
 namespace SharpInputSystem
 {
 
-    public class JoystickInfo : DeviceInfo
-    {
-        private int _id;
-        public int ID
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-				_id = value;
-            }
-        }
+	internal interface DeviceInfo
+	{
+		int ID
+		{
+			get;
+			set;
+		}
 
-        private Guid _deviceID;
-        public Guid DeviceID
-        {
-            get
-            {
-                return _deviceID;
-            }
-            set
-            {
-                _deviceID = value;
-            }
-        }
+		Guid DeviceID
+		{
+			get;
+			set;
+		}
 
-        private string _vendor;
-        public string Vendor
-        {
-            get
-            {
-                return _vendor;
-            }
-            set
-            {
-                _vendor = value;
-            }
-        }
-    }
+		string Vendor
+		{
+			get;
+			set;
+		}
+	}
 }
