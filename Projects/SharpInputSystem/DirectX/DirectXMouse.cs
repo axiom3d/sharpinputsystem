@@ -93,9 +93,6 @@ namespace SharpInputSystem
                     {
                         _mouse.Unacquire();
                     }
-                    catch ( Exception e )
-                    {
-                    }
                     finally
                     {
                         _mouse.Dispose();
@@ -156,7 +153,7 @@ namespace SharpInputSystem
                     if ( bufferedData == null )
                         return;
                 }
-                catch ( Exception e )
+                catch ( Exception )
                 {
                     return;
                 }

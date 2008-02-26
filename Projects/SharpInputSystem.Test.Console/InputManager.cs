@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using Microsoft.Xna.Framework;
+using Xna = Microsoft.Xna.Framework;
 
-namespace SharpInputSystem.Test.Xna.x86
+namespace SharpInputSystem.Test
 {
-    class InputManager: DrawableGameComponent
+    class InputManager: Xna.DrawableGameComponent
     {
-        public InputManager( Game game )
+        public InputManager( Xna.Game game )
             : base( game )
         {
         }
@@ -18,7 +18,7 @@ namespace SharpInputSystem.Test.Xna.x86
             base.Initialize();
         }
 
-        public override void Update( GameTime gameTime )
+        public override void Update( Xna.GameTime gameTime )
         {
             base.Update( gameTime );
         }

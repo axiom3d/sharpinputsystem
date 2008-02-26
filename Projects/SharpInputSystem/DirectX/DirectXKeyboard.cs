@@ -88,9 +88,6 @@ namespace SharpInputSystem
                 {
                     _keyboard.Unacquire();
                 }
-                catch ( Exception e )
-                {
-                }
                 finally
                 {
                     _keyboard.Dispose();

@@ -1,15 +1,14 @@
 using System;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework;
+using Xna = Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.GamerServices;
-using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Input;
+using XFG = Microsoft.Xna.Framework.Graphics;
+using XInput = Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
-using SIS = SharpInputSystem;
 using log4net;
 
 namespace SharpInputSystem.Test.Console
@@ -31,18 +30,20 @@ namespace SharpInputSystem.Test.Console
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Microsoft.Xna.Framework.Game
+    public class Game1 : Xna.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
-        SIS.InputManager _inputManager;
-        SIS.Keyboard _kb;
+        Xna.GraphicsDeviceManager graphics;
+        XFG.SpriteBatch spriteBatch;
+
+        XFG.Model castle;
+        Xna.Vector3 modelPosition = Xna.Vector3.Zero;
+        float modelRotation = 0.0f;
 
         private static readonly ILog log = LogManager.GetLogger( typeof( Game1 ) );
 
         public Game1()
         {
-            graphics = new GraphicsDeviceManager( this );
+            graphics = new Xna.GraphicsDeviceManager( this );
             Content.RootDirectory = "Content";
         }
 
@@ -56,15 +57,13 @@ namespace SharpInputSystem.Test.Console
         {
             // TODO: Add your initialization logic here
 
-            _inputManager = SIS.InputManager.CreateInputSystem( this.Window.Handle );
+            // Create the Camera
+            Camera main = new Camera( this );
+            this.Components.Add( main );
 
-            bool buffered = false;
-
-            if ( _inputManager.DeviceCount<Keyboard>() > 0 )
-            {
-                _kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
-                log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
-            }
+            // Initialize the Movement System
+            //MovementManager movement = new MovementManager( this, main );
+            //this.Components.Add( movement );
 
             base.Initialize();
         }
@@ -76,9 +75,10 @@ namespace SharpInputSystem.Test.Console
         protected override void LoadContent()
         {
             // Create a new SpriteBatch, which can be used to draw textures.
-            spriteBatch = new SpriteBatch( GraphicsDevice );
-
+            spriteBatch = new XFG.SpriteBatch( GraphicsDevice );
+            castle = this.Content.Load<XFG.Model>( "Models\\castle" );
             // TODO: use this.Content to load your game content here
+
         }
 
         /// <summary>
@@ -95,15 +95,8 @@ namespace SharpInputSystem.Test.Console
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update( GameTime gameTime )
+        protected override void Update( Xna.GameTime gameTime )
         {
-            // Allows the game to exit
-            //if ( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed )
-            //    this.Exit();
-            _kb.Capture();
-
-            if ( _kb.IsKeyDown( KeyCode.Key_ESCAPE ) )
-                this.Exit();
             // TODO: Add your update logic here
 
             base.Update( gameTime );
@@ -113,11 +106,28 @@ namespace SharpInputSystem.Test.Console
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw( GameTime gameTime )
+        protected override void Draw( Xna.GameTime gameTime )
         {
-            graphics.GraphicsDevice.Clear( Color.CornflowerBlue );
+            graphics.GraphicsDevice.Clear( XFG.Color.CornflowerBlue );
 
-            // TODO: Add your drawing code here
+            // Copy any parent transforms.
+            Xna.Matrix[] transforms = new Xna.Matrix[ castle.Bones.Count ];
+            castle.CopyAbsoluteBoneTransformsTo( transforms );
+
+            //// Draw the model. A model can have multiple meshes, so loop.
+            foreach ( XFG.ModelMesh mesh in castle.Meshes )
+            {
+                // This is where the mesh orientation is set, as well as our camera and projection.
+                foreach ( XFG.BasicEffect effect in mesh.Effects )
+                {
+                    effect.EnableDefaultLighting();
+                    effect.World = transforms[ mesh.ParentBone.Index ] * Xna.Matrix.CreateRotationY( modelRotation ) * Xna.Matrix.CreateTranslation( modelPosition );
+                    effect.View = Camera.ActiveCamera.View;
+                    effect.Projection = Camera.ActiveCamera.Projection;
+                }
+                // Draw the mesh, using the effects set above.
+                mesh.Draw();
+            }
 
             base.Draw( gameTime );
         }
