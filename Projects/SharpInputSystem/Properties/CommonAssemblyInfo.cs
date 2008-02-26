@@ -66,8 +66,18 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion( "1.0.0.0" )]
-[assembly: AssemblyFileVersion( "1.0.0.0" )]
 
+#if DEBUG
+[assembly: AssemblyVersion( "0.3.0.*" )]
+#else
+[assembly: AssemblyVersion( "0.3.0.0" )]
+#endif
+
+#if !XBOX360
+[assembly: AssemblyFileVersion( "0.3.0.0" )]
+#endif
+
+#if !XBOX360
 // Configure log4net using the .config file
 [assembly: log4net.Config.XmlConfigurator( Watch = true )]
+#endif

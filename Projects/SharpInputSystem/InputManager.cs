@@ -127,7 +127,11 @@ namespace SharpInputSystem
         {
             get
             {
+#if !XBOX360
                 return ((AssemblyFileVersionAttribute)(Assembly.GetExecutingAssembly().GetCustomAttributes( typeof(AssemblyFileVersionAttribute), false )[ 0 ])).Version;
+#else
+                return "0.3.0.0";
+#endif
             }
         }
 

@@ -269,11 +269,12 @@ namespace SharpInputSystem
 
 		int InputObjectFactory.FreeDeviceCount<T>()
 		{
-			int deviceCount = 0;
-			foreach ( DeviceInfo dev in _unusedDevices )
+            string devType = typeof( T ).Name + "Info";
+            int deviceCount = 0;
+			foreach ( DeviceInfo device in _unusedDevices )
 			{
-				if ( dev.GetType() == typeof( T ) )
-					deviceCount++;
+                if ( devType == device.GetType().Name )
+                    deviceCount++;
 			}
 			return deviceCount;
 		}

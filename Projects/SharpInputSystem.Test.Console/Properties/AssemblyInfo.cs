@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle( "SharpInputSystem.Test.Console" )]
 [assembly: AssemblyDescription( "" )]
 [assembly: AssemblyConfiguration( "" )]
-[assembly: AssemblyCompany( "Magenic Technologies" )]
-[assembly: AssemblyProduct( "SharpInputSystem.Test.Console" )]
-[assembly: AssemblyCopyright( "Copyright © Magenic Technologies 2007" )]
+[assembly: AssemblyCompany( "" )]
+[assembly: AssemblyProduct( "SharpInputSystem Test Console" )]
+[assembly: AssemblyCopyright( "Copyright © Michael Cummings" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
