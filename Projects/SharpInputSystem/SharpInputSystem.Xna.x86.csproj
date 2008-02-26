@@ -70,6 +70,7 @@
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="Properties\XnaAssemblyInfo.cs" />
     <Compile Include="Xna\XnaInputManager.cs" />
+    <Compile Include="Xna\XnaKeyboard.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Diagrams\ClassDiagram.cd" />

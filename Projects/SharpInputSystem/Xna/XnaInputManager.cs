@@ -72,6 +72,14 @@ namespace SharpInputSystem
 
         #endregion Fields and Properties
 
+        #region Construction and Destruction
+
+        internal XnaInputManager() : base()
+        {
+            RegisterFactory( this );
+        }
+
+        #endregion Construction and Destruction
         protected override void _initialize( ParameterList args )
         {
             // Find the first Parameter entry with WINDOW

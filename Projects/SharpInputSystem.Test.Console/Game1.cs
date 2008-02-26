@@ -9,6 +9,9 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Net;
 using Microsoft.Xna.Framework.Storage;
 
+using SIS = SharpInputSystem;
+using log4net;
+
 namespace SharpInputSystem.Test.Console
 {
     static class Program
@@ -32,6 +35,10 @@ namespace SharpInputSystem.Test.Console
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SIS.InputManager _inputManager;
+        SIS.Keyboard _kb;
+
+        private static readonly ILog log = LogManager.GetLogger( typeof( Game1 ) );
 
         public Game1()
         {
@@ -48,6 +55,16 @@ namespace SharpInputSystem.Test.Console
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
+
+            _inputManager = SIS.InputManager.CreateInputSystem( this.Window.Handle );
+
+            bool buffered = false;
+
+            if ( _inputManager.DeviceCount<Keyboard>() > 0 )
+            {
+                _kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
+                log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
+            }
 
             base.Initialize();
         }
@@ -81,9 +98,12 @@ namespace SharpInputSystem.Test.Console
         protected override void Update( GameTime gameTime )
         {
             // Allows the game to exit
-            if ( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed )
-                this.Exit();
+            //if ( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed )
+            //    this.Exit();
+            _kb.Capture();
 
+            if ( _kb.IsKeyDown( KeyCode.Key_ESCAPE ) )
+                this.Exit();
             // TODO: Add your update logic here
 
             base.Update( gameTime );
