@@ -97,6 +97,10 @@ namespace SharpInputSystem.Test.Console
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Update( Xna.GameTime gameTime )
         {
+            // Allows the game to exit
+            if ( XInput.GamePad.GetState( Xna.PlayerIndex.One ).Buttons.Back == XInput.ButtonState.Pressed )
+                this.Exit();
+
             // TODO: Add your update logic here
 
             base.Update( gameTime );

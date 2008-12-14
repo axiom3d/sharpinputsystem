@@ -38,6 +38,9 @@ using log4net;
 
 namespace SharpInputSystem
 {
+    /// <summary>
+    /// Xna specialization of the Keyboard
+    /// </summary>
     class XnaKeyboard : Keyboard
     {
         #region Fields and Properties
@@ -45,7 +48,7 @@ namespace SharpInputSystem
 
         // Variables for XnaKeyboard
         private Dictionary<XInput.Keys, KeyCode> _keyMap = new Dictionary<XInput.Keys, KeyCode>();
-
+        private KeyboardInfo _kbInfo;
         private int[] _keyboardState = new int[ 256 ];
 
         #endregion Fields and Properties
@@ -58,6 +61,40 @@ namespace SharpInputSystem
             IsBuffered = buffered;
             Type = InputType.Keyboard;
             EventListener = null;
+
+            _kbInfo = (KeyboardInfo)( (XnaInputManager)Creator ).CaptureDevice<Keyboard>();
+
+            if ( _kbInfo == null )
+            {
+                throw new Exception( "No devices match requested type." );
+            }
+
+            log.Debug( "XnaKeyboard device created." );
+
+        }
+
+        protected override void _dispose( bool disposeManagedResources )
+        {
+            if ( !isDisposed )
+            {
+                if ( disposeManagedResources )
+                {
+                    // Dispose managed resources.
+                }
+
+                // There are no unmanaged resources to release, but
+                // if we add them, they need to be released here.
+
+                ( (XnaInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
+
+                log.Debug( "XnaKeyboard device disposed." );
+
+            }
+            isDisposed = true;
+
+            // If it is available, make the call to the
+            // base class's Dispose(Boolean) method
+            base._dispose( disposeManagedResources );
         }
 
         #endregion Construction and Destruction
@@ -76,7 +113,7 @@ namespace SharpInputSystem
                 if ( _keyboardState[ key ] != 0 )
                 {
                     keyReleased = true;       
-                    for ( int pressed = 1; pressed < pressedKeys.Length; pressed++ )
+                    for ( int pressed = 0; pressed < pressedKeys.Length; pressed++ )
                     {
                         if ( (KeyCode)key == _keyMap[pressedKeys[pressed]] )
                         {
@@ -96,7 +133,7 @@ namespace SharpInputSystem
             }
 
             //Process KeyDowns
-            for ( int key = 1; key < pressedKeys.Length; key++ )
+            for ( int key = 0; key < pressedKeys.Length; key++ )
             {
                 _keyboardState[ (int)_keyMap[ pressedKeys[ key ] ] ] = 1;
                 if ( IsBuffered && EventListener != null )
@@ -209,7 +246,7 @@ namespace SharpInputSystem
             _keyMap.Add( XInput.Keys.NumPad7, KeyCode.Key_NUMPAD7 );
             _keyMap.Add( XInput.Keys.NumPad8, KeyCode.Key_NUMPAD8 );
             _keyMap.Add( XInput.Keys.NumPad9, KeyCode.Key_NUMPAD9 );
-            //_keyMap.Add( XInput.Keys, KeyCode.Key_NUMPADCOMMA );
+            _keyMap.Add( XInput.Keys.OemComma, KeyCode.Key_NUMPADCOMMA );
             //_keyMap.Add( XInput.Keys, KeyCode.Key_NUMPADENTER );
             //_keyMap.Add( XInput.Keys, KeyCode.Key_NUMPADEQUALS );
             _keyMap.Add( XInput.Keys.O, KeyCode.Key_O );

@@ -197,7 +197,11 @@ namespace SharpInputSystem
 					if ( vendor == null || vendor == String.Empty || factory.VendorExists<T>( vendor ) )
 					{
 						obj = factory.CreateInputObject<T>( this, bufferMode, vendor );
-						_createdInputObjects.Add( obj, factory );
+                        if ( obj != null )
+                        {
+                            _createdInputObjects.Add( obj, factory );
+                            break;
+                        }
 					}
 				}
 			}
