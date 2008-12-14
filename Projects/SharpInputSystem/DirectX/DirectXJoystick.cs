@@ -63,7 +63,7 @@ namespace SharpInputSystem
 
         #region Construction and Destruction
 
-        internal DirectXJoystick( InputManager creator, MDI.Device device, bool buffered, MDI.CooperativeLevelFlags coopSettings )
+        public DirectXJoystick( InputManager creator, MDI.Device device, bool buffered, MDI.CooperativeLevelFlags coopSettings )
         {
             Creator = creator;
             _device = device;
@@ -79,9 +79,9 @@ namespace SharpInputSystem
                 throw new Exception( "No devices match requested type." );
             }
 
-            _deviceGuid = _joyInfo.DeviceID;
+            _deviceGuid = _joyInfo.DeviceId;
             Vendor = _joyInfo.Vendor;
-            DeviceID = _joyInfo.ID.ToString();
+            DeviceID = _joyInfo.Id.ToString();
 
         }
 

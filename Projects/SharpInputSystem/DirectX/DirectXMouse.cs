@@ -41,14 +41,14 @@ namespace SharpInputSystem
     {
         #region Fields and Properties
 
-		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
+        private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
 
         private const int _BUFFER_SIZE = 64;
 
         private MDI.CooperativeLevelFlags _coopSettings;
         private MDI.Device _device;
         private MDI.Device _mouse;
-		private MouseInfo _msInfo;
+        private MouseInfo _msInfo;
 
         private SWF.Control _window;
 
@@ -65,14 +65,14 @@ namespace SharpInputSystem
             Type = InputType.Mouse;
             EventListener = null;
 
-			_msInfo = (MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
+            _msInfo = (MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
 
-			if ( _msInfo == null )
-			{
-				throw new Exception( "No devices match requested type." );
-			}
+            if ( _msInfo == null )
+            {
+                throw new Exception( "No devices match requested type." );
+            }
 
-			log.Debug( "DirectXMouse device created." );
+            log.Debug( "DirectXMouse device created." );
 
         }
 
@@ -83,28 +83,32 @@ namespace SharpInputSystem
                 if ( disposeManagedResources )
                 {
                     // Dispose managed resources.
-                }
 
+                    if ( _mouse != null )
+                    {
+                        try
+                        {
+                            _mouse.Unacquire();
+                        }
+                        catch
+                        {
+                            // NOTE : This is intentional
+                        }
+
+                        finally
+                        {
+                            _mouse.Dispose();
+                            _mouse = null;
+                        }
+                    }
+
+                    ( (DirectXInputManager)Creator ).ReleaseDevice<Mouse>( _msInfo );
+                }
                 // There are no unmanaged resources to release, but
                 // if we add them, they need to be released here.
-                if ( _mouse != null )
-                {
-                    try
-                    {
-                        _mouse.Unacquire();
-                    }
-                    finally
-                    {
-                        _mouse.Dispose();
-                        _mouse = null;
-                    }
-                }
 
-				( (DirectXInputManager)Creator ).ReleaseDevice<Mouse>( _msInfo );
-
-				log.Debug( "DirectXMouse device disposed." );
+                log.Debug( "DirectXMouse device disposed." );
             }
-            isDisposed = true;
 
             // If it is available, make the call to the
             // base class's Dispose(Boolean) method
@@ -139,8 +143,8 @@ namespace SharpInputSystem
 
         public override void Capture()
         {
-			// Clear Relative movement
-			MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
+            // Clear Relative movement
+            MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
 
             MDI.BufferedDataCollection bufferedData = _mouse.GetBufferedData();
             if ( bufferedData == null )
@@ -159,10 +163,10 @@ namespace SharpInputSystem
                 }
             }
 
-	        bool axesMoved = false;
+            bool axesMoved = false;
 
-	        //Accumulate all axis movements for one axesMove message..
-	        //Buttons are fired off as they are found
+            //Accumulate all axis movements for one axesMove message..
+            //Buttons are fired off as they are found
             for ( int i = 0; i < bufferedData.Count; i++ )
             {
                 switch ( (MDI.MouseOffset)bufferedData[ i ].Offset )
@@ -214,10 +218,10 @@ namespace SharpInputSystem
                     default:
                         break;
                 }
-	        }
+            }
 
-	        if( axesMoved )
-	        {
+            if ( axesMoved )
+            {
                 if ( ( this._coopSettings & MDI.CooperativeLevelFlags.NonExclusive ) == MDI.CooperativeLevelFlags.NonExclusive )
                 {
                     //DirectInput provides us with meaningless values, so correct that
@@ -233,22 +237,22 @@ namespace SharpInputSystem
                     MouseState.X.Absolute += MouseState.X.Relative;
                     MouseState.Y.Absolute += MouseState.Y.Relative;
                 }
-		        MouseState.Z.Absolute +=  MouseState.Z.Relative;
+                MouseState.Z.Absolute += MouseState.Z.Relative;
 
-		        //Clip values to window
-				if ( MouseState.X.Absolute < 0 )
-					MouseState.X.Absolute = 0;
-				else if ( MouseState.X.Absolute > MouseState.Width )
-					MouseState.X.Absolute = MouseState.Width;
-				if ( MouseState.Y.Absolute < 0 )
-					MouseState.Y.Absolute = 0;
-				else if ( MouseState.Y.Absolute > MouseState.Height )
-					MouseState.Y.Absolute = MouseState.Height;
+                //Clip values to window
+                if ( MouseState.X.Absolute < 0 )
+                    MouseState.X.Absolute = 0;
+                else if ( MouseState.X.Absolute > MouseState.Width )
+                    MouseState.X.Absolute = MouseState.Width;
+                if ( MouseState.Y.Absolute < 0 )
+                    MouseState.Y.Absolute = 0;
+                else if ( MouseState.Y.Absolute > MouseState.Height )
+                    MouseState.Y.Absolute = MouseState.Height;
 
-		        //Do the move
-		        if( EventListener != null && IsBuffered )
+                //Do the move
+                if ( EventListener != null && IsBuffered )
                     EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
-	        }
+            }
 
         }
 
@@ -258,13 +262,13 @@ namespace SharpInputSystem
 
             _mouse = new MDI.Device( MDI.SystemGuid.Mouse );
 
-			_mouse.Properties.AxisModeAbsolute = true;
+            _mouse.Properties.AxisModeAbsolute = true;
 
             _mouse.SetDataFormat( MDI.DeviceDataFormat.Mouse );
 
-			_window = ( (DirectXInputManager)Creator ).WindowHandle;
+            _window = ( (DirectXInputManager)Creator ).WindowHandle;
 
-			_mouse.SetCooperativeLevel( _window, _coopSettings );
+            _mouse.SetCooperativeLevel( _window, _coopSettings );
 
             if ( IsBuffered )
             {

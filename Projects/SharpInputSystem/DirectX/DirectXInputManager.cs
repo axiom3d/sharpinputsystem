@@ -123,7 +123,7 @@ namespace SharpInputSystem
 			}
 			else
 			{
-				throw new Exception( "SharpInputSystem.DirectXInputManger requires the handle of either a PictureBox or a Form." );
+				throw new Exception( "SharpInputSystem.DirectXInputManger requires a reference to either a PictureBox or a Form." );
 			}
 
 			_settings.Add( typeof( Mouse ).Name, 0 );
@@ -140,12 +140,12 @@ namespace SharpInputSystem
 		{
 			KeyboardInfo keyboardInfo = new KeyboardInfo();
 			keyboardInfo.Vendor = this.InputSystemName;
-			keyboardInfo.ID = 0;
+			keyboardInfo.Id = 0;
 			_unusedDevices.Add( keyboardInfo );
 
 			MouseInfo mouseInfo = new MouseInfo();
 			mouseInfo.Vendor = this.InputSystemName;
-			mouseInfo.ID = 0;
+			mouseInfo.Id = 0;
 			_unusedDevices.Add( mouseInfo );
 
 			foreach ( MDI.DeviceInstance device in MDI.Manager.Devices )
@@ -155,9 +155,9 @@ namespace SharpInputSystem
 					 device.DeviceType == MDI.DeviceType.Flight )
 				{
 					JoystickInfo joystickInfo = new JoystickInfo();
-					joystickInfo.DeviceID = device.InstanceGuid;
+					joystickInfo.DeviceId = device.InstanceGuid;
 					joystickInfo.Vendor = device.ProductName;
-					joystickInfo.ID = _joystickCount++;
+					joystickInfo.Id = _joystickCount++;
 
 					this._unusedDevices.Add( joystickInfo );
 				}
@@ -193,7 +193,7 @@ namespace SharpInputSystem
 			}
 
 			if ( _settings[ typeof( Mouse ).Name ] == 0 )
-				_settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
+				_settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevelFlags.Exclusive | MDI.CooperativeLevelFlags.Foreground;
 			if ( _settings[ typeof( Keyboard ).Name ] == 0 )
 				_settings[ typeof( Keyboard ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
 			if ( _settings[ typeof( Joystick ).Name ] == 0 )
@@ -220,9 +220,11 @@ namespace SharpInputSystem
 
 			foreach ( DeviceInfo device in _unusedDevices )
 			{
-				if ( devType == device.GetType().Name )
-					_unusedDevices.Remove( device );
-				return device;
+                if ( devType == device.GetType().Name )
+                {
+                    _unusedDevices.Remove( device );
+                    return device;
+                }
 			}
 
 			return null;
@@ -232,7 +234,6 @@ namespace SharpInputSystem
 		{
 			_unusedDevices.Add( device );
 		}
-
 
 		#region InputObjectFactory Implementation
 

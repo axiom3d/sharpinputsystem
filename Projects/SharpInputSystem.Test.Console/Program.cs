@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using SWF = System.Windows.Forms;
 
 using log4net;
 
@@ -109,27 +108,34 @@ namespace SharpInputSystem.Test.Console
 		private static readonly ILog log = LogManager.GetLogger( typeof( Program ) );
 		
 #if SIS_SDL_PLATFORM
-		static void InitSdl( Main frm )
+		static IntPtr InitSdl()
 		{
 			Sdl.SDL_Init( Sdl.SDL_INIT_VIDEO ) ;
-			Sdl.SDL_SetVideoMode( 100, 100, 32, Sdl.SDL_OPENGL | Sdl.SDL_HWPALETTE );
+			return Sdl.SDL_SetVideoMode( 800, 600, 32, Sdl.SDL_OPENGL | Sdl.SDL_HWPALETTE );
 		}
 #endif
 
 		static void DoStartup()
         {
-	        ParameterList pl = new ParameterList();
+#if SIS_DX_PLATFORM
             Main frm = new Main();
-            pl.Add( new Parameter( "WINDOW", frm) );
+            frm.Show();
+#endif
 
 #if SIS_SDL_PLATFORM
-			InitSdl( frm );
+            IntPtr frm = InitSdl();
 #endif
-            //Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
-            //pl.Add( new Parameter( "w32_mouse", "CLF_FOREGROUND" ) );
-            //pl.Add( new Parameter( "w32_mouse", "CLF_NONEXCLUSIVE" ) );
 
-	        //This never returns null.. it will raise an exception on errors
+	        ParameterList pl = new ParameterList();
+            pl.Add( new Parameter( "WINDOW", frm) );
+
+#if SIS_DX_PLATFORM
+            //Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
+            pl.Add( new Parameter( "w32_mouse", "CLF_BACKGROUND" ) );
+            pl.Add( new Parameter( "w32_mouse", "CLF_NONEXCLUSIVE" ) );
+#endif
+
+            //This never returns null.. it will raise an exception on errors
 	        _inputManager = InputManager.CreateInputSystem(pl);
 
 			log.Info( String.Format( "SIS Version : {0}", _inputManager.Version ) );
@@ -221,7 +227,13 @@ namespace SharpInputSystem.Test.Console
             }
             catch ( Exception e )
             {
-				log.Error( "SIS Exception Caught!", e );
+                log.Error( "SIS Exception Caught!" );
+                Exception logEx = e;
+                while ( logEx != null )
+                {
+                    log.Error( "", logEx );
+                    logEx = logEx.InnerException;
+                }
 				log.Info( "Press any key to exit." );
                 System.Console.ReadKey();
             }

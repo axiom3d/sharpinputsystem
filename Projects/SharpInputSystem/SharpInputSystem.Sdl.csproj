@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,6 +17,11 @@
     <SccProvider>
     </SccProvider>
     <ProjectGuid>{CCF85198-D425-4156-8B41-CE451C3A0454}</ProjectGuid>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,14 +55,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components.cs" />
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="ForceFeedback.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
     <Compile Include="InputObjectFactory.cs" />
     <Compile Include="Joystick.cs" />
+    <Compile Include="JoystickInfo.cs" />
     <Compile Include="Keyboard.cs" />
+    <Compile Include="KeyboardInfo.cs" />
     <Compile Include="Mouse.cs" />
+    <Compile Include="MouseInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="Properties\SdlAssemblyInfo.cs" />
     <Compile Include="Sdl\SdlMouse.cs" />

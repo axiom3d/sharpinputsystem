@@ -88,6 +88,10 @@ namespace SharpInputSystem
                 {
                     _keyboard.Unacquire();
                 }
+                catch
+                {
+                    // NOTE : This is intentional
+                }
                 finally
                 {
                     _keyboard.Dispose();
@@ -99,7 +103,6 @@ namespace SharpInputSystem
 				log.Debug( "DirectXKeyboard device disposed." );
 
             }
-            isDisposed = true;
 
             // If it is available, make the call to the
             // base class's Dispose(Boolean) method

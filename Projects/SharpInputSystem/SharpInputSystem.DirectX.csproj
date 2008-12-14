@@ -1,4 +1,4 @@
-﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -17,6 +17,11 @@
     </SccAuxPath>
     <SccProvider>
     </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>2.0</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,7 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Components.cs" />
-    <Compile Include="DirectX\DeviceInfo.cs" />
+    <Compile Include="DeviceInfo.cs" />
     <Compile Include="DirectX\DirectXForceFeedback.cs" />
     <Compile Include="DirectX\DirectXJoystick.cs" />
     <Compile Include="DirectX\DirectXMouse.cs" />
@@ -59,13 +64,13 @@
     <Compile Include="ForceFeedback.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
-    <Compile Include="DirectX\JoystickInfo.cs" />
     <Compile Include="InputObjectFactory.cs" />
     <Compile Include="Joystick.cs" />
+    <Compile Include="JoystickInfo.cs" />
     <Compile Include="Keyboard.cs" />
-    <Compile Include="DirectX\KeyboardInfo.cs" />
+    <Compile Include="KeyboardInfo.cs" />
     <Compile Include="Mouse.cs" />
-    <Compile Include="DirectX\MouseInfo.cs" />
+    <Compile Include="MouseInfo.cs" />
     <Compile Include="Properties\DirectXAssemblyInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
   </ItemGroup>
