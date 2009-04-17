@@ -39,17 +39,17 @@ namespace SharpInputSystem
     {
         #region Fields and Properties
 
-		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXKeyboard ) );
+        private static readonly ILog log = LogManager.GetLogger( typeof( DirectXKeyboard ) );
 
         private const int _BUFFER_SIZE = 17;
 
         private MDI.CooperativeLevelFlags _coopSettings;
         private MDI.Device _device;
         private MDI.Device _keyboard;
-		private KeyboardInfo _kbInfo;
+        private KeyboardInfo _kbInfo;
 
-        private int[] _keyboardState = new int[256];
-        
+        private int[] _keyboardState = new int[ 256 ];
+
         #endregion Fields and Properties
 
         #region Construction and Destruction
@@ -63,14 +63,14 @@ namespace SharpInputSystem
             Type = InputType.Keyboard;
             EventListener = null;
 
-			_kbInfo = (KeyboardInfo) ( (DirectXInputManager)Creator ).CaptureDevice<Keyboard>();
+            _kbInfo = (KeyboardInfo)( (DirectXInputManager)Creator ).CaptureDevice<Keyboard>();
 
-			if ( _kbInfo == null )
-			{
-				throw new Exception( "No devices match requested type." );
-			}
+            if ( _kbInfo == null )
+            {
+                throw new Exception( "No devices match requested type." );
+            }
 
-			log.Debug( "DirectXKeyboard device created." );
+            log.Debug( "DirectXKeyboard device created." );
         }
 
         protected override void _dispose( bool disposeManagedResources )
@@ -97,10 +97,10 @@ namespace SharpInputSystem
                     _keyboard.Dispose();
                     _keyboard = null;
                 }
-				
-				( (DirectXInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
 
-				log.Debug( "DirectXKeyboard device disposed." );
+                ( (DirectXInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
+
+                log.Debug( "DirectXKeyboard device disposed." );
 
             }
 
@@ -148,14 +148,14 @@ namespace SharpInputSystem
                 MDI.BufferedData data = bufferedData[ i ];
 
                 KeyCode key = (KeyCode)data.Offset;
-        
+
                 // is the key being pressed down, or released?
                 bool down = ( data.ButtonPressedData == 1 );
 
                 //Store result in our keyBuffer too
                 _keyboardState[ (int)key ] = (int)data.Data;
 
-                if ( ( data.Data & 0x80 ) == 0)
+                if ( ( data.Data & 0x80 ) == 0 )
                 {
                     if ( key == KeyCode.Key_RCONTROL || key == KeyCode.Key_LCONTROL )
                         shiftState |= ShiftState.Ctrl;

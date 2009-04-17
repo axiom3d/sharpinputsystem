@@ -54,7 +54,7 @@ namespace SharpInputSystem
 
         private Guid _deviceGuid;
 
-        private SWF.Control _window;
+        private IntPtr _window;
 
         private int _axisNumber;
         private Dictionary<int, int> _axisMapping = new Dictionary<int, int>();

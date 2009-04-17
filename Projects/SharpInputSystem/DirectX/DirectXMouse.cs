@@ -32,6 +32,7 @@ using SWF = System.Windows.Forms;
 
 using MDI = Microsoft.DirectX.DirectInput;
 using log4net;
+using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
@@ -39,6 +40,19 @@ namespace SharpInputSystem
 {
     class DirectXMouse : Mouse
     {
+        [StructLayout( LayoutKind.Sequential )]
+        private struct POINT
+        {
+            public int X;
+            public int Y;
+
+            public POINT( int x, int y )
+            {
+                this.X = x;
+                this.Y = y;
+            }
+        }
+
         #region Fields and Properties
 
         private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
@@ -50,7 +64,12 @@ namespace SharpInputSystem
         private MDI.Device _mouse;
         private MouseInfo _msInfo;
 
-        private SWF.Control _window;
+        private IntPtr _window;
+
+        [DllImport( "user32.dll" )]
+        private static extern bool GetCursorPos( out POINT lpPoint );
+        [DllImport( "user32.dll" )]
+        private static extern bool ScreenToClient( IntPtr hWnd, ref POINT lpPoint );
 
         #endregion Fields and Properties
 
@@ -225,10 +244,9 @@ namespace SharpInputSystem
                 if ( ( this._coopSettings & MDI.CooperativeLevelFlags.NonExclusive ) == MDI.CooperativeLevelFlags.NonExclusive )
                 {
                     //DirectInput provides us with meaningless values, so correct that
-                    //POINT point;
-                    //GetCursorPos(&point);
-                    Point point = SWF.Cursor.Position;
-                    point = _window.PointToClient( point );
+                    POINT point;
+                    GetCursorPos( out point );
+                    ScreenToClient( _window, ref point );
                     MouseState.X.Absolute = point.X;
                     MouseState.Y.Absolute = point.Y;
                 }
