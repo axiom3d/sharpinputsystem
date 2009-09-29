@@ -27,12 +27,15 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 #region Namespace Declarations
 
 using System;
-using System.Drawing;
-using SWF = System.Windows.Forms;
+using System.Collections.Generic;
 
-using MDI = Microsoft.DirectX.DirectInput;
-using log4net;
+using SlimDX.DirectInput;
+
+using SWF = System.Windows.Forms;
 using System.Runtime.InteropServices;
+
+using MDI = SlimDX.DirectInput;
+using log4net;
 
 #endregion Namespace Declarations
 
@@ -59,9 +62,9 @@ namespace SharpInputSystem
 
         private const int _BUFFER_SIZE = 64;
 
-        private MDI.CooperativeLevelFlags _coopSettings;
-        private MDI.Device _device;
-        private MDI.Device _mouse;
+        private MDI.CooperativeLevel _coopSettings;
+        private MDI.DirectInput _directInput;
+        private MDI.Device<MDI.MouseState> _mouse;
         private MouseInfo _msInfo;
 
         private IntPtr _window;
@@ -75,10 +78,10 @@ namespace SharpInputSystem
 
         #region Construction and Destruction
 
-        public DirectXMouse( InputManager creator, MDI.Device device, bool buffered, MDI.CooperativeLevelFlags coopSettings )
+        public DirectXMouse( InputManager creator, MDI.DirectInput device, bool buffered, MDI.CooperativeLevel coopSettings )
         {
             Creator = creator;
-            _device = device;
+            _directInput = device;
             IsBuffered = buffered;
             _coopSettings = coopSettings;
             Type = InputType.Mouse;
@@ -138,9 +141,9 @@ namespace SharpInputSystem
 
         #region Methods
 
-        private bool _doMouseClick( int mouseButton, MDI.BufferedData bufferedData )
+        private bool _doMouseClick( int mouseButton, MDI.BufferedData<MDI.MouseState> bufferedData )
         {
-            if ( ( bufferedData.Data & 0x80 ) != 0 )
+            if (  bufferedData.Data.IsPressed( mouseButton ) )
             {
                 MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
                 if ( EventListener != null && IsBuffered )
@@ -164,8 +167,10 @@ namespace SharpInputSystem
         {
             // Clear Relative movement
             MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
+            if ( SlimDX.Result.Last.IsFailure )
+                return;
 
-            MDI.BufferedDataCollection bufferedData = _mouse.GetBufferedData();
+            IEnumerable<MDI.BufferedData<MDI.MouseState>> bufferedData = _mouse.GetBufferedData();
             if ( bufferedData == null )
             {
                 try
@@ -186,62 +191,38 @@ namespace SharpInputSystem
 
             //Accumulate all axis movements for one axesMove message..
             //Buttons are fired off as they are found
-            for ( int i = 0; i < bufferedData.Count; i++ )
+            foreach ( BufferedData<MDI.MouseState> packet in bufferedData )
             {
-                switch ( (MDI.MouseOffset)bufferedData[ i ].Offset )
+                for ( int i = 0; i < packet.Data.GetButtons().Length; i++ )
                 {
-                    case MDI.MouseOffset.Button0:
-                        if ( !_doMouseClick( 0, bufferedData[ i ] ) )
+                    if ( packet.Data.IsPressed( i ) )
+                        if ( !_doMouseClick( 0, packet ) )
                             return;
-                        break;
-                    case MDI.MouseOffset.Button1:
-                        if ( !_doMouseClick( 1, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button2:
-                        if ( !_doMouseClick( 2, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button3:
-                        if ( !_doMouseClick( 3, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button4:
-                        if ( !_doMouseClick( 4, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button5:
-                        if ( !_doMouseClick( 5, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button6:
-                        if ( !_doMouseClick( 6, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.Button7:
-                        if ( !_doMouseClick( 7, bufferedData[ i ] ) )
-                            return;
-                        break;
-                    case MDI.MouseOffset.X:
-                        MouseState.X.Relative = bufferedData[ i ].Data;
-                        axesMoved = true;
-                        break;
-                    case MDI.MouseOffset.Y:
-                        MouseState.Y.Relative = bufferedData[ i ].Data;
-                        axesMoved = true;
-                        break;
-                    case MDI.MouseOffset.Z:
-                        MouseState.Z.Relative = bufferedData[ i ].Data;
-                        axesMoved = true;
-                        break;
-                    default:
-                        break;
                 }
+
+                if ( packet.Data.X != 0 )
+                {
+                    MouseState.X.Relative = packet.Data.X;
+                    axesMoved = true;
+                }
+
+                if ( packet.Data.X != 0 )
+                {
+                    MouseState.Y.Relative = packet.Data.Y;
+                    axesMoved = true;
+                }
+
+                if ( packet.Data.X != 0 )
+                {
+                    MouseState.Z.Relative = packet.Data.Z;
+                    axesMoved = true;
+                }
+
             }
 
             if ( axesMoved )
             {
-                if ( ( this._coopSettings & MDI.CooperativeLevelFlags.NonExclusive ) == MDI.CooperativeLevelFlags.NonExclusive )
+                if ( ( this._coopSettings & MDI.CooperativeLevel.Nonexclusive ) == MDI.CooperativeLevel.Nonexclusive )
                 {
                     //DirectInput provides us with meaningless values, so correct that
                     POINT point;
@@ -278,11 +259,11 @@ namespace SharpInputSystem
         {
             MouseState.Clear();
 
-            _mouse = new MDI.Device( MDI.SystemGuid.Mouse );
+            _mouse = new MDI.Device<MDI.MouseState>( _directInput, MDI.SystemGuid.Mouse );
 
-            _mouse.Properties.AxisModeAbsolute = true;
+            _mouse.Properties.AxisMode = DeviceAxisMode.Absolute;
 
-            _mouse.SetDataFormat( MDI.DeviceDataFormat.Mouse );
+            //_mouse.SetDataFormat( MDI.DeviceDataFormat.Mouse );
 
             _window = ( (DirectXInputManager)Creator ).WindowHandle;
 

@@ -30,7 +30,7 @@ using System;
 using System.Drawing;
 using SWF = System.Windows.Forms;
 
-using MDI = Microsoft.DirectX.DirectInput;
+using MDI = SlimDX.DirectInput;
 using System.Collections.Generic;
 
 #endregion Namespace Declarations

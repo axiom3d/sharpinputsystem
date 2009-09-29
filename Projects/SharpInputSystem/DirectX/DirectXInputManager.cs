@@ -28,9 +28,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 using System;
 using System.Collections.Generic;
+
+using SlimDX.DirectInput;
+
 using SWF = System.Windows.Forms;
 
-using MDI = Microsoft.DirectX.DirectInput;
+using MDI = SlimDX.DirectInput;
 using log4net;
 
 #endregion Namespace Declarations
@@ -46,7 +49,8 @@ namespace SharpInputSystem
 
         private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
 
-        private Dictionary<String, MDI.CooperativeLevelFlags> _settings = new Dictionary<string, Microsoft.DirectX.DirectInput.CooperativeLevelFlags>();
+        private MDI.DirectInput directInput = new DirectInput();
+        private Dictionary<String, MDI.CooperativeLevel> _settings = new Dictionary<string, MDI.CooperativeLevel>();
         private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
         private int _joystickCount = 0;
 
@@ -111,13 +115,9 @@ namespace SharpInputSystem
             {
                 _hwnd = (IntPtr)window;
             }
-            else if ( window is SWF.Form )
+            else if ( window is SWF.Control )
             {
-                _hwnd = ( (SWF.Form)window ).Handle;
-            }
-            else if ( window is SWF.PictureBox )
-            {
-                SWF.Control parent = (SWF.PictureBox)window;
+                SWF.Control parent = (SWF.Control)window;
                 // if the control is a picturebox, we need to grab its parent form
                 while ( !( parent is SWF.Form ) && parent != null )
                 {
@@ -127,9 +127,8 @@ namespace SharpInputSystem
             }
             else
             {
-                throw new Exception( "SharpInputSystem.DirectXInputManger requires a reference to either a PictureBox or a Form." );
+                throw new Exception( "SharpInputSystem.DirectXInputManger requires either a reference to either a Control." );
             }
-
 
             _settings.Add( typeof( Mouse ).Name, 0 );
             _settings.Add( typeof( Keyboard ).Name, 0 );
@@ -153,31 +152,31 @@ namespace SharpInputSystem
             mouseInfo.Id = 0;
             _unusedDevices.Add( mouseInfo );
 
-            foreach ( MDI.DeviceInstance device in MDI.Manager.Devices )
+            foreach ( MDI.DeviceInstance device in directInput.GetDevices( MDI.DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly ) )
             {
-                if ( device.DeviceType == MDI.DeviceType.Joystick || device.DeviceType == MDI.DeviceType.Gamepad ||
-                     device.DeviceType == MDI.DeviceType.FirstPerson || device.DeviceType == MDI.DeviceType.Driving ||
-                     device.DeviceType == MDI.DeviceType.Flight )
-                {
+                //if ( device.Type == MDI.DeviceType.Joystick || device.Type == MDI.DeviceType.Gamepad ||
+                //     device.Type == MDI.DeviceType.FirstPerson || device.Type == MDI.DeviceType.Driving ||
+                //     device.Type == MDI.DeviceType.Flight )
+                //{
                     JoystickInfo joystickInfo = new JoystickInfo();
                     joystickInfo.DeviceId = device.InstanceGuid;
                     joystickInfo.Vendor = device.ProductName;
                     joystickInfo.Id = _joystickCount++;
 
                     this._unusedDevices.Add( joystickInfo );
-                }
+                //}
             }
         }
 
         private void _parseConfigSettings( ParameterList args )
         {
-            System.Collections.Generic.Dictionary<String, MDI.CooperativeLevelFlags> valueMap = new System.Collections.Generic.Dictionary<string, MDI.CooperativeLevelFlags>();
+            System.Collections.Generic.Dictionary<String, MDI.CooperativeLevel> valueMap = new System.Collections.Generic.Dictionary<string, MDI.CooperativeLevel>();
 
-            valueMap.Add( "CLF_BACKGROUND", MDI.CooperativeLevelFlags.Background );
-            valueMap.Add( "CLF_FOREGROUND", MDI.CooperativeLevelFlags.Foreground );
-            valueMap.Add( "CLF_EXCLUSIVE", MDI.CooperativeLevelFlags.Exclusive );
-            valueMap.Add( "CLF_NONEXCLUSIVE", MDI.CooperativeLevelFlags.NonExclusive );
-            valueMap.Add( "CLF_NOWINDOWSKEY", MDI.CooperativeLevelFlags.NoWindowsKey );
+            valueMap.Add( "CLF_BACKGROUND", MDI.CooperativeLevel.Background );
+            valueMap.Add( "CLF_FOREGROUND", MDI.CooperativeLevel.Foreground );
+            valueMap.Add( "CLF_EXCLUSIVE", MDI.CooperativeLevel.Exclusive );
+            valueMap.Add( "CLF_NONEXCLUSIVE", MDI.CooperativeLevel.Nonexclusive );
+            valueMap.Add( "CLF_NOWINDOWSKEY", MDI.CooperativeLevel.NoWinKey );
 
             foreach ( Parameter p in args )
             {
@@ -198,11 +197,11 @@ namespace SharpInputSystem
             }
 
             if ( _settings[ typeof( Mouse ).Name ] == 0 )
-                _settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevelFlags.Exclusive | MDI.CooperativeLevelFlags.Foreground;
+                _settings[ typeof( Mouse ).Name ] = MDI.CooperativeLevel.Exclusive | MDI.CooperativeLevel.Foreground;
             if ( _settings[ typeof( Keyboard ).Name ] == 0 )
-                _settings[ typeof( Keyboard ).Name ] = MDI.CooperativeLevelFlags.NonExclusive | MDI.CooperativeLevelFlags.Background;
+                _settings[ typeof( Keyboard ).Name ] = MDI.CooperativeLevel.Nonexclusive | MDI.CooperativeLevel.Background;
             if ( _settings[ typeof( Joystick ).Name ] == 0 )
-                _settings[ typeof( Joystick ).Name ] = MDI.CooperativeLevelFlags.Exclusive | MDI.CooperativeLevelFlags.Foreground;
+                _settings[ typeof( Joystick ).Name ] = MDI.CooperativeLevel.Exclusive | MDI.CooperativeLevel.Foreground;
 
         }
 
@@ -321,7 +320,7 @@ namespace SharpInputSystem
                                               bindingFlags,
                                               null,
                                               null,
-                                              new object[] { this, null, bufferMode, _settings[ typeof( T ).Name ] } );
+                                              new object[] { this, directInput, bufferMode, _settings[ typeof( T ).Name ] } );
             return obj;
         }
 
