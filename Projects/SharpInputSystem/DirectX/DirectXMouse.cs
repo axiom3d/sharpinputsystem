@@ -170,26 +170,31 @@ namespace SharpInputSystem
             if ( SlimDX.Result.Last.IsFailure )
                 return;
 
-            IEnumerable<MDI.BufferedData<MDI.MouseState>> bufferedData = _mouse.GetBufferedData();
-            if (  SlimDX.Result.Last.IsFailure || bufferedData == null )
+            IEnumerable<MDI.BufferedData<MDI.MouseState>> bufferedData = null;
+            try
             {
+                bufferedData = _mouse.GetBufferedData();
+            }
+            catch ( Exception ex ) {}
+
+            if ( SlimDX.Result.Last.IsFailure || bufferedData == null )
+            {
+                if ( _mouse.Acquire().IsFailure )
+                    return;
+                if ( _mouse.Poll().IsFailure )
+                    return;
+
                 try
                 {
-                    if ( _mouse.Acquire().IsFailure )
-                        return;
-                    if( _mouse.Poll().IsFailure )
-                        return;
-
                     bufferedData = _mouse.GetBufferedData();
                     if ( SlimDX.Result.Last.IsFailure || bufferedData == null )
                         return;
                 }
-                catch ( Exception )
+                catch ( Exception ex )
                 {
                     return;
                 }
             }
-
             bool axesMoved = false;
 
             //Accumulate all axis movements for one axesMove message..
@@ -254,7 +259,6 @@ namespace SharpInputSystem
                 if ( EventListener != null && IsBuffered )
                     EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
             }
-
         }
 
         internal override void initialize()
