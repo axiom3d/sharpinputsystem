@@ -64,7 +64,7 @@ namespace SharpInputSystem
 
         private MDI.CooperativeLevel _coopSettings;
         private MDI.DirectInput _directInput;
-        private MDI.Device<MDI.MouseState> _mouse;
+        private MDI.Mouse _mouse;
         private MouseInfo _msInfo;
 
         private IntPtr _window;
@@ -141,15 +141,15 @@ namespace SharpInputSystem
 
         #region Methods
 
-        private bool _doMouseClick( int mouseButton, MDI.BufferedData<MDI.MouseState> bufferedData )
+        private bool _doMouseClick( int mouseButton, MDI.MouseState bufferedData )
         {
-            if ( bufferedData.Data.IsPressed( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) == 0 )
+            if ( bufferedData.IsPressed( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) == 0 )
             {
                 MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
                 if ( EventListener != null && IsBuffered )
                     return EventListener.MousePressed( new MouseEventArgs( this, MouseState ), (MouseButtonID)mouseButton );
             }
-            else if ( !bufferedData.Data.IsPressed( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) != 0 )
+            else if ( !bufferedData.IsPressed( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) != 0 )
             {
                 MouseState.Buttons &= ~( 1 << mouseButton ); //turn the bit flag off
                 if ( EventListener != null && IsBuffered )
@@ -170,7 +170,7 @@ namespace SharpInputSystem
             if ( SlimDX.Result.Last.IsFailure )
                 return;
 
-            IEnumerable<MDI.BufferedData<MDI.MouseState>> bufferedData = null;
+            IEnumerable<MDI.MouseState> bufferedData = null;
             try
             {
                 bufferedData = _mouse.GetBufferedData();
@@ -199,29 +199,29 @@ namespace SharpInputSystem
 
             //Accumulate all axis movements for one axesMove message..
             //Buttons are fired off as they are found
-            foreach ( BufferedData<MDI.MouseState> packet in bufferedData )
+            foreach ( MDI.MouseState packet in bufferedData )
             {
-                for ( int i = 0; i < packet.Data.GetButtons().Length; i++ )
+                for ( int i = 0; i < packet.GetButtons().Length; i++ )
                 {
                     if ( !_doMouseClick( i, packet ) )
                         return;
                 }
 
-                if ( packet.Data.X != 0 )
+                if ( packet.X != 0 )
                 {
-                    MouseState.X.Relative = packet.Data.X;
+                    MouseState.X.Relative = packet.X;
                     axesMoved = true;
                 }
 
-                if ( packet.Data.Y != 0 )
+                if ( packet.Y != 0 )
                 {
-                    MouseState.Y.Relative = packet.Data.Y;
+                    MouseState.Y.Relative = packet.Y;
                     axesMoved = true;
                 }
 
-                if ( packet.Data.Z != 0 )
+                if ( packet.Z != 0 )
                 {
-                    MouseState.Z.Relative = packet.Data.Z;
+                    MouseState.Z.Relative = packet.Z;
                     axesMoved = true;
                 }
 
@@ -265,7 +265,7 @@ namespace SharpInputSystem
         {
             MouseState.Clear();
 
-            _mouse = new MDI.Device<MDI.MouseState>( _directInput, MDI.SystemGuid.Mouse );
+            _mouse = new MDI.Mouse( _directInput );
 
             _mouse.Properties.AxisMode = DeviceAxisMode.Relative;
 

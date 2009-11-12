@@ -46,7 +46,7 @@ namespace SharpInputSystem
 
         private MDI.CooperativeLevel _coopSettings;
         private MDI.DirectInput _directInput;
-        private MDI.Device<MDI.KeyboardState> _keyboard;
+        private MDI.Keyboard _keyboard;
         private KeyboardInfo _kbInfo;
 
         private int[] _keyboardState = new int[ 256 ];
@@ -134,7 +134,7 @@ namespace SharpInputSystem
         private void _readBuffered()
         {
             // grab the collection of buffered data
-            IEnumerable<MDI.BufferedData<MDI.KeyboardState>> bufferedData = _keyboard.GetBufferedData();
+            IEnumerable<MDI.KeyboardState> bufferedData = _keyboard.GetBufferedData();
             if (SlimDX.Result.Last.IsFailure)
                 return;
 
@@ -143,11 +143,11 @@ namespace SharpInputSystem
             {
                 return;
             }
-            foreach ( MDI.BufferedData<MDI.KeyboardState> packet in bufferedData )
+            foreach ( MDI.KeyboardState packet in bufferedData )
             {
                 bool ret = true;
 
-                foreach (MDI.Key key in packet.Data.PressedKeys)
+                foreach (MDI.Key key in packet.PressedKeys)
                 {
                     KeyCode keyCode = Convert(key);
 
@@ -155,11 +155,11 @@ namespace SharpInputSystem
                     _keyboardState[ (int)keyCode ] = 1;
 
 
-                    if ( packet.Data.IsPressed( MDI.Key.RightControl ) || packet.Data.IsPressed( MDI.Key.LeftControl ) )
+                    if ( packet.IsPressed( MDI.Key.RightControl ) || packet.IsPressed( MDI.Key.LeftControl ) )
                         shiftState |= ShiftState.Ctrl;
-                    if ( packet.Data.IsPressed( MDI.Key.RightAlt ) || packet.Data.IsPressed( MDI.Key.LeftAlt ) )
+                    if ( packet.IsPressed( MDI.Key.RightAlt ) || packet.IsPressed( MDI.Key.LeftAlt ) )
                         shiftState |= ShiftState.Alt;
-                    if ( packet.Data.IsPressed( MDI.Key.RightShift) || packet.Data.IsPressed( MDI.Key.LeftShift ) )
+                    if ( packet.IsPressed( MDI.Key.RightShift) || packet.IsPressed( MDI.Key.LeftShift ) )
                         shiftState |= ShiftState.Shift;
 
                     if ( this.EventListener != null )
@@ -167,18 +167,18 @@ namespace SharpInputSystem
                     if ( ret == false )
                         break;
                 }
-                foreach ( MDI.Key key in packet.Data.ReleasedKeys )
+                foreach ( MDI.Key key in packet.ReleasedKeys )
                 {
                     KeyCode keyCode = Convert( key );
 
                     //Store result in our keyBuffer too
                     _keyboardState[ (int)key ] = 1;
 
-                    if ( packet.Data.IsPressed( (MDI.Key)KeyCode.Key_RCONTROL ) || packet.Data.IsPressed( (MDI.Key)KeyCode.Key_LCONTROL ) )
+                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RCONTROL ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LCONTROL ) )
                         shiftState |= ShiftState.Ctrl;
-                    if ( packet.Data.IsPressed( (MDI.Key)KeyCode.Key_RMENU ) || packet.Data.IsPressed( (MDI.Key)KeyCode.Key_LMENU ) )
+                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RMENU ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LMENU ) )
                         shiftState |= ShiftState.Alt;
-                    if ( packet.Data.IsPressed( (MDI.Key)KeyCode.Key_RSHIFT ) || packet.Data.IsPressed( (MDI.Key)KeyCode.Key_LSHIFT ) )
+                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RSHIFT ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LSHIFT ) )
                         shiftState |= ShiftState.Shift;
 
                     if ( this.EventListener != null )
@@ -417,7 +417,7 @@ namespace SharpInputSystem
 
         internal override void initialize()
         {
-            _keyboard = new MDI.Device<MDI.KeyboardState>( _directInput, MDI.SystemGuid.Keyboard );
+            _keyboard = new MDI.Keyboard( _directInput );
 
             //_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
 

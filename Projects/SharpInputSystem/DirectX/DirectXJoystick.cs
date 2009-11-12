@@ -49,7 +49,7 @@ namespace SharpInputSystem
 
         private MDI.CooperativeLevel _coopSettings;
         private MDI.DirectInput _directInput;
-        private MDI.Device<MDI.JoystickState> _joystick;
+        private MDI.Joystick _joystick;
         private DirectXForceFeedback _forceFeedback;
         private JoystickInfo _joyInfo;
 
@@ -131,7 +131,7 @@ namespace SharpInputSystem
             //We can check force feedback here too
             MDI.Capabilities joystickCapabilities;
 
-            joystickCapabilities = _joystick.Caps;
+            joystickCapabilities = _joystick.Capabilities;
             this.AxisCount = (short)joystickCapabilities.AxesCount;
             this.ButtonCount = (short)joystickCapabilities.ButtonCount;
             this.HatCount = (short)joystickCapabilities.PovCount;
@@ -146,7 +146,7 @@ namespace SharpInputSystem
             }
 
             ////Enumerate and set axis constraints (and check FF Axes)
-            foreach ( MDI.DeviceObjectInstance doi in _joystick.GetDeviceObjects() )
+            foreach ( MDI.DeviceObjectInstance doi in _joystick.GetObjects() )
             {
                 if ( ( doi.ObjectType & MDI.ObjectDeviceType.Axis ) != 0 )
                 _axisMapping.Add( doi.Offset, _axisNumber++ );
@@ -168,7 +168,7 @@ namespace SharpInputSystem
 
         public override void Capture()
         {
-            IEnumerable<MDI.BufferedData<MDI.JoystickState>> bufferedData = null;
+            IEnumerable<MDI.JoystickState> bufferedData = null;
 
             if ( _joystick.Acquire().IsFailure )
                 return;
@@ -181,7 +181,7 @@ namespace SharpInputSystem
 						          false,false,false,false,false,false,false,false};
             bool[] sliderMoved = { false, false, false, false };
 
-            foreach ( MDI.BufferedData<MDI.JoystickState> data in bufferedData )
+            foreach ( MDI.JoystickState data in bufferedData )
             {
                 int axis = 0;
             }
@@ -210,7 +210,7 @@ namespace SharpInputSystem
         {
             JoystickState.Axis.Clear();
 
-            _joystick = new MDI.Device<MDI.JoystickState>(_directInput, _deviceGuid );
+            _joystick = new MDI.Joystick( _directInput, _deviceGuid );
 
             //_joystick.SetDataFormat( MDI.DeviceDataFormat.Joystick );
 
