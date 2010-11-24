@@ -29,9 +29,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 using System;
 using System.Collections.Generic;
 using System.Text;
+using SharpInputSystem.Proxies.Xna;
 
-using Xna = Microsoft.Xna.Framework;
-using XInput = Microsoft.Xna.Framework.Input;
 using log4net;
 
 #endregion Namespace Declarations
@@ -48,6 +47,7 @@ namespace SharpInputSystem
 
         // Variables for XnaKeyboard
         private MouseInfo _mInfo;
+        private MouseStateProxy previousState;
 
         #endregion Fields and Properties
 
@@ -67,8 +67,8 @@ namespace SharpInputSystem
                 throw new Exception( "No devices match requested type." );
             }
 
-            log.Debug( "XnaKeyboard device created." );
-
+            log.Debug( "XnaMouse device created." );
+            previousState = MouseProxy.GetState();
         }
 
         protected override void _dispose( bool disposeManagedResources )
@@ -97,18 +97,105 @@ namespace SharpInputSystem
 
         #endregion Construction and Destruction
 
-        #region InputObject Implementation
+        #region Methods
+
+        private bool _doMouseClick( int mouseButton, bool pressed )
+        {
+            if ( pressed && (MouseState.Buttons & (1 << mouseButton)) == 0)
+            {
+                MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
+                if (EventListener != null && IsBuffered)
+                    return EventListener.MousePressed(new MouseEventArgs(this, MouseState), (MouseButtonID)mouseButton);
+            }
+            else if (!pressed && (MouseState.Buttons & (1 << mouseButton)) != 0)
+            {
+                MouseState.Buttons &= ~(1 << mouseButton); //turn the bit flag off
+                if (EventListener != null && IsBuffered)
+                    return EventListener.MouseReleased(new MouseEventArgs(this, MouseState), (MouseButtonID)mouseButton);
+            }
+
+            return true;
+        }
+
+        #endregion Methods
+
+        #region Mouse Implementation
 
         public override void Capture()
         {
-            throw new NotImplementedException();
+            // Clear Relative movement
+            MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
+
+            MouseStateProxy xnaMouseState = MouseProxy.GetState();
+            bool axesMoved = false;
+
+            //Accumulate all axis movements for one axesMove message..
+            //Buttons are fired off as they are found
+            _doMouseClick( 0, xnaMouseState.LeftButton == MouseStateProxy.ButtonState.Pressed );
+            _doMouseClick( 1, xnaMouseState.MiddleButton == MouseStateProxy.ButtonState.Pressed );
+            _doMouseClick( 2, xnaMouseState.RightButton == MouseStateProxy.ButtonState.Pressed );
+            _doMouseClick( 3, xnaMouseState.XButton1 == MouseStateProxy.ButtonState.Pressed );
+            _doMouseClick( 4, xnaMouseState.XButton2 == MouseStateProxy.ButtonState.Pressed );
+
+            //for (int i = 0; i < bufferedData.GetButtons().Length; i++)
+            //{
+            //    if (!_doMouseClick(i, packet))
+            //        return;
+            //}
+
+            if (xnaMouseState.X != previousState.X)
+            {
+                if ( log.IsDebugEnabled )
+                    log.DebugFormat( "cX({0}):pX({1})", xnaMouseState.X, previousState.X);
+                MouseState.X.Absolute = xnaMouseState.X;
+                axesMoved = true;
+            }
+
+            if (xnaMouseState.Y != previousState.Y)
+            {
+                if (log.IsDebugEnabled)
+                    log.DebugFormat("cY({0}):pY({1})", xnaMouseState.Y, previousState.Y);
+                MouseState.Y.Absolute = xnaMouseState.Y;
+                axesMoved = true;
+            }
+
+            if (xnaMouseState.ScrollWheelValue != previousState.ScrollWheelValue)
+            {
+                if (log.IsDebugEnabled)
+                    log.DebugFormat("cZ({0}):pZ({1})", xnaMouseState.ScrollWheelValue, previousState.ScrollWheelValue);
+                MouseState.Z.Absolute = xnaMouseState.ScrollWheelValue;
+                axesMoved = true;
+            }
+
+
+            if (axesMoved)
+            {
+                MouseState.X.Relative = previousState.X - xnaMouseState.X;
+                MouseState.Y.Relative = previousState.Y - xnaMouseState.Y;
+                MouseState.Z.Relative = previousState.ScrollWheelValue - xnaMouseState.ScrollWheelValue;
+                
+                //Clip values to window
+                if (MouseState.X.Absolute < 0)
+                    MouseState.X.Absolute = 0;
+                else if (MouseState.X.Absolute > MouseState.Width)
+                    MouseState.X.Absolute = MouseState.Width;
+                if (MouseState.Y.Absolute < 0)
+                    MouseState.Y.Absolute = 0;
+                else if (MouseState.Y.Absolute > MouseState.Height)
+                    MouseState.Y.Absolute = MouseState.Height;
+
+                //Do the move
+                if (EventListener != null && IsBuffered)
+                    EventListener.MouseMoved(new MouseEventArgs(this, MouseState));
+            }
+            previousState = xnaMouseState;
         }
 
         internal override void initialize()
         {
-            throw new NotImplementedException();
+            MouseState.Clear();
         }
 
-        #endregion InputObject Implementation
+        #endregion Mouse Implementation
     }
 }

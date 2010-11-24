@@ -8,7 +8,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpInputSystem</RootNamespace>
     <AssemblyName>SharpInputSystem</AssemblyName>
-    <XnaFrameworkVersion>v3.0</XnaFrameworkVersion>
+    <XnaFrameworkVersion>v3.1</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
     <XnaCrossPlatformGroupID>8ab76826-bfda-4cc8-9533-e1a19168045d</XnaCrossPlatformGroupID>
     <FileUpgradeFlags>
@@ -19,6 +19,7 @@
     <XnaUpgrade>
     </XnaUpgrade>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -31,7 +32,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -64,8 +64,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Dependencies\log4net\1.2.10\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Xna.Framework, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=x86" />
-    <Reference Include="Microsoft.Xna.Framework.Game, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d5c3888ef60e27d, processorArchitecture=MSIL" />
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
@@ -97,6 +95,10 @@
     <Compile Include="MouseInfo.cs" />
     <Compile Include="Properties\CommonAssemblyInfo.cs" />
     <Compile Include="Properties\XnaAssemblyInfo.cs" />
+    <Compile Include="Xna\Proxies\KeyboardStateProxy.cs" />
+    <Compile Include="Xna\Proxies\KeyboardProxy.cs" />
+    <Compile Include="Xna\Proxies\MouseProxy.cs" />
+    <Compile Include="Xna\Proxies\MouseStateProxy.cs" />
     <Compile Include="Xna\XnaJoystick.cs" />
     <Compile Include="Xna\XnaInputManager.cs" />
     <Compile Include="Xna\XnaKeyboard.cs" />
@@ -133,9 +135,9 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.0">
+    <BootstrapperPackage Include="Microsoft.Xna.Framework.3.1">
       <Visible>False</Visible>
-      <ProductName>Microsoft XNA Framework Redistributable 3.0</ProductName>
+      <ProductName>Microsoft XNA Framework Redistributable 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>

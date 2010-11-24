@@ -1,13 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Xna = Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using XFG = Microsoft.Xna.Framework.Graphics;
 using XInput = Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Net;
-using Microsoft.Xna.Framework.Storage;
 
 using log4net;
 
@@ -57,9 +52,15 @@ namespace SharpInputSystem.Test.Console
         {
             // TODO: Add your initialization logic here
 
-            // Create the Camera
-            Camera main = new Camera( this );
-            this.Components.Add( main );
+            // Create the services
+            InputManager inputManager = new InputManager(this);
+            this.Services.AddService(typeof(IInputManagerService), inputManager);
+            this.Components.Add(inputManager);
+
+            CameraManager cameraManagerService = new CameraManager(this);
+            this.Services.AddService(typeof(ICameraManagerService), cameraManagerService);
+            this.Components.Add(cameraManagerService);
+
 
             // Initialize the Movement System
             //MovementManager movement = new MovementManager( this, main );
@@ -112,6 +113,8 @@ namespace SharpInputSystem.Test.Console
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw( Xna.GameTime gameTime )
         {
+            ICameraManagerService cameraManagerService = (ICameraManagerService)this.Services.GetService(typeof(ICameraManagerService));
+
             graphics.GraphicsDevice.Clear( XFG.Color.CornflowerBlue );
 
             // Copy any parent transforms.
@@ -124,10 +127,10 @@ namespace SharpInputSystem.Test.Console
                 // This is where the mesh orientation is set, as well as our camera and projection.
                 foreach ( XFG.BasicEffect effect in mesh.Effects )
                 {
-                    effect.EnableDefaultLighting();
-                    effect.World = transforms[ mesh.ParentBone.Index ] * Xna.Matrix.CreateRotationY( modelRotation ) * Xna.Matrix.CreateTranslation( modelPosition );
-                    effect.View = Camera.ActiveCamera.View;
-                    effect.Projection = Camera.ActiveCamera.Projection;
+                        effect.World = Xna.Matrix.CreateRotationY(this.modelRotation) * Xna.Matrix.CreateTranslation(this.modelPosition);
+                        effect.View = cameraManagerService.Camera.View;
+                        effect.Projection = cameraManagerService.Camera.Projection;
+                        effect.EnableDefaultLighting();
                 }
                 // Draw the mesh, using the effects set above.
                 mesh.Draw();

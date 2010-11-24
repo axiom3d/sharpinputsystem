@@ -127,7 +127,7 @@ namespace SharpInputSystem
             }
             else
             {
-                throw new Exception( "SharpInputSystem.DirectXInputManger requires either a reference to either a Control." );
+                throw new Exception( "SharpInputSystem.DirectXInputManger requires either a reference to a Control or a Handle to a window." );
             }
 
             _settings.Add( typeof( Mouse ).Name, 0 );

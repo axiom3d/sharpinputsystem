@@ -36,27 +36,27 @@ using log4net;
 
 namespace SharpInputSystem
 {
-    public class Pair<K, T>
-    {
-        public K first;
-        public T second;
-    }
+	public class Pair<K, T>
+	{
+		public K first;
+		public T second;
+	}
 
-    public class Parameter : Pair<string, object>
-    {
-        public Parameter( string key, object value)
-        {
-            first = key;
-            second = value;
-        }
-    }
+	public class Parameter : Pair<string, object>
+	{
+		public Parameter( string key, object value)
+		{
+			first = key;
+			second = value;
+		}
+	}
 
-    public class ParameterList : System.Collections.Generic.List<Parameter>
-    {
-    }
+	public class ParameterList : System.Collections.Generic.List<Parameter>
+	{
+	}
 
-    abstract public class InputManager
-    {
+	abstract public class InputManager
+	{
 		private static readonly ILog log = LogManager.GetLogger( typeof( InputManager ) );
 
 		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
@@ -70,81 +70,81 @@ namespace SharpInputSystem
 			log.Info( "Static initialization complete." );
 		}
 
-        /// <summary>
-        /// Creates appropriate input system dependent on platform.
-        /// </summary>
-        /// <param name="windowHandle">Contains OS specific window handle (such as HWND or X11 Window)</param>
-        /// <returns>A reference to the created manager, or raises an Exception</returns>
-        /// <exception cref="Exception">Exception</exception>
-        /// <exception cref="ArgumentException">ArgumentException</exception>
-        static public InputManager CreateInputSystem( object windowHandle )
-        {
-            ParameterList args = new ParameterList();
-            args.Add( new Parameter( "WINDOW", windowHandle ) );
-            return CreateInputSystem( args );
-        }
+		/// <summary>
+		/// Creates appropriate input system dependent on platform.
+		/// </summary>
+		/// <param name="windowHandle">Contains OS specific window handle (such as HWND or X11 Window)</param>
+		/// <returns>A reference to the created manager, or raises an Exception</returns>
+		/// <exception cref="Exception">Exception</exception>
+		/// <exception cref="ArgumentException">ArgumentException</exception>
+		static public InputManager CreateInputSystem( object windowHandle )
+		{
+			ParameterList args = new ParameterList();
+			args.Add( new Parameter( "WINDOW", windowHandle ) );
+			return CreateInputSystem( args );
+		}
 
-        /// <summary>
-        /// Creates appropriate input system dependent on platform. 
-        /// </summary>
-        /// <param name="args">contains OS specific info (such as HWND and HINSTANCE for window apps), and access mode.</param>
-        /// <returns>A reference to the created manager, or raises an Exception</returns>
-        /// <exception cref="Exception">Exception</exception>
-        /// <exception cref="ArgumentException">ArgumentException</exception>
-        static public InputManager CreateInputSystem( ParameterList args )
-        {
-            InputManager im;
+		/// <summary>
+		/// Creates appropriate input system dependent on platform. 
+		/// </summary>
+		/// <param name="args">contains OS specific info (such as HWND and HINSTANCE for window apps), and access mode.</param>
+		/// <returns>A reference to the created manager, or raises an Exception</returns>
+		/// <exception cref="Exception">Exception</exception>
+		/// <exception cref="ArgumentException">ArgumentException</exception>
+		static public InputManager CreateInputSystem( ParameterList args )
+		{
+			InputManager im;
 
-            // Since this is a required paramter for all InputManagers, check it here instead of having each 
-            if ( !args.Exists( delegate( Parameter p ) { return p.first.ToUpper() == "WINDOW"; } ) )
-            {
+			// Since this is a required paramter for all InputManagers, check it here instead of having each 
+			if ( !args.Exists( delegate( Parameter p ) { return p.first.ToUpper() == "WINDOW"; } ) )
+			{
 				ArgumentException ae = new ArgumentException( "Cannot initialize InputManager instance, no 'WINDOW' parameter present." );
 				log.Error( "", ae);
 				throw ae;
-            }
+			}
 
 			log.Info( "Creating platform specific InputManager." );
 
 #if SIS_DX_PLATFORM 
-            im = new DirectXInputManager();
+			im = new DirectXInputManager();
 #elif SIS_SDL_PLATFORM
-            im = new SdlInputManager();
+			im = new SdlInputManager();
 #elif SIS_XNA_PLATFORM
-            im = new XnaInputManager();
+			im = new XnaInputManager();
 #else
 			Exception ex = new Exception( "No platform library .. check build platform defines." );
 			log.Error( "", ex );
-            throw ex;
+			throw ex;
 #endif
 			im._initialize( args );
-            return im;
-        }
+			return im;
+		}
 
-        /// <summary>
-        /// Gets version of the Assembly
-        /// </summary>
-        virtual public string Version
-        {
-            get
-            {
+		/// <summary>
+		/// Gets version of the Assembly
+		/// </summary>
+		virtual public string Version
+		{
+			get
+			{
 #if !XBOX360
-                return ((AssemblyFileVersionAttribute)(Assembly.GetExecutingAssembly().GetCustomAttributes( typeof(AssemblyFileVersionAttribute), false )[ 0 ])).Version;
+				return ((AssemblyFileVersionAttribute)(Assembly.GetExecutingAssembly().GetCustomAttributes( typeof(AssemblyFileVersionAttribute), false )[ 0 ])).Version;
 #else
-                return "0.3.0.0";
+				return "0.3.0.0";
 #endif
-            }
-        }
+			}
+		}
 
-        /// <summary>
-        /// Gets the name of the current input system.. eg. "DirectX", "Sdl", "Xna", etc
-        /// </summary>
-        virtual public string InputSystemName
-        {
-            get
-            {
-                return ( (AssemblyConfigurationAttribute)( Assembly.GetExecutingAssembly().GetCustomAttributes( typeof( AssemblyConfigurationAttribute ), false )[ 0 ] ) ).Configuration;
-            }
-        }
+		/// <summary>
+		/// Gets the name of the current input system.. eg. "DirectX", "Sdl", "Xna", etc
+		/// </summary>
+		virtual public string InputSystemName
+		{
+			get
+			{
+				return ( (AssemblyConfigurationAttribute)( Assembly.GetExecutingAssembly().GetCustomAttributes( typeof( AssemblyConfigurationAttribute ), false )[ 0 ] ) ).Configuration;
+			}
+		}
 
 		/// <summary>
 		/// Returns the number of the specified devices discovered by OIS
@@ -179,13 +179,13 @@ namespace SharpInputSystem
 		}
 
 
-        /// <summary>
-        /// Returns the type of input requested or raises Exception
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="buffermode"></param>
-        /// <returns></returns>
-        /// <exception cref="Exception"></exception>
+		/// <summary>
+		/// Returns the type of input requested or raises Exception
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="buffermode"></param>
+		/// <returns></returns>
+		/// <exception cref="Exception"></exception>
 		public T CreateInputObject<T>( bool bufferMode, string vendor ) where T : InputObject
 		{
 			InputObject obj = null;
@@ -197,11 +197,11 @@ namespace SharpInputSystem
 					if ( vendor == null || vendor == String.Empty || factory.VendorExists<T>( vendor ) )
 					{
 						obj = factory.CreateInputObject<T>( this, bufferMode, vendor );
-                        if ( obj != null )
-                        {
-                            _createdInputObjects.Add( obj, factory );
-                            break;
-                        }
+						if ( obj != null )
+						{
+							_createdInputObjects.Add( obj, factory );
+							break;
+						}
 					}
 				}
 			}
@@ -223,10 +223,10 @@ namespace SharpInputSystem
 			return (T)obj;
 		}
 
-        /// <summary>
-        /// Destroys Input Object
-        /// </summary>
-        /// <param name="inputObject"></param>
+		/// <summary>
+		/// Destroys Input Object
+		/// </summary>
+		/// <param name="inputObject"></param>
 		virtual public void DestroyInputObject( InputObject inputObject )
 		{
 			if ( inputObject != null )
@@ -239,15 +239,15 @@ namespace SharpInputSystem
 			}
 		}
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="args"></param>
-        abstract protected void _initialize( ParameterList args );
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="args"></param>
+		abstract protected void _initialize( ParameterList args );
 
-        protected InputManager()
-        {
-        }
+		protected InputManager()
+		{
+		}
 
 		public void RegisterFactory( InputObjectFactory factory)
 		{
@@ -258,5 +258,5 @@ namespace SharpInputSystem
 		{
 			_factories.Remove( factory );
 		}
-    }
+	}
 }

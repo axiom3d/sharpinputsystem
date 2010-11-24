@@ -204,7 +204,7 @@ namespace SharpInputSystem
         /// <returns></returns>
         public bool IsButtonDown( MouseButtonID button )
         {
-            return ( _buttons & (int)button  ) == 0 ? false : true;
+            return ( _buttons & ( 1 << (int)button ) ) == 0 ? false : true;
         }
 
         /// <summary>

@@ -30,10 +30,6 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using Xna = Microsoft.Xna.Framework;
-using XInput = Microsoft.Xna.Framework.Input;
-
-
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
@@ -107,19 +103,19 @@ namespace SharpInputSystem
             mouseInfo.Id = 0;
             _unusedDevices.Add( mouseInfo );
 #endif
-            int maxPlayers = (int)Xna.PlayerIndex.Four;
+            int maxPlayers = /* (int)Xna.PlayerIndex.Four */ 4;
             for ( int player = 0; player < maxPlayers; player++ )
             {
-                XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities( (Xna.PlayerIndex)player );
-                if ( gpCaps.IsConnected )
-                {
-                    JoystickInfo joystickInfo = new JoystickInfo();
-                    joystickInfo.DeviceId = new Guid();
-                    joystickInfo.Vendor = this.InputSystemName;
-                    joystickInfo.Id = _gamePadCount++;
+                //XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities( (Xna.PlayerIndex)player );
+                //if ( gpCaps.IsConnected )
+                //{
+                //    JoystickInfo joystickInfo = new JoystickInfo();
+                //    joystickInfo.DeviceId = new Guid();
+                //    joystickInfo.Vendor = this.InputSystemName;
+                //    joystickInfo.Id = _gamePadCount++;
 
-                    this._unusedDevices.Add( joystickInfo );
-                }
+                //    this._unusedDevices.Add( joystickInfo );
+                //}
             }
         }
 
@@ -218,10 +214,17 @@ namespace SharpInputSystem
 
         int InputObjectFactory.DeviceCount<T>()
         {
+#if !(XBOX || XBOX360)
             if ( typeof( T ) == typeof( Keyboard ) )
                 return 1;
             if ( typeof( T ) == typeof( Mouse ) )
                 return 1;
+#else
+            if ( typeof( T ) == typeof( Keyboard ) )
+                return 0;
+            if ( typeof( T ) == typeof( Mouse ) )
+                return 0;
+#endif
             if ( typeof( T ) == typeof( Joystick ) )
                 return _gamePadCount;
             return 0;
