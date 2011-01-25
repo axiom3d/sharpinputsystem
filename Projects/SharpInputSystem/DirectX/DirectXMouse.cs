@@ -286,7 +286,7 @@ namespace SharpInputSystem
             }
             catch ( Exception e )
             {
-                throw new Exception( "Failed to aquire mouse using DirectInput.", e );
+                throw new Exception( "Failed to acquire mouse using DirectInput.", e );
             }
         }
 

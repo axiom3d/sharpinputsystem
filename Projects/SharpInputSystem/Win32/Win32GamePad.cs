@@ -1,7 +1,7 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 /*
 Sharp Input System Library
-Copyright � 2007-2011 Michael Cummings
+Copyright © 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -33,51 +33,17 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-
-	public class MouseInfo : DeviceInfo
+	public class Win32GamePad : Gamepad
 	{
-		private int _id;
-		public int Id
+		public override bool Initialize()
 		{
-			get
-			{
-				return _id;
-			}
-			set
-			{
-				_id = value;
-			}
-		}
-
-		private Guid _deviceID;
-		public Guid DeviceId
-		{
-			get
-			{
-				return _deviceID;
-			}
-			set
-			{
-				_deviceID = value;
-			}
-		}
-
-		private string _vendor;
-		public string Vendor
-		{
-			get
-			{
-				return _vendor;
-			}
-			set
-			{
-				_vendor = value;
-			}
+			return true;
 		}
 	}
 }

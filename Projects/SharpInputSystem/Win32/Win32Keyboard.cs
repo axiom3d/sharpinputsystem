@@ -1,7 +1,7 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 /*
 Sharp Input System Library
-Copyright � 2007-2011 Michael Cummings
+Copyright © 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -33,51 +33,59 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-
-	public class MouseInfo : DeviceInfo
+	public class Win32Keyboard : Keyboard
 	{
-		private int _id;
-		public int Id
+		[DllImport( "user32.dll" )]
+		private static extern short GetAsyncKeyState( Keys vKey );
+		[DllImport( "User32.dll" )]
+		private static extern short GetAsyncKeyState( Int32 vKey );
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public override bool Initialize()
 		{
-			get
+			return true;
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public override bool IsKeyDown( Keys key )
+		{
+			throw new NotImplementedException();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="key"></param>
+		/// <returns></returns>
+		public override bool IsKeyPressed( Keys key )
+		{
+			int i = (int)key;
+			int x = GetAsyncKeyState( i );
+			if ( ( x == 1 ) || ( x == -32767 ) )
 			{
-				return _id;
+				return true;
 			}
-			set
-			{
-				_id = value;
-			}
+			return false;
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="timeSinceLastFrame"></param>
+		public override void Update( float timeSinceLastFrame )
+		{
 		}
 
-		private Guid _deviceID;
-		public Guid DeviceId
-		{
-			get
-			{
-				return _deviceID;
-			}
-			set
-			{
-				_deviceID = value;
-			}
-		}
 
-		private string _vendor;
-		public string Vendor
-		{
-			get
-			{
-				return _vendor;
-			}
-			set
-			{
-				_vendor = value;
-			}
-		}
 	}
 }

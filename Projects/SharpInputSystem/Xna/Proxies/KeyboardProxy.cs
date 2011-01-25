@@ -1,7 +1,7 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 /*
 Sharp Input System Library
-Copyright � 2007-2011 Michael Cummings
+Copyright © 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -33,51 +33,58 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
+using System.Text;
+
+using log4net;
+using System.Reflection;
+using System.Security.Policy;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Proxies.Xna
 {
-
-	public class MouseInfo : DeviceInfo
+	/// <summary>
+	/// Proxy Class to the <see>Microsoft.Xna.Framework.Input.Keyboard</see> Class
+	/// </summary>
+	class KeyboardProxy
 	{
-		private int _id;
-		public int Id
+		#region Fields and Properties
+
+		private const string XnaAssembly = "Microsoft.Xna.Framework, Version=3.1.0.0, Culture=Neutral, PublicKeyToken=6d5c3888ef60e27d";
+		private const string XnaType = "Microsoft.Xna.Framework.Input.Keyboard";
+
+		private static Assembly xfg;
+		private static Type xnaKeyboard;
+		private static MethodInfo getStateMethod;
+
+		private static readonly ILog log = LogManager.GetLogger( typeof( KeyboardProxy ) );
+
+		#endregion Fields and Properties
+
+		#region Construction and Destruction
+
+		static KeyboardProxy()
 		{
-			get
-			{
-				return _id;
-			}
-			set
-			{
-				_id = value;
-			}
+			// Initialize refelection proxies.
+			xfg = Assembly.Load( XnaAssembly );
+			xnaKeyboard = xfg.GetType( XnaType );
+			getStateMethod = xnaKeyboard.GetMethod( "GetState", BindingFlags.Public | BindingFlags.Static, null, new Type[] { }, new ParameterModifier[] { } );
 		}
 
-		private Guid _deviceID;
-		public Guid DeviceId
+		#endregion Construction and Destruction
+
+		#region Microsoft.Xna.Framework.Input.MouseState Proxies
+
+		static public KeyboardStateProxy GetState()
 		{
-			get
+			if ( getStateMethod != null )
 			{
-				return _deviceID;
+				object state = getStateMethod.Invoke( null, null );
+				return new KeyboardStateProxy( state );
 			}
-			set
-			{
-				_deviceID = value;
-			}
+			return new KeyboardStateProxy();
 		}
 
-		private string _vendor;
-		public string Vendor
-		{
-			get
-			{
-				return _vendor;
-			}
-			set
-			{
-				_vendor = value;
-			}
-		}
+		#endregion Microsoft.Xna.Framework.Input.MouseState Proxies
 	}
 }
