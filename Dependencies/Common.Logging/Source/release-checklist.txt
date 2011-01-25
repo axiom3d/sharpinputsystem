@@ -1,0 +1,23 @@
+
+*)
+Update release date in readme.txt, changelog.txt and doc/reference/src/index.xml
+
+*)
+Reference Doc Release Version + Date
+
+*)
+run "nant" from package root
+
+*)
+ensure non-redistributables are excluded:
+
+all Microsoft.* assemblies
+
+*)
+Common.Logging.2008.sln opens and compiles w/o errors (readd non-redistributables first!)
+
+*)
+File Versions of Common.Logging.* binaries match Release Version
+
+*)
+Release Versions are all signed
