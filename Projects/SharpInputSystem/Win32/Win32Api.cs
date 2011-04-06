@@ -38,32 +38,45 @@ using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
-
 namespace SharpInputSystem
 {
-	public class Win32Mouse : Mouse
+	class Win32Api
 	{
-		IntPtr _hwnd;
-
-		public Win32Mouse( InputManager creator, IntPtr windowHandle )
-			: base()
+		[StructLayout( LayoutKind.Sequential )]
+		private struct Point
 		{
-			Creator = creator;
-			_hwnd = windowHandle;
+			public int X;
+			public int Y;
+
+			public Point( int x, int y )
+			{
+				this.X = x;
+				this.Y = y;
+			}
 		}
 
-		#region Mouse Implementation
-
-		public override void Capture()
+		private enum VirtualKeyStates : int
 		{
-			throw new NotImplementedException();
+			LeftButton = 0x01,
+			RightButton = 0x02,
+			MiddleButton = 0x04,
+			//
+			XButton1 = 0x05,
+			XButton2 = 0x06,
 		}
 
-		internal override void initialize()
-		{
-			throw new NotImplementedException();
-		}
+		[DllImport( "user32.dll" )]
+		[return: MarshalAs( UnmanagedType.Bool )]
+		static extern bool GetCursorPos( out Point lpPoint );
 
-		#endregion Mouse Implementation
+		[DllImport( "user32.dll" )]
+		private static extern bool ScreenToClient( IntPtr hWnd, ref Point lpPoint );
+
+		[DllImport( "user32.dll" )]
+		static extern short GetKeyState( VirtualKeyStates nVirtKey );
+
+		[DllImport( "user32.dll" )]
+		static extern short GetKeyState( int key );
+
 	}
 }

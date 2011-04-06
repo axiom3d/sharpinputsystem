@@ -190,7 +190,7 @@ namespace SharpInputSystem
 	}
 
 	/// <summary>
-	/// Specialised for key events
+	/// Specialized for key events
 	/// </summary>
 	public class KeyEventArgs : InputObjectEventArgs
 	{
@@ -229,7 +229,7 @@ namespace SharpInputSystem
 	}
 
 	/// <summary>
-	/// To recieve buffered keyboard input, implement this interfacein a class. 
+	/// To receive buffered keyboard input, implement this interface in a class. 
 	/// Then set the call back to your Keyboard instance with Keyboard.SetEventCallback
 	/// </summary>
 	public interface IKeyboardListener
@@ -239,7 +239,7 @@ namespace SharpInputSystem
 	}
 
 	/// <summary>
-	/// Keyboard base class. To be implemented by specific system (ie. DirectX Keyboard)
+	/// Keyboard base class. To be implemented by specific system (i.e. DirectX Keyboard)
 	///	This class is useful as you remain OS independent using this common interface.
 	/// </summary>
 	public abstract class Keyboard : InputObject

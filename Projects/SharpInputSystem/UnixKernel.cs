@@ -44,6 +44,8 @@ namespace SharpInputSystem
 {
 	class UnixKernel
 	{
+		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Environment ) );
+
 		private static utsname _uts = new utsname();
 
 		public string SysName
@@ -96,7 +98,14 @@ namespace SharpInputSystem
 		/// <returns></returns>
 		public UnixKernel()
 		{
-			uname( out _uts);
+			try
+			{
+				uname( out _uts );
+			}
+			catch ( Exception ex )
+			{
+				//log.Error( m => m( "Failed to call uname()." ), ex );
+			}
 		}
 
 		[DllImport( "libc" )]

@@ -35,9 +35,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using log4net;
+//using Common.Logging;
 using System.Reflection;
-using System.Security.Policy;
 
 #endregion Namespace Declarations
 
@@ -56,7 +55,8 @@ namespace SharpInputSystem.Proxies.Xna
 
 		#region Fields and Properties
 
-		private const string XnaAssembly = "Microsoft.Xna.Framework, Version=3.1.0.0, Culture=Neutral, PublicKeyToken=6d5c3888ef60e27d";
+		private const string XnaAssembly = "Microsoft.Xna.Framework, Version=4.0.0.0, Culture=Neutral, PublicKeyToken=6d5c3888ef60e27d";
+		private const string XnaAssemblyPath = @"\Microsoft XNA\XNA Game Studio\v4.0\References\Windows\x86\Microsoft.Xna.Framework.dll";
 		private const string XnaType = "Microsoft.Xna.Framework.Input.KeyboardState";
 
 		private static Assembly xfg;
@@ -65,7 +65,7 @@ namespace SharpInputSystem.Proxies.Xna
 		private static MethodInfo _isKeyDown;
 		private object instance;
 
-		private static readonly ILog log = LogManager.GetLogger( typeof( MouseStateProxy ) );
+		//private static readonly ILog log = LogManager.GetLogger( typeof( MouseStateProxy ) );
 
 		#endregion Fields and Properties
 
@@ -74,7 +74,8 @@ namespace SharpInputSystem.Proxies.Xna
 		static KeyboardStateProxy()
 		{
 			// Initialize refelection proxies.
-			xfg = Assembly.Load( XnaAssembly );
+			var programFilesPath = System.Environment.GetFolderPath( System.Environment.SpecialFolder.ProgramFilesX86 );
+			xfg = System.Reflection.Assembly.Load( System.IO.File.ReadAllBytes( programFilesPath + XnaAssemblyPath ) );
 			xnaKeyboardState = xfg.GetType( XnaType );
 
 			_getPressedKeys = xnaKeyboardState.GetMethod( "GetPressedKeys" );

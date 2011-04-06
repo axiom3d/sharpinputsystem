@@ -42,50 +42,37 @@ namespace SharpInputSystem
 {
 	public class Win32Keyboard : Keyboard
 	{
-		[DllImport( "user32.dll" )]
-		private static extern short GetAsyncKeyState( Keys vKey );
-		[DllImport( "User32.dll" )]
-		private static extern short GetAsyncKeyState( Int32 vKey );
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <returns></returns>
-		public override bool Initialize()
+
+		#region Keyboard Implementation
+
+		public override int[] KeyStates
 		{
-			return true;
+			get
+			{
+				throw new NotImplementedException();
+			}
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public override bool IsKeyDown( Keys key )
+
+		public override bool IsKeyDown( KeyCode key )
 		{
 			throw new NotImplementedException();
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="key"></param>
-		/// <returns></returns>
-		public override bool IsKeyPressed( Keys key )
+
+		public override string AsString( KeyCode key )
 		{
-			int i = (int)key;
-			int x = GetAsyncKeyState( i );
-			if ( ( x == 1 ) || ( x == -32767 ) )
-			{
-				return true;
-			}
-			return false;
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="timeSinceLastFrame"></param>
-		public override void Update( float timeSinceLastFrame )
-		{
+			throw new NotImplementedException();
 		}
 
+		public override void Capture()
+		{
+			throw new NotImplementedException();
+		}
 
+		internal override void initialize()
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion Keyboard Implementation
 	}
 }

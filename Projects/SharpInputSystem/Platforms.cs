@@ -39,10 +39,11 @@ using System.Collections.Generic;
 
 namespace SharpInputSystem
 {
-	public enum Platforms
+	public enum PlatformApi
 	{
 		Win32,
+		DirectX,
 		X11,
-		XNA,
+		Xna,
 	}
 }

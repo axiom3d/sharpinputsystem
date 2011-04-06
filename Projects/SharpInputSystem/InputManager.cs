@@ -34,8 +34,7 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 using System;
 using System.Reflection;
 using System.Collections.Generic;
-
-using log4net;
+using System.Linq;
 
 #endregion Namespace Declarations
 
@@ -62,7 +61,7 @@ namespace SharpInputSystem
 
 	abstract public class InputManager
 	{
-		private static readonly ILog log = LogManager.GetLogger( typeof( InputManager ) );
+		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
 
 		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
 		private Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>();
@@ -72,7 +71,7 @@ namespace SharpInputSystem
 		/// </summary>
 		static InputManager()
 		{
-			log.Info( "Static initialization complete." );
+			//log.Info( "Static initialization complete." );
 		}
 
 		/// <summary>
@@ -96,36 +95,48 @@ namespace SharpInputSystem
 		/// <returns>A reference to the created manager, or raises an Exception</returns>
 		/// <exception cref="Exception">Exception</exception>
 		/// <exception cref="ArgumentException">ArgumentException</exception>
-		static public InputManager CreateInputSystem( ParameterList args )
+		static public InputManager CreateInputSystem( PlatformApi api, ParameterList args )
 		{
 			InputManager im;
 
-			// Since this is a required paramter for all InputManagers, check it here instead of having each 
-			if ( !args.Exists( delegate( Parameter p )
+			// Since this is a required parameter for all InputManagers, check it here instead of having each 
+			if ( !args.Any( delegate( Parameter p )
 			{
-				return p.first.ToUpper() == "WINDOW";
+				return p.first.ToUpperInvariant() == "WINDOW";
 			} ) )
 			{
 				ArgumentException ae = new ArgumentException( "Cannot initialize InputManager instance, no 'WINDOW' parameter present." );
-				log.Error( "", ae );
+				//log.Error( "", ae );
 				throw ae;
 			}
 
-			log.Info( "Detecting native platform." );
+			im = PlatformFactory.Create( api );
 
-#if SIS_DX_PLATFORM
-			im = new DirectXInputManager();
-#elif SIS_SDL_PLATFORM
-			im = new SdlInputManager();
-#elif SIS_XNA_PLATFORM
-			im = new XnaInputManager();
-#else
-			Exception ex = new Exception( "No platform library .. check build platform defines." );
-			log.Error( "", ex );
-			throw ex;
-#endif
 			im._initialize( args );
 			return im;
+
+		}
+
+		/// <summary>
+		/// Creates appropriate input system dependent on platform. 
+		/// </summary>
+		/// <param name="args">contains OS specific info (such as HWND and HINSTANCE for window apps), and access mode.</param>
+		/// <returns>A reference to the created manager, or raises an Exception</returns>
+		/// <exception cref="Exception">Exception</exception>
+		/// <exception cref="ArgumentException">ArgumentException</exception>
+		static public InputManager CreateInputSystem( ParameterList args )
+		{
+			//log.Info( "Detecting native platform." );
+
+			PlatformApi api = PlatformApi.Win32;
+
+            //if ( Environment.RunningOnWindows )
+            //    api = PlatformApi.Win32;
+
+            //if ( Environment.RunningOnLinux || Environment.RunningOnUnix || Environment.RunningOnMacOS )
+            //    api = PlatformApi.X11;
+
+			return CreateInputSystem( api, args );
 		}
 
 		/// <summary>

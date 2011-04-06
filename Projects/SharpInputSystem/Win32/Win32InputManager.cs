@@ -33,72 +33,64 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
-#endregion Namespace Declarations
+#endregion Namespace Declaration
 
 namespace SharpInputSystem
 {
 	/// <summary>
-	/// Xna 2.0 Input Manager Specialization
+	/// Win32 InputManager specialization
 	/// </summary>
-	class XnaInputManager : InputManager, InputObjectFactory
+	class Win32InputManager : InputManager, InputObjectFactory
 	{
 		#region Fields and Properties
 
-		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( XnaInputManager ) );
+		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Win32InputManager ) );
+
+		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
+		private int _joystickCount = 0;
 
 		private IntPtr _hwnd;
-		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
-		private int _gamePadCount = 0;
-
-		#region keyboardInUse Property
-		private bool _keyboardInUse = false;
-		internal bool keyboardInUse
-		{
-			get
-			{
-				return _keyboardInUse;
-			}
-			set
-			{
-				_keyboardInUse = value;
-			}
-		}
-		#endregion keyboardInUse Property
-
-		#region mouseInUse Property
-		private bool _mouseInUse = false;
-		internal bool mouseInUse
-		{
-			get
-			{
-				return _mouseInUse;
-			}
-			set
-			{
-				_mouseInUse = value;
-			}
-		}
-		#endregion keyboardInUse Property
 
 		#endregion Fields and Properties
 
-		#region Construction and Destruction
-
-		internal XnaInputManager()
+		internal Win32InputManager()
 			: base()
 		{
 			RegisterFactory( this );
 		}
 
-		#endregion Construction and Destruction
+		public override string InputSystemName
+		{
+			get
+			{
+				return "Win32";
+			}
+		}
 
-		#region Methods
+		protected override void _initialize( ParameterList args )
+		{
+			// Find the WINDOW parameter
+			object window = args.Find( delegate( Parameter p )
+										{
+											return p.first.ToUpper() == "WINDOW";
+										}
+									 ).second;
+			if ( window is IntPtr )
+			{
+				_hwnd = (IntPtr)window;
+			}
+			else
+			{
+				//throw new Exception( "SharpInputSystem.Win32InputManger requires a Handle to a window." );
+			}
+
+			_parseConfigSettings( args );
+			_enumerateDevices();
+		}
 
 		private void _enumerateDevices()
 		{
-#if !( XBOX || XBOX360 )
 			KeyboardInfo keyboardInfo = new KeyboardInfo();
 			keyboardInfo.Vendor = this.InputSystemName;
 			keyboardInfo.Id = 0;
@@ -108,25 +100,12 @@ namespace SharpInputSystem
 			mouseInfo.Vendor = this.InputSystemName;
 			mouseInfo.Id = 0;
 			_unusedDevices.Add( mouseInfo );
-#endif
-			int maxPlayers = /* (int)Xna.PlayerIndex.Four */ 4;
-			for ( int player = 0; player < maxPlayers; player++ )
-			{
-				//XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities( (Xna.PlayerIndex)player );
-				//if ( gpCaps.IsConnected )
-				//{
-				//    JoystickInfo joystickInfo = new JoystickInfo();
-				//    joystickInfo.DeviceId = new Guid();
-				//    joystickInfo.Vendor = this.InputSystemName;
-				//    joystickInfo.Id = _gamePadCount++;
 
-				//    this._unusedDevices.Add( joystickInfo );
-				//}
-			}
 		}
 
 		private void _parseConfigSettings( ParameterList args )
 		{
+
 		}
 
 		internal DeviceInfo PeekDevice<T>() where T : InputObject
@@ -158,53 +137,12 @@ namespace SharpInputSystem
 			return null;
 		}
 
-		internal R CaptureDevice<T, R>() where T : InputObject
-		{
-			foreach ( DeviceInfo device in _unusedDevices )
-			{
-				if ( typeof( R ) == device.GetType() )
-				{
-					_unusedDevices.Remove( device );
-					return (R)device;
-				}
-			}
-			return default( R );
-		}
-
 		internal void ReleaseDevice<T>( DeviceInfo device ) where T : InputObject
 		{
 			_unusedDevices.Add( device );
 		}
 
-		#endregion Methods
-
-		#region InputManager Implementation
-
-		protected override void _initialize( ParameterList args )
-		{
-			// Find the first Parameter entry with WINDOW
-			_hwnd = (IntPtr)args.Find(
-									  delegate( Parameter p )
-									  {
-										  return p.first.ToUpper() == "WINDOW";
-									  }
-									 ).second;
-
-			_parseConfigSettings( args );
-			_enumerateDevices();
-		}
-
-		public override string InputSystemName
-		{
-			get
-			{
-				return "Xna";
-			}
-		}
-
-		#endregion InputManager Implementation
-
-		#region InputObjectFactory Members
+		#region InputObjectFactory Implementation
 
 		IEnumerable<KeyValuePair<Type, string>> InputObjectFactory.FreeDevices
 		{
@@ -213,10 +151,10 @@ namespace SharpInputSystem
 				List<KeyValuePair<Type, string>> freeDevices = new List<KeyValuePair<Type, string>>();
 				foreach ( DeviceInfo dev in _unusedDevices )
 				{
-					if ( dev.GetType() == typeof( KeyboardInfo ) && !keyboardInUse )
+					if ( dev.GetType() == typeof( KeyboardInfo ) )
 						freeDevices.Add( new KeyValuePair<Type, string>( typeof( Keyboard ), this.InputSystemName ) );
 
-					if ( dev.GetType() == typeof( KeyboardInfo ) && !_mouseInUse )
+					if ( dev.GetType() == typeof( KeyboardInfo ) )
 						freeDevices.Add( new KeyValuePair<Type, string>( typeof( Mouse ), this.InputSystemName ) );
 
 					if ( dev.GetType() == typeof( JoystickInfo ) )
@@ -228,23 +166,16 @@ namespace SharpInputSystem
 
 		int InputObjectFactory.DeviceCount<T>()
 		{
-#if !(XBOX || XBOX360)
 			if ( typeof( T ) == typeof( Keyboard ) )
 				return 1;
 			if ( typeof( T ) == typeof( Mouse ) )
 				return 1;
-#else
-			if ( typeof( T ) == typeof( Keyboard ) )
-				return 0;
-			if ( typeof( T ) == typeof( Mouse ) )
-				return 0;
-#endif
 			if ( typeof( T ) == typeof( Joystick ) )
-				return _gamePadCount;
+				return _joystickCount;
 			return 0;
 		}
 
-		public int FreeDeviceCount<T>() where T : InputObject
+		int InputObjectFactory.FreeDeviceCount<T>()
 		{
 			string devType = typeof( T ).Name + "Info";
 			int deviceCount = 0;
@@ -256,7 +187,7 @@ namespace SharpInputSystem
 			return deviceCount;
 		}
 
-		public bool VendorExists<T>( string vendor ) where T : InputObject
+		bool InputObjectFactory.VendorExists<T>( string vendor )
 		{
 			if ( typeof( T ) == typeof( Keyboard ) || typeof( T ) == typeof( Mouse ) || vendor.ToLower() == InputSystemName.ToLower() )
 			{
@@ -277,7 +208,6 @@ namespace SharpInputSystem
 					}
 				}
 			}
-
 			return false;
 		}
 
@@ -285,21 +215,15 @@ namespace SharpInputSystem
 		{
 			string typeName = this.InputSystemName + typeof( T ).Name;
 			Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
-			T obj = null;
+			T obj;
 
 			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
-			try
-			{
-				obj = (T)objectType.InvokeMember( typeName,
-												  bindingFlags,
-												  null,
-												  null,
-												  new object[] { this, bufferMode } );
-			}
-			catch ( Exception ex )
-			{
-				//log.Error( "Cannot create requested device.", ex );
-			}
+
+			obj = (T)objectType.InvokeMember( typeName,
+											  bindingFlags,
+											  null,
+											  null,
+											  new object[] { this, bufferMode } );
 			return obj;
 		}
 
@@ -308,6 +232,6 @@ namespace SharpInputSystem
 			obj.Dispose();
 		}
 
-		#endregion
+		#endregion InputObjectFactory Implementation
 	}
 }

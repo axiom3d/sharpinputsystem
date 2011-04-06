@@ -39,11 +39,20 @@ using System.Text;
 
 namespace SharpInputSystem
 {
-	public class Win32GamePad : Gamepad
+	public class Win32GamePad : Joystick
 	{
-		public override bool Initialize()
+		#region Joystick Implementation
+
+		public override void Capture()
 		{
-			return true;
+			throw new NotImplementedException();
 		}
+
+		internal override void initialize()
+		{
+			throw new NotImplementedException();
+		}
+
+		#endregion Joystick Implementation
 	}
 }

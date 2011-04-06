@@ -32,38 +32,26 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 #region Namespace Declarations
 
 using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
-
 namespace SharpInputSystem
 {
-	public class Win32Mouse : Mouse
-	{
-		IntPtr _hwnd;
+    class Exception : System.Exception
+    {
+        public Exception()
+            : base()
+        {
+        }
 
-		public Win32Mouse( InputManager creator, IntPtr windowHandle )
-			: base()
-		{
-			Creator = creator;
-			_hwnd = windowHandle;
-		}
+        public Exception(string message)
+            : base(message)
+        {
+        }
 
-		#region Mouse Implementation
-
-		public override void Capture()
-		{
-			throw new NotImplementedException();
-		}
-
-		internal override void initialize()
-		{
-			throw new NotImplementedException();
-		}
-
-		#endregion Mouse Implementation
-	}
+        public Exception(string message, System.Exception innerException)
+            : base(message, innerException)
+        {
+        }
+    }
 }

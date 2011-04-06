@@ -45,11 +45,13 @@ namespace SharpInputSystem
 	/// </summary>
 	internal sealed class LibX11
 	{
+		internal const int BadWindow = 3;
+		internal const int BadAccess = 10;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		internal enum XEventName
+		internal enum XEventName : int
 		{
 			KeyPress = 2,
 			KeyRelease = 3,
@@ -111,6 +113,62 @@ namespace SharpInputSystem
 			public XButtonEvent ButtonEvent;
 			[FieldOffset( 0 )]
 			public XMotionEvent MotionEvent;
+			[FieldOffset( 0 )]
+			public IntPtr xcrossing;
+			[FieldOffset( 0 )]
+			public IntPtr xfocus;
+			[FieldOffset( 0 )]
+			public IntPtr xexpose;
+			[FieldOffset( 0 )]
+			public IntPtr xgraphicsexpose;
+			[FieldOffset( 0 )]
+			public IntPtr xnoexpose;
+			[FieldOffset( 0 )]
+			public IntPtr xvisibility;
+			[FieldOffset( 0 )]
+			public IntPtr xcreatewindow;
+			[FieldOffset( 0 )]
+			public IntPtr xdestroywindow;
+			[FieldOffset( 0 )]
+			public IntPtr xunmap;
+			[FieldOffset( 0 )]
+			public IntPtr xmap;
+			[FieldOffset( 0 )]
+			public IntPtr xmaprequest;
+			[FieldOffset( 0 )]
+			public IntPtr xreparent;
+			[FieldOffset( 0 )]
+			public IntPtr xconfigure;
+			[FieldOffset( 0 )]
+			public IntPtr xgravity;
+			[FieldOffset( 0 )]
+			public IntPtr xresizerequest;
+			[FieldOffset( 0 )]
+			public IntPtr xconfigurerequest;
+			[FieldOffset( 0 )]
+			public IntPtr xcirculate;
+			[FieldOffset( 0 )]
+			public IntPtr xcirculaterequest;
+			[FieldOffset( 0 )]
+			public IntPtr xproperty;
+			[FieldOffset( 0 )]
+			public IntPtr xselectionclear;
+			[FieldOffset( 0 )]
+			public IntPtr xselectionrequest;
+			[FieldOffset( 0 )]
+			public IntPtr xselection;
+			[FieldOffset( 0 )]
+			public IntPtr xcolormap;
+			[FieldOffset( 0 )]
+			public IntPtr xclient;
+			[FieldOffset( 0 )]
+			public IntPtr xmapping;
+			[FieldOffset( 0 )]
+			public IntPtr xerror;
+			[FieldOffset( 0 )]
+			public IntPtr xkeymap;
+			[FieldOffset( 0 )]
+			public IntPtr pad;
 		}
 
 		[StructLayout( LayoutKind.Sequential )]
@@ -174,6 +232,133 @@ namespace SharpInputSystem
 		}
 
 		/// <summary>
+		/// 
+		/// </summary>
+		public enum KeySym
+		{
+			XK_0 = 0x0030,  /* U+0030 DIGIT ZERO */
+			XK_1 = 0x0031, /* U+0031 DIGIT ONE */
+			XK_2 = 0x0032, /* U+0032 DIGIT TWO */
+			XK_3 = 0x0033, /* U+0033 DIGIT THREE */
+			XK_4 = 0x0034, /* U+0034 DIGIT FOUR */
+			XK_5 = 0x0035, /* U+0035 DIGIT FIVE */
+			XK_6 = 0x0036, /* U+0036 DIGIT SIX */
+			XK_7 = 0x0037, /* U+0037 DIGIT SEVEN */
+			XK_8 = 0x0038, /* U+0038 DIGIT EIGHT */
+			XK_9 = 0x0039, /* U+0039 DIGIT NINE */
+			XK_backSpace = 0xff08, /* Back space, back char */
+			XK_minus = 0x002d,  /* U+002D HYPHEN-MINUS */
+			XK_equal = 0x003d, /* U+003D EQUALS SIGN */
+			XK_space = 0x0020, /* U+0020 SPACE */
+			XK_comma = 0x002c, /* U+002C COMMA */
+			XK_period = 0x002e, /* U+002E FULL STOP */
+			XK_backslash = 0x005c, /* U+005C REVERSE SOLIDUS */
+			XK_slash = 0x002f, /* U+002F SOLIDUS */
+			XK_bracketleft = 0x005b, /* U+005B LEFT SQUARE BRACKET */
+			XK_bracketright = 0x005d, /* U+005D RIGHT SQUARE BRACKET */
+			XK_Escape = 0xff1b,
+			XK_Caps_Lock = 0xffe5, /* Caps lock */
+			XK_Tab = 0xff09,
+			XK_Return = 0xff0d, /* Return, enter */
+			XK_Control_L = 0xffe3, /* Left control */
+			XK_Control_R = 0xffe4, /* Right control */
+			XK_colon = 0x003a, /* U+003A COLON */
+			XK_semicolon = 0x003b, /* U+003B SEMICOLON */
+			XK_apostrophe = 0x0027, /* U+0027 APOSTROPHE */
+			XK_grave = 0x0060, /* U+0060 GRAVE ACCENT */
+			XK_a = 0x0061, /* U+0061 LATIN SMALL LETTER A */
+			XK_b = 0x0062, /* U+0062 LATIN SMALL LETTER B */
+			XK_c = 0x0063, /* U+0063 LATIN SMALL LETTER C */
+			XK_d = 0x0064, /* U+0064 LATIN SMALL LETTER D */
+			XK_e = 0x0065, /* U+0065 LATIN SMALL LETTER E */
+			XK_f = 0x0066, /* U+0066 LATIN SMALL LETTER F */
+			XK_g = 0x0067, /* U+0067 LATIN SMALL LETTER G */
+			XK_h = 0x0068, /* U+0068 LATIN SMALL LETTER H */
+			XK_i = 0x0069, /* U+0069 LATIN SMALL LETTER I */
+			XK_j = 0x006a, /* U+006A LATIN SMALL LETTER J */
+			XK_k = 0x006b, /* U+006B LATIN SMALL LETTER K */
+			XK_l = 0x006c, /* U+006C LATIN SMALL LETTER L */
+			XK_m = 0x006d, /* U+006D LATIN SMALL LETTER M */
+			XK_n = 0x006e, /* U+006E LATIN SMALL LETTER N */
+			XK_o = 0x006f, /* U+006F LATIN SMALL LETTER O */
+			XK_p = 0x0070, /* U+0070 LATIN SMALL LETTER P */
+			XK_q = 0x0071, /* U+0071 LATIN SMALL LETTER Q */
+			XK_r = 0x0072, /* U+0072 LATIN SMALL LETTER R */
+			XK_s = 0x0073, /* U+0073 LATIN SMALL LETTER S */
+			XK_t = 0x0074, /* U+0074 LATIN SMALL LETTER T */
+			XK_u = 0x0075, /* U+0075 LATIN SMALL LETTER U */
+			XK_v = 0x0076, /* U+0076 LATIN SMALL LETTER V */
+			XK_w = 0x0077, /* U+0077 LATIN SMALL LETTER W */
+			XK_x = 0x0078, /* U+0078 LATIN SMALL LETTER X */
+			XK_y = 0x0079, /* U+0079 LATIN SMALL LETTER Y */
+			XK_z = 0x007a, /* U+007A LATIN SMALL LETTER Z */
+			XK_F1 = 0xffbe,
+			XK_F2 = 0xffbf,
+			XK_F3 = 0xffc0,
+			XK_F4 = 0xffc1,
+			XK_F5 = 0xffc2,
+			XK_F6 = 0xffc3,
+			XK_F7 = 0xffc4,
+			XK_F8 = 0xffc5,
+			XK_F9 = 0xffc6,
+			XK_F10 = 0xffc7,
+			XK_F11 = 0xffc8,
+			XK_F12 = 0xffc9,
+			XK_F13 = 0xffca,
+			XK_F14 = 0xffcb,
+			XK_F15 = 0xffcc,
+			XK_KP_0 = 0xffb0,
+			XK_KP_1 = 0xffb1,
+			XK_KP_2 = 0xffb2,
+			XK_KP_3 = 0xffb3,
+			XK_KP_4 = 0xffb4,
+			XK_KP_5 = 0xffb5,
+			XK_KP_6 = 0xffb6,
+			XK_KP_7 = 0xffb7,
+			XK_KP_8 = 0xffb8,
+			XK_KP_9 = 0xffb9,
+			XK_KP_Add = 0xffab,
+			XK_KP_Subtract = 0xffad,
+			XK_KP_Decimal = 0xffae,
+			XK_KP_Equal = 0xffbd, /* Equals */
+			XK_KP_Divide = 0xffaf,
+			XK_KP_Multiply = 0xffaa,
+			XK_KP_Enter = 0xff8d, /* Enter */
+			XK_KP_Home = 0xff95,
+			XK_KP_Up = 0xff97,
+			XK_KP_Page_Up = 0xff9a,
+			XK_KP_Left = 0xff96,
+			XK_KP_Begin = 0xff9d,
+			XK_KP_Right = 0xff98,
+			XK_KP_End = 0xff9c,
+			XK_KP_Down = 0xff99,
+			XK_KP_Page_Down = 0xff9b,
+			XK_KP_Insert = 0xff9e,
+			XK_KP_Delete = 0xff9f,
+			XK_Left = 0xff51, /* Move left, left arrow */
+			XK_Up = 0xff52, /* Move up, up arrow */
+			XK_Right = 0xff53, /* Move right, right arrow */
+			XK_Down = 0xff54, /* Move down, down arrow */
+			XK_Page_Up = 0xff55,
+			XK_Page_Down = 0xff56,
+			XK_Home = 0xff50,
+			XK_End = 0xff57, /* EOL */
+			XK_Num_Lock = 0xff7f,
+			XK_Print = 0xff61,
+			XK_Scroll_Lock = 0xff14,
+			XK_Pause = 0xff13, /* Pause, hold */
+			XK_Shift_L = 0xffe1, /* Left shift */
+			XK_Shift_R = 0xffe2, /* Right shift */
+			XK_Alt_R = 0xffea, /* Right alt */
+			XK_Alt_L = 0xffe9, /* Left alt */
+			XK_Insert = 0xff63, /* Insert, insert here */
+			XK_Delete = 0xffff, /* Delete, rubout */
+			XK_Super_L = 0xffeb, /* Left super */
+			XK_Super_R = 0xffec, /* Right super */
+			XK_Menu = 0xff67,
+		}
+
+		/// <summary>
 		/// Name of the library we grab the input functions from
 		/// </summary>
 		internal const string LibraryName = "libX11";
@@ -192,14 +377,19 @@ namespace SharpInputSystem
 		public const int PointerMotionMask = 1 << 6;
 		public const int PointerMotionHintMask = 1 << 7;
 		public const int Mod4Mask = ( 1 << 6 );
+		public const int Mod1Mask = ( 1 << 3 );
 		public const int MouseMovedPressedReleased = Mod4Mask | ButtonReleaseMask | ButtonPressMask;
+		public const long KeyPressMask = ( 1L << 0 );
+		public const long KeyReleaseMask = ( 1L << 1 );
+		public const int ShiftMask = ( 1 << 0 );
+		public const int LockMask = ( 1 << 1 );
 
 		[DllImport( LibraryName )]
-		internal static extern int XGrabPointer( IntPtr display, IntPtr grabWindow,
-		bool ownerMvents, int eventMask, int pointerMode, int keyboardMode,
-		IntPtr confineTo, IntPtr cursor, long time );
+		internal static extern int XGrabPointer( IntPtr display, IntPtr grabWindow, bool ownerMvents, int eventMask, int pointerMode, int keyboardMode, IntPtr confineTo, IntPtr cursor, long time );
 		[DllImport( LibraryName )]
 		internal static extern int XUngrabPointer( IntPtr display, long time );
+		[DllImport( LibraryName )]
+		internal static extern int XLookupString( ref XKeyEvent even, ref StringBuilder bufferReturn, int bytesBuffer, out int keysymReturn, IntPtr xComposeStatus );
 		/// <summary>
 		/// To open a connection to the X server that controls a display
 		/// </summary>
@@ -215,6 +405,10 @@ namespace SharpInputSystem
 		/// </returns>
 		[DllImportAttribute( LibraryName )]
 		internal static extern IntPtr XOpenDisplay( IntPtr displayName );
+		[DllImportAttribute( LibraryName )]
+		internal static extern int XPending( IntPtr displayName );
+		[DllImportAttribute( LibraryName )]
+		internal static extern void XWarpPointer( IntPtr display, IntPtr sourceWindow, IntPtr destWindow, int srcX, int srcY, int srcWidth, int srcHeight, int destX, int destY );
 		/// <summary>
 		/// 
 		/// </summary>
@@ -264,15 +458,16 @@ namespace SharpInputSystem
 		/// <param name="currentTime">Specifies the time. You can pass either a timestamp or CurrentTime. </param>
 		/// <returns></returns>
 		[DllImportAttribute( LibraryName )]
-		internal static extern int XGrabKeyboard( IntPtr display, IntPtr window, bool own,
-			int pointerMode, int keyboardMode, long currentTime );
+		internal static extern int XGrabKeyboard( IntPtr display, IntPtr window, bool own, int pointerMode, int keyboardMode, long currentTime );
+		[DllImportAttribute( LibraryName )]
+		internal static extern int XSelectInput( IntPtr display, IntPtr window, long mask );
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="display"></param>
 		/// <param name="xevent"></param>
 		[DllImportAttribute( LibraryName )]
-		internal static extern void XNextEvent( IntPtr display, ref XEvent xevent );
+		internal static extern void XNextEvent( IntPtr display, ref XEvent even );
 		/// <summary>
 		/// 
 		/// </summary>
@@ -312,6 +507,8 @@ namespace SharpInputSystem
 		/// </returns>
 		[DllImportAttribute( LibraryName )]
 		internal static extern uint XKeycodeToKeysym( IntPtr display, int keycode, int index );
+		[DllImportAttribute( LibraryName )]
+		internal static extern bool XTranslateCoordinates( IntPtr display, IntPtr src_w, IntPtr dest_w, int src_x, int src_y, out int dest_x_return, out int dest_y_return, out IntPtr child_return );
 
 		/// <summary>
 		/// Convert's X11KeyCode to standard System.Windows.Forms.Keys;
@@ -320,196 +517,195 @@ namespace SharpInputSystem
 		///  <see cref="System.UInt32"/>
 		/// </param>
 		/// <returns>
-		///  <see cref="System.Windows.Forms.Keys"/>
 		/// </returns>
-		internal static Keys ToKeys( uint x11keycode )
+		internal static KeyCode ToKeys( uint x11keycode )
 		{
 			switch ( x11keycode )
 			{
 				case 32:
-					return Keys.Space;
+					return KeyCode.Key_SPACE;
 				case 65509:
-					return Keys.Capital;
+					return KeyCode.Key_CAPITAL;
 				case 65289:
-					return Keys.Tab;
+					return KeyCode.Key_TAB;
 				case 65106:
-					return Keys.Oem6;// == ^ ° (ger)
+					return KeyCode.Key_OEM_102;// == ^ ° (ger)
 				case 65366:
-					return Keys.PageDown;
+					return KeyCode.Key_PGDOWN;
 				case 65365:
-					return Keys.PageUp;
+					return KeyCode.Key_PGUP;
 				case 65363:
-					return Keys.Right;
+					return KeyCode.Key_RIGHT;
 				case 65361:
-					return Keys.Left;
+					return KeyCode.Key_LEFT;
 				case 65364:
-					return Keys.Down;
+					return KeyCode.Key_DOWN;
 				case 65362:
-					return Keys.Up;
+					return KeyCode.Key_UP;
 				case 65293:
 				//fall through, 65293 is return, 65421 is numpad-return.
 				case 65421:
-					return Keys.Return;
+					return KeyCode.Key_RETURN;
 				case 65451:
-					return Keys.Add;
+					return KeyCode.Key_ADD;
 				case 65300:
-					return Keys.Scroll;
+					return KeyCode.Key_SCROLL;
 				case 65299:
-					return Keys.Pause;
+					return KeyCode.Key_PAUSE;
 				case 65367:
-					return Keys.End;
+					return KeyCode.Key_END;
 				case 65360:
-					return Keys.Home;
+					return KeyCode.Key_HOME;
 				case 65535:
-					return Keys.Delete;
+					return KeyCode.Key_DELETE;
 				case 65379:
-					return Keys.Insert;
+					return KeyCode.Key_INSERT;
 				case 65377:
-					return Keys.Print;
+					return KeyCode.Key_UNASSIGNED;
 				case 65453:
-					return Keys.Subtract;
+					return KeyCode.Key_SUBTRACT;
 				case 65450:
-					return Keys.Multiply;
+					return KeyCode.Key_MULTIPLY;
 				case 65455:
-					return Keys.Divide;
+					return KeyCode.Key_DIVIDE;
 				case 65407:
-					return Keys.NumLock;
+					return KeyCode.Key_NUMLOCK;
 				case 65434:
-					return Keys.NumPad9;
+					return KeyCode.Key_NUMPAD9;
 				case 65431:
-					return Keys.NumPad8;
+					return KeyCode.Key_NUMPAD8;
 				case 65429:
-					return Keys.NumPad7;
+					return KeyCode.Key_NUMPAD7;
 				case 65432:
-					return Keys.NumPad6;
+					return KeyCode.Key_NUMPAD6;
 				case 65437:
-					return Keys.NumPad5;
+					return KeyCode.Key_NUMPAD5;
 				case 65430:
-					return Keys.NumPad4;
+					return KeyCode.Key_NUMPAD4;
 				case 65435:
-					return Keys.NumPad3;
+					return KeyCode.Key_NUMPAD3;
 				case 65433:
-					return Keys.NumPad2;
+					return KeyCode.Key_NUMPAD2;
 				case 65438:
-					return Keys.NumPad0;
+					return KeyCode.Key_NUMPAD0;
 				case 65436:
-					return Keys.NumPad1;
+					return KeyCode.Key_NUMPAD1;
 				case 65470:
-					return Keys.F1;
+					return KeyCode.Key_F1;
 				case 65471:
-					return Keys.F2;
+					return KeyCode.Key_F2;
 				case 65472:
-					return Keys.F3;
+					return KeyCode.Key_F3;
 				case 65473:
-					return Keys.F4;
+					return KeyCode.Key_F4;
 				case 65474:
-					return Keys.F5;
+					return KeyCode.Key_F5;
 				case 65475:
-					return Keys.F6;
+					return KeyCode.Key_F6;
 				case 65476:
-					return Keys.F7;
+					return KeyCode.Key_F7;
 				case 65477:
-					return Keys.F8;
+					return KeyCode.Key_F8;
 				case 65478:
-					return Keys.F9;
+					return KeyCode.Key_F9;
 				case 65479:
-					return Keys.F10;
+					return KeyCode.Key_F10;
 				case 65480:
-					return Keys.F11;
+					return KeyCode.Key_F11;
 				case 65481:
-					return Keys.F12;
+					return KeyCode.Key_F12;
 				case 65105:
-					return Keys.Oem6;// == ` ' (ger)
+					return KeyCode.Key_OEM_102;// == ` ' (ger)
 				case 223:
-					return Keys.OemOpenBrackets;// == ? ß \ (ger)
+					return KeyCode.Key_LBRACKET;// == ? ß \ (ger)
 				case 48:
-					return Keys.D0;
+					return KeyCode.Key_0;
 				case 49:
-					return Keys.D1;
+					return KeyCode.Key_1;
 				case 50:
-					return Keys.D2;
+					return KeyCode.Key_2;
 				case 51:
-					return Keys.D3;
+					return KeyCode.Key_3;
 				case 52:
-					return Keys.D4;
+					return KeyCode.Key_4;
 				case 53:
-					return Keys.D5;
+					return KeyCode.Key_5;
 				case 54:
-					return Keys.D6;
+					return KeyCode.Key_6;
 				case 55:
-					return Keys.D7;
+					return KeyCode.Key_7;
 				case 56:
-					return Keys.D8;
+					return KeyCode.Key_8;
 				case 57:
-					return Keys.D9;
+					return KeyCode.Key_9;
 				case 65513:
-					return Keys.Alt;
+					return KeyCode.Key_LMENU;
 				case 65383:
-					return Keys.RWin;
+					return KeyCode.Key_RWIN;
 				case 65515:
-					return Keys.LWin;
+					return KeyCode.Key_LWIN;
 				case 65507:
-					return Keys.LControlKey;
+					return KeyCode.Key_LCONTROL;
 				case 65506:
-					return Keys.RShiftKey;
+					return KeyCode.Key_RSHIFT;
 				case 65505:
-					return Keys.LShiftKey;
+					return KeyCode.Key_LSHIFT;
 				case 65307:
-					return Keys.Escape;
+					return KeyCode.Key_ESCAPE;
 				case 119:
-					return Keys.W;
+					return KeyCode.Key_W;
 				case 101:
-					return Keys.E;
+					return KeyCode.Key_E;
 				case 114:
-					return Keys.R;
+					return KeyCode.Key_R;
 				case 116:
-					return Keys.T;
+					return KeyCode.Key_T;
 				case 122:
-					return Keys.Z;
+					return KeyCode.Key_Z;
 				case 117:
-					return Keys.U;
+					return KeyCode.Key_U;
 				case 105:
-					return Keys.I;
+					return KeyCode.Key_I;
 				case 111:
-					return Keys.O;
+					return KeyCode.Key_O;
 				case 112:
-					return Keys.P;
+					return KeyCode.Key_P;
 				case 97:
-					return Keys.A;
+					return KeyCode.Key_A;
 				case 115:
-					return Keys.S;
+					return KeyCode.Key_S;
 				case 100:
-					return Keys.D;
+					return KeyCode.Key_D;
 				case 102:
-					return Keys.F;
+					return KeyCode.Key_F;
 				case 103:
-					return Keys.G;
+					return KeyCode.Key_G;
 				case 104:
-					return Keys.H;
+					return KeyCode.Key_H;
 				case 106:
-					return Keys.J;
+					return KeyCode.Key_J;
 				case 107:
-					return Keys.K;
+					return KeyCode.Key_K;
 				case 108:
-					return Keys.L;
+					return KeyCode.Key_L;
 				case 121:
-					return Keys.Y;
+					return KeyCode.Key_Y;
 				case 120:
-					return Keys.X;
+					return KeyCode.Key_X;
 				case 99:
-					return Keys.C;
+					return KeyCode.Key_C;
 				case 118:
-					return Keys.V;
+					return KeyCode.Key_V;
 				case 98:
-					return Keys.B;
+					return KeyCode.Key_B;
 				case 110:
-					return Keys.N;
+					return KeyCode.Key_N;
 				case 109:
-					return Keys.M;
+					return KeyCode.Key_M;
 				case 113:
-					return Keys.Q;
+					return KeyCode.Key_Q;
 				default:
-					return Keys.None;
+					return KeyCode.Key_UNASSIGNED;
 			}
 		}
 	}

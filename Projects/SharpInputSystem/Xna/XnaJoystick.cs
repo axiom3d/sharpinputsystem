@@ -35,7 +35,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using log4net;
+//using Common.Logging;
 
 #endregion Namespace Declarations
 
@@ -45,7 +45,7 @@ namespace SharpInputSystem
 	{
 		#region Fields and Properties
 
-		private static readonly ILog log = LogManager.GetLogger( typeof( XnaJoystick ) );
+		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaJoystick ) );
 
 		private const int _BUFFER_SIZE = 124;
 
@@ -78,7 +78,7 @@ namespace SharpInputSystem
 			Vendor = _joyInfo.Vendor;
 			DeviceID = _joyInfo.Id.ToString();
 
-			log.Debug( "XnaJoystick device created." );
+			//log.Debug( "XnaJoystick device created." );
 
 		}
 

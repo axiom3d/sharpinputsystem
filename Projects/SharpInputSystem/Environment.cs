@@ -41,42 +41,60 @@ namespace SharpInputSystem
 {
 	internal static class Environment
 	{
-		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Environment ) );
+		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Environment ) );
 
+		private static bool _RunningOnWindows;
 		public static bool RunningOnWindows
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnWindows;
+			}
 		}
 
+		private static bool _RunningOnUnix;
 		public static bool RunningOnUnix
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnUnix;
+			}
 		}
 
+		private static bool _RunningOnX11;
 		public static bool RunningOnX11
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnX11;
+			}
 		}
 
+		private static bool _RunningOnMacOS;
 		public static bool RunningOnMacOS
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnMacOS;
+			}
 		}
 
+		private static bool _RunningOnLinux;
 		public static bool RunningOnLinux
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnLinux;
+			}
 		}
 
+		private static bool _RunningOnMono;
 		public static bool RunningOnMono
 		{
-			get;
-			protected set;
+			get
+			{
+				return _RunningOnMono;
+			}
 		}
 
 		// Detects the underlying OS and runtime.
@@ -87,7 +105,7 @@ namespace SharpInputSystem
 				 System.Environment.OSVersion.Platform == PlatformID.Win32Windows ||
 				 System.Environment.OSVersion.Platform == PlatformID.WinCE )
 			{
-				RunningOnWindows = true;
+				_RunningOnWindows = true;
 			}
 			else if ( System.Environment.OSVersion.Platform == PlatformID.Unix ||
 					  System.Environment.OSVersion.Platform == (PlatformID)4 )
@@ -101,15 +119,15 @@ namespace SharpInputSystem
 						throw new PlatformNotSupportedException( "Unknown platform." );
 
 					case "Linux":
-						RunningOnLinux = RunningOnUnix = true;
+						_RunningOnLinux = _RunningOnUnix = true;
 						break;
 
 					case "Darwin":
-						RunningOnMacOS = RunningOnUnix = true;
+						_RunningOnMacOS = _RunningOnUnix = true;
 						break;
 
 					default:
-						RunningOnUnix = true;
+						_RunningOnUnix = true;
 						break;
 				}
 			}
@@ -124,7 +142,7 @@ namespace SharpInputSystem
 			{
 				try
 				{
-					RunningOnX11 = LibX11.XOpenDisplay(IntPtr.Zero) != IntPtr.Zero;
+					_RunningOnX11 = LibX11.XOpenDisplay( IntPtr.Zero ) != IntPtr.Zero;
 				}
 				catch
 				{
@@ -132,10 +150,10 @@ namespace SharpInputSystem
 			}
 
 			// Detect the Mono runtime (code adapted from http://mono.wikia.com/wiki/Detecting_if_program_is_running_in_Mono).
-			RunningOnMono = Type.GetType( "Mono.Runtime" ) != null;
+			_RunningOnMono = Type.GetType( "Mono.Runtime" ) != null;
 
-			log.Debug( m => m( "Detected Runtime Environment : {0} / {1}", RunningOnWindows ? "Windows" : RunningOnLinux ? "Linux" : RunningOnMacOS ? "MacOS" : RunningOnUnix ? "Unix" : RunningOnX11 ? "X11" : "Unknown Platform",
-																           RunningOnMono ? "Mono" : ".Net" ) );
+			//log.Debug( m => m( "Detected Runtime Environment : {0} / {1}", RunningOnWindows ? "Windows" : RunningOnLinux ? "Linux" : RunningOnMacOS ? "MacOS" : RunningOnUnix ? "Unix" : RunningOnX11 ? "X11" : "Unknown Platform",
+			//                                                               RunningOnMono ? "Mono" : ".Net" ) );
 		}
 
 	}

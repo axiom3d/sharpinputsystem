@@ -34,36 +34,28 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
-
 namespace SharpInputSystem
 {
-	public class Win32Mouse : Mouse
+	internal static class PlatformFactory
 	{
-		IntPtr _hwnd;
-
-		public Win32Mouse( InputManager creator, IntPtr windowHandle )
-			: base()
+		public static InputManager Create( PlatformApi api )
 		{
-			Creator = creator;
-			_hwnd = windowHandle;
+            //switch ( api )
+            //{
+            //    case PlatformApi.Win32:
+            //        return new Win32InputManager();
+            //    case PlatformApi.DirectX:
+            //        return null;
+            //    case PlatformApi.X11:
+            //        return new X11InputManager();
+            //    case PlatformApi.Xna:
+            //        return new XnaInputManager();
+            //}
+			return null;
 		}
 
-		#region Mouse Implementation
-
-		public override void Capture()
-		{
-			throw new NotImplementedException();
-		}
-
-		internal override void initialize()
-		{
-			throw new NotImplementedException();
-		}
-
-		#endregion Mouse Implementation
 	}
 }

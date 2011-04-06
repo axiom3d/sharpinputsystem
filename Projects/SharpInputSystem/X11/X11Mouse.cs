@@ -40,98 +40,154 @@ using System.Runtime.InteropServices;
 
 namespace SharpInputSystem
 {
-	public class X11Mouse : Mouse
+	public class X11Mouse : Mouse, IDisposable
 	{
-		private IntPtr _display;
-		private LibX11.XEvent _xEvent;
-		private Control _rwControl;
-		private bool[] _buttons;
-
-		public X11Mouse()
-			: base( false )
-		{
-		}
 		/// <summary>
 		/// 
 		/// </summary>
-		/// <returns></returns>
-		public override bool Initialize()
-		{
-			_display = LibX11.XOpenDisplay( IntPtr.Zero );
-			int grabResult = LibX11.XGrabPointer( _display, LibX11.XDefaultRootWindow( _display ),
-				false, LibX11.MouseMovedPressedReleased, LibX11.GrabModeAsync,
-				LibX11.GrabModeAsync, IntPtr.Zero, IntPtr.Zero, LibX11.CurrentTime );
+		private IntPtr _display;
+		private IntPtr _windowHandle;
+		private LibX11.XEvent _xEvent;
+		private IntPtr _window;
+		private int _lastMouseX;
+		private int _lastMouseY;
+		private int _lastMouseZ;
+		private bool[] _buttons;
 
-			_xEvent = new LibX11.XEvent();
-			IntPtr ctrPtr = (IntPtr)TutorialInputManager.Instance.RenderWindow.GetCustomAttribute( "WINDOW" );
-			_rwControl = Control.FromHandle( ctrPtr );
-			_buttons = new bool[ Enum.GetNames( typeof( MouseButtons ) ).Length ];
-			return true;
+		public X11Mouse( InputManager creator, bool buffered, IntPtr handle )
+		{
+			base.IsBuffered = buffered;
+			_windowHandle = handle;
+		}
+
+		internal override void initialize()
+		{
+			try
+			{
+				_display = LibX11.XOpenDisplay( IntPtr.Zero );
+				if ( _display == IntPtr.Zero )
+					throw new Exception( "" );
+				IntPtr window = LibX11.XDefaultRootWindow( _display );
+				_window = window;
+				//Warp mouse inside window
+				LibX11.XWarpPointer( _display, IntPtr.Zero, window, 0, 0, 0, 0, 6, 6 );
+
+				int grabResult = LibX11.XGrabPointer( _display, window, true, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask, LibX11.GrabModeAsync,
+				LibX11.GrabModeAsync, window, IntPtr.Zero, LibX11.CurrentTime );
+
+				_xEvent = new LibX11.XEvent();
+
+				_buttons = new bool[ Enum.GetNames( typeof( MouseButtonID ) ).Length ];
+				LibX11.XWarpPointer( _display, IntPtr.Zero, window, 0, 0, 0, 0, 6, 6 );
+			}
+			catch
+			{
+				throw new Exception( "Failed to grab the Mouse pointer" );
+			}
+		}
+		public override void Capture()
+		{
+			try
+			{
+				//Clear old relative values
+				MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
+				if ( _display == IntPtr.Zero )
+					throw new Exception( "LOST DISPLAY" );
+				while ( LibX11.XPending( _display ) > 0 )
+				{
+					LibX11.XNextEvent( _display, ref _xEvent );
+					MouseButtonID mb = MouseButtonID.Button3;
+					bool axisMoved = false;
+					bool buttonDown = false;
+					bool buttonUp = false;
+
+					switch ( _xEvent.type.ToString() )
+					{
+						case "MotionNotify":
+							axisMoved = true;
+							MouseState.X.Absolute = _xEvent.MotionEvent.x;
+							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
+							int sysX = _xEvent.MotionEvent.x;
+							int sysY = _xEvent.MotionEvent.y;
+							int dx = sysX - _lastMouseX;
+							int dy = sysY - _lastMouseY;
+							MouseState.X.Relative = dx;
+							MouseState.Y.Relative = dy;
+
+							_lastMouseX = sysX;
+							_lastMouseY = sysY;
+
+							break;
+						case "ButtonPress":
+							mb = ToMouseButton( _xEvent.ButtonEvent.button );
+
+							MouseState.Buttons = (int)mb;
+							MouseState.X.Absolute = _xEvent.MotionEvent.x;
+							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
+							buttonDown = true;
+							break;
+						case "ButtonRelease":
+							mb = ToMouseButton( _xEvent.ButtonEvent.button );
+							MouseState.Buttons = (int)mb;
+							MouseState.X.Absolute = _xEvent.MotionEvent.x;
+							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
+							buttonUp = true;
+							break;
+					}
+					//Clip values to window
+					if ( MouseState.X.Absolute < 0 )
+						MouseState.X.Absolute = 0;
+					else if ( MouseState.X.Absolute > MouseState.Width )
+						MouseState.X.Absolute = MouseState.Width;
+					if ( MouseState.Y.Absolute < 0 )
+						MouseState.Y.Absolute = 0;
+					else if ( MouseState.Y.Absolute > MouseState.Height )
+						MouseState.Y.Absolute = MouseState.Height;
+
+					//Do the move
+					if ( EventListener != null && axisMoved )
+						EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
+					if ( EventListener != null && buttonUp )
+						EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), mb );
+					if ( EventListener != null && buttonDown )
+						EventListener.MousePressed( new MouseEventArgs( this, MouseState ), mb );
+				}
+			}
+			catch ( Exception ex )
+			{
+				System.Console.WriteLine( ex.ToString() );
+			}
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="x11Button"></param>
 		/// <returns></returns>
-		public static MouseButtons ToMouseButton( int x11Button )
+		public static MouseButtonID ToMouseButton( int x11Button )
 		{
 			switch ( x11Button )
 			{
 				case 1:
-					return MouseButtons.Left;
+					return MouseButtonID.Left;
 				case 3:
-					return MouseButtons.Right;
+					return MouseButtonID.Right;
 				default:
-					return MouseButtons.None;
+					return MouseButtonID.Middle;
 			}
 		}
-
-		public override bool IsMouseDown( MouseButtons mb )
-		{
-			return _buttons[ (int)mb ];
-		}
-		public override bool IsMousePressed( MouseButtons mb )
-		{
-			return _buttons[ (int)mb ];
-		}
-		public override void Update( float timeSinceLastFrame )
-		{
-			return;
-			int w, h, l, t, d;
-			Point p = new Point();
-			TutorialInputManager.Instance.RenderWindow.GetMetrics( out w, out h, out d, out l, out t );
-			Rectangle rwLocation = new Rectangle( l, t, w, h );
-			Point cs = _rwControl.PointToClient( new Point( l, t ) );
-			LibX11.XNextEvent( _display, ref _xEvent );
-			MouseButtons mb = MouseButtons.None;
-			switch ( _xEvent.type.ToString() )
-			{
-				case "MotionNotify":
-					p = new Point( _xEvent.MotionEvent.x, _xEvent.MotionEvent.y );
-					_position = new Math.Vector2( p.X - l - cs.X, p.Y - t - cs.Y );
-					OnMouseMoved( this, new MouseEventArgs( mb, 0, (int)_position.x, (int)_position.y, 0 ) );
-					break;
-				case "ButtonPress":
-					mb = ToMouseButton( _xEvent.ButtonEvent.button );
-					_buttons[ (int)mb ] = true;
-					p = new Point( _xEvent.ButtonEvent.x, _xEvent.ButtonEvent.y );
-					_position = new Math.Vector2( p.X - l - cs.X, p.Y - t - cs.Y );
-					OnMouseDown( this, new MouseEventArgs( mb, 1, (int)_position.x, (int)_position.y, 0 ) );
-					break;
-				case "ButtonRelease":
-					mb = ToMouseButton( _xEvent.ButtonEvent.button );
-					_buttons[ (int)mb ] = false;
-					p = new Point( _xEvent.ButtonEvent.x, _xEvent.ButtonEvent.y );
-					_position = new Math.Vector2( p.X - l - cs.X, p.Y - t - cs.Y );
-					OnMouseUp( this, new MouseEventArgs( mb, 1, (int)_position.x, (int)_position.y, 0 ) );
-					break;
-			}
-		}
-
-		public void Dispose()
+		protected override void _dispose( bool managed )
 		{
 			if ( _display != IntPtr.Zero )
 				LibX11.XUngrabPointer( _display, LibX11.CurrentTime );
 		}
+	}
+
+	public class LinuxMouse
+	{
+		private IntPtr _window;
+		private IntPtr _display;
+		private bool _grabMouse;
+		private bool _hideMouse;
+		private bool _mouseFocusLost;
 	}
 }

@@ -36,7 +36,7 @@ using System.Collections.Generic;
 using System.Text;
 using SharpInputSystem.Proxies.Xna;
 
-using log4net;
+//using Common.Logging;
 
 #endregion Namespace Declarations
 
@@ -48,7 +48,7 @@ namespace SharpInputSystem
 	class XnaMouse : Mouse
 	{
 		#region Fields and Properties
-		private static readonly ILog log = LogManager.GetLogger( typeof( XnaMouse ) );
+		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaMouse ) );
 
 		// Variables for XnaKeyboard
 		private MouseInfo _mInfo;
@@ -72,7 +72,7 @@ namespace SharpInputSystem
 				throw new Exception( "No devices match requested type." );
 			}
 
-			log.Debug( "XnaMouse device created." );
+			//log.Debug( "XnaMouse device created." );
 			previousState = MouseProxy.GetState();
 		}
 
@@ -90,7 +90,7 @@ namespace SharpInputSystem
 
 				( (XnaInputManager)Creator ).ReleaseDevice<Mouse>( _mInfo );
 
-				log.Debug( "XnaMouse device disposed." );
+				//log.Debug( "XnaMouse device disposed." );
 
 			}
 			isDisposed = true;
@@ -150,24 +150,24 @@ namespace SharpInputSystem
 
 			if ( xnaMouseState.X != previousState.X )
 			{
-				if ( log.IsDebugEnabled )
-					log.DebugFormat( "cX({0}):pX({1})", xnaMouseState.X, previousState.X );
+				//if ( log.IsDebugEnabled )
+				//    log.DebugFormat( "cX({0}):pX({1})", xnaMouseState.X, previousState.X );
 				MouseState.X.Absolute = xnaMouseState.X;
 				axesMoved = true;
 			}
 
 			if ( xnaMouseState.Y != previousState.Y )
 			{
-				if ( log.IsDebugEnabled )
-					log.DebugFormat( "cY({0}):pY({1})", xnaMouseState.Y, previousState.Y );
+				//if ( log.IsDebugEnabled )
+				//    log.DebugFormat( "cY({0}):pY({1})", xnaMouseState.Y, previousState.Y );
 				MouseState.Y.Absolute = xnaMouseState.Y;
 				axesMoved = true;
 			}
 
 			if ( xnaMouseState.ScrollWheelValue != previousState.ScrollWheelValue )
 			{
-				if ( log.IsDebugEnabled )
-					log.DebugFormat( "cZ({0}):pZ({1})", xnaMouseState.ScrollWheelValue, previousState.ScrollWheelValue );
+				//if ( log.IsDebugEnabled )
+				//    log.DebugFormat( "cZ({0}):pZ({1})", xnaMouseState.ScrollWheelValue, previousState.ScrollWheelValue );
 				MouseState.Z.Absolute = xnaMouseState.ScrollWheelValue;
 				axesMoved = true;
 			}

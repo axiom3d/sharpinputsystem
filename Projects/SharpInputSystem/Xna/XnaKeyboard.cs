@@ -35,7 +35,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using log4net;
+//using Common.Logging;
 using SharpInputSystem.Proxies.Xna;
 
 #endregion Namespace Declarations
@@ -48,7 +48,7 @@ namespace SharpInputSystem
 	class XnaKeyboard : Keyboard
 	{
 		#region Fields and Properties
-		private static readonly ILog log = LogManager.GetLogger( typeof( XnaKeyboard ) );
+		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaKeyboard ) );
 
 		// Variables for XnaKeyboard
 		private Dictionary<int, KeyCode> _keyMap = new Dictionary<int, KeyCode>();
@@ -73,7 +73,7 @@ namespace SharpInputSystem
 				throw new Exception( "No devices match requested type." );
 			}
 
-			log.Debug( "XnaKeyboard device created." );
+			//log.Debug( "XnaKeyboard device created." );
 
 		}
 
@@ -91,7 +91,7 @@ namespace SharpInputSystem
 
 				( (XnaInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
 
-				log.Debug( "XnaKeyboard device disposed." );
+				//log.Debug( "XnaKeyboard device disposed." );
 
 			}
 			isDisposed = true;
