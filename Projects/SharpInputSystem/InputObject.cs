@@ -168,7 +168,7 @@ namespace SharpInputSystem
 		/// <summary>
 		/// 
 		/// </summary>
-		abstract internal void initialize();
+		abstract public void initialize();
 
 		virtual public IInputObjectInterface QueryInterface<T>() where T : IInputObjectInterface
 		{

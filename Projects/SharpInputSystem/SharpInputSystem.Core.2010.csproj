@@ -12,7 +12,8 @@
     <RootNamespace>SharpInputSystem</RootNamespace>
     <AssemblyName>SharpInputSystem.Core</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <SccProjectName>
     </SccProjectName>
     <SccLocalPath>
@@ -100,6 +101,7 @@
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
     <Compile Include="InputObjectFactory.cs" />
+    <Compile Include="IInputSystemFactory.cs" />
     <Compile Include="Joystick.cs" />
     <Compile Include="JoystickInfo.cs" />
     <Compile Include="Keyboard.cs" />
@@ -108,7 +110,9 @@
     <Compile Include="MouseInfo.cs" />
     <Compile Include="PlatformFactory.cs" />
     <Compile Include="Platforms.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\CommonAssemblyInfo.cs" />
+    <Compile Include="Properties\SdlAssemblyInfo.cs" />
+    <Compile Include="Properties\XnaAssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

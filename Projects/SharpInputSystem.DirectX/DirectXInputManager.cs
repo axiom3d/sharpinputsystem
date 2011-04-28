@@ -34,11 +34,9 @@ using SlimDX.DirectInput;
 using SWF = System.Windows.Forms;
 
 using MDI = SlimDX.DirectInput;
-using log4net;
-
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
     /// <summary>
     /// DirectX 9.0c InputManager specialization
@@ -47,7 +45,7 @@ namespace SharpInputSystem
     {
         #region Fields and Properties
 
-        private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
+       /// private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
 
         private MDI.DirectInput directInput = new DirectInput();
         private Dictionary<String, MDI.CooperativeLevel> _settings = new Dictionary<string, MDI.CooperativeLevel>();
@@ -97,6 +95,15 @@ namespace SharpInputSystem
 
         #endregion Fields and Properties
 
+
+		public override string InputSystemName
+		{
+			get
+			{
+				return "DirectX";
+			}
+		}
+		
         internal DirectXInputManager()
             : base()
         {
@@ -142,14 +149,14 @@ namespace SharpInputSystem
 
         private void _enumerateDevices()
         {
-            KeyboardInfo keyboardInfo = new KeyboardInfo();
+			SharpInputSystem.DirectX.KeyboardInfo keyboardInfo = new SharpInputSystem.DirectX.KeyboardInfo();
             keyboardInfo.Vendor = this.InputSystemName;
-            keyboardInfo.Id = 0;
+            keyboardInfo.ID = 0;
             _unusedDevices.Add( keyboardInfo );
 
             MouseInfo mouseInfo = new MouseInfo();
             mouseInfo.Vendor = this.InputSystemName;
-            mouseInfo.Id = 0;
+            mouseInfo.ID = 0;
             _unusedDevices.Add( mouseInfo );
 
             foreach ( MDI.DeviceInstance device in directInput.GetDevices( MDI.DeviceClass.GameController, DeviceEnumerationFlags.AttachedOnly ) )
@@ -159,9 +166,9 @@ namespace SharpInputSystem
                 //     device.Type == MDI.DeviceType.Flight )
                 //{
                     JoystickInfo joystickInfo = new JoystickInfo();
-                    joystickInfo.DeviceId = device.InstanceGuid;
+                    joystickInfo.DeviceID = device.InstanceGuid;
                     joystickInfo.Vendor = device.ProductName;
-                    joystickInfo.Id = _joystickCount++;
+                    joystickInfo.ID = _joystickCount++;
 
                     this._unusedDevices.Add( joystickInfo );
                 //}
@@ -311,7 +318,8 @@ namespace SharpInputSystem
         InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
         {
             string typeName = this.InputSystemName + typeof( T ).Name;
-            Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
+			string name = this.GetType().FullName.Remove(this.GetType().FullName.LastIndexOf(".") + 1);
+            Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( name + typeName );
             T obj;
 
             System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;

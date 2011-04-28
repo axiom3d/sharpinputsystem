@@ -31,7 +31,7 @@ using System.Collections.Generic;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
 
 	internal interface DeviceInfo

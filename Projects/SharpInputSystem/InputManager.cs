@@ -128,7 +128,7 @@ namespace SharpInputSystem
 		{
 			//log.Info( "Detecting native platform." );
 
-			PlatformApi api = PlatformApi.Win32;
+			PlatformApi api = PlatformApi.DirectX;
 
             //if ( Environment.RunningOnWindows )
             //    api = PlatformApi.Win32;

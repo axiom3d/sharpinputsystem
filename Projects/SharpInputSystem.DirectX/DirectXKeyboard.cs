@@ -30,11 +30,10 @@ using System;
 using System.Collections.Generic;
 
 using MDI = SlimDX.DirectInput;
-using log4net;
-
+using Common.Logging;
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
     class DirectXKeyboard : Keyboard
     {
@@ -414,29 +413,28 @@ namespace SharpInputSystem
             else
                 _read();
         }
+		public override void initialize()
+		{
+			_keyboard = new MDI.Keyboard( _directInput );
 
-        internal override void initialize()
-        {
-            _keyboard = new MDI.Keyboard( _directInput );
+			//_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
 
-            //_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
+			_keyboard.SetCooperativeLevel( ( (DirectXInputManager)Creator ).WindowHandle, _coopSettings );
 
-            _keyboard.SetCooperativeLevel( ((DirectXInputManager)Creator).WindowHandle, _coopSettings );
+			if ( IsBuffered )
+			{
+				_keyboard.Properties.BufferSize = _BUFFER_SIZE;
+			}
 
-            if ( IsBuffered )
-            {
-                _keyboard.Properties.BufferSize = _BUFFER_SIZE;
-            }
-
-            try
-            {
-                _keyboard.Acquire();
-            }
-            catch ( Exception e )
-            {
-                throw new Exception( "Failed to aquire keyboard using DirectInput.", e );
-            }
-        }
+			try
+			{
+				_keyboard.Acquire();
+			}
+			catch ( Exception e )
+			{
+				throw new Exception( "Failed to aquire keyboard using DirectInput.", e );
+			}
+		}
 
         #endregion InputObject Implementation
 

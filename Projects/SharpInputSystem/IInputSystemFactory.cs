@@ -1,7 +1,7 @@
-﻿#region MIT/X11 License
+?#region MIT/X11 License
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright � 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -31,61 +31,17 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 #region Namespace Declarations
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.IO;
-using System.Reflection;
-
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-	internal static class PlatformFactory
+	public interface IInputSystemFactory
 	{
-		public static InputManager Create( PlatformApi api )
+		PlatformApi Api
 		{
-			IList<IInputSystemFactory> systems = CollectSystems();
-			foreach ( IInputSystemFactory system in systems )
-				if ( (system.Api & api) == api )
-					return system.Create();
-
-			throw new Exception( "No Supported Input system found." );
+			get;
 		}
 
-		private static IList<IInputSystemFactory> CollectSystems()
-		{
-			IList<IInputSystemFactory> system = new List<IInputSystemFactory>();
-			string[] files = Directory.GetFiles( Environment.CurrentDirectory, "*.dll" );
-			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
-
-			foreach ( string file in files )
-			{
-				string currentFile = Path.GetFileName( file );
-
-				if ( currentFile == assemblyName )
-					continue;
-
-				string fullPath = Path.GetFullPath( file );
-
-				Assembly assemembly = Assembly.LoadFrom( fullPath );
-				if ( assemblyName != null )
-				{
-					Type[] types = assemembly.GetTypes();
-					foreach ( Type t in types )
-					{
-						if ( typeof( IInputSystemFactory ).IsAssignableFrom( t ) )
-						{
-
-							system.Add( (IInputSystemFactory)Activator.CreateInstance( t ) );
-							break;
-						}
-					}
-				}
-			}
-
-			return system;
-		}
-
+		InputManager Create();
 	}
 }

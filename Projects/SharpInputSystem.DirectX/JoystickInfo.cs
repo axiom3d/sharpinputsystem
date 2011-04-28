@@ -31,48 +31,48 @@ using System.Collections.Generic;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
 
-	public class KeyboardInfo : DeviceInfo
-	{
-		private int _id;
-		public int ID
-		{
-			get
-			{
-				return _id;
-			}
-			set
-			{
+    public class JoystickInfo : DeviceInfo
+    {
+        private int _id;
+        public int ID
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
 				_id = value;
-			}
-		}
+            }
+        }
 
-		private Guid _deviceID;
-		public Guid DeviceID
-		{
-			get
-			{
-				return _deviceID;
-			}
-			set
-			{
-				_deviceID = value;
-			}
-		}
+        private Guid _deviceID;
+        public Guid DeviceID
+        {
+            get
+            {
+                return _deviceID;
+            }
+            set
+            {
+                _deviceID = value;
+            }
+        }
 
-		private string _vendor;
-		public string Vendor
-		{
-			get
-			{
-				return _vendor;
-			}
-			set
-			{
-				_vendor = value;
-			}
-		}
-	}
+        private string _vendor;
+        public string Vendor
+        {
+            get
+            {
+                return _vendor;
+            }
+            set
+            {
+                _vendor = value;
+            }
+        }
+    }
 }

@@ -35,13 +35,12 @@ using SWF = System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 using MDI = SlimDX.DirectInput;
-using log4net;
-
+using Common.Logging;
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
-    class DirectXMouse : Mouse
+    class DirectXMouse : SharpInputSystem.Mouse
     {
         [StructLayout( LayoutKind.Sequential )]
         private struct POINT
@@ -57,7 +56,7 @@ namespace SharpInputSystem
         }
 
         #region Fields and Properties
-
+		
         private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
 
         private const int _BUFFER_SIZE = 64;
@@ -65,7 +64,7 @@ namespace SharpInputSystem
         private MDI.CooperativeLevel _coopSettings;
         private MDI.DirectInput _directInput;
         private MDI.Mouse _mouse;
-        private MouseInfo _msInfo;
+        private SharpInputSystem.DirectX.MouseInfo _msInfo;
 
         private IntPtr _window;
 
@@ -87,13 +86,13 @@ namespace SharpInputSystem
             Type = InputType.Mouse;
             EventListener = null;
 
-            _msInfo = (MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
+            _msInfo = (SharpInputSystem.DirectX.MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
 
             if ( _msInfo == null )
             {
                 throw new Exception( "No devices match requested type." );
             }
-
+			
             log.Debug( "DirectXMouse device created." );
 
         }
@@ -124,7 +123,8 @@ namespace SharpInputSystem
                         }
                     }
 
-                    ( (DirectXInputManager)Creator ).ReleaseDevice<Mouse>( _msInfo );
+					
+                    ( (DirectXInputManager)Creator ).ReleaseDevice<SharpInputSystem.Mouse>( _msInfo );
                 }
                 // There are no unmanaged resources to release, but
                 // if we add them, they need to be released here.
@@ -261,7 +261,7 @@ namespace SharpInputSystem
             }
         }
 
-        internal override void initialize()
+		public override void initialize()
         {
             MouseState.Clear();
 

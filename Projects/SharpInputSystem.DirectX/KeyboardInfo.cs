@@ -31,10 +31,10 @@ using System.Collections.Generic;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
 
-	public class MouseInfo : DeviceInfo
+	public class KeyboardInfo : DeviceInfo
 	{
 		private int _id;
 		public int ID
