@@ -418,7 +418,8 @@ namespace SharpInputSystem.DirectX
             else
                 _read();
         }
-		public override void initialize()
+
+		protected override void initialize()
 		{
 			_keyboard = new MDI.Keyboard( _directInput );
 

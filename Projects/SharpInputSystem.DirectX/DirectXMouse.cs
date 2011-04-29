@@ -267,15 +267,13 @@ namespace SharpInputSystem.DirectX
             }
         }
 
-		public override void initialize()
+		protected override void initialize()
         {
             MouseState.Clear();
 
             _mouse = new MDI.Mouse( _directInput );
 
             _mouse.Properties.AxisMode = DeviceAxisMode.Relative;
-
-            //_mouse.SetDataFormat( MDI.DeviceDataFormat.Mouse );
 
             _window = ( (DirectXInputManager)Creator ).WindowHandle;
 

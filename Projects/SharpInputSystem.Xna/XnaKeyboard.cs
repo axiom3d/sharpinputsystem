@@ -148,7 +148,7 @@ namespace SharpInputSystem
 			}
 		}
 
-		internal override void initialize()
+		protected override void initialize()
 		{
 			_keyMap.Add( 0x00, KeyCode.Key_UNASSIGNED );
 			_keyMap.Add( 0x09, KeyCode.Key_TAB );

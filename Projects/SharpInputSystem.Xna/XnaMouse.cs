@@ -196,7 +196,7 @@ namespace SharpInputSystem
 			previousState = xnaMouseState;
 		}
 
-		internal override void initialize()
+		protected override void initialize()
 		{
 			MouseState.Clear();
 		}

@@ -153,7 +153,7 @@ namespace SharpInputSystem
 			//XInput.GamePadState currentState = XInput.GamePad.GetState( (Xna.PlayerIndex)Int32.Parse( DeviceID ) );
 		}
 
-		internal override void initialize()
+		protected override void initialize()
 		{
 			//Enumerate all axes/buttons/sliders/etc before aquiring
 			_enumerate();

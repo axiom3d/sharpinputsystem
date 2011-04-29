@@ -211,7 +211,7 @@ namespace SharpInputSystem.DirectX
 
 	    }
 
-	    public override void initialize()
+	    protected override void initialize()
 	    {
 	        JoystickState.Axis.Clear();
 
