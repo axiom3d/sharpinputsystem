@@ -179,7 +179,7 @@ namespace SharpInputSystem.Test.Console
 				while ( _handler.appRunning )
 				{
 					//Throttle down CPU usage
-
+                    
 					if ( _kb != null )
 					{
 						_kb.Capture();

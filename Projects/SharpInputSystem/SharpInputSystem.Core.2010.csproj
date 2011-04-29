@@ -14,14 +14,10 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
-    <SccProjectName>
-    </SccProjectName>
-    <SccLocalPath>
-    </SccLocalPath>
-    <SccAuxPath>
-    </SccAuxPath>
-    <SccProvider>
-    </SccProvider>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -101,7 +97,7 @@
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
     <Compile Include="InputObjectFactory.cs" />
-    <Compile Include="IInputSystemFactory.cs" />
+    <Compile Include="IInputManagerFactory.cs" />
     <Compile Include="Joystick.cs" />
     <Compile Include="JoystickInfo.cs" />
     <Compile Include="Keyboard.cs" />
@@ -110,9 +106,7 @@
     <Compile Include="MouseInfo.cs" />
     <Compile Include="PlatformFactory.cs" />
     <Compile Include="Platforms.cs" />
-    <Compile Include="Properties\CommonAssemblyInfo.cs" />
-    <Compile Include="Properties\SdlAssemblyInfo.cs" />
-    <Compile Include="Properties\XnaAssemblyInfo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

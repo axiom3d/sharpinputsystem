@@ -1,4 +1,4 @@
-?#region MIT/X11 License
+#region MIT/X11 License
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -35,7 +35,7 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 namespace SharpInputSystem
 {
-	public interface IInputSystemFactory
+	public interface IInputManagerFactory
 	{
 		PlatformApi Api
 		{

@@ -45,17 +45,17 @@ namespace SharpInputSystem
 	{
 		public static InputManager Create( PlatformApi api )
 		{
-			IList<IInputSystemFactory> systems = CollectSystems();
-			foreach ( IInputSystemFactory system in systems )
+			IList<IInputManagerFactory> systems = CollectSystems();
+			foreach ( IInputManagerFactory system in systems )
 				if ( (system.Api & api) == api )
 					return system.Create();
 
 			throw new Exception( "No Supported Input system found." );
 		}
 
-		private static IList<IInputSystemFactory> CollectSystems()
+		private static IList<IInputManagerFactory> CollectSystems()
 		{
-			IList<IInputSystemFactory> system = new List<IInputSystemFactory>();
+			IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
 			string[] files = Directory.GetFiles( Environment.CurrentDirectory, "*.dll" );
 			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
 
@@ -74,10 +74,10 @@ namespace SharpInputSystem
 					Type[] types = assemembly.GetTypes();
 					foreach ( Type t in types )
 					{
-						if ( typeof( IInputSystemFactory ).IsAssignableFrom( t ) )
+						if ( typeof( IInputManagerFactory ).IsAssignableFrom( t ) )
 						{
 
-							system.Add( (IInputSystemFactory)Activator.CreateInstance( t ) );
+							system.Add( (IInputManagerFactory)Activator.CreateInstance( t ) );
 							break;
 						}
 					}

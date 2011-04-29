@@ -1,4 +1,4 @@
-?<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -13,6 +13,10 @@
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -35,9 +39,6 @@
     <Reference Include="Common.Logging">
       <HintPath>..\..\Dependencies\Common.Logging\2.0.0.4042\Common.Logging.dll</HintPath>
     </Reference>
-    <Reference Include="SharpInputSystem.Core">
-      <HintPath>..\SharpInputSystem\bin\x86\Debug\SharpInputSystem.Core.dll</HintPath>
-    </Reference>
     <Reference Include="SlimDX, Version=2.0.10.43, Culture=neutral, PublicKeyToken=b1b0c32fd1ffe4f9, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Program Files (x86)\SlimDX SDK (June 2010)\Bin\net20\x86\SlimDX.dll</HintPath>
@@ -49,17 +50,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DeviceInfo.cs" />
     <Compile Include="DirectXForceFeedback.cs" />
     <Compile Include="DirectXInputManager.cs" />
     <Compile Include="DirectXJoystick.cs" />
     <Compile Include="DirectXKeyboard.cs" />
     <Compile Include="DirectXMouse.cs" />
-    <Compile Include="InputSystem.cs" />
-    <Compile Include="JoystickInfo.cs" />
-    <Compile Include="KeyboardInfo.cs" />
-    <Compile Include="MouseInfo.cs" />
+    <Compile Include="DirectXInputManagerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.2010.csproj">
+      <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
+      <Name>SharpInputSystem.Core.2010</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

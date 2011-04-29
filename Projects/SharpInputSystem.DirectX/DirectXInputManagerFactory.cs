@@ -29,34 +29,18 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 */
 #endregion MIT/X11 License
 
-#region Namespace Declarations
-
-using System;
-using System.Collections.Generic;
-
-#endregion Namespace Declarations
-
-namespace SharpInputSystem
+namespace SharpInputSystem.DirectX
 {
-
-	public interface DeviceInfo
+	public class DirectXInputManagerFactory : IInputManagerFactory
 	{
-		int Id
+		public PlatformApi Api
 		{
-			get;
-			set;
+			get { return PlatformApi.DirectX; }
 		}
 
-		Guid DeviceId
+		public InputManager Create()
 		{
-			get;
-			set;
-		}
-
-		string Vendor
-		{
-			get;
-			set;
+			return new DirectXInputManager();
 		}
 	}
 }
