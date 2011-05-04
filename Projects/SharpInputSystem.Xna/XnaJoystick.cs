@@ -37,9 +37,12 @@ using System.Text;
 
 //using Common.Logging;
 
+using XInput = Microsoft.Xna.Framework.Input;
+using MXF = Microsoft.Xna.Framework;
+
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Xna
 {
 	class XnaJoystick : Joystick
 	{
@@ -53,7 +56,6 @@ namespace SharpInputSystem
 
 		private Guid _deviceGuid;
 
-		private int _axisNumber;
 		private Dictionary<int, int> _axisMapping = new Dictionary<int, int>();
 
 		#endregion Fields and Properties
@@ -110,32 +112,31 @@ namespace SharpInputSystem
 		protected void _enumerate()
 		{
 			//We can check force feedback here too
-			//XInput.GamePadCapabilities joystickCapabilities;
+			XInput.GamePadCapabilities joystickCapabilities;
 
-			//joystickCapabilities = XInput.GamePad.GetCapabilities( (Xna.PlayerIndex)Int32.Parse( this.DeviceID ) );
+			joystickCapabilities = XInput.GamePad.GetCapabilities( (MXF.PlayerIndex)Int32.Parse( this.DeviceID ) );
 
-			//if ( joystickCapabilities.HasAButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasBButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasXButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasYButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasStartButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasBackButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasLeftStickButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasRightStickButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasLeftShoulderButton ) this.ButtonCount++;
-			//if ( joystickCapabilities.HasRightShoulderButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasAButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasBButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasXButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasYButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasStartButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasBackButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasLeftStickButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasRightStickButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasLeftShoulderButton ) this.ButtonCount++;
+			if ( joystickCapabilities.HasRightShoulderButton ) this.ButtonCount++;
 
-			//if ( joystickCapabilities.HasDPadUpButton && joystickCapabilities.HasDPadDownButton &&
-			//     joystickCapabilities.HasDPadLeftButton && joystickCapabilities.HasDPadRightButton )
-			//    this.AxisCount++;
-			//if ( joystickCapabilities.HasLeftTrigger ) this.AxisCount++;
-			//if ( joystickCapabilities.HasRightTrigger ) this.AxisCount++;
-			//if ( joystickCapabilities.HasLeftXThumbStick && joystickCapabilities.HasLeftYThumbStick ) this.AxisCount++;
-			//if ( joystickCapabilities.HasRightXThumbStick && joystickCapabilities.HasRightYThumbStick ) this.AxisCount++;
+			if ( joystickCapabilities.HasDPadUpButton && joystickCapabilities.HasDPadDownButton &&
+			     joystickCapabilities.HasDPadLeftButton && joystickCapabilities.HasDPadRightButton )
+			    this.AxisCount++;
+			if ( joystickCapabilities.HasLeftTrigger ) this.AxisCount++;
+			if ( joystickCapabilities.HasRightTrigger ) this.AxisCount++;
+			if ( joystickCapabilities.HasLeftXThumbStick && joystickCapabilities.HasLeftYThumbStick ) this.AxisCount++;
+			if ( joystickCapabilities.HasRightXThumbStick && joystickCapabilities.HasRightYThumbStick ) this.AxisCount++;
 
 			this.HatCount++;
 
-			_axisNumber = 0;
 			_axisMapping.Clear();
 
 			//Enumerate Force Feedback (if any)
@@ -150,7 +151,7 @@ namespace SharpInputSystem
 
 		public override void Capture()
 		{
-			//XInput.GamePadState currentState = XInput.GamePad.GetState( (Xna.PlayerIndex)Int32.Parse( DeviceID ) );
+			XInput.GamePadState currentState = XInput.GamePad.GetState( (MXF.PlayerIndex)Int32.Parse( DeviceID ) );
 		}
 
 		protected override void initialize()

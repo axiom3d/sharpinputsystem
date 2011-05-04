@@ -1,27 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
-    <ProjectGuid>{586BE208-0A04-4BB5-B83A-F2C31A4C03B0}</ProjectGuid>
+    <ProjectGuid>{CB4F8B93-594B-455E-9DD7-D053702144BE}</ProjectGuid>
     <ProjectTypeGuids>{6D335F3A-9D43-41b4-9D22-F6F17C4BE596};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpInputSystem</RootNamespace>
-    <AssemblyName>SharpInputSystem</AssemblyName>
+    <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
+    <AssemblyName>SharpInputSystem.Test.Console.Xna</AssemblyName>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Windows</XnaPlatform>
-    <XnaCrossPlatformGroupID>8ab76826-bfda-4cc8-9533-e1a19168045d</XnaCrossPlatformGroupID>
+    <XnaCrossPlatformGroupID>a1e9b6d3-78cd-4edf-b005-a51b8bd2a62a</XnaCrossPlatformGroupID>
+    <ApplicationIcon>Game.ico</ApplicationIcon>
+    <Thumbnail>GameThumbnail.png</Thumbnail>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
-    <OldToolsVersion>4.0</OldToolsVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <XnaUpgrade>
     </XnaUpgrade>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <XnaOutputType>Library</XnaOutputType>
+    <XnaOutputType>Game</XnaOutputType>
     <XnaProfile>HiDef</XnaProfile>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <PublishUrl>publish\</PublishUrl>
@@ -38,13 +40,17 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\Xna\x86\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;SIS_XNA_PLATFORM;WINDOWS</DefineConstants>
+    <OutputPath>bin\Debug\Xna\x86\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -55,8 +61,8 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\Xna\x86\</OutputPath>
-    <DefineConstants>TRACE%3bSIS_XNA_PLATFORM%3bWINDOWS</DefineConstants>
+    <OutputPath>bin\Release\Xna\x86\</OutputPath>
+    <DefineConstants>TRACE%3bWINDOWS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -66,6 +72,18 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging">
+      <HintPath>..\..\Dependencies\Common.Logging\2.0.0.4042\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Game, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Xna.Framework.Graphics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=842cf8be1de50553, processorArchitecture=x86">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
@@ -82,41 +100,38 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Components.cs" />
-    <Compile Include="DeviceInfo.cs" />
-    <Compile Include="Effect.cs" />
-    <Compile Include="Environment.cs" />
-    <Compile Include="ForceFeedback.cs" />
+    <Compile Include="Camera.cs" />
     <Compile Include="InputManager.cs" />
-    <Compile Include="InputObject.cs" />
-    <Compile Include="InputObjectFactory.cs" />
-    <Compile Include="Joystick.cs" />
-    <Compile Include="JoystickInfo.cs" />
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="KeyboardInfo.cs" />
-    <Compile Include="Mouse.cs" />
-    <Compile Include="MouseInfo.cs" />
-    <Compile Include="PlatformFactory.cs" />
-    <Compile Include="Platforms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnixKernel.cs" />
-    <Compile Include="Win32\Win32Api.cs" />
-    <Compile Include="Win32\Win32GamePad.cs" />
-    <Compile Include="Win32\Win32InputManager.cs" />
-    <Compile Include="Win32\Win32Keyboard.cs" />
-    <Compile Include="Win32\Win32Mouse.cs" />
-    <Compile Include="X11\LibX11.cs" />
-    <Compile Include="X11\X11InputManager.cs" />
-    <Compile Include="X11\X11Keyboard.cs" />
-    <Compile Include="X11\X11Mouse.cs" />
-    <Compile Include="Xna\Proxies\KeyboardStateProxy.cs" />
-    <Compile Include="Xna\Proxies\KeyboardProxy.cs" />
-    <Compile Include="Xna\Proxies\MouseProxy.cs" />
-    <Compile Include="Xna\Proxies\MouseStateProxy.cs" />
-    <Compile Include="Xna\XnaJoystick.cs" />
-    <Compile Include="Xna\XnaInputManager.cs" />
-    <Compile Include="Xna\XnaKeyboard.cs" />
-    <Compile Include="Xna\XnaMouse.cs" />
+    <Compile Include="Game1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Game.ico" />
+    <Content Include="GameThumbnail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <NestedContentProject Include="Content\Content.contentproj">
+      <Project>9b7f416e-ed15-44eb-ba2c-18dfbe40fe3e</Project>
+      <Visible>False</Visible>
+    </NestedContentProject>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem.Xna\SharpInputSystem.Xna.x86.2010.csproj">
+      <Project>{FF8DEF79-65B2-4889-AAD1-75F29BDA8CA7}</Project>
+      <Name>SharpInputSystem.Xna.x86.2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.Xna.x86.2010.csproj">
+      <Project>{586BE208-0A04-4BB5-B83A-F2C31A4C03B0}</Project>
+      <Name>SharpInputSystem.Core.Xna.x86.2010</Name>
+    </ProjectReference>
+    <ProjectReference Include="Content\SharpInputSystem.Test.ConsoleContent.contentproj">
+      <Project>{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}</Project>
+      <Name>SharpInputSystem.Test.ConsoleContent %28Content%29</Name>
+      <XnaReferenceType>Content</XnaReferenceType>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

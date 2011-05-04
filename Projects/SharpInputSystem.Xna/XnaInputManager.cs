@@ -34,10 +34,16 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+
+using XInput = Microsoft.Xna.Framework.Input;
+using MXF = Microsoft.Xna.Framework;
+
+//using Common.Logging;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Xna
 {
 	/// <summary>
 	/// Xna 2.0 Input Manager Specialization
@@ -46,7 +52,7 @@ namespace SharpInputSystem
 	{
 		#region Fields and Properties
 
-		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( XnaInputManager ) );
+		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaInputManager ) );
 
 		private IntPtr _hwnd;
 		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
@@ -112,16 +118,16 @@ namespace SharpInputSystem
 			int maxPlayers = /* (int)Xna.PlayerIndex.Four */ 4;
 			for ( int player = 0; player < maxPlayers; player++ )
 			{
-				//XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities( (Xna.PlayerIndex)player );
-				//if ( gpCaps.IsConnected )
-				//{
-				//    JoystickInfo joystickInfo = new JoystickInfo();
-				//    joystickInfo.DeviceId = new Guid();
-				//    joystickInfo.Vendor = this.InputSystemName;
-				//    joystickInfo.Id = _gamePadCount++;
+                XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities((MXF.PlayerIndex)player);
+                if (gpCaps.IsConnected)
+                {
+                    JoystickInfo joystickInfo = new JoystickInfo();
+                    joystickInfo.DeviceId = new Guid();
+                    joystickInfo.Vendor = this.InputSystemName;
+                    joystickInfo.Id = _gamePadCount++;
 
-				//    this._unusedDevices.Add( joystickInfo );
-				//}
+                    this._unusedDevices.Add(joystickInfo);
+                }
 			}
 		}
 
@@ -183,7 +189,7 @@ namespace SharpInputSystem
 		protected override void _initialize( ParameterList args )
 		{
 			// Find the first Parameter entry with WINDOW
-			_hwnd = (IntPtr)args.Find(
+			_hwnd = (IntPtr)args.First(
 									  delegate( Parameter p )
 									  {
 										  return p.first.ToUpper() == "WINDOW";
@@ -284,8 +290,9 @@ namespace SharpInputSystem
 		InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
 		{
 			string typeName = this.InputSystemName + typeof( T ).Name;
-			Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( "SharpInputSystem." + typeName );
-			T obj = null;
+            string name = this.GetType().FullName.Remove( this.GetType().FullName.LastIndexOf( "." ) + 1 );
+            Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( name + typeName );
+            T obj = null;
 
 			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
 			try

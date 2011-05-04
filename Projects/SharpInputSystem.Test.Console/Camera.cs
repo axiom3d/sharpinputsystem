@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-using Xna = Microsoft.Xna.Framework;
+using MXF = Microsoft.Xna.Framework;
 
 using SIS = SharpInputSystem;
 using Microsoft.Xna.Framework;
@@ -11,15 +11,15 @@ namespace SharpInputSystem.Test.Console
 {
     public class Camera
     {
-        protected float FOV = Xna.MathHelper.Pi / 3;
+        protected float FOV = MXF.MathHelper.Pi / 3;
         protected float aspectRatio = 1;
         protected float nearClip = 1.0f;
         protected float farClip = 10000000.0f;
 
-        protected Xna.Quaternion cameraRotation;
-        protected Xna.Vector3 cameraPosition;
+        protected MXF.Quaternion cameraRotation;
+        protected MXF.Vector3 cameraPosition;
 
-        public Xna.Quaternion Rotation
+        public MXF.Quaternion Rotation
         {
             get
             {
@@ -30,7 +30,7 @@ namespace SharpInputSystem.Test.Console
                 this.cameraRotation = value;
             }
         }
-        public Xna.Vector3 Position
+        public MXF.Vector3 Position
         {
             get
             {
@@ -41,18 +41,18 @@ namespace SharpInputSystem.Test.Console
                 this.cameraPosition = value;
             }
         }
-        public Xna.Matrix Projection
+        public MXF.Matrix Projection
         {
             get
             {
-                return Xna.Matrix.CreatePerspectiveFieldOfView(this.FOV, this.aspectRatio, this.nearClip, this.farClip);
+                return MXF.Matrix.CreatePerspectiveFieldOfView(this.FOV, this.aspectRatio, this.nearClip, this.farClip);
             }
         }
-        public Xna.Matrix View
+        public MXF.Matrix View
         {
             get
             {
-                return Xna.Matrix.Invert(Xna.Matrix.CreateFromQuaternion(this.Rotation) * Xna.Matrix.CreateTranslation(this.Position));
+                return MXF.Matrix.Invert(MXF.Matrix.CreateFromQuaternion(this.Rotation) * MXF.Matrix.CreateTranslation(this.Position));
             }
         }
         protected float yaw;
@@ -61,8 +61,8 @@ namespace SharpInputSystem.Test.Console
 
         public Camera()
         {
-            this.cameraRotation = new Xna.Quaternion();
-            this.cameraPosition = Xna.Vector3.Zero;
+            this.cameraRotation = new MXF.Quaternion();
+            this.cameraPosition = MXF.Vector3.Zero;
 
             this.yaw = 0;
             this.pitch = 0;
@@ -75,15 +75,15 @@ namespace SharpInputSystem.Test.Console
             this.pitch += yRotation;
             this.roll += zRotation;
 
-            Xna.Quaternion q1 = Xna.Quaternion.CreateFromAxisAngle(new Xna.Vector3(0, 1, 0), this.yaw);
-            Xna.Quaternion q2 = Xna.Quaternion.CreateFromAxisAngle(new Xna.Vector3(1, 0, 0), this.pitch);
-            Xna.Quaternion q3 = Xna.Quaternion.CreateFromAxisAngle(new Xna.Vector3(0, 0, 1), this.roll);
+            MXF.Quaternion q1 = MXF.Quaternion.CreateFromAxisAngle(new MXF.Vector3(0, 1, 0), this.yaw);
+            MXF.Quaternion q2 = MXF.Quaternion.CreateFromAxisAngle(new MXF.Vector3(1, 0, 0), this.pitch);
+            MXF.Quaternion q3 = MXF.Quaternion.CreateFromAxisAngle(new MXF.Vector3(0, 0, 1), this.roll);
             this.cameraRotation = q1 * q2 * q3;
         }
 
-        public void Translate(Xna.Vector3 distance)
+        public void Translate(MXF.Vector3 distance)
         {
-            Xna.Vector3 diff = Xna.Vector3.Transform(distance, Xna.Matrix.CreateFromQuaternion(this.cameraRotation));
+            MXF.Vector3 diff = MXF.Vector3.Transform(distance, MXF.Matrix.CreateFromQuaternion(this.cameraRotation));
             this.cameraPosition += diff;
         }
     }
@@ -93,18 +93,18 @@ namespace SharpInputSystem.Test.Console
         Camera Camera { get; }
     }
 
-    public class CameraManager : Xna.GameComponent, ICameraManagerService
+    public class CameraManager : MXF.GameComponent, ICameraManagerService
     {
         protected Camera camera;
         IInputManagerService inputManagerService;
 
-        public CameraManager(Xna.Game game)
+        public CameraManager(MXF.Game game)
             : base(game)
         {
             this.camera = new Camera();
             {
-                this.camera.Rotation = new Xna.Quaternion(0, 0, 0, 0);
-                this.camera.Position = new Xna.Vector3(0.0f, 500.0f, 50.0f);
+                this.camera.Rotation = new MXF.Quaternion(0, 0, 0, 0);
+                this.camera.Position = new MXF.Vector3(0.0f, 500.0f, 50.0f);
             }
         }
 
@@ -122,13 +122,17 @@ namespace SharpInputSystem.Test.Console
             inputManagerService = (IInputManagerService)this.Game.Services.GetService( typeof( IInputManagerService ) );
         }
 
-        public override void Update( Xna.GameTime gameTime )
+        public override void Update( MXF.GameTime gameTime )
         {
             // Retrieve the mousestate
             inputManagerService.Mouse.Capture();
             MouseState ms = inputManagerService.Mouse.MouseState;
             Keyboard kb = inputManagerService.Keyboard;
+            Joystick gp = null;
+            if ( inputManagerService.GamePads.Count > 0 )
+                gp = inputManagerService.GamePads[0];
             kb.Capture();
+            gp.Capture();
 
             // Save the offset between mousecoordinates, and the current mouse pos
 
@@ -142,22 +146,26 @@ namespace SharpInputSystem.Test.Console
             // Variable that controls the speed
             float speed = 35f;
 
-            if ( kb.IsShiftState( Keyboard.ShiftState.Shift ) && kb.IsKeyDown( KeyCode.Key_LSHIFT ) )
+            if ( ( kb.IsShiftState( Keyboard.ShiftState.Shift ) && kb.IsKeyDown( KeyCode.Key_LSHIFT ) ) ||
+                  ( gp != null && gp.JoystickState.IsButtonDown( 2 ) ) )
                 speed *= 2;
 
             // Check for specified key presses
             if ( kb.IsKeyDown( KeyCode.Key_W) || kb.IsKeyDown( KeyCode.Key_UP) || ms.IsButtonDown(MouseButtonID.Left) )
-                this.camera.Translate(new Xna.Vector3(0, 0, -1) * speed);
+                this.camera.Translate(new MXF.Vector3(0, 0, -1) * speed);
 
             if ( kb.IsKeyDown(KeyCode.Key_S) || kb.IsKeyDown( KeyCode.Key_DOWN) )
-                this.camera.Translate(new Xna.Vector3(0, 0, 1) * speed);
+                this.camera.Translate(new MXF.Vector3(0, 0, 1) * speed);
 
             if ( kb.IsKeyDown(KeyCode.Key_A) || kb.IsKeyDown( KeyCode.Key_LEFT) )
-                this.camera.Translate(new Xna.Vector3(-1, 0, 0) * speed);
+                this.camera.Translate(new MXF.Vector3(-1, 0, 0) * speed);
 
             if ( kb.IsKeyDown(KeyCode.Key_D) || kb.IsKeyDown( KeyCode.Key_RIGHT) )
-                this.camera.Translate(new Xna.Vector3(1, 0, 0) * speed);
+                this.camera.Translate(new MXF.Vector3(1, 0, 0) * speed);
 
+            if ( gp != null )
+            {
+            }
             // TODO: Add your update code here
             base.Update(gameTime);
         }

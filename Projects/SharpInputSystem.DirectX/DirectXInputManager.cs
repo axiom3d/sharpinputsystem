@@ -36,9 +36,12 @@ using System.Collections.Generic;
 
 using SlimDX.DirectInput;
 
+using Common.Logging;
+
 using SWF = System.Windows.Forms;
 
 using MDI = SlimDX.DirectInput;
+
 #endregion Namespace Declarations
 
 namespace SharpInputSystem.DirectX
@@ -50,7 +53,7 @@ namespace SharpInputSystem.DirectX
     {
         #region Fields and Properties
 
-       /// private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
+        private static readonly ILog log = LogManager.GetLogger( typeof( DirectXInputManager ) );
 
         private MDI.DirectInput directInput = new DirectInput();
         private Dictionary<String, MDI.CooperativeLevel> _settings = new Dictionary<string, MDI.CooperativeLevel>();
@@ -325,15 +328,21 @@ namespace SharpInputSystem.DirectX
             string typeName = this.InputSystemName + typeof( T ).Name;
 			string name = this.GetType().FullName.Remove(this.GetType().FullName.LastIndexOf(".") + 1);
             Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( name + typeName );
-            T obj;
+            T obj = null;
 
-            System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
-
-            obj = (T)objectType.InvokeMember( typeName,
-                                              bindingFlags,
-                                              null,
-                                              null,
-                                              new object[] { this, directInput, bufferMode, _settings[ typeof( T ).Name ] } );
+			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
+			try
+			{
+                obj = (T)objectType.InvokeMember( typeName,
+                                                  bindingFlags,
+                                                  null,
+                                                  null,
+                                                  new object[] { this, directInput, bufferMode, _settings[ typeof( T ).Name ] } );
+            }
+            catch (Exception ex)
+            {
+                log.Error("Cannot create requested device.", ex);
+            }
             return obj;
         }
 

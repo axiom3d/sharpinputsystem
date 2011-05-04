@@ -108,7 +108,7 @@ namespace SharpInputSystem.Test.Console
 			frm.Show();
 
 			ParameterList pl = new ParameterList();
-			pl.Add( new Parameter( "WINDOW", frm ) );
+			pl.Add( new Parameter( "WINDOW", frm.Handle ) );
 
 			//Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
 			pl.Add( new Parameter( "w32_mouse", "CLF_BACKGROUND" ) );

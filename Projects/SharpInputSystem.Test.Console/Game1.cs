@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using Xna = Microsoft.Xna.Framework;
+using MXF = Microsoft.Xna.Framework;
 using XFG = Microsoft.Xna.Framework.Graphics;
 using XInput = Microsoft.Xna.Framework.Input;
 
-using log4net;
+//using Common.Logging;
 
 namespace SharpInputSystem.Test.Console
 {
@@ -25,20 +25,20 @@ namespace SharpInputSystem.Test.Console
     /// <summary>
     /// This is the main type for your game
     /// </summary>
-    public class Game1 : Xna.Game
+    public class Game1 : MXF.Game
     {
-        Xna.GraphicsDeviceManager graphics;
+        MXF.GraphicsDeviceManager graphics;
         XFG.SpriteBatch spriteBatch;
 
         XFG.Model castle;
-        Xna.Vector3 modelPosition = Xna.Vector3.Zero;
+        MXF.Vector3 modelPosition = MXF.Vector3.Zero;
         float modelRotation = 0.0f;
 
-        private static readonly ILog log = LogManager.GetLogger( typeof( Game1 ) );
+        //private static readonly ILog log = LogManager.GetLogger( typeof( Game1 ) );
 
         public Game1()
         {
-            graphics = new Xna.GraphicsDeviceManager( this );
+            graphics = new MXF.GraphicsDeviceManager( this );
             Content.RootDirectory = "Content";
         }
 
@@ -96,10 +96,10 @@ namespace SharpInputSystem.Test.Console
         /// checking for collisions, gathering input, and playing audio.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Update( Xna.GameTime gameTime )
+        protected override void Update( MXF.GameTime gameTime )
         {
             // Allows the game to exit
-            if ( XInput.GamePad.GetState( Xna.PlayerIndex.One ).Buttons.Back == XInput.ButtonState.Pressed )
+            if ( XInput.GamePad.GetState( MXF.PlayerIndex.One ).Buttons.Back == XInput.ButtonState.Pressed )
                 this.Exit();
 
             // TODO: Add your update logic here
@@ -111,14 +111,14 @@ namespace SharpInputSystem.Test.Console
         /// This is called when the game should draw itself.
         /// </summary>
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
-        protected override void Draw( Xna.GameTime gameTime )
+        protected override void Draw( MXF.GameTime gameTime )
         {
             ICameraManagerService cameraManagerService = (ICameraManagerService)this.Services.GetService(typeof(ICameraManagerService));
 
-            graphics.GraphicsDevice.Clear( XFG.Color.CornflowerBlue );
+            graphics.GraphicsDevice.Clear( MXF.Color.CornflowerBlue );
 
             // Copy any parent transforms.
-            Xna.Matrix[] transforms = new Xna.Matrix[ castle.Bones.Count ];
+            MXF.Matrix[] transforms = new MXF.Matrix[ castle.Bones.Count ];
             castle.CopyAbsoluteBoneTransformsTo( transforms );
 
             //// Draw the model. A model can have multiple meshes, so loop.
@@ -127,7 +127,7 @@ namespace SharpInputSystem.Test.Console
                 // This is where the mesh orientation is set, as well as our camera and projection.
                 foreach ( XFG.BasicEffect effect in mesh.Effects )
                 {
-                        effect.World = Xna.Matrix.CreateRotationY(this.modelRotation) * Xna.Matrix.CreateTranslation(this.modelPosition);
+                        effect.World = MXF.Matrix.CreateRotationY(this.modelRotation) * MXF.Matrix.CreateTranslation(this.modelPosition);
                         effect.View = cameraManagerService.Camera.View;
                         effect.Projection = cameraManagerService.Camera.Projection;
                         effect.EnableDefaultLighting();

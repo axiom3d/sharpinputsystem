@@ -34,13 +34,14 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 using System;
 using System.Collections.Generic;
 using System.Text;
-using SharpInputSystem.Proxies.Xna;
+
+using XInput = Microsoft.Xna.Framework.Input;
 
 //using Common.Logging;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Xna
 {
 	/// <summary>
 	/// Xna specialization of the Mouse class
@@ -52,7 +53,7 @@ namespace SharpInputSystem
 
 		// Variables for XnaKeyboard
 		private MouseInfo _mInfo;
-		private MouseStateProxy previousState;
+		private XInput.MouseState previousState;
 
 		#endregion Fields and Properties
 
@@ -72,8 +73,8 @@ namespace SharpInputSystem
 				throw new Exception( "No devices match requested type." );
 			}
 
-			//log.Debug( "XnaMouse device created." );
-			previousState = MouseProxy.GetState();
+//			log.Debug( "XnaMouse device created." );
+			previousState = XInput.Mouse.GetState();
 		}
 
 		protected override void _dispose( bool disposeManagedResources )
@@ -131,16 +132,16 @@ namespace SharpInputSystem
 			// Clear Relative movement
 			MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
 
-			MouseStateProxy xnaMouseState = MouseProxy.GetState();
+            XInput.MouseState xnaMouseState = XInput.Mouse.GetState();
 			bool axesMoved = false;
 
 			//Accumulate all axis movements for one axesMove message..
 			//Buttons are fired off as they are found
-			_doMouseClick( 0, xnaMouseState.LeftButton == MouseStateProxy.ButtonState.Pressed );
-			_doMouseClick( 1, xnaMouseState.MiddleButton == MouseStateProxy.ButtonState.Pressed );
-			_doMouseClick( 2, xnaMouseState.RightButton == MouseStateProxy.ButtonState.Pressed );
-			_doMouseClick( 3, xnaMouseState.XButton1 == MouseStateProxy.ButtonState.Pressed );
-			_doMouseClick( 4, xnaMouseState.XButton2 == MouseStateProxy.ButtonState.Pressed );
+            _doMouseClick(0, xnaMouseState.LeftButton == XInput.ButtonState.Pressed);
+            _doMouseClick(1, xnaMouseState.MiddleButton == XInput.ButtonState.Pressed);
+            _doMouseClick(2, xnaMouseState.RightButton == XInput.ButtonState.Pressed);
+            _doMouseClick(3, xnaMouseState.XButton1 == XInput.ButtonState.Pressed);
+            _doMouseClick(4, xnaMouseState.XButton2 == XInput.ButtonState.Pressed);
 
 			//for (int i = 0; i < bufferedData.GetButtons().Length; i++)
 			//{

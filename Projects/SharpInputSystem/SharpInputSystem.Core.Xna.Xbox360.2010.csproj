@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpInputSystem</RootNamespace>
-    <AssemblyName>SharpInputSystem</AssemblyName>
+    <AssemblyName>SharpInputSystem.Core</AssemblyName>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Xbox 360</XnaPlatform>
     <XnaCrossPlatformGroupID>b9bf38d2-449a-4a14-97cf-dfdbcf674f02</XnaCrossPlatformGroupID>
@@ -44,13 +44,14 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>..\..\bin\Debug\Xna\Xbox360\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;XBOX;XBOX360;SIS_XNA_PLATFORM</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;XBOX;XBOX360;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
     <UseVSHostingProcess>false</UseVSHostingProcess>
     <XnaCompressContent>True</XnaCompressContent>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
     <DebugType>pdbonly</DebugType>
@@ -65,20 +66,17 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\log4net\1.2.10\cf\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
     <Reference Include="System">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=1c9e259686f921e0, processorArchitecture=MSIL">
+    <Reference Include="System.Core">
       <Private>False</Private>
     </Reference>
-    <Reference Include="System.Xml.Linq, Version=3.5.0.0, Culture=neutral, PublicKeyToken=1c9e259686f921e0, processorArchitecture=MSIL">
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
       <Private>False</Private>
     </Reference>
   </ItemGroup>
@@ -86,7 +84,9 @@
     <Compile Include="Components.cs" />
     <Compile Include="DeviceInfo.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="Exception.cs" />
     <Compile Include="ForceFeedback.cs" />
+    <Compile Include="IInputManagerFactory.cs" />
     <Compile Include="InputManager.cs" />
     <Compile Include="InputObject.cs" />
     <Compile Include="InputObjectFactory.cs" />
@@ -96,16 +96,9 @@
     <Compile Include="KeyboardInfo.cs" />
     <Compile Include="Mouse.cs" />
     <Compile Include="MouseInfo.cs" />
-    <Compile Include="Properties\CommonAssemblyInfo.cs" />
-    <Compile Include="Properties\XnaAssemblyInfo.cs" />
-    <Compile Include="Xna\Proxies\KeyboardProxy.cs" />
-    <Compile Include="Xna\Proxies\KeyboardStateProxy.cs" />
-    <Compile Include="Xna\Proxies\MouseProxy.cs" />
-    <Compile Include="Xna\Proxies\MouseStateProxy.cs" />
-    <Compile Include="Xna\XnaInputManager.cs" />
-    <Compile Include="Xna\XnaJoystick.cs" />
-    <Compile Include="Xna\XnaKeyboard.cs" />
-    <Compile Include="Xna\XnaMouse.cs" />
+    <Compile Include="PlatformFactory.cs" />
+    <Compile Include="Platforms.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -138,6 +131,10 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\Microsoft.Xna.GameStudio.targets" Condition="" />

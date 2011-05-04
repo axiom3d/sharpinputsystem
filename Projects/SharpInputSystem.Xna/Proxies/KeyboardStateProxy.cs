@@ -73,7 +73,7 @@ namespace SharpInputSystem.Proxies.Xna
 
 		static KeyboardStateProxy()
 		{
-			// Initialize refelection proxies.
+			// Initialize reflection proxies.
 			var programFilesPath = System.Environment.GetFolderPath( System.Environment.SpecialFolder.ProgramFilesX86 );
 			xfg = System.Reflection.Assembly.Load( System.IO.File.ReadAllBytes( programFilesPath + XnaAssemblyPath ) );
 			xnaKeyboardState = xfg.GetType( XnaType );

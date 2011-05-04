@@ -41,7 +41,7 @@ namespace SharpInputSystem
 {
 	public enum PlatformApi
 	{
-		Win32,
+        AutoDetect,
 		DirectX,
 		X11,
 		Xna,
