@@ -24,6 +24,7 @@ namespace SharpInputSystem.Test.Console
 
 		public bool KeyReleased( KeyEventArgs e )
 		{
+			log.Info( String.Format( "KeyReleased : {0} {1}", e.Key, e.Text ) );
 			if ( e.Key == KeyCode.Key_ESCAPE || e.Key == KeyCode.Key_Q )
 				appRunning = false;
 			return true;
@@ -113,7 +114,10 @@ namespace SharpInputSystem.Test.Console
 			//Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
 			pl.Add( new Parameter( "w32_mouse", "CLF_BACKGROUND" ) );
 			pl.Add( new Parameter( "w32_mouse", "CLF_NONEXCLUSIVE" ) );
-
+			pl.Add( new Parameter( "x11_keyboard_grab", false ) );
+			pl.Add( new Parameter( "x11_mouse_grab", false ) );
+			pl.Add( new Parameter( "x11_mouse_hide", false ) );
+			
 			//This never returns null.. it will raise an exception on errors
 			_inputManager = InputManager.CreateInputSystem( pl );
 
@@ -125,14 +129,14 @@ namespace SharpInputSystem.Test.Console
 
 			bool buffered = true;
 
-			if ( _inputManager.DeviceCount<Keyboard>() > 0 )
+			if ( false /* _inputManager.DeviceCount<Keyboard>() > 0 */ )
 			{
 				_kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
 				log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
 				_kb.EventListener = _handler;
 			}
 
-			if ( _inputManager.DeviceCount<Mouse>() > 0 )
+			if (  _inputManager.DeviceCount<Mouse>() > 0 )
 			{
 				_m = _inputManager.CreateInputObject<Mouse>( buffered, "" );
 				log.Info( String.Format( "Created {0}buffered mouse", buffered ? "" : "un" ) );
@@ -250,7 +254,7 @@ namespace SharpInputSystem.Test.Console
 			{
 				if ( ks[ i ] != 0 )
 				{
-					log.Info( String.Format( "KeyPressed : {0} {1}", (KeyCode)i, i ) );
+					log.Info( String.Format( "KeyPressed : {0} {1}", (KeyCode)i, _kb.AsString( (KeyCode)i ) ) );
 				}
 			}
 		}

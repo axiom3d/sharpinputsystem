@@ -115,6 +115,10 @@
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
       <Name>SharpInputSystem.Core.2010</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem .X11.2010.csproj">
+      <Project>{E7611F78-E15A-4CFA-A491-86459129C7D8}</Project>
+      <Name>SharpInputSystem .X11.2010</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
