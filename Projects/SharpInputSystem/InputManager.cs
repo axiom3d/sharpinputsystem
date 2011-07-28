@@ -61,17 +61,17 @@ namespace SharpInputSystem
 
 	abstract public class InputManager
 	{
-		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
+		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
 
 		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
-		private Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>();
+		protected Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>();
 
 		/// <summary>
 		/// Initializes the static instance of the class
 		/// </summary>
 		static InputManager()
 		{
-			//log.Info( "Static initialization complete." );
+			log.Info( "Static initialization complete." );
 		}
 
 		/// <summary>

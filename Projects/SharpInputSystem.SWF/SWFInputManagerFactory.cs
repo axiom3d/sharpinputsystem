@@ -1,4 +1,4 @@
-﻿#region MIT/X11 License
+#region MIT/X11 License
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -29,22 +29,24 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 */
 #endregion MIT/X11 License
 
-#region Namespace Declarations
-
 using System;
-using System.Reflection;
-using System.Collections.Generic;
 
-#endregion Namespace Declarations
-
-namespace SharpInputSystem
+namespace SharpInputSystem.SWF
 {
-	public enum PlatformApi
-	{
-        AutoDetect,
-		DirectX,
-		X11,
-		Xna,
-        SWF,
-	}
+    public class SWFInputManagerFactory : IInputManagerFactory
+    {
+        #region IInputManagerFactory implementation
+    
+        public PlatformApi Api
+        {
+            get { return PlatformApi.SWF; }
+        }
+    
+        public InputManager Create()
+        {
+            return new SWFInputManager();
+        }
+    
+        #endregion
+    }
 }

@@ -1,4 +1,4 @@
-﻿#region MIT/X11 License
+#region MIT/X11 License
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -29,22 +29,57 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 */
 #endregion MIT/X11 License
 
-#region Namespace Declarations
-
 using System;
-using System.Reflection;
 using System.Collections.Generic;
+using System.Text;
+using System.Linq;
+using Common.Logging;
 
-#endregion Namespace Declarations
-
-namespace SharpInputSystem
+namespace SharpInputSystem.SWF
 {
-	public enum PlatformApi
-	{
-        AutoDetect,
-		DirectX,
-		X11,
-		Xna,
-        SWF,
-	}
+    public class SWFInputManager :  InputManager, InputObjectFactory
+    {
+        private static readonly ILog log = LogManager.GetLogger( typeof( SWFInputManager ) );
+
+        internal SWFInputManager()
+            : base()
+        {
+            log.Info( "System.Windows.Forms InputHandler Created." );
+            RegisterFactory( (InputObjectFactory) this );
+        }
+
+        #region SharpInputSystem.InputManager Implementation
+        
+        protected override void _initialize( ParameterList args )
+        {
+            throw new NotImplementedException ();
+        }
+
+        #endregion
+
+        #region SharpInputSystem.InputObjectFactory Implementation
+
+        int InputObjectFactory.FreeDeviceCount<T>()
+        {
+            throw new NotImplementedException();
+        }
+
+        bool InputObjectFactory.VendorExists<T>( string vendor )
+        {
+            throw new NotImplementedException();
+        }
+
+        InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
+        {
+            throw new NotImplementedException();
+        }
+
+        void InputObjectFactory.DestroyInputObject( InputObject obj )
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+
+    }
 }
