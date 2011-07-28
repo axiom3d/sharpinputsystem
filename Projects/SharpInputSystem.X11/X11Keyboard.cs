@@ -42,15 +42,13 @@ namespace SharpInputSystem
 		private IntPtr _window;
 		private bool _grabKeyboard;
 		private bool _keyFocusLost;
-		private bool _xAutoRepeat;
-		private bool _oldXAutoRepeat;
 		
 		/// <summary>
 		/// The xevent.
 		/// </summary>
 		/// <remarks>
 		/// While this member is only used in <see cref="X11Keybord.Capture()"/> it's defined here to avoid newing a new instance every time Capture is called.</remarks>
-		private LibX11.XEvent xevent;
+		private LibX11.XEvent _xEvent;
 		
 		Dictionary<LibX11.KeySym, KeyCode> keyConversion = new Dictionary<LibX11.KeySym, KeyCode>();
 		private int[] _keyBuffer = new int[ 256 ];
@@ -66,9 +64,8 @@ namespace SharpInputSystem
 			
 			_grabKeyboard = ((X11InputManager)creator).GrabKeyboard;
 			_keyFocusLost = false;
-			
-			_xAutoRepeat = ((X11InputManager)creator).UseKeyboardXRepeat;
-			_oldXAutoRepeat = false;
+						
+			#region Key Mappings
 			
 			keyConversion.Add( LibX11.KeySym.XK_1, KeyCode.Key_1 );
 			keyConversion.Add( LibX11.KeySym.XK_2, KeyCode.Key_2 );
@@ -208,6 +205,8 @@ namespace SharpInputSystem
 			keyConversion.Add( LibX11.KeySym.XK_Super_L, KeyCode.Key_LWIN );
 			keyConversion.Add( LibX11.KeySym.XK_Super_R, KeyCode.Key_RWIN );
 			keyConversion.Add( LibX11.KeySym.XK_Menu, KeyCode.Key_APPS );
+
+			#endregion Key Mappings
 			
 		}
 		
@@ -215,8 +214,6 @@ namespace SharpInputSystem
 		{
 			if ( _display != IntPtr.Zero )
 			{
-				if ( _oldXAutoRepeat )
-						LibX11.XAutoRepeatOn( _display );
 				if ( _grabKeyboard )
 						LibX11.XUngrabKeyboard( _display, LibX11.CurrentTime );
 				LibX11.XCloseDisplay( _display );
@@ -244,20 +241,6 @@ namespace SharpInputSystem
 	                LibX11.XGrabKeyboard( _display, _window, true, LibX11.GrabModeAsync, LibX11.GrabModeAsync, LibX11.CurrentTime);
 
 	        _keyFocusLost = false;			
-			
-			if( _xAutoRepeat == false )
-			{
-				//We do not want to blindly turn on autorepeat later when quiting if
-				//it was not on to begin with.. So, let us check and see first
-				LibX11.XKeyboardState old;
-				LibX11.XGetKeyboardControl( _display, out old );
-				_oldXAutoRepeat = false;
-		
-				if( old.global_auto_repeat == LibX11.AutoRepeatModeOn )
-					_oldXAutoRepeat = true;
-		
-				LibX11.XAutoRepeatOff( _display );
-			}
 		}
 		
 		public override int[] KeyStates
@@ -290,9 +273,10 @@ namespace SharpInputSystem
 			
 			while ( LibX11.XPending( _display ) > 0 )
 			{
-				if ( LibX11.XCheckMaskEvent( _display, (int)(LibX11.XEventName.KeyPress | LibX11.XEventName.KeyRelease), ref xevent ) == true )
+				/*if ( LibX11.XCheckMaskEvent( _display, (int)(LibX11.XEventName.KeyPress | LibX11.XEventName.KeyRelease), ref xevent ) == true )*/
+				LibX11.XNextEvent( _display, ref _xEvent );
 				{
-					switch ( xevent.type )
+					switch ( _xEvent.type )
 					{ 
 						case LibX11.XEventName.KeyPress:
 						
@@ -300,7 +284,7 @@ namespace SharpInputSystem
 							if ( TextMode != TextTranslationMode.Off)
 							{
 								StringBuilder sb = new StringBuilder(6);
-								LibX11.XLookupString( ref xevent.KeyEvent, sb, 6, out key, IntPtr.Zero );
+								LibX11.XLookupString( ref _xEvent.KeyEvent, sb, 6, out key, IntPtr.Zero );
 		
 								if ( TextMode == TextTranslationMode.Unicode )
 								{
@@ -313,27 +297,27 @@ namespace SharpInputSystem
 							}
 		
 							//Mask out the modifier states X11 sets and read again
-							xevent.KeyEvent.state &= ~LibX11.ShiftMask;
-							xevent.KeyEvent.state &= ~LibX11.LockMask;
+							_xEvent.KeyEvent.state &= ~LibX11.ShiftMask;
+							_xEvent.KeyEvent.state &= ~LibX11.LockMask;
 							StringBuilder b = new StringBuilder();
-							LibX11.XLookupString( ref xevent.KeyEvent, b, 0, out key, IntPtr.Zero );
+							LibX11.XLookupString( ref _xEvent.KeyEvent, b, 0, out key, IntPtr.Zero );
 		
 							injectKeyDown( key, character );
 		
 							//Check for Alt-Tab
-							if ( ( xevent.KeyEvent.state & LibX11.Mod1Mask ) != 0 && key == (int)LibX11.KeySym.XK_Tab )
+							if ( ( _xEvent.KeyEvent.state & LibX11.Mod1Mask ) != 0 && key == (int)LibX11.KeySym.XK_Tab )
 								linMan.GrabState = false;
 							break;
 						case LibX11.XEventName.KeyRelease:
 						
-							if ( !IsKeyRepeat( xevent ) )
+							if ( !IsKeyRepeat( _xEvent ) )
 							{
 								//Mask out the modifier states X sets.. or we will get improper values
-								xevent.KeyEvent.state &= ~LibX11.ShiftMask;
-								xevent.KeyEvent.state &= ~LibX11.LockMask;
+								_xEvent.KeyEvent.state &= ~LibX11.ShiftMask;
+								_xEvent.KeyEvent.state &= ~LibX11.LockMask;
 		
 								StringBuilder sb = new StringBuilder( 6 );
-								LibX11.XLookupString( ref xevent.KeyEvent, sb, 0, out key, IntPtr.Zero );
+								LibX11.XLookupString( ref _xEvent.KeyEvent, sb, 0, out key, IntPtr.Zero );
 		
 								injectKeyUp( key );
 							}
@@ -382,7 +366,7 @@ namespace SharpInputSystem
 		private bool injectKeyDown( int key, int text )
 		{
 			KeyCode kc = keyConversion[ (LibX11.KeySym)key ];
-			_keyBuffer[ key ] = 1;
+			_keyBuffer[ (int)kc ] = 1;
 
 			//Turn on modifier flags
 			if ( kc == KeyCode.Key_LCONTROL || kc == KeyCode.Key_RCONTROL )
@@ -407,7 +391,7 @@ namespace SharpInputSystem
 		private bool injectKeyUp( int key )
 		{
 			KeyCode kc = keyConversion[ (LibX11.KeySym)key ];
-			_keyBuffer[ key ] = 0;
+			_keyBuffer[ (int)kc ] = 0;
 
 			//Turn off modifier flags
 			if ( kc == KeyCode.Key_LCONTROL || kc == KeyCode.Key_RCONTROL )

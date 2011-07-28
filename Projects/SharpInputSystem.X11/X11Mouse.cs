@@ -42,12 +42,12 @@ namespace SharpInputSystem
 		private IntPtr _window;
 		private int _lastMouseX;
 		private int _lastMouseY;
-		private int _lastMouseZ;
-		private bool[] _buttons;
 		private bool grabMouse;
 		private bool hideMouse;
 		private bool mouseFocusLost;
 		private LibX11.XEvent _xEvent;
+		private bool _moved;
+		private bool _warped;
 		
 		/// <summary>
 		/// 
@@ -62,17 +62,17 @@ namespace SharpInputSystem
 			
 			_window = handle;
 			grabMouse = ((X11InputManager)creator).GrabMouse;
+			hideMouse = ((X11InputManager)creator).HideMouse;
 		}
 
 		protected override void initialize()
 		{
 			MouseState = new MouseState();
 			
-			//moved = false;
-			//warped = false;
+			_moved = false;
+			_warped = false;
 			
 			_lastMouseX = _lastMouseY = 6;
-			_lastMouseZ = 0;
 			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );
@@ -81,16 +81,17 @@ namespace SharpInputSystem
 			_display = LibX11.XOpenDisplay( IntPtr.Zero ); 
 			if ( _display == IntPtr.Zero )
 				throw new Exception( "X11Mouse.Initialize, can not open display" );
-			
-			if ( LibX11.XSelectInput( _display, _window, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask ) == LibX11.BadWindow )
+			var sir = LibX11.XSelectInput( _display, _window, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask );
+			if ( sir != 0 )
 				throw new Exception( "X11Mouse.Initialize, X Error!" );
 			
-			int grabResult = LibX11.XGrabPointer( _display, _window, true, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask, LibX11.GrabModeAsync, LibX11.GrabModeAsync, IntPtr.Zero /* _window */, IntPtr.Zero, LibX11.CurrentTime );
-
 			//Warp mouse inside window
 			LibX11.XWarpPointer( _display, IntPtr.Zero, _window, 0, 0, 0, 0, 6, 6 );
 			
-			_buttons = new bool[ Enum.GetNames( typeof( MouseButtonID ) ).Length ];
+			grab( grabMouse ); 
+			hide( hideMouse );	
+						
+			mouseFocusLost = false;
 		}
 		
 		public override void Capture()
@@ -99,91 +100,146 @@ namespace SharpInputSystem
 			{
 				//Clear old relative values
 				MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
-				//int w, h, l = 0, t = 0, d;
-				//  Point p = new Point();
-				//  Point _position = new Point();
-				// Rectangle rwLocation = new Rectangle(0, 0, 100, 100);
-				// Point cs = _rwControl.PointToClient(new Point(0, 0));
-				if ( _display == IntPtr.Zero )
-					throw new Exception( "LOST DISPLAY" );
-				while ( LibX11.XPending( _display ) > 0 )
+
+				processXEvents();
+				
+				_warped = false;
+
+				if ( _moved == true )	//Do the move
 				{
-					LibX11.XNextEvent( _display, ref _xEvent );
-					MouseButtonID mb = MouseButtonID.Button3;
-					bool axisMoved = false;
-					bool buttonDown = false;
-					bool buttonUp = false;
-
-					switch ( _xEvent.type.ToString() )
+						
+					if ( EventListener != null && IsBuffered )
 					{
-						case "MotionNotify":
-							axisMoved = true;
-							MouseState.X.Absolute = _xEvent.MotionEvent.x;
-							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
-							int sysX = _xEvent.MotionEvent.x;
-							int sysY = _xEvent.MotionEvent.y;
-							int dx = sysX - _lastMouseX;
-							int dy = sysY - _lastMouseY;
-							MouseState.X.Relative = dx;
-							MouseState.Y.Relative = dy;
-							//	Console.WriteLine(string.Format("DX {0}, DY {1}", dx,dy));
-							//	Console.WriteLine(string.Format("OX {0}, OY {1}", _lastMouseX,_lastMouseY));
-							_lastMouseX = sysX;
-							_lastMouseY = sysY;
-							//Console.WriteLine(string.Format("NX {0}, NY {1}", _lastMouseX,_lastMouseY));
-							break;
-						case "ButtonPress":
-							mb = ToMouseButton( _xEvent.ButtonEvent.button );
-							// _buttons[(int)mb] = true;
-							MouseState.Buttons = (int)mb;
-							//  p = new Point(_xEvent.ButtonEvent.x, _xEvent.ButtonEvent.y);
-							//  _position = new Point(p.X - l - cs.X, p.Y - t - cs.Y);
-							MouseState.X.Absolute = _xEvent.MotionEvent.x;
-							//_position.X;
-							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
-							//_position.Y;
-							buttonDown = true;
-							//OnMouseDown(this, new MouseEventArgs(mb, 1, (int)_position.x, (int)_position.y, 0));
-							break;
-						case "ButtonRelease":
-							mb = ToMouseButton( _xEvent.ButtonEvent.button );
-							//  _buttons[(int)mb] = false;
-							MouseState.Buttons = (int)mb;
-							//  p = new Point(_xEvent.ButtonEvent.x, _xEvent.ButtonEvent.y);
-							//  _position = new Point(p.X - l - cs.X, p.Y - t - cs.Y);
-							MouseState.X.Absolute = _xEvent.MotionEvent.x;
-							//_position.X;
-							MouseState.Y.Absolute = _xEvent.MotionEvent.y;
-							//_position.Y;
-							buttonUp = true;
-							//OnMouseUp(this, new MouseEventArgs(mb, 1, (int)_position.x, (int)_position.y, 0));
-							break;
-					}
-					//LibX11.XWarpPointer( _display, IntPtr.Zero, _window, 0, 0, 0, 0, MouseState.Width >> 1, MouseState.Height >> 1 );
-					//Clip values to window
-					if ( MouseState.X.Absolute < 0 )
-						MouseState.X.Absolute = 0;
-					else if ( MouseState.X.Absolute > MouseState.Width )
-						MouseState.X.Absolute = MouseState.Width;
-					if ( MouseState.Y.Absolute < 0 )
-						MouseState.Y.Absolute = 0;
-					else if ( MouseState.Y.Absolute > MouseState.Height )
-						MouseState.Y.Absolute = MouseState.Height;
-
-					//Do the move
-					if ( EventListener != null && axisMoved )
 						EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
-					if ( EventListener != null && buttonUp )
-						EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), mb );
-					if ( EventListener != null && buttonDown )
-						EventListener.MousePressed( new MouseEventArgs( this, MouseState ), mb );
+					}
+					_moved = false;
 				}
+				
+				if ( grabMouse )
+				{
+					if ( ((X11InputManager)Creator).GrabState == true )
+					{
+						if ( mouseFocusLost )
+						{
+							grab( true );
+							hide( hideMouse );
+							mouseFocusLost = false;
+						}
+					}
+					else
+					{
+						if ( mouseFocusLost )
+						{
+							grab( false );
+							hide( false );
+							mouseFocusLost = true;
+						}
+					}
+				}
+					
 			}
 			catch ( Exception ex )
 			{
 				System.Console.WriteLine( ex.ToString() );
 			}
 		}
+		
+		private void processXEvents()
+		{
+			while ( LibX11.XPending( _display ) > 0 )
+			{
+				LibX11.XNextEvent( _display, ref _xEvent );
+				MouseButtonID mb = MouseButtonID.Button3;
+
+				switch ( _xEvent.type )
+				{
+					case LibX11.XEventName.MotionNotify:
+						
+						int sysX = _xEvent.MotionEvent.x;
+						int sysY = _xEvent.MotionEvent.y;
+
+						if ( _warped )
+						{
+							if ( sysX < 5 || sysX > MouseState.Width - 5 ||
+								 sysY < 5 || sysY > MouseState.Height - 5 )
+								continue;
+						}
+						int dx = sysX - _lastMouseX;
+						int dy = sysY - _lastMouseY;
+						_lastMouseX = sysX;
+						_lastMouseY = sysY;
+						MouseState.X.Absolute += dx;
+						MouseState.Y.Absolute += dy;
+						MouseState.X.Relative += dx;
+						MouseState.Y.Relative += dy;
+					
+						if ( grabMouse )
+						{
+							if ( MouseState.X.Absolute < 0 )
+								MouseState.X.Absolute = 0;
+							else if ( MouseState.X.Absolute > MouseState.Width )
+								MouseState.X.Absolute = MouseState.Width;
+							if ( MouseState.Y.Absolute < 0 )
+								MouseState.Y.Absolute = 0;
+							else if ( MouseState.Y.Absolute > MouseState.Height )
+								MouseState.Y.Absolute = MouseState.Height;		
+						
+							if ( mouseFocusLost == true )
+							{
+								if ( sysX < 5 || sysX > MouseState.Width - 5 ||
+								 	 sysY < 5 || sysY > MouseState.Height - 5 )
+								{
+									_lastMouseX = MouseState.Width >> 1;
+									_lastMouseY = MouseState.Height >> 1;
+									LibX11.XWarpPointer( _display, IntPtr.Zero, _window, 0, 0, 0, 0, _lastMouseX, _lastMouseY );
+									_warped = true;
+								}
+							}
+						}
+						_moved = true;
+						break;
+					
+					case LibX11.XEventName.ButtonPress:
+						mb = ToMouseButton( _xEvent.ButtonEvent.button );
+						MouseState.Buttons |= (int)mb;
+					
+						((X11InputManager)Creator).GrabState = true;
+	
+						if ( _xEvent.ButtonEvent.button < 4 )
+						{
+							if ( IsBuffered == true && EventListener != null )
+								if ( EventListener.MousePressed( new MouseEventArgs( this, MouseState ), mb ) == false )									
+									return;
+						}
+						break;
+					case LibX11.XEventName.ButtonRelease:
+						mb = ToMouseButton( _xEvent.ButtonEvent.button );
+						MouseState.Buttons &= ~(int)mb;
+						if ( _xEvent.ButtonEvent.button < 4 )
+						{
+							if ( IsBuffered == true && EventListener != null )
+								if ( EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), mb ) == false )									
+									return;
+						}
+	                    //The Z axis gets pushed/released pair message (this is up)
+	                    else if( _xEvent.ButtonEvent.button == 4 )
+	                    {
+	                            MouseState.Z.Relative += 120;
+	                            MouseState.Z.Absolute += 120;
+	                            _moved = true;
+	                    }
+	                    //The Z axis gets pushed/released pair message (this is down)
+	                    else if( _xEvent.ButtonEvent.button == 5 )
+	                    {
+	                            MouseState.Z.Relative -= 120;
+	                            MouseState.Z.Absolute -= 120;
+	                            _moved = true;
+	                    }						
+						break;
+				}
+			}			
+		}
+		
 		/// <summary>
 		/// 
 		/// </summary>
@@ -204,17 +260,28 @@ namespace SharpInputSystem
 		protected override void _dispose( bool managed )
 		{
 			if ( _display != IntPtr.Zero )
+			{
+				grab( false );
+				hide( false );
+			}
+		}
+		
+		private void grab( bool grabPointer )
+		{
+			if ( grabPointer )
+				LibX11.XGrabPointer( _display, _window, true, 0, LibX11.GrabModeAsync, LibX11.GrabModeAsync, _window, IntPtr.Zero, LibX11.CurrentTime );
+			else
 				LibX11.XUngrabPointer( _display, LibX11.CurrentTime );
 		}
-	}
+		
+		private void hide( bool hidePointer )
+		{
+//			if ( hidePointer )
+//				LibX11.XDefineCursor( _display, _window, _cursor );
+//			else
+//				LibX11.XUndefineCursor( _display, _window );
+		}
 
-	public class LinuxMouse
-	{
-		private IntPtr _window;
-		private IntPtr _display;
-		private bool _grabMouse;
-		private bool _hideMouse;
-		private bool _mouseFocusLost;
 	}
 }
 

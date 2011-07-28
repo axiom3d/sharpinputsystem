@@ -129,14 +129,7 @@ namespace SharpInputSystem.Test.Console
 
 			bool buffered = true;
 
-			if ( false /* _inputManager.DeviceCount<Keyboard>() > 0 */ )
-			{
-				_kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
-				log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
-				_kb.EventListener = _handler;
-			}
-
-			if (  _inputManager.DeviceCount<Mouse>() > 0 )
+			if ( _inputManager.DeviceCount<Mouse>() > 0 )
 			{
 				_m = _inputManager.CreateInputObject<Mouse>( buffered, "" );
 				log.Info( String.Format( "Created {0}buffered mouse", buffered ? "" : "un" ) );
@@ -145,6 +138,13 @@ namespace SharpInputSystem.Test.Console
 				MouseState ms = _m.MouseState;
 				ms.Width = 100;
 				ms.Height = 100;
+			}
+
+			if ( _inputManager.DeviceCount<Keyboard>() > 0 )
+			{
+				_kb = _inputManager.CreateInputObject<Keyboard>( buffered, "" );
+				log.Info( String.Format( "Created {0}buffered keyboard", buffered ? "" : "un" ) );
+				_kb.EventListener = _handler;
 			}
 
 			////This demo only uses at max 4 joys
@@ -184,18 +184,18 @@ namespace SharpInputSystem.Test.Console
 				{
 					//Throttle down CPU usage
                     
-					if ( _kb != null )
-					{
-						_kb.Capture();
-						if ( !_kb.IsBuffered )
-							handleNonBufferedKeys();
-					}
-
 					if ( _m != null )
 					{
 						_m.Capture();
 						if ( !_m.IsBuffered )
 							handleNonBufferedMouse();
+					}
+
+					if ( _kb != null )
+					{
+						_kb.Capture();
+						if ( !_kb.IsBuffered )
+							handleNonBufferedKeys();
 					}
 
 					foreach ( Joystick joy in _joys )

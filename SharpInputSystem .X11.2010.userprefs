@@ -1,16 +1,16 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Projects/SharpInputSystem.X11/X11Keyboard.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Projects/SharpInputSystem.Test.Console/Program.cs">
     <Files>
       <File FileName="Projects/SharpInputSystem.X11/X11Keyboard.cs" Line="241" Column="4" />
       <File FileName="Projects/SharpInputSystem.X11/X11Mouse.cs" Line="32" Column="1" />
       <File FileName="Projects/SharpInputSystem.X11/X11InputManager.cs" Line="140" Column="48" />
-      <File FileName="Projects/SharpInputSystem.Test.Console/Program.cs" Line="179" Column="5" />
+      <File FileName="Projects/SharpInputSystem.Test.Console/Program.cs" Line="112" Column="1" />
       <File FileName="Projects/SharpInputSystem.X11/X11Joystick.cs" Line="45" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="SharpInputSystem .X11.2010" expanded="True">
             <Option id="ShowVersionControlOverlays" value="True" />
             <Option id="ShowAllFiles" value="True" />
@@ -19,7 +19,9 @@
             <Option id="ShowVersionControlOverlays" value="True" />
             <Option id="ShowAllFiles" value="False" />
           </Node>
-          <Node name="SharpInputSystem.Test.Console.X11.2010" expanded="True" />
+          <Node name="SharpInputSystem.Test.Console.X11.2010" expanded="True">
+            <Node name="Program.cs" selected="True" />
+          </Node>
         </State>
       </Pad>
     </Pads>
