@@ -102,14 +102,16 @@ namespace SharpInputSystem.Test.Console
 
 		private static readonly ILog log = LogManager.GetLogger( typeof( Program ) );
 
+        private static SharpInputSystem.Test.Console.Main _window;
 
 		static void DoStartup()
 		{
-			Main frm = new Main();
-			frm.Show();
+			_window = new SharpInputSystem.Test.Console.Main();
+            _window.FormClosed += (sender, e) => { if ( _handler != null ) _handler.appRunning = false; };
+			_window.Show();
 
 			ParameterList pl = new ParameterList();
-			pl.Add( new Parameter( "WINDOW", frm.Handle ) );
+			pl.Add( new Parameter( "WINDOW", _window.Handle ) );
 
 			//Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
 			pl.Add( new Parameter( "w32_mouse", "CLF_BACKGROUND" ) );
@@ -183,7 +185,8 @@ namespace SharpInputSystem.Test.Console
 				while ( _handler.appRunning )
 				{
 					//Throttle down CPU usage
-                    
+                    System.Windows.Forms.Application.DoEvents();
+
 					if ( _m != null )
 					{
 						_m.Capture();
@@ -232,6 +235,9 @@ namespace SharpInputSystem.Test.Console
 					_inputManager.DestroyInputObject( joy );
 				}
 			}
+
+            _window.Close();
+            _window = null;
 
 			log.Info( "Goodbye" );
 			return;

@@ -394,6 +394,35 @@ namespace SharpInputSystem
 			XK_Super_R = 0xffec, /* Right super */
 			XK_Menu = 0xff67,
 		}
+		
+		[Flags]
+		public enum Buttons
+		{		
+			Button1Mask =	(1<<8),
+			Button2Mask =	(1<<9),
+			Button3Mask =	(1<<10),
+			Button4Mask =	(1<<11),
+			Button5Mask =	(1<<12),
+			Button1MotionMask =	(1<<8),
+			Button2MotionMask =	(1<<9),
+			Button3MotionMask =	(1<<10),
+			Button4MotionMask =	(1<<11),
+			Button5MotionMask =	(1<<12),
+			ShiftMask =	(1<<0),
+			LockMask =	(1<<1),
+			ControlMask =	(1<<2),
+			Mod1Mask =	(1<<3),
+			Mod2Mask =	(1<<4),
+			Mod3Mask =	(1<<5),
+			Mod4Mask =	(1<<6),
+			Mod5Mask =	(1<<7),
+			Button1 =	1,
+			Button2 =	2,
+			Button3 =	3,
+			Button4 =	4,
+			Button5 =	5,
+		}
+		
 		#endregion enums
 		/// <summary>
 		/// Name of the library we grab the input functions from
@@ -455,6 +484,14 @@ namespace SharpInputSystem
 		internal static extern int XPending(IntPtr displayName);
 		[DllImportAttribute(LibraryName)]
 		internal static extern void XWarpPointer(IntPtr display, IntPtr sourceWindow, IntPtr destWindow, int srcX, int srcY,int srcWidth, int srcHeight,int destX, int destY);
+		// XQueryPointer( Display *display,
+		//			      Window w,
+		//			      Window *root_return, Window *child_return,
+		//			      int *root_x_return, int *root_y_return,
+		//			      int *win_x_return, int *win_y_return,
+		//			      unsigned int *mask_return )
+		[DllImportAttribute(LibraryName)]
+		internal static extern bool XQueryPointer( IntPtr display, IntPtr window, out IntPtr rootWindow, out IntPtr childWindow, out int root_x_return, out int root_y_return, out int win_x_return, out int win_y_return, out uint mask_return );
 		/// <summary>
 		/// 
 		/// </summary>

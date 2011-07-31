@@ -223,9 +223,7 @@ namespace SharpInputSystem
 		}
 		
 		protected override void initialize()
-		{
-			_keyBuffer = new int[ 256 ];
-			
+		{			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );
 			_display = IntPtr.Zero;

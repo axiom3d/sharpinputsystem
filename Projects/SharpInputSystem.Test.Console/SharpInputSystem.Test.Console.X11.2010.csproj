@@ -94,30 +94,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
-      <Visible>False</Visible>
-      <ProductName>Windows Installer 3.1</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.2010.csproj">
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
       <Name>SharpInputSystem.Core.2010</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem .X11.2010.csproj">
+    <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem.X11.2010.csproj">
       <Project>{E7611F78-E15A-4CFA-A491-86459129C7D8}</Project>
-      <Name>SharpInputSystem .X11.2010</Name>
+      <Name>SharpInputSystem.X11.2010</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
