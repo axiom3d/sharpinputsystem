@@ -11,7 +11,7 @@
     <AssemblyName>SharpInputSystem.Core</AssemblyName>
     <XnaFrameworkVersion>v4.0</XnaFrameworkVersion>
     <XnaPlatform>Xbox 360</XnaPlatform>
-    <XnaCrossPlatformGroupID>b9bf38d2-449a-4a14-97cf-dfdbcf674f02</XnaCrossPlatformGroupID>
+    <XnaCrossPlatformGroupID>8ab76826-bfda-4cc8-9533-e1a19168045d</XnaCrossPlatformGroupID>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>

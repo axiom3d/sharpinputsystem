@@ -61,33 +61,43 @@ namespace SharpInputSystem
 
 			foreach ( string file in files )
 			{
-                string currentFile = Path.GetFileName(file);
+				string currentFile = Path.GetFileName(file);
 
-                if (Path.GetExtension(file) != ".dll" || currentFile == assemblyName)
-                    continue;
+				if (Path.GetExtension(file) != ".dll" || currentFile == assemblyName)
+					continue;
 
 				string fullPath = Path.GetFullPath( file );
-                try
-                {
-				    Assembly assemembly = Assembly.LoadFrom( fullPath );
-				    if ( assemblyName != null )
-				    {
-					    Type[] types = assemembly.GetTypes();
-					    foreach ( Type t in types )
-					    {
-						    if ( typeof( IInputManagerFactory ).IsAssignableFrom( t ) )
-						    {
+				try
+				{
+					Assembly assemembly = Assembly.LoadFrom( fullPath );
+					if ( assemblyName != null )
+					{
+						Type[] types = assemembly.GetTypes();
+						foreach ( Type t in types )
+						{
+							if ( typeof( IInputManagerFactory ).IsAssignableFrom( t ) )
+							{
 
-							    system.Add( (IInputManagerFactory)Activator.CreateInstance( t ) );
-							    break;
-						    }
-					    }
-				    }
-                }
-                finally
-                {
-                	
-                }
+								system.Add( (IInputManagerFactory)Activator.CreateInstance( t ) );
+								break;
+							}
+						}
+					}
+				}
+				catch ( BadImageFormatException bifex )
+				{
+					// Nothing to do here
+					// Can't load this assembly most likely due to it not being a .Net Assembly
+				}
+				catch ( ReflectionTypeLoadException rtlex )
+				{
+					// Nothing to do here.
+					// Can't load this assembly most likely due to missing references.
+				}
+				finally
+				{
+					
+				}
 			}
 
 			return system;

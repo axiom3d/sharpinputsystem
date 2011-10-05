@@ -102,12 +102,16 @@ namespace SharpInputSystem.Test.Console
 
 		private static readonly ILog log = LogManager.GetLogger( typeof( Program ) );
 
-        private static SharpInputSystem.Test.Console.Main _window;
+		private static SharpInputSystem.Test.Console.Main _window;
 
 		static void DoStartup()
 		{
 			_window = new SharpInputSystem.Test.Console.Main();
-            _window.FormClosed += (sender, e) => { if ( _handler != null ) _handler.appRunning = false; };
+			_window.FormClosed += ( sender, e ) =>
+			{
+				if ( _handler != null )
+					_handler.appRunning = false;
+			};
 			_window.Show();
 
 			ParameterList pl = new ParameterList();
@@ -119,7 +123,7 @@ namespace SharpInputSystem.Test.Console
 			pl.Add( new Parameter( "x11_keyboard_grab", false ) );
 			pl.Add( new Parameter( "x11_mouse_grab", false ) );
 			pl.Add( new Parameter( "x11_mouse_hide", false ) );
-			
+
 			//This never returns null.. it will raise an exception on errors
 			_inputManager = InputManager.CreateInputSystem( pl );
 
@@ -185,7 +189,7 @@ namespace SharpInputSystem.Test.Console
 				while ( _handler.appRunning )
 				{
 					//Throttle down CPU usage
-                    System.Windows.Forms.Application.DoEvents();
+					System.Windows.Forms.Application.DoEvents();
 
 					if ( _m != null )
 					{
@@ -236,8 +240,8 @@ namespace SharpInputSystem.Test.Console
 				}
 			}
 
-            _window.Close();
-            _window = null;
+			_window.Close();
+			_window = null;
 
 			log.Info( "Goodbye" );
 			return;

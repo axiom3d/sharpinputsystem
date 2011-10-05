@@ -41,10 +41,10 @@ namespace SharpInputSystem
 {
 	public enum PlatformApi
 	{
-        AutoDetect,
+		AutoDetect,
 		DirectX,
 		X11,
 		Xna,
-        SWF,
+		SWF,
 	}
 }
