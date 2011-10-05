@@ -132,7 +132,7 @@ namespace SharpInputSystem.Test.Console
             if ( inputManagerService.GamePads.Count > 0 )
                 gp = inputManagerService.GamePads[0];
             kb.Capture();
-            gp.Capture();
+            if ( gp != null ) gp.Capture();
 
             // Save the offset between mousecoordinates, and the current mouse pos
 

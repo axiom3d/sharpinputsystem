@@ -61,7 +61,9 @@ namespace SharpInputSystem
 
 	abstract public class InputManager
 	{
+#if !( WINDOWS_PHONE )
 		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
+#endif
 
 		private List<InputObjectFactory> _factories = new List<InputObjectFactory>();
 		protected Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>();
@@ -71,7 +73,9 @@ namespace SharpInputSystem
 		/// </summary>
 		static InputManager()
 		{
+#if !( WINDOWS_PHONE )
 			log.Info( "Static initialization complete." );
+#endif
 		}
 
 		/// <summary>
@@ -111,6 +115,35 @@ namespace SharpInputSystem
 			}
 
 			im = PlatformFactory.Create( api );
+
+			im._initialize( args );
+			return im;
+
+		}
+
+		/// <summary>
+		/// Creates appropriate input system dependent on platform. 
+		/// </summary>
+		/// <param name="args">contains OS specific info (such as HWND and HINSTANCE for window apps), and access mode.</param>
+		/// <returns>A reference to the created manager, or raises an Exception</returns>
+		/// <exception cref="Exception">Exception</exception>
+		/// <exception cref="ArgumentException">ArgumentException</exception>
+		static public InputManager CreateInputSystem( Type api, ParameterList args )
+		{
+			InputManager im;
+
+			// Since this is a required parameter for all InputManagers, check it here instead of having each 
+			if ( !args.Any( delegate( Parameter p )
+			{
+				return p.first.ToUpperInvariant() == "WINDOW";
+			} ) )
+			{
+				ArgumentException ae = new ArgumentException( "Cannot initialize InputManager instance, no 'WINDOW' parameter present." );
+				//log.Error( "", ae );
+				throw ae;
+			}
+
+			im = ((IInputManagerFactory)Activator.CreateInstance( api )).Create();
 
 			im._initialize( args );
 			return im;

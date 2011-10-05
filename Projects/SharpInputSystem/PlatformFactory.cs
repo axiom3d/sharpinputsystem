@@ -43,6 +43,8 @@ namespace SharpInputSystem
 {
 	internal static class PlatformFactory
 	{
+		private static IList<IInputManagerFactory> systems = new List<IInputManagerFactory>();
+
 		public static InputManager Create( PlatformApi api )
 		{
 			IList<IInputManagerFactory> systems = CollectSystems();
@@ -56,7 +58,8 @@ namespace SharpInputSystem
 		private static IList<IInputManagerFactory> CollectSystems()
 		{
 			IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
-			string[] files = Directory.GetFiles( "." );
+#if !( WINDOWS_PHONE )
+			string[] files = Directory.GetFiles( ".", "*.dll" );
 			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
 
 			foreach ( string file in files )
@@ -99,6 +102,7 @@ namespace SharpInputSystem
 					
 				}
 			}
+#endif
 
 			return system;
 		}

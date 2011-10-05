@@ -82,9 +82,15 @@ namespace SharpInputSystem.Test.Console
 
         public override void Initialize()
         {
+#if !( WINDOWS_PHONE )
             _inputManager = SIS.InputManager.CreateInputSystem( this.Game.Window.Handle );
+#else
+			ParameterList args = new ParameterList();
+			args.Add( new Parameter( "WINDOW", this.Game.Window.Handle ) );
+			_inputManager = SIS.InputManager.CreateInputSystem( typeof(SIS.Xna.XnaInputManagerFactory), args );
+#endif
 
-            //log.Info( String.Format( "SIS Version : {0}", _inputManager.Version ) );
+			//log.Info( String.Format( "SIS Version : {0}", _inputManager.Version ) );
             //log.Info( String.Format( "Platform : {0}", _inputManager.InputSystemName ) );
             //log.Info( String.Format( "Number of Mice : {0}", _inputManager.DeviceCount<SIS.Mouse>() ) );
             //log.Info( String.Format( "Number of Keyboards : {0}", _inputManager.DeviceCount<SIS.Keyboard>() ) );
