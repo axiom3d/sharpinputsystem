@@ -44,13 +44,18 @@ namespace SharpInputSystem
 		/// </summary>
 		private IntPtr _display;
 		private IntPtr _window;
+		
 		private int _lastMouseX;
 		private int _lastMouseY;
+		private int _lastMouseZ;		
 		private int lastButtons = 0;
+		
 		private bool grabMouse;
 		private bool hideMouse;
+		
 		private bool mouseFocusLost;
 		private LibX11.XEvent _xEvent;
+		
 		private bool _moved;
 		private bool _warped;
 		
@@ -78,6 +83,7 @@ namespace SharpInputSystem
 			_warped = false;
 			
 			_lastMouseX = _lastMouseY = 6;
+			_lastMouseZ = 0;
 			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );
@@ -86,7 +92,7 @@ namespace SharpInputSystem
 			_display = LibX11.XOpenDisplay( IntPtr.Zero ); 
 			if ( _display == IntPtr.Zero )
 				throw new Exception( "X11Mouse.Initialize, can not open display" );
-			var sir = LibX11.XSelectInput( _display, _window, LibX11.ButtonReleaseMask | LibX11.PointerMotionMask );
+			var sir = LibX11.XSelectInput( _display, _window, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask );
 			if ( sir == LibX11.BadWindow )
 				throw new Exception( "X11Mouse.Initialize, X Error!" );
 			
@@ -158,8 +164,8 @@ namespace SharpInputSystem
 			
 			var result = LibX11.XQueryPointer( _display, _window, out rootWindow, out childWindow, out root_x, out root_y, out win_x, out win_y, out mask );
 			
-			int sysX = root_x;
-			int sysY = root_y;
+			int sysX = win_x;
+			int sysY = win_y;
 			
 			if ( _warped )
 			{
