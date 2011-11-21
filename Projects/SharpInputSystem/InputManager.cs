@@ -1,7 +1,7 @@
 #region MIT/X11 License
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright Â© 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -61,7 +61,7 @@ namespace SharpInputSystem
 
 	abstract public class InputManager
 	{
-#if !( WINDOWS_PHONE )
+#if !( WINDOWS_PHONE || XBOX || XBOX360 )
 		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
 #endif
 
@@ -73,7 +73,7 @@ namespace SharpInputSystem
 		/// </summary>
 		static InputManager()
 		{
-#if !( WINDOWS_PHONE )
+#if !( WINDOWS_PHONE || XBOX || XBOX360 )
 			log.Info( "Static initialization complete." );
 #endif
 		}

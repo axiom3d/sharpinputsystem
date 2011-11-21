@@ -17,6 +17,11 @@
     <XnaCrossPlatformGroupID>5dea7488-e5c9-4af6-a6c0-3aea4a47ff12</XnaCrossPlatformGroupID>
     <XnaOutputType>Library</XnaOutputType>
     <XnaUpgrade />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -29,16 +34,11 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
-    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
-    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
-    <SccProvider>Mercurial Source Control Package</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Xbox 360' ">
-    <OutputPath>bin\Xbox 360\Debug</OutputPath>
+    <OutputPath>..\..\bin\Debug\Xna\Xbox360\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -48,9 +48,10 @@
     <Optimize>false</Optimize>
     <DefineConstants>DEBUG;TRACE;XBOX;XBOX360</DefineConstants>
     <XnaCompressContent>true</XnaCompressContent>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
-    <OutputPath>bin\Xbox 360\Release</OutputPath>
+    <OutputPath>..\..\bin\Release\Xna\Xbox360\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -59,6 +60,7 @@
     <Optimize>true</Optimize>
     <DefineConstants>TRACE;XBOX;XBOX360</DefineConstants>
     <XnaCompressContent>true</XnaCompressContent>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -68,7 +70,12 @@
     <Compile Include="XnaKeyboard.cs" />
     <Compile Include="XnaMouse.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.Xna.Xbox360.csproj">
+      <Project>{348D66C8-2A8A-4A9A-8DEF-98C162328BDE}</Project>
+      <Name>SharpInputSystem.Core.Xna.Xbox360</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
       <Visible>False</Visible>
@@ -92,7 +99,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging" />
     <Reference Include="Microsoft.Xna.Framework">
       <Private>False</Private>
     </Reference>

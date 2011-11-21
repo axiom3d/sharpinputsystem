@@ -134,7 +134,7 @@
     </NestedContentProject>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Xna.x86.csproj">
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.Xna.x86.csproj">
       <Project>{586BE208-0A04-4BB5-B83A-F2C31A4C03B0}</Project>
       <Name>SharpInputSystem.Xna.x86</Name>
     </ProjectReference>

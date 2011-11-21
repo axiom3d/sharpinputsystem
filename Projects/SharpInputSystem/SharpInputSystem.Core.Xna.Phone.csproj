@@ -24,6 +24,16 @@
     <XnaOutputType>Library</XnaOutputType>
     <XnaProfile>Reach</XnaProfile>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <XapFilename Condition="$(XnaOutputType)=='Game'">$(AssemblyName).xap</XapFilename>
+    <SilverlightManifestTemplate Condition="$(XnaOutputType)=='Game'">Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <XnaWindowsPhoneManifestTemplate Condition="$(XnaOutputType)=='Game'">Properties\WMAppManifest.xml</XnaWindowsPhoneManifestTemplate>
+    <TileImage Condition="$(XnaOutputType)=='Game'">Background.png</TileImage>
+    <TileTitle Condition="$(XnaOutputType)=='Game'">$(AssemblyName)</TileTitle>
+    <SupportedCultures />
+    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
+    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
+    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
+    <SccProvider>Mercurial Source Control Package</SccProvider>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -38,16 +48,6 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <XapFilename Condition="$(XnaOutputType)=='Game'">$(AssemblyName).xap</XapFilename>
-    <SilverlightManifestTemplate Condition="$(XnaOutputType)=='Game'">Properties\AppManifest.xml</SilverlightManifestTemplate>
-    <XnaWindowsPhoneManifestTemplate Condition="$(XnaOutputType)=='Game'">Properties\WMAppManifest.xml</XnaWindowsPhoneManifestTemplate>
-    <TileImage Condition="$(XnaOutputType)=='Game'">Background.png</TileImage>
-    <TileTitle Condition="$(XnaOutputType)=='Game'">$(AssemblyName)</TileTitle>
-    <SupportedCultures />
-    <SccProjectName>&lt;Project Location In Database&gt;</SccProjectName>
-    <SccLocalPath>&lt;Local Binding Root of Project&gt;</SccLocalPath>
-    <SccAuxPath>&lt;Source Control Database&gt;</SccAuxPath>
-    <SccProvider>Mercurial Source Control Package</SccProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows Phone' ">
     <OutputPath>bin\Windows Phone\Debug</OutputPath>
@@ -60,6 +60,7 @@
     <Optimize>false</Optimize>
     <DefineConstants>DEBUG;TRACE;WINDOWS_PHONE</DefineConstants>
     <XnaCompressContent>false</XnaCompressContent>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows Phone' ">
     <OutputPath>bin\Windows Phone\Release</OutputPath>
@@ -71,6 +72,7 @@
     <Optimize>true</Optimize>
     <DefineConstants>TRACE;WINDOWS_PHONE</DefineConstants>
     <XnaCompressContent>false</XnaCompressContent>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <None Include="Background.png">
