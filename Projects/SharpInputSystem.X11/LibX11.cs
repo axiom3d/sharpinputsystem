@@ -1,4 +1,4 @@
-﻿#region MIT/X11 License
+#region MIT/X11 License
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -48,6 +48,17 @@ namespace SharpInputSystem
 		internal const int BadWindow = 3;
 		internal const int BadAccess = 10;
 		#region - Structures -
+		
+		[StructLayout(LayoutKind.Sequential, Pack = 2)]
+	    internal struct XColor
+	    {
+	        internal IntPtr pixel;
+	        internal ushort red;
+	        internal ushort green;
+	        internal ushort blue;
+	        internal byte flags;
+	        internal byte pad;
+	    }		
 		#region - XEventName -
 		/// <summary>
 		/// 
@@ -120,59 +131,59 @@ namespace SharpInputSystem
 			public XMotionEvent MotionEvent;
 			[FieldOffset(0)]
 			public IntPtr xcrossing;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xfocus;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xexpose;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xgraphicsexpose;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xnoexpose;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xvisibility;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xcreatewindow;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xdestroywindow;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xunmap;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xmap;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xmaprequest;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xreparent;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xconfigure;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xgravity;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xresizerequest;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xconfigurerequest;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xcirculate;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xcirculaterequest;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xproperty;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xselectionclear;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xselectionrequest;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xselection;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xcolormap;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xclient;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xmapping;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xerror;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr xkeymap;
-	[FieldOffset(0)]
+			[FieldOffset(0)]
 			public IntPtr pad;
 		}	
 		#endregion
@@ -267,7 +278,7 @@ namespace SharpInputSystem
 		
 		#endregion
 
-		#region enums 
+		#region - Enumerations - 
 		/// <summary>
 		/// 
 		/// </summary>
@@ -423,7 +434,8 @@ namespace SharpInputSystem
 			Button5 =	5,
 		}
 		
-		#endregion enums
+		#endregion
+		
 		/// <summary>
 		/// Name of the library we grab the input functions from
 		/// </summary>
@@ -458,9 +470,7 @@ namespace SharpInputSystem
 		public const int LockMask = ( 1 << 1 );
 
 		[DllImport(LibraryName)]
-		internal static extern int XGrabPointer(IntPtr display, IntPtr grabWindow,
-		bool ownerMvents, int eventMask, int pointerMode, int keyboardMode,
-		IntPtr confineTo, IntPtr cursor, long time);
+		internal static extern int XGrabPointer(IntPtr display, IntPtr grabWindow, bool ownerMvents, int eventMask, int pointerMode, int keyboardMode, IntPtr confineTo, IntPtr cursor, long time);
 		[DllImport(LibraryName)]
 		internal static extern int XUngrabPointer(IntPtr display, long time);
 		[DllImport( LibraryName )]
@@ -503,6 +513,8 @@ namespace SharpInputSystem
 		/// </returns>
 		[DllImportAttribute(LibraryName)]
 		internal static extern IntPtr XCloseDisplay(IntPtr display);
+		[DllImport(LibraryName)]
+        internal static extern int XDefaultScreen(IntPtr display);
 		/// <summary>
 		/// Get's the root window for the default screen.
 		/// </summary>
@@ -541,8 +553,7 @@ namespace SharpInputSystem
 		/// <param name="currentTime">Specifies the time. You can pass either a timestamp or CurrentTime. </param>
 		/// <returns></returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XGrabKeyboard(IntPtr display, IntPtr window, bool own, 
-			int pointerMode, int keyboardMode, long currentTime);
+		internal static extern int XGrabKeyboard(IntPtr display, IntPtr window, bool own, int pointerMode, int keyboardMode, long currentTime);
 		[DllImportAttribute(LibraryName)]
 		internal static extern int XSelectInput(IntPtr display, IntPtr window, long mask);
 		/// <summary>
@@ -598,8 +609,7 @@ namespace SharpInputSystem
 		[DllImportAttribute(LibraryName)]
 		internal static extern uint XKeycodeToKeysym(IntPtr display, int keycode, int index);
 		[DllImportAttribute(LibraryName)]
-		internal static extern bool XTranslateCoordinates(IntPtr display, IntPtr src_w, IntPtr dest_w, int src_x, int src_y, out int dest_x_return, 
-							out int dest_y_return, out IntPtr child_return);
+		internal static extern bool XTranslateCoordinates(IntPtr display, IntPtr src_w, IntPtr dest_w, int src_x, int src_y, out int dest_x_return, out int dest_y_return, out IntPtr child_return);
 		
 		[DllImportAttribute(LibraryName)]
 		internal static extern int XAutoRepeatOn( IntPtr display );
@@ -609,6 +619,26 @@ namespace SharpInputSystem
 		
 		[DllImportAttribute(LibraryName)]
 		internal static extern int XGetKeyboardControl( IntPtr display, out XKeyboardState old );
+		
+		[DllImport(LibraryName)]
+        internal extern static IntPtr XCreatePixmapCursor(IntPtr display, IntPtr source, IntPtr mask, ref XColor foreground_color, ref XColor background_color, int x_hot, int y_hot);		
+		[DllImport(LibraryName)]
+        internal extern static IntPtr XDefaultColormap(IntPtr display, int screen_number);	
+		[DllImport(LibraryName)]
+        internal extern static int XAllocColor(IntPtr display, IntPtr Colormap, ref XColor colorcell_def);		
+		[DllImport(LibraryName)]
+        internal extern static int XAllocNamedColor(IntPtr display, IntPtr colormap, string color_name, ref XColor screen_def_return, ref XColor exact_def_return);
+		[DllImport(LibraryName)]
+		internal extern static IntPtr XCreatePixmapFromBitmapData(IntPtr display, IntPtr d, byte[] data, int width, int height, long fg, int bg, int depth);
+		[DllImport(LibraryName)]
+		internal extern static IntPtr XCreateBitmapFromData(IntPtr display, IntPtr d, byte[] data, int width, int height);
+		
+		[DllImport(LibraryName)]
+        internal extern static int XDefineCursor(IntPtr display, IntPtr window, IntPtr cursor);
+
+		[DllImport(LibraryName)]
+        internal extern static int XUndefineCursor(IntPtr display, IntPtr window);
+		
 		/// <summary>
 		/// Convert's X11KeyCode to standard System.Windows.Forms.Keys;
 		/// </summary>

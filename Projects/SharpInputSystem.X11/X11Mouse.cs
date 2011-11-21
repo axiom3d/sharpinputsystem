@@ -39,22 +39,18 @@ namespace SharpInputSystem
 	{
         private static readonly ILog log = LogManager.GetLogger( typeof( X11Mouse ) );
 		
-		/// <summary>
-		/// 
-		/// </summary>
 		private IntPtr _display;
 		private IntPtr _window;
+		private IntPtr _cursor;
 		
 		private int _lastMouseX;
 		private int _lastMouseY;
-		private int _lastMouseZ;		
 		private int lastButtons = 0;
 		
 		private bool grabMouse;
 		private bool hideMouse;
 		
 		private bool mouseFocusLost;
-		private LibX11.XEvent _xEvent;
 		
 		private bool _moved;
 		private bool _warped;
@@ -83,7 +79,6 @@ namespace SharpInputSystem
 			_warped = false;
 			
 			_lastMouseX = _lastMouseY = 6;
-			_lastMouseZ = 0;
 			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );
@@ -98,6 +93,17 @@ namespace SharpInputSystem
 			
 			//Warp mouse inside window
 			LibX11.XWarpPointer( _display, IntPtr.Zero, _window, 0, 0, 0, 0, 6, 6 );
+			
+			//TODO: Create a blank cursor
+			IntPtr bm_no;
+			LibX11.XColor black = new LibX11.XColor(), dummy = new LibX11.XColor();
+			IntPtr colormap;
+			byte[] no_data = { 0,0,0,0,0,0,0,0 };
+			
+			colormap = LibX11.XDefaultColormap( _display, LibX11.XDefaultScreen( _display ) );
+			LibX11.XAllocNamedColor( _display, colormap, "black", ref black, ref dummy );
+			bm_no = LibX11.XCreateBitmapFromData( _display, _window, no_data, 8, 8 );
+			_cursor = LibX11.XCreatePixmapCursor( _display, bm_no, bm_no, ref black, ref black, 0, 0 );
 			
 			grab( grabMouse ); 
 			hide( hideMouse );	
@@ -162,8 +168,7 @@ namespace SharpInputSystem
 			uint mask;
 			bool doMove = true;
 			
-			var result = LibX11.XQueryPointer( _display, _window, out rootWindow, out childWindow, out root_x, out root_y, out win_x, out win_y, out mask );
-			
+			LibX11.XQueryPointer( _display, _window, out rootWindow, out childWindow, out root_x, out root_y, out win_x, out win_y, out mask );
 			int sysX = win_x;
 			int sysY = win_y;
 			
@@ -212,21 +217,18 @@ namespace SharpInputSystem
 			}
 
 			var anyButtons = ((int)LibX11.Buttons.Button1Mask | (int)LibX11.Buttons.Button2Mask | (int)LibX11.Buttons.Button3Mask | (int)LibX11.Buttons.Button4Mask | (int)LibX11.Buttons.Button5Mask);
-			//if ( ( mask & (int)anyButtons ) != 0 )
-			//{
-				if ( lastButtons != ( mask & (int)anyButtons ) )
-				{
+
+			if ( lastButtons != ( mask & (int)anyButtons ) )
+			{
 				( new List<int> () { (int)LibX11.Buttons.Button1Mask,
 									(int)LibX11.Buttons.Button2Mask,
-									(int)LibX11.Buttons.Button3Mask,
-									(int)LibX11.Buttons.Button4Mask,
-									(int)LibX11.Buttons.Button5Mask } ).ForEach( ( button ) => { 
+									(int)LibX11.Buttons.Button3Mask} ).ForEach( ( button ) => { 
 					
 					var mb = ToMouseButton( button );
 					if ( ( ( lastButtons & (int)button ) == 0 ) && ( ( ( mask & (int)anyButtons ) & (int)button ) != 0 ) )
 					{
 						MouseState.Buttons |= (int)mb;
-						//log.InfoFormat( "ButtonPressed : {0}", button );
+						log.InfoFormat( "ButtonPressed : {0}", button );
 						if ( IsBuffered == true && EventListener != null )
 							if ( EventListener.MousePressed( new MouseEventArgs( this, MouseState ), mb ) == false )									
 								return;
@@ -234,18 +236,31 @@ namespace SharpInputSystem
 					if ( ( ( lastButtons & (int)button ) != 0 ) && ( ( ( mask & (int)anyButtons ) & (int)button ) == 0 ) )
 					{
 						MouseState.Buttons &= ~(int)mb;
-						//log.InfoFormat( "ButtonReleased : {0}", button );
+						log.InfoFormat( "ButtonReleased : {0}", button );
 						if ( IsBuffered == true && EventListener != null )
 							if ( EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), mb ) == false )									
 								return;
 					}
 				});
-//					log.InfoFormat( "ButtonPressed : {0}", ( mask & (int)anyButtons ) );
-					lastButtons = (int)( mask & (int)anyButtons );
-						
-				}
-			//}
-				
+							
+				lastButtons = (int)( mask & (int)anyButtons );
+			}
+			
+			//The Z axis gets pushed/released pair message (this is up)
+			if ( ( ( mask & (int)anyButtons ) & (int)LibX11.Buttons.Button4Mask ) != 0 ) 
+			{
+				MouseState.Z.Relative += 120;
+				MouseState.Z.Absolute += 120;
+				_moved = true;
+			}
+		
+			//The Z axis gets pushed/released pair message (this is down)
+			if ( ( ( mask & (int)anyButtons ) & (int)LibX11.Buttons.Button5Mask ) != 0 ) 
+			{
+				MouseState.Z.Relative -= 120;
+				MouseState.Z.Absolute -= 120;
+				_moved = true;
+			}
 /*			
 			while ( LibX11.XPending( _display ) > 0 )
 			{
@@ -379,10 +394,10 @@ namespace SharpInputSystem
 		
 		private void hide( bool hidePointer )
 		{
-//			if ( hidePointer )
-//				LibX11.XDefineCursor( _display, _window, _cursor );
-//			else
-//				LibX11.XUndefineCursor( _display, _window );
+			if ( hidePointer )
+				LibX11.XDefineCursor( _display, _window, _cursor );
+			else
+				LibX11.XUndefineCursor( _display, _window );
 		}
 
 	}
