@@ -61,7 +61,7 @@ namespace SharpInputSystem
 
 	abstract public class InputManager
 	{
-#if !( WINDOWS_PHONE || XBOX || XBOX360 )
+#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( InputManager ) );
 #endif
 
@@ -73,7 +73,7 @@ namespace SharpInputSystem
 		/// </summary>
 		static InputManager()
 		{
-#if !( WINDOWS_PHONE || XBOX || XBOX360 )
+#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 			log.Info( "Static initialization complete." );
 #endif
 		}

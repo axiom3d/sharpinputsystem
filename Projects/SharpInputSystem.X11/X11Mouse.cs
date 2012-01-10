@@ -43,6 +43,8 @@ namespace SharpInputSystem
 		private IntPtr _window;
 		private IntPtr _cursor;
 		
+		private LibX11.XEvent _xEvent;
+		
 		private int _lastMouseX;
 		private int _lastMouseY;
 		private int lastButtons = 0;
@@ -87,14 +89,14 @@ namespace SharpInputSystem
 			_display = LibX11.XOpenDisplay( IntPtr.Zero ); 
 			if ( _display == IntPtr.Zero )
 				throw new Exception( "X11Mouse.Initialize, can not open display" );
-			var sir = LibX11.XSelectInput( _display, _window, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask );
-			if ( sir == LibX11.BadWindow )
-				throw new Exception( "X11Mouse.Initialize, X Error!" );
+			//var sir = LibX11.XSelectInput( _display, _window, LibX11.ButtonPressMask | LibX11.ButtonReleaseMask | LibX11.PointerMotionMask );
+			//if ( sir == LibX11.BadWindow )
+			//	throw new Exception( "X11Mouse.Initialize, X Error!" );
 			
 			//Warp mouse inside window
 			LibX11.XWarpPointer( _display, IntPtr.Zero, _window, 0, 0, 0, 0, 6, 6 );
 			
-			//TODO: Create a blank cursor
+			//TODO: Create a blank cursor			
 			IntPtr bm_no;
 			LibX11.XColor black = new LibX11.XColor(), dummy = new LibX11.XColor();
 			IntPtr colormap;
@@ -103,7 +105,7 @@ namespace SharpInputSystem
 			colormap = LibX11.XDefaultColormap( _display, LibX11.XDefaultScreen( _display ) );
 			LibX11.XAllocNamedColor( _display, colormap, "black", ref black, ref dummy );
 			bm_no = LibX11.XCreateBitmapFromData( _display, _window, no_data, 8, 8 );
-			_cursor = LibX11.XCreatePixmapCursor( _display, bm_no, bm_no, ref black, ref black, 0, 0 );
+			_cursor = LibX11.XCreatePixmapCursor( _display, bm_no, bm_no, ref black, ref black, 0, 0 );			
 			
 			grab( grabMouse ); 
 			hide( hideMouse );	
@@ -247,28 +249,40 @@ namespace SharpInputSystem
 			}
 			
 			//The Z axis gets pushed/released pair message (this is up)
-			if ( ( ( mask & (int)anyButtons ) & (int)LibX11.Buttons.Button4Mask ) != 0 ) 
+			if ( ( mask & (int)LibX11.Buttons.Button4Mask ) != 0 ) 
 			{
+				log.InfoFormat( "MouseWheel : Up" );
 				MouseState.Z.Relative += 120;
 				MouseState.Z.Absolute += 120;
 				_moved = true;
 			}
 		
 			//The Z axis gets pushed/released pair message (this is down)
-			if ( ( ( mask & (int)anyButtons ) & (int)LibX11.Buttons.Button5Mask ) != 0 ) 
+			if ( ( mask & (int)LibX11.Buttons.Button5Mask ) != 0 ) 
 			{
+				log.InfoFormat( "MouseWheel : Down" );
 				MouseState.Z.Relative -= 120;
 				MouseState.Z.Absolute -= 120;
 				_moved = true;
 			}
-/*			
+			
+			
+			/*
+			// this algorithm requires the ButtonPressMask be specifiec
+			// in the XSelectEvent call during Initialize. X11 Documentation
+			// http://tronche.com/gui/x/xlib/event-handling/XSelectInput.html
+			// states that only *one* client may request this mask.
+			// Since SWF and the OpenTK GameWindow classes both request this
+			// This can't be used with those X11 form types.
 			while ( LibX11.XPending( _display ) > 0 )
 			{
+				log.InfoFormat( "Found Pending Events..." );
 				LibX11.XNextEvent( _display, ref _xEvent );
 				MouseButtonID mb = MouseButtonID.Button3;
 
+				log.InfoFormat( "Event.Type : {0}", _xEvent.type );
 				switch ( _xEvent.type )
-				{
+				{					
 					case LibX11.XEventName.MotionNotify:
 						
 						int sysX = _xEvent.MotionEvent.x;
@@ -354,7 +368,7 @@ namespace SharpInputSystem
 						break;
 				}
 			}		
-			*/	
+			*/
 		}
 		
 		/// <summary>

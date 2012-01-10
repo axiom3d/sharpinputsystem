@@ -58,7 +58,7 @@ namespace SharpInputSystem
 		private static IList<IInputManagerFactory> CollectSystems()
 		{
 			IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
-#if !( WINDOWS_PHONE )
+#if !( WINDOWS_PHONE || SILVERLIGHT )
 			string[] files = Directory.GetFiles( ".", "*.dll" );
 			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
 
