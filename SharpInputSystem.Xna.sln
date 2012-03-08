@@ -27,10 +27,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Xbox", "Xbox", "{589A3692-FEB1-4341-8491-AE1F545176C5}"
 EndProject
 Global
-	GlobalSection(MercurialSourceControlSolutionProperties) = preSolution
-		SolutionIsControlled = True
-		SolutionBindings = <Solution Location In Database>
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Windows Phone = Debug|Windows Phone
 		Debug|x86 = Debug|x86
@@ -87,6 +83,7 @@ Global
 		{CB4F8B93-594B-455E-9DD7-D053702144BE}.Release|Xbox 360.ActiveCfg = Release|x86
 		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Debug|Windows Phone.ActiveCfg = Debug|x86
 		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Debug|x86.ActiveCfg = Debug|x86
+		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Debug|x86.Build.0 = Debug|x86
 		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Debug|Xbox 360.ActiveCfg = Debug|x86
 		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Release|Windows Phone.ActiveCfg = Release|x86
 		{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}.Release|x86.ActiveCfg = Release|x86
@@ -142,5 +139,9 @@ Global
 		{3D50029C-3655-4C05-9560-9A60CE4087CD} = {BEF3CDD8-3E41-4C6C-9A82-50DA84180EC0}
 		{C4C154FD-881A-4DA0-9637-83E3B72CFBFD} = {BEF3CDD8-3E41-4C6C-9A82-50DA84180EC0}
 		{EA323A03-1A54-40C6-878F-3F82D57DE859} = {BEF3CDD8-3E41-4C6C-9A82-50DA84180EC0}
+	EndGlobalSection
+	GlobalSection(MercurialSourceControlSolutionProperties) = preSolution
+		SolutionIsControlled = True
+		SolutionBindings = <Solution Location In Database>
 	EndGlobalSection
 EndGlobal

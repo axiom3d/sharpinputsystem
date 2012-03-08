@@ -134,9 +134,13 @@
     </NestedContentProject>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem.Xna\SharpInputSystem.Xna.x86.csproj">
+      <Project>{FF8DEF79-65B2-4889-AAD1-75F29BDA8CA7}</Project>
+      <Name>SharpInputSystem.Xna.x86</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.Xna.x86.csproj">
       <Project>{586BE208-0A04-4BB5-B83A-F2C31A4C03B0}</Project>
-      <Name>SharpInputSystem.Xna.x86</Name>
+      <Name>SharpInputSystem.Core.Xna.x86</Name>
     </ProjectReference>
     <ProjectReference Include="Content\SharpInputSystem.Test.ConsoleContent.contentproj">
       <Project>{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}</Project>

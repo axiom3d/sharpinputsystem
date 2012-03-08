@@ -71,12 +71,16 @@ namespace SharpInputSystem.DirectX
 		private MDI.DirectInput _directInput;
 		private MDI.Mouse _mouse;
 		private MouseInfo _msInfo;
-
+	    private bool _hideMouse;
 		private IntPtr _window;
 
 		[DllImport( "user32.dll" )]
 		private static extern bool GetCursorPos( out POINT lpPoint );
-		[DllImport( "user32.dll" )]
+        [DllImport( "user32.dll" )]
+        private static extern IntPtr SetCursor( IntPtr hCursor );
+        [DllImport( "user32.dll" )]
+        private static extern int ShowCursor( bool bShow );
+        [DllImport("user32.dll")]
 		private static extern bool ScreenToClient( IntPtr hWnd, ref POINT lpPoint );
 
 		#endregion Fields and Properties
@@ -98,7 +102,9 @@ namespace SharpInputSystem.DirectX
 			{
 				throw new Exception( "No devices match requested type." );
 			}
-			
+
+            _hideMouse = ((DirectXInputManager)creator).HideMouse;
+
 			log.Debug( "DirectXMouse device created." );
 
 		}
@@ -164,6 +170,12 @@ namespace SharpInputSystem.DirectX
 
 			return true;
 		}
+
+        private void hide( bool hidePointer )
+        {
+            SetCursor( IntPtr.Zero );
+            ShowCursor( false );
+        }
 
 		#endregion Methods
 
@@ -292,6 +304,8 @@ namespace SharpInputSystem.DirectX
 			{
 				throw new Exception( "Failed to acquire mouse using DirectInput.", e );
 			}
+
+		    hide( _hideMouse );
 		}
 
 		#endregion Mouse Implementation

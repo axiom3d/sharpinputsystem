@@ -101,6 +101,8 @@ namespace SharpInputSystem.DirectX
 		}
 		#endregion WindowHandle Property
 
+        public bool HideMouse { get; set; }
+
 		#endregion Fields and Properties
 
 
@@ -121,29 +123,37 @@ namespace SharpInputSystem.DirectX
 		protected override void _initialize( ParameterList args )
 		{
 			// Find the WINDOW parameter
-			object window = args.Find(  delegate( Parameter p )
-										{
-											return p.first.ToUpper() == "WINDOW";
-										}
-									 ).second;
-			if ( window is IntPtr )
-			{
-				_hwnd = (IntPtr)window;
-			}
-			else if ( window is SWF.Control )
-			{
-				SWF.Control parent = (SWF.Control)window;
-				// if the control is a picturebox, we need to grab its parent form
-				while ( !( parent is SWF.Form ) && parent != null )
-				{
-					parent = parent.Parent;
-				}
-				_hwnd = parent.Handle;
-			}
-			else
-			{
-				throw new Exception( "SharpInputSystem.DirectXInputManger requires either a reference to a Control or a Handle to a window." );
-			}
+            var parameter = args.Find( ( p ) => { return p.first.ToLower() == "window"; } );
+            if (parameter != null)
+            {
+                if (parameter.second is IntPtr)
+                {
+                    _hwnd = (IntPtr)parameter.second;
+                }
+                else if (parameter.second is SWF.Control)
+                {
+                    SWF.Control parent = (SWF.Control)parameter.second;
+                    // if the control is a picturebox, we need to grab its parent form
+                    while (!(parent is SWF.Form) && parent != null)
+                    {
+                        parent = parent.Parent;
+                    }
+                    _hwnd = parent.Handle;
+                }
+                else
+                {
+                    throw new Exception( "SharpInputSystem.DirectXInputManger requires either a reference to a Control or a Handle to a window." );
+                }
+            }
+
+		    parameter = args.Find((p) => { return p.first.ToLower() == "dx_mouse_hide"; });
+            if (parameter != null)
+            {
+                if (parameter.second is Boolean)
+                {
+                    HideMouse = (bool)parameter.second;
+                }
+            }
 
 			_settings.Add( typeof( Mouse ).Name, 0 );
 			_settings.Add( typeof( Keyboard ).Name, 0 );

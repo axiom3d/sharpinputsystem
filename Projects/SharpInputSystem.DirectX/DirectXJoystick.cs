@@ -64,6 +64,12 @@ namespace SharpInputSystem.DirectX
 
 		private int _axisNumber;
 		private Dictionary<int, int> _axisMapping = new Dictionary<int, int>();
+        
+        // debugging stuff
+        // private int[] hatsw = new int[4];
+        // private int[] hatsw = { 4, 42, 420, 4200 };
+        // private bool[] povMoved = { false, false, false, false };
+        // end debugging stuff
 
 		#endregion Fields and Properties
 
@@ -88,7 +94,6 @@ namespace SharpInputSystem.DirectX
 			_deviceGuid = _joyInfo.DeviceId;
 			Vendor = _joyInfo.Vendor;
 			DeviceID = _joyInfo.Id.ToString();
-
 		}
 
 		protected override void _dispose( bool disposeManagedResources )
@@ -162,10 +167,265 @@ namespace SharpInputSystem.DirectX
 					{
 						throw new Exception( "ForceFeedback Axis found but reported no ForceFeedback Effects!" );
 					}
-				}
+				}                               
 			}
 
 		}
+
+        private void _read()
+        {
+            if (_joystick.Acquire().IsFailure)
+                return;
+            if (_joystick.Poll().IsFailure)
+                return;
+
+            MDI.JoystickState state = _joystick.GetCurrentState();
+
+            int axis = 0;
+            if (state.X != 0)
+            {
+                axis = 0;
+                JoystickState.Axis[axis].Absolute = state.X;
+            }
+            if (state.Y != 0)
+            {
+                axis = 1;
+                JoystickState.Axis[axis].Absolute = state.Y;
+            }
+            if (state.Z != 0)
+            {
+                axis = 2;
+                JoystickState.Axis[axis].Absolute = state.Z;
+            }
+            if (state.RotationZ != 0)
+            {
+                axis = 3;
+                JoystickState.Axis[axis].Absolute = state.RotationZ;
+            }
+
+            int[] hatsw = state.GetPointOfViewControllers();
+
+            #region hatswDebugginStuff
+
+            // debugging stuff
+            if (hatsw == null)
+            {
+                Console.Write(String.Format("hatsw is null \n"));
+                Console.ReadLine();
+            }
+
+            // Console.Write(String.Format("hatsw value:{0} length:{1} \n", hatsw[0], hatsw.Length));
+            // this works, but only outputs the 1st hat/povswitch(" [0] ")
+
+            // foreach (int hatIndex in hatsw)
+            // this loop doesn't work
+            // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
+            // but THIS loop works?! WTH? (and the hatswitch values reported in the console are correct, and promptly updated on input)
+            //{
+            //    Console.Write(String.Format("hatsw index:{0}, value:{1} length:{2} \n", hatIndex, hatsw[hatIndex], hatsw.Length));
+            //}
+            //
+
+            #endregion
+
+            // trying to convert the DirectX  hat/pov values into Axiom Directions
+            // foreach (int hatIndex in hatsw)
+            //{
+                //switch (hatsw[0])
+                //{
+                //    case -1:
+                //        JoystickState.Povs[0].Direction = Pov.Position.Centered;
+                //        break;
+                //    case 0:
+                //        JoystickState.Povs[0].Direction = Pov.Position.North;
+                //        break;
+                //    case 4500:
+                //        JoystickState.Povs[0].Direction = Pov.Position.NorthEast;
+                //        break;
+                //    case 9000:
+                //        JoystickState.Povs[0].Direction = Pov.Position.East;
+                //        break;
+                //    case 13500:
+                //        JoystickState.Povs[0].Direction = Pov.Position.SouthEast;
+                //        break;
+                //    case 18000:
+                //        JoystickState.Povs[0].Direction = Pov.Position.South;
+                //        break;
+                //    case 22500:
+                //        JoystickState.Povs[0].Direction = Pov.Position.SouthWest;
+                //        break;
+                //    case 27000:
+                //        JoystickState.Povs[0].Direction = Pov.Position.West;
+                //        break;
+                //    case 31500:
+                //        JoystickState.Povs[0].Direction = Pov.Position.NorthWest;
+                //        break;
+
+                //}
+            //} 
+        }
+
+        private void _readBuffered()
+        {
+            IEnumerable<MDI.JoystickState> bufferedData = null;
+
+            if (_joystick.Acquire().IsFailure)
+                return;
+            if (_joystick.Poll().IsFailure)
+                return;
+
+            bufferedData = _joystick.GetBufferedData();
+
+            bool[] axisMoved = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
+								  false,false,false,false,false,false,false,false};
+            bool[] buttonsPressed = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
+								  false,false,false,false,false,false,false,false};
+            bool[] sliderMoved = { false, false, false, false };
+
+            bool[] povMoved = { false, false, false, false };
+
+            // original parsing routine
+            //foreach (MDI.JoystickState data in bufferedData)
+            //{
+            //    int axis = 0;
+            //}
+
+            // begin parsing stickStates 
+            foreach (MDI.JoystickState data in bufferedData)
+            {
+                int axis = 0;
+
+                if (data.X != 0)
+                {
+                    axis = 0;
+                    JoystickState.Axis[axis].Absolute = data.X;
+                    axisMoved[axis] = true;
+                }
+                if (data.Y != 0)
+                {
+                    axis = 1;
+                    JoystickState.Axis[axis].Absolute = data.Y;
+                    axisMoved[axis] = true;
+                }
+                if (data.Z != 0)
+                {
+                    axis = 2;
+                    JoystickState.Axis[axis].Absolute = data.Z;
+                    axisMoved[axis] = true;
+                }
+                if (data.RotationZ != 0)
+                {
+                    axis = 3;
+                    JoystickState.Axis[axis].Absolute = data.RotationZ;
+                    axisMoved[axis] = true;
+                }
+
+                buttonsPressed = data.GetButtons();
+
+
+                int[] hatsw = data.GetPointOfViewControllers();
+
+                #region hatswDebugginStuff
+
+                // debugging stuff
+                if (hatsw == null)
+                {
+                    Console.Write(String.Format("hatsw is null \n"));
+                    Console.ReadLine();
+                }
+
+                // Console.Write(String.Format("hatsw value:{0} length:{1} \n", hatsw[0], hatsw.Length));
+                // this works, but only outputs the 1st hat/povswitch(" [0] ")
+
+                // foreach (int hatIndex in hatsw)
+                // this loop doesn't work
+                // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
+                // but THIS loop works?! WTH? (and the hatswitch values reported in the console are correct, and promptly updated on input)
+                //{
+                //    Console.Write(String.Format("hatsw index:{0}, value:{1} length:{2} \n", hatIndex, hatsw[hatIndex], hatsw.Length));
+                //}
+                //
+
+                #endregion
+
+                // converting DriverValues to AxiomDirections
+                // neither of these loops work
+                // foreach (int hatIndex in hatsw)
+                // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
+                //{
+                //    switch (hatsw[hatIndex])
+                //    {
+                //        case -1:
+                //            povMoved[hatIndex] = false;
+                //            break;
+                //        case 0:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.North;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 4500:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.NorthEast;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 9000:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.East;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 13500:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.SouthEast;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 18000:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.South;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 22500:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.SouthWest;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 27000:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.West;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //        case 31500:
+                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.NorthWest;
+                //            povMoved[hatIndex] = true;
+                //            break;
+                //    }
+                //} 
+
+            } // end parsing stickStates
+
+            //Check to see if any of the axes values have changed.. if so send events
+            if ((IsBuffered == true) && (EventListener != null))
+            {
+                JoystickEventArgs temp = new JoystickEventArgs(this, JoystickState);
+
+                //Update axes
+                for (int i = 0; i < axisMoved.Length; i++)
+                    if (axisMoved[i])
+                        if (EventListener.AxisMoved(temp, i) == false)
+                            return;
+
+                //Update buttons
+                for (int i = 0; i < buttonsPressed.Length; i++)
+                    if (buttonsPressed[i])
+                        if (EventListener.ButtonPressed(temp, i) == false)
+                            return;
+
+                //Now update sliders
+                //for ( int i = 0; i < 4; i++ )
+                //    if ( sliderMoved[ i ] )
+                //        if ( EventListener.SliderMoved( temp, i ) == false )
+                //            return;
+
+                //Now update POV
+                //for (int i = 0; i < 4; i++)
+                //    if (povMoved[i])
+                //        if (EventListener.PovMoved(temp, i) == false)
+                //            return;
+
+            } //end event sending
+        }
 
 		#endregion Methods
 
@@ -173,41 +433,10 @@ namespace SharpInputSystem.DirectX
 		
 		public override void Capture()
 		{
-			IEnumerable<MDI.JoystickState> bufferedData = null;
-
-			if ( _joystick.Acquire().IsFailure )
-				return;
-			if ( _joystick.Poll().IsFailure )
-				return;
-
-			bufferedData = _joystick.GetBufferedData();
-
-			bool[] axisMoved = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-								  false,false,false,false,false,false,false,false};
-			bool[] sliderMoved = { false, false, false, false };
-
-			foreach ( MDI.JoystickState data in bufferedData )
-			{
-				int axis = 0;
-			}
-
-			//Check to see if any of the axes values have changed.. if so send events
-			if ( ( IsBuffered == true ) && ( EventListener != null ) )
-			{
-				JoystickEventArgs temp = new JoystickEventArgs( this, JoystickState );
-
-				//Update axes
-				for ( int i = 0; i < 24; i++ )
-					if ( axisMoved[ i ] )
-						if ( EventListener.AxisMoved( temp, i ) == false )
-							return;
-
-				//Now update sliders
-				for ( int i = 0; i < 4; i++ )
-					if ( sliderMoved[ i ] )
-						if ( EventListener.SliderMoved( temp, i ) == false )
-							return;
-			}
+            if (this.IsBuffered)
+                _readBuffered();
+            else
+                _read();
 
 		}
 
@@ -236,7 +465,8 @@ namespace SharpInputSystem.DirectX
 			{
 				JoystickState.Axis.Add( new Axis() );
 			}
-			JoystickState.Clear();
+
+            JoystickState.Clear();
 
 			Capture();
 

@@ -33,6 +33,7 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 using XInput = Microsoft.Xna.Framework.Input;
@@ -48,12 +49,18 @@ namespace SharpInputSystem.Xna
 	/// </summary>
 	class XnaMouse : Mouse
 	{
+        [DllImport("user32.dll")]
+        private static extern IntPtr SetCursor(IntPtr hCursor);
+        [DllImport("user32.dll")]
+        private static extern int ShowCursor(bool bShow);
+
 		#region Fields and Properties
 		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaMouse ) );
 
 		// Variables for XnaKeyboard
 		private MouseInfo _mInfo;
 		private XInput.MouseState previousState;
+	    private bool hideMouse;
 
 		#endregion Fields and Properties
 
@@ -75,6 +82,8 @@ namespace SharpInputSystem.Xna
 
 //			log.Debug( "XnaMouse device created." );
 			previousState = XInput.Mouse.GetState();
+
+		    hideMouse = ((XnaInputManager)creator).HideMouse;
 		}
 
 		protected override void _dispose( bool disposeManagedResources )
@@ -123,7 +132,13 @@ namespace SharpInputSystem.Xna
 			return true;
 		}
 
-		#endregion Methods
+	    private void hide( bool hidePointer )
+	    {
+	        if ( hidePointer ) SetCursor( IntPtr.Zero );
+	        ShowCursor( hidePointer );
+	    }
+
+	    #endregion Methods
 
 		#region Mouse Implementation
 
@@ -200,6 +215,7 @@ namespace SharpInputSystem.Xna
 		protected override void initialize()
 		{
 			MouseState.Clear();
+            hide( hideMouse );
 		}
 
 		#endregion Mouse Implementation

@@ -88,6 +88,8 @@ namespace SharpInputSystem.Xna
 		}
 		#endregion keyboardInUse Property
 
+        public bool HideMouse { get; set; }
+
 		#endregion Fields and Properties
 
 		#region Construction and Destruction
@@ -189,14 +191,22 @@ namespace SharpInputSystem.Xna
 		protected override void _initialize( ParameterList args )
 		{
 			// Find the first Parameter entry with WINDOW
-			_hwnd = (IntPtr)args.First(
-									  delegate( Parameter p )
-									  {
-										  return p.first.ToUpper() == "WINDOW";
-									  }
-									 ).second;
+            var parameter = args.First( p => p.first.ToLower() == "window" );
+            if (parameter != null)
+            {
+                _hwnd = (IntPtr)parameter.second;
+            }
 
-			_parseConfigSettings( args );
+            parameter = args.FirstOrDefault( p => p.first.ToLower() == "xna_mouse_hide" );
+            if (parameter != null)
+            {
+                if (parameter.second is Boolean)
+                {
+                    HideMouse = (bool)parameter.second;
+                }
+            }
+
+		    _parseConfigSettings( args );
 			_enumerateDevices();
 		}
 
