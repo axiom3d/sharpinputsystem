@@ -120,6 +120,7 @@ namespace SharpInputSystem.Test.Console
 			//Default mode is foreground exclusive..but, we want to show mouse - so nonexclusive
 			pl.Add( new Parameter( "w32_mouse", "CLF_BACKGROUND" ) );
 			pl.Add( new Parameter( "w32_mouse", "CLF_NONEXCLUSIVE" ) );
+			pl.Add( new Parameter( "dx_mouse_hide", true ) );
 			pl.Add( new Parameter( "x11_keyboard_grab", false ) );
 			pl.Add( new Parameter( "x11_mouse_grab", false ) );
 			pl.Add( new Parameter( "x11_mouse_hide", false ) );

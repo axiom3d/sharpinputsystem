@@ -173,8 +173,8 @@ namespace SharpInputSystem.DirectX
 
         private void hide( bool hidePointer )
         {
-            SetCursor( IntPtr.Zero );
-            ShowCursor( false );
+            if ( hidePointer ) SetCursor( IntPtr.Zero );
+            ShowCursor( !hidePointer );
         }
 
 		#endregion Methods

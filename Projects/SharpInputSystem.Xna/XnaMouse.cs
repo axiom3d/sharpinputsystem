@@ -135,7 +135,7 @@ namespace SharpInputSystem.Xna
 	    private void hide( bool hidePointer )
 	    {
 	        if ( hidePointer ) SetCursor( IntPtr.Zero );
-	        ShowCursor( hidePointer );
+	        ShowCursor( !hidePointer );
 	    }
 
 	    #endregion Methods

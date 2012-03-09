@@ -146,7 +146,7 @@ namespace SharpInputSystem.DirectX
                 }
             }
 
-		    parameter = args.Find((p) => { return p.first.ToLower() == "dx_mouse_hide"; });
+		    parameter = args.Find((p) => { return p.first.ToLower() == "w32_mouse_hide"; });
             if (parameter != null)
             {
                 if (parameter.second is Boolean)

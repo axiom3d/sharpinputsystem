@@ -82,13 +82,12 @@ namespace SharpInputSystem.Test.Console
 
         public override void Initialize()
         {
+            ParameterList args = new ParameterList();
+            args.Add(new Parameter("WINDOW", this.Game.Window.Handle));
 #if !( WINDOWS_PHONE )
-            _inputManager = SIS.InputManager.CreateInputSystem( this.Game.Window.Handle );
-#else
-			ParameterList args = new ParameterList();
-			args.Add( new Parameter( "WINDOW", this.Game.Window.Handle ) );
-			_inputManager = SIS.InputManager.CreateInputSystem( typeof(SIS.Xna.XnaInputManagerFactory), args );
+            args.Add( new Parameter( "w32_mouse_hide", true ) );
 #endif
+            _inputManager = SIS.InputManager.CreateInputSystem(typeof(SIS.Xna.XnaInputManagerFactory), args);
 
 			//log.Info( String.Format( "SIS Version : {0}", _inputManager.Version ) );
             //log.Info( String.Format( "Platform : {0}", _inputManager.InputSystemName ) );

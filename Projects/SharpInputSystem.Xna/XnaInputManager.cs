@@ -197,7 +197,7 @@ namespace SharpInputSystem.Xna
                 _hwnd = (IntPtr)parameter.second;
             }
 
-            parameter = args.FirstOrDefault( p => p.first.ToLower() == "xna_mouse_hide" );
+            parameter = args.FirstOrDefault( p => p.first.ToLower() == "w32_mouse_hide" );
             if (parameter != null)
             {
                 if (parameter.second is Boolean)
