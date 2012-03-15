@@ -1,4 +1,5 @@
 ﻿#region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,26 +28,28 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region SVN Version Information
+
 // <file>
 //     <license see="license.txt"/>
 //     <id value="$Id$"/>
 // </file>
+
 #endregion SVN Version Information
 
 #region Namespace Declarations
 
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 
 #endregion Namespace Declarations
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+
 [assembly: AssemblyDescription( "Portable Input System in C#" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "SharpInputSystem" )]
@@ -75,12 +78,14 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 
 #if DEBUG
+
 [assembly: AssemblyVersion( "0.4.0.*" )]
 #else
 [assembly: AssemblyVersion( "0.4.0.0" )]
 #endif
 
 #if !XBOX360
+
 [assembly: AssemblyFileVersion( "0.4.0.0" )]
 #endif
 

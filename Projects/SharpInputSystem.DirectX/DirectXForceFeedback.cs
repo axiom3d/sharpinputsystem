@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,27 +28,24 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
-using System;
-using System.Drawing;
 using SWF = System.Windows.Forms;
-
-using MDI = SlimDX.DirectInput;
-using System.Collections.Generic;
+using MDI = SharpDX.DirectInput;
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem.DirectX
 {
-    class DirectXForceFeedback : ForceFeedback
+    internal class DirectXForceFeedback : ForceFeedback
     {
         #region Construction and Destruction
-        public DirectXForceFeedback(DirectXJoystick parent)
-        {
-        }
+
+        public DirectXForceFeedback( MDI.Joystick parent, MDI.Capabilities capabilities ) {}
+
         #endregion
 
         #region ForceFeedback Implementation
@@ -66,21 +64,18 @@ namespace SharpInputSystem.DirectX
 
         public override int SupportedAxesCount
         {
-            get 
-            { 
-                return 0; 
-            }
+            get { return 0; }
         }
 
         #endregion Properties
 
         #region Methods
 
-        public override void Upload(Effect effect) { }
+        public override void Upload( Effect effect ) {}
 
-        public override void Modify(Effect effect) { }
-        
-        public override void Remove(Effect effect) { }
+        public override void Modify( Effect effect ) {}
+
+        public override void Remove( Effect effect ) {}
 
         #endregion Methods
 

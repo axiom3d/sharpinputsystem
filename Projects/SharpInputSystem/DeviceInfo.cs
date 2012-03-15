@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,36 +28,23 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
 using System;
-using System.Collections.Generic;
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
+    public interface DeviceInfo
+    {
+        int Id { get; set; }
 
-	public interface DeviceInfo
-	{
-		int Id
-		{
-			get;
-			set;
-		}
+        Guid DeviceId { get; set; }
 
-		Guid DeviceId
-		{
-			get;
-			set;
-		}
-
-		string Vendor
-		{
-			get;
-			set;
-		}
-	}
+        string Vendor { get; set; }
+    }
 }

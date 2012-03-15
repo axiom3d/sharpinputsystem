@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,20 +28,25 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 namespace SharpInputSystem.DirectX
 {
-	public class DirectXInputManagerFactory : IInputManagerFactory
-	{
-		public PlatformApi Api
-		{
-			get { return PlatformApi.DirectX; }
-		}
+    public class DirectXInputManagerFactory : IInputManagerFactory
+    {
+        #region IInputManagerFactory Members
 
-		public InputManager Create()
-		{
-			return new DirectXInputManager();
-		}
-	}
+        public PlatformApi Api
+        {
+            get { return PlatformApi.DirectX; }
+        }
+
+        public InputManager Create( )
+        {
+            return new DirectXInputManager( );
+        }
+
+        #endregion
+    }
 }

@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,6 +28,7 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
@@ -37,189 +39,109 @@ using System;
 
 namespace SharpInputSystem
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	public enum InputType
-	{
-		Unknown,
-		Keyboard,
-		Mouse,
-		Joystick,
-		Tablet
-	}
+    /// <summary>
+    /// 
+    /// </summary>
+    public enum InputType
+    {
+        Unknown,
+        Keyboard,
+        Mouse,
+        Joystick,
+        Tablet
+    }
 
-	public interface IInputObjectInterface
-	{
-	}
+    public interface IInputObjectInterface {}
 
-	abstract public class InputObjectEventArgs
-	{
-		private InputObject _device;
-		public InputObject Device
-		{
-			get
-			{
-				return _device;
-			}
-			protected set
-			{
-				_device = value;
-			}
-		}
+    public abstract class InputObjectEventArgs
+    {
+        public InputObjectEventArgs( InputObject obj )
+        {
+            this.Device = obj;
+        }
 
-		public InputObjectEventArgs( InputObject obj )
-		{
-			_device = obj;
-		}
-	}
+        public InputObject Device { get; protected set; }
+    }
 
-	/// <summary>
-	/// 
-	/// </summary>
-	abstract public class InputObject : IDisposable
-	{
+    /// <summary>
+    /// 
+    /// </summary>
+    public abstract class InputObject : IDisposable
+    {
+        /// <summary>
+        /// Get the type of device
+        /// </summary>
+        public InputType Type { get; protected set; }
 
-		private InputType _type;
-		/// <summary>
-		/// Get the type of device
-		/// </summary>
-		public InputType Type
-		{
-			get
-			{
-				return _type;
-			}
-			protected set
-			{
-				_type = value;
-			}
-		}
+        /// <summary>
+        /// Get the vender string name
+        /// </summary>
+        public String Vendor { get; protected set; }
 
-		private string _vendor;
-		/// <summary>
-		/// Get the vender string name
-		/// </summary>
-		public String Vendor
-		{
-			get
-			{
-				return _vendor;
-			}
-			protected set
-			{
-				_vendor = value;
-			}
-		}
+        /// <summary>
+        /// Returns this input object's creator
+        /// </summary>
+        public InputManager Creator { get; protected set; }
 
-		private InputManager _creator;
-		/// <summary>
-		/// Returns this input object's creator
-		/// </summary>
-		public InputManager Creator
-		{
-			get
-			{
-				return _creator;
-			}
-			protected set
-			{
-				_creator = value;
-			}
-		}
+        /// <summary>
+        /// Get buffered mode - true is buffered, false otherwise
+        /// </summary>
+        public virtual bool IsBuffered { get; protected set; }
 
-		private bool _isBuffered;
-		/// <summary>
-		/// Get buffered mode - true is buffered, false otherwise
-		/// </summary>
-		public virtual bool IsBuffered
-		{
-			get
-			{
-				return _isBuffered;
-			}
-			protected set
-			{
-				_isBuffered = value;
-			}
-		}
+        /// <summary>
+        /// Not fully implemented yet
+        /// </summary>
+        public string DeviceID { get; protected set; }
 
-		private string _deviceID;
-		/// <summary>
-		/// Not fully implemented yet
-		/// </summary>
-		public string DeviceID
-		{
-			get
-			{
-				return _deviceID;
-			}
-			protected set
-			{
-				_deviceID = value;
-			}
-		}
+        /// <summary>
+        /// Used for updating call once per frame before checking state or to update events
+        /// </summary>
+        public abstract void Capture( );
 
-		/// <summary>
-		/// Used for updating call once per frame before checking state or to update events
-		/// </summary>
-		abstract public void Capture();
+        /// <summary>
+        /// 
+        /// </summary>
+        protected internal abstract void Initialize( );
 
-		/// <summary>
-		/// 
-		/// </summary>
-		abstract protected internal void initialize();
+        public virtual IInputObjectInterface QueryInterface<T>( ) where T : IInputObjectInterface
+        {
+            return default( T );
+        }
 
-		virtual public IInputObjectInterface QueryInterface<T>() where T : IInputObjectInterface
-		{
-			return default( T );
-		}
+        #region IDisposable Implementation
 
-		#region IDisposable Implementation
+        protected bool IsDisposed { get; set; }
 
-		private bool _disposed = false;
-		protected bool isDisposed
-		{
-			get
-			{
-				return _disposed;
-			}
-			set
-			{
-				_disposed = value;
-			}
-		}
+        public void Dispose( )
+        {
+            Dispose( true );
+            GC.SuppressFinalize( this );
+        }
 
-		protected virtual void _dispose( bool disposeManagedResources )
-		{
-			if ( !isDisposed )
-			{
-				if ( disposeManagedResources )
-				{
-					// Dispose managed resources.
-				}
+        protected virtual void Dispose( bool disposeManagedResources )
+        {
+            if ( !this.IsDisposed )
+            {
+                if ( disposeManagedResources )
+                {
+                    // Dispose managed resources.
+                }
 
-				// There are no unmanaged resources to release, but
-				// if we add them, they need to be released here.
-			}
-			isDisposed = true;
+                // There are no unmanaged resources to release, but
+                // if we add them, they need to be released here.
+            }
+            this.IsDisposed = true;
 
-			// If it is available, make the call to the
-			// base class's Dispose(Boolean) method
-			//base._dispose( disposeManagedResources );
-		}
+            // If it is available, make the call to the
+            // base class's Dispose(Boolean) method
+            //base.Dispose( disposeManagedResources );
+        }
 
-		public void Dispose()
-		{
-			_dispose( true );
-			GC.SuppressFinalize( this );
-		}
+        ~InputObject( )
+        {
+            Dispose( false );
+        }
 
-		~InputObject()
-		{
-			_dispose( false );
-		}
-
-		#endregion IDisposable Implementation
-	}
+        #endregion IDisposable Implementation
+    }
 }

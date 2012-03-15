@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,60 +28,61 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region tNamespace Declarations
 
 using System;
-using System.Collections.Generic;
 
-using MDI = SlimDX.DirectInput;
 using Common.Logging;
+
+using SharpDX.DirectInput;
+
+using MDI = SharpDX.DirectInput;
+
 #endregion Namespace Declarations
 
 namespace SharpInputSystem.DirectX
 {
-    class DirectXKeyboard : Keyboard
+    internal class DirectXKeyboard : Keyboard
     {
         #region Fields and Properties
 
-        private static readonly ILog log = LogManager.GetLogger( typeof( DirectXKeyboard ) );
+        private const int BufferSize = 17;
+        private static readonly ILog log = LogManager.GetLogger( typeof ( DirectXKeyboard ) );
 
-        private const int _BUFFER_SIZE = 17;
+        private readonly CooperativeLevel _coopSettings;
+        private readonly DirectInput _directInput;
+        private readonly KeyboardInfo _kbInfo;
 
-        private MDI.CooperativeLevel _coopSettings;
-        private MDI.DirectInput _directInput;
-        private MDI.Keyboard _keyboard;
-        private KeyboardInfo _kbInfo;
-
-        private int[] _keyboardState = new int[ 256 ];
+        private readonly int[] _keyboardState = new int[ 256 ];
+        private SharpDX.DirectInput.Keyboard _keyboard;
 
         #endregion Fields and Properties
 
         #region Construction and Destruction
 
-        public DirectXKeyboard( InputManager creator, MDI.DirectInput directInput, bool buffered, MDI.CooperativeLevel coopSettings )
+        public DirectXKeyboard( InputManager creator, DirectInput directInput, bool buffered, CooperativeLevel coopSettings )
         {
             Creator = creator;
-            _directInput = directInput;
+            this._directInput = directInput;
             IsBuffered = buffered;
-            _coopSettings = coopSettings;
+            this._coopSettings = coopSettings;
             Type = InputType.Keyboard;
             EventListener = null;
 
-            _kbInfo = (KeyboardInfo)( (DirectXInputManager)Creator ).CaptureDevice<Keyboard>();
+            this._kbInfo = ( KeyboardInfo ) ( ( DirectXInputManager ) Creator ).CaptureDevice<Keyboard>( );
 
-            if ( _kbInfo == null )
-            {
+            if ( this._kbInfo == null )
                 throw new Exception( "No devices match requested type." );
-            }
 
             log.Debug( "DirectXKeyboard device created." );
         }
 
-        protected override void _dispose( bool disposeManagedResources )
+        protected override void Dispose( bool disposeManagedResources )
         {
-            if ( !isDisposed )
+            if ( !IsDisposed )
             {
                 if ( disposeManagedResources )
                 {
@@ -91,7 +93,7 @@ namespace SharpInputSystem.DirectX
                 // if we add them, they need to be released here.
                 try
                 {
-                    _keyboard.Unacquire();
+                    this._keyboard.Unacquire( );
                 }
                 catch
                 {
@@ -99,311 +101,342 @@ namespace SharpInputSystem.DirectX
                 }
                 finally
                 {
-                    _keyboard.Dispose();
-                    _keyboard = null;
+                    this._keyboard.Dispose( );
+                    this._keyboard = null;
                 }
 
-                ( (DirectXInputManager)Creator ).ReleaseDevice<Keyboard>( _kbInfo );
+                ( ( DirectXInputManager ) Creator ).ReleaseDevice<Keyboard>( this._kbInfo );
 
                 log.Debug( "DirectXKeyboard device disposed." );
-
             }
 
             // If it is available, make the call to the
             // base class's Dispose(Boolean) method
-            base._dispose( disposeManagedResources );
+            base.Dispose( disposeManagedResources );
         }
 
         #endregion Construction and Destruction
 
         #region Methods
 
-        private void _read()
+        private void Read( )
         {
-            MDI.KeyboardState state = _keyboard.GetCurrentState();
+            KeyboardState state = this._keyboard.GetCurrentState( );
             for ( int i = 0; i < 256; i++ )
-                _keyboardState[ i ] = state.IsPressed( (MDI.Key)i ) ? i : 0;
+                this._keyboardState[ i ] = state.IsPressed( ( Key ) i ) ? i : 0;
 
             //Set Shift, Ctrl, Alt
-            shiftState = (ShiftState)0;
+            shiftState = 0;
             if ( IsKeyDown( KeyCode.Key_LCONTROL ) || IsKeyDown( KeyCode.Key_RCONTROL ) )
                 shiftState |= ShiftState.Ctrl;
             if ( IsKeyDown( KeyCode.Key_LSHIFT ) || IsKeyDown( KeyCode.Key_RSHIFT ) )
                 shiftState |= ShiftState.Shift;
             if ( IsKeyDown( KeyCode.Key_LMENU ) || IsKeyDown( KeyCode.Key_RMENU ) )
                 shiftState |= ShiftState.Alt;
-
         }
 
-        private void _readBuffered()
+        private void ReadBuffered( )
         {
             // grab the collection of buffered data
-            IEnumerable<MDI.KeyboardState> bufferedData = _keyboard.GetBufferedData();
-            if (SlimDX.Result.Last.IsFailure)
-                return;
+            KeyboardUpdate[] bufferedData = this._keyboard.GetBufferedData( );
 
             // please tell me why this would ever come back null, rather than an empty collection...
             if ( bufferedData == null )
-            {
                 return;
-            }
-            foreach ( MDI.KeyboardState packet in bufferedData )
+            foreach ( KeyboardUpdate packet in bufferedData )
             {
                 bool ret = true;
 
-                foreach (MDI.Key key in packet.PressedKeys)
+                //foreach (MDI.Key key in packet.PressedKeys)
+                //{
+                KeyCode keyCode = Convert( packet.Key );
+
+                //Store result in our keyBuffer too
+                this._keyboardState[ ( int ) packet.Key ] = 1;
+
+                if ( packet.IsPressed )
                 {
-                    KeyCode keyCode = Convert(key);
-
-                    //Store result in our keyBuffer too
-                    _keyboardState[ (int)keyCode ] = 1;
-
-
-                    if ( packet.IsPressed( MDI.Key.RightControl ) || packet.IsPressed( MDI.Key.LeftControl ) )
+                    if ( packet.Key == Key.RightControl || packet.Key == Key.LeftControl )
                         shiftState |= ShiftState.Ctrl;
-                    if ( packet.IsPressed( MDI.Key.RightAlt ) || packet.IsPressed( MDI.Key.LeftAlt ) )
+                    if ( packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt )
                         shiftState |= ShiftState.Alt;
-                    if ( packet.IsPressed( MDI.Key.RightShift) || packet.IsPressed( MDI.Key.LeftShift ) )
+                    if ( packet.Key == Key.RightShift || packet.Key == Key.LeftShift )
                         shiftState |= ShiftState.Shift;
 
-                    if ( this.EventListener != null )
-                        ret = this.EventListener.KeyPressed( new KeyEventArgs( this, keyCode, 0 ) );
+                    if ( EventListener != null )
+                        ret = EventListener.KeyPressed( new KeyEventArgs( this, keyCode, 0 ) );
                     if ( ret == false )
                         break;
                 }
-                foreach ( MDI.Key key in packet.ReleasedKeys )
+                else
                 {
-                    KeyCode keyCode = Convert( key );
+                    if ( packet.Key == Key.RightControl || packet.Key == Key.LeftControl )
+                        shiftState &= ~ShiftState.Ctrl;
+                    if ( packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt )
+                        shiftState &= ~ShiftState.Alt;
+                    if ( packet.Key == Key.RightShift || packet.Key == Key.LeftShift )
+                        shiftState &= ~ShiftState.Shift;
 
-                    //Store result in our keyBuffer too
-                    _keyboardState[ (int)key ] = 1;
 
-                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RCONTROL ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LCONTROL ) )
-                        shiftState |= ShiftState.Ctrl;
-                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RMENU ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LMENU ) )
-                        shiftState |= ShiftState.Alt;
-                    if ( packet.IsPressed( (MDI.Key)KeyCode.Key_RSHIFT ) || packet.IsPressed( (MDI.Key)KeyCode.Key_LSHIFT ) )
-                        shiftState |= ShiftState.Shift;
-
-                    if ( this.EventListener != null )
-                        ret = this.EventListener.KeyReleased( new KeyEventArgs( this, keyCode, 0 ) );
+                    if ( EventListener != null )
+                        ret = EventListener.KeyReleased( new KeyEventArgs( this, keyCode, 0 ) );
                     if ( ret == false )
                         break;
                 }
             }
         }
 
-        private KeyCode Convert( MDI.Key key )
+        private KeyCode Convert( Key key )
         {
             switch ( key )
             {
-                case MDI.Key.A:             return KeyCode.Key_A;
-                case MDI.Key.AbntC1:        return KeyCode.Key_ABNT_C1;
-                case MDI.Key.AbntC2:        return KeyCode.Key_ABNT_C2;
-                case MDI.Key.Apostrophe:    return KeyCode.Key_APOSTROPHE;
-                case MDI.Key.Applications:  return KeyCode.Key_APPS;
-                case MDI.Key.AT:            return KeyCode.Key_AT;
-                case MDI.Key.AX:            return KeyCode.Key_AX;
-                case MDI.Key.B:             return KeyCode.Key_B;
-                case MDI.Key.Backslash:     return KeyCode.Key_BACKSLASH;
-                case MDI.Key.Backspace:     return KeyCode.Key_BACK;
-                case MDI.Key.C:return KeyCode.Key_C;
-                case MDI.Key.Calculator:return KeyCode.Key_CALCULATOR;
-                case MDI.Key.CapsLock:return KeyCode.Key_CAPITAL;
-                case MDI.Key.Colon:return KeyCode.Key_COLON;
-                case MDI.Key.Comma:return KeyCode.Key_COMMA;
-                case MDI.Key.Convert:return KeyCode.Key_CONVERT;
-                case MDI.Key.D:return KeyCode.Key_D;
-                case MDI.Key.D0:return KeyCode.Key_0;
-                case MDI.Key.D1:return KeyCode.Key_1;
-                case MDI.Key.D2:return KeyCode.Key_2;
-                case MDI.Key.D3:return KeyCode.Key_3;
-                case MDI.Key.D4:return KeyCode.Key_4;
-                case MDI.Key.D5:return KeyCode.Key_5;
-                case MDI.Key.D6:return KeyCode.Key_6;
-                case MDI.Key.D7:return KeyCode.Key_7;
-                case MDI.Key.D8:return KeyCode.Key_8;
-                case MDI.Key.D9: return KeyCode.Key_9;
-                case MDI.Key.Delete: return KeyCode.Key_DELETE;
-                case MDI.Key.DownArrow: return KeyCode.Key_DOWN;
-                case MDI.Key.E:return KeyCode.Key_E;
-                case MDI.Key.End: return KeyCode.Key_END;
-                case MDI.Key.Equals: return KeyCode.Key_EQUALS;
-                case MDI.Key.Escape: return KeyCode.Key_ESCAPE;
-                case MDI.Key.F: return KeyCode.Key_F;
-                case MDI.Key.F1:
+                case Key.A:
+                    return KeyCode.Key_A;
+                case Key.AbntC1:
+                    return KeyCode.Key_ABNT_C1;
+                case Key.AbntC2:
+                    return KeyCode.Key_ABNT_C2;
+                case Key.Apostrophe:
+                    return KeyCode.Key_APOSTROPHE;
+                case Key.Applications:
+                    return KeyCode.Key_APPS;
+                case Key.AT:
+                    return KeyCode.Key_AT;
+                case Key.AX:
+                    return KeyCode.Key_AX;
+                case Key.B:
+                    return KeyCode.Key_B;
+                case Key.Backslash:
+                    return KeyCode.Key_BACKSLASH;
+                case Key.Back:
+                    return KeyCode.Key_BACK;
+                case Key.C:
+                    return KeyCode.Key_C;
+                case Key.Calculator:
+                    return KeyCode.Key_CALCULATOR;
+                case Key.Capital:
+                    return KeyCode.Key_CAPITAL;
+                case Key.Colon:
+                    return KeyCode.Key_COLON;
+                case Key.Comma:
+                    return KeyCode.Key_COMMA;
+                case Key.Convert:
+                    return KeyCode.Key_CONVERT;
+                case Key.D:
+                    return KeyCode.Key_D;
+                case Key.D0:
+                    return KeyCode.Key_0;
+                case Key.D1:
+                    return KeyCode.Key_1;
+                case Key.D2:
+                    return KeyCode.Key_2;
+                case Key.D3:
+                    return KeyCode.Key_3;
+                case Key.D4:
+                    return KeyCode.Key_4;
+                case Key.D5:
+                    return KeyCode.Key_5;
+                case Key.D6:
+                    return KeyCode.Key_6;
+                case Key.D7:
+                    return KeyCode.Key_7;
+                case Key.D8:
+                    return KeyCode.Key_8;
+                case Key.D9:
+                    return KeyCode.Key_9;
+                case Key.Delete:
+                    return KeyCode.Key_DELETE;
+                case Key.Down:
+                    return KeyCode.Key_DOWN;
+                case Key.E:
+                    return KeyCode.Key_E;
+                case Key.End:
+                    return KeyCode.Key_END;
+                case Key.Equals:
+                    return KeyCode.Key_EQUALS;
+                case Key.Escape:
+                    return KeyCode.Key_ESCAPE;
+                case Key.F:
+                    return KeyCode.Key_F;
+                case Key.F1:
                     return KeyCode.Key_F1;
-                case MDI.Key.F2:
+                case Key.F2:
                     return KeyCode.Key_F2;
-                case MDI.Key.F3:
+                case Key.F3:
                     return KeyCode.Key_F3;
-                case MDI.Key.F4:
+                case Key.F4:
                     return KeyCode.Key_F4;
-                case MDI.Key.F5:
+                case Key.F5:
                     return KeyCode.Key_F5;
-                case MDI.Key.F6:
+                case Key.F6:
                     return KeyCode.Key_F6;
-                case MDI.Key.F7:
+                case Key.F7:
                     return KeyCode.Key_F7;
-                case MDI.Key.F8:
+                case Key.F8:
                     return KeyCode.Key_F8;
-                case MDI.Key.F9:
+                case Key.F9:
                     return KeyCode.Key_F9;
-                case MDI.Key.F10:
+                case Key.F10:
                     return KeyCode.Key_F10;
-                case MDI.Key.F11:
+                case Key.F11:
                     return KeyCode.Key_F11;
-                case MDI.Key.F12:
+                case Key.F12:
                     return KeyCode.Key_F12;
-                case MDI.Key.F13:
+                case Key.F13:
                     return KeyCode.Key_F13;
-                case MDI.Key.F14:
+                case Key.F14:
                     return KeyCode.Key_F14;
-                case MDI.Key.F15:
+                case Key.F15:
                     return KeyCode.Key_F15;
-                case MDI.Key.G:
+                case Key.G:
                     return KeyCode.Key_G;
-                case MDI.Key.Grave:
+                case Key.Grave:
                     return KeyCode.Key_GRAVE;
-                case MDI.Key.H:
+                case Key.H:
                     return KeyCode.Key_H;
-                case MDI.Key.Home:
+                case Key.Home:
                     return KeyCode.Key_HOME;
-                case MDI.Key.I:
+                case Key.I:
                     return KeyCode.Key_I;
-                case MDI.Key.Insert:
+                case Key.Insert:
                     return KeyCode.Key_INSERT;
-                case MDI.Key.J:
+                case Key.J:
                     return KeyCode.Key_J;
-                case MDI.Key.K: return KeyCode.Key_K;
-                case MDI.Key.L: return KeyCode.Key_L;
-                case MDI.Key.LeftAlt:
+                case Key.K:
+                    return KeyCode.Key_K;
+                case Key.L:
+                    return KeyCode.Key_L;
+                case Key.LeftAlt:
                     return KeyCode.Key_LMENU;
-                case MDI.Key.LeftArrow:
+                case Key.Left:
                     return KeyCode.Key_LEFT;
-                case MDI.Key.LeftBracket:
+                case Key.LeftBracket:
                     return KeyCode.Key_LBRACKET;
-                case MDI.Key.LeftControl:
+                case Key.LeftControl:
                     return KeyCode.Key_LCONTROL;
-                case MDI.Key.LeftShift:
+                case Key.LeftShift:
                     return KeyCode.Key_LSHIFT;
-                case MDI.Key.LeftWindowsKey:
+                case Key.LeftWindowsKey:
                     return KeyCode.Key_LWIN;
-                case MDI.Key.M:
+                case Key.M:
                     return KeyCode.Key_M;
-                case MDI.Key.Mail:
+                case Key.Mail:
                     return KeyCode.Key_MAIL;
-                case MDI.Key.MediaSelect:
+                case Key.MediaSelect:
                     return KeyCode.Key_MEDIASELECT;
-                case MDI.Key.MediaStop:
+                case Key.MediaStop:
                     return KeyCode.Key_MEDIASTOP;
-                case MDI.Key.Minus:
+                case Key.Minus:
                     return KeyCode.Key_MINUS;
-                case MDI.Key.Mute:
+                case Key.Mute:
                     return KeyCode.Key_MUTE;
-                case MDI.Key.MyComputer:
+                case Key.MyComputer:
                     return KeyCode.Key_MYCOMPUTER;
-                case MDI.Key.N:
+                case Key.N:
                     return KeyCode.Key_N;
-                case MDI.Key.O: return KeyCode.Key_O;
-                case MDI.Key.Oem102:
+                case Key.O:
+                    return KeyCode.Key_O;
+                case Key.Oem102:
                     return KeyCode.Key_OEM_102;
-                case MDI.Key.P:
+                case Key.P:
                     return KeyCode.Key_P;
-                case MDI.Key.PageDown:
+                case Key.PageDown:
                     return KeyCode.Key_PGDOWN;
-                case MDI.Key.PageUp:
+                case Key.PageUp:
                     return KeyCode.Key_PGUP;
-                case MDI.Key.Pause:
+                case Key.Pause:
                     return KeyCode.Key_PAUSE;
-                case MDI.Key.Period:
+                case Key.Period:
                     return KeyCode.Key_PERIOD;
-                case MDI.Key.PlayPause:
+                case Key.PlayPause:
                     return KeyCode.Key_PLAYPAUSE;
-                case MDI.Key.Power:
+                case Key.Power:
                     return KeyCode.Key_POWER;
-                case MDI.Key.PreviousTrack:
+                case Key.PreviousTrack:
                     return KeyCode.Key_PREVTRACK;
-                case MDI.Key.PrintScreen:
+                case Key.PrintScreen:
                     return KeyCode.Key_SYSRQ;
-                case MDI.Key.Q:
+                case Key.Q:
                     return KeyCode.Key_Q;
-                case MDI.Key.R: return KeyCode.Key_R;
-                case MDI.Key.Return:
+                case Key.R:
+                    return KeyCode.Key_R;
+                case Key.Return:
                     return KeyCode.Key_RETURN;
-                case MDI.Key.RightAlt:
+                case Key.RightAlt:
                     return KeyCode.Key_RMENU;
-                case MDI.Key.RightArrow:
+                case Key.Right:
                     return KeyCode.Key_RIGHT;
-                case MDI.Key.RightBracket:
+                case Key.RightBracket:
                     return KeyCode.Key_RBRACKET;
-                case MDI.Key.RightControl:
+                case Key.RightControl:
                     return KeyCode.Key_RCONTROL;
-                case MDI.Key.RightShift:
+                case Key.RightShift:
                     return KeyCode.Key_RSHIFT;
-                case MDI.Key.RightWindowsKey:
+                case Key.RightWindowsKey:
                     return KeyCode.Key_RWIN;
-                case MDI.Key.S:
+                case Key.S:
                     return KeyCode.Key_S;
-                case MDI.Key.ScrollLock:
+                case Key.ScrollLock:
                     return KeyCode.Key_SCROLL;
-                case MDI.Key.Semicolon:
+                case Key.Semicolon:
                     return KeyCode.Key_SEMICOLON;
-                case MDI.Key.Slash:
+                case Key.Slash:
                     return KeyCode.Key_SLASH;
-                case MDI.Key.Sleep:
+                case Key.Sleep:
                     return KeyCode.Key_SLEEP;
-                case MDI.Key.Space:
+                case Key.Space:
                     return KeyCode.Key_SPACE;
-                case MDI.Key.Stop:
+                case Key.Stop:
                     return KeyCode.Key_STOP;
-                case MDI.Key.T:
+                case Key.T:
                     return KeyCode.Key_T;
-                case MDI.Key.Tab:
+                case Key.Tab:
                     return KeyCode.Key_TAB;
-                case MDI.Key.U:
+                case Key.U:
                     return KeyCode.Key_U;
-                case MDI.Key.Underline:
+                case Key.Underline:
                     return KeyCode.Key_UNDERLINE;
-                case MDI.Key.Unknown:
+                case Key.Unknown:
                     return KeyCode.Key_UNASSIGNED;
-                case MDI.Key.Unlabeled:
+                case Key.Unlabeled:
                     return KeyCode.Key_UNLABELED;
-                case MDI.Key.UpArrow:
+                case Key.UpArrow:
                     return KeyCode.Key_UP;
-                case MDI.Key.V:
+                case Key.V:
                     return KeyCode.Key_V;
-                case MDI.Key.VolumeDown:
+                case Key.VolumeDown:
                     return KeyCode.Key_VOLUMEDOWN;
-                case MDI.Key.VolumeUp:
+                case Key.VolumeUp:
                     return KeyCode.Key_VOLUMEUP;
-                case MDI.Key.W:
+                case Key.W:
                     return KeyCode.Key_W;
-                case MDI.Key.Wake:
+                case Key.Wake:
                     return KeyCode.Key_WAKE;
-                case MDI.Key.WebBack:
+                case Key.WebBack:
                     return KeyCode.Key_WEBBACK;
-                case MDI.Key.WebFavorites:
+                case Key.WebFavorites:
                     return KeyCode.Key_WEBFAVORITES;
-                case MDI.Key.WebForward:
+                case Key.WebForward:
                     return KeyCode.Key_WEBFORWARD;
-                case MDI.Key.WebHome:
+                case Key.WebHome:
                     return KeyCode.Key_WEBHOME;
-                case MDI.Key.WebRefresh:
+                case Key.WebRefresh:
                     return KeyCode.Key_WEBREFRESH;
-                case MDI.Key.WebSearch:
+                case Key.WebSearch:
                     return KeyCode.Key_WEBSEARCH;
-                case MDI.Key.WebStop:
+                case Key.WebStop:
                     return KeyCode.Key_WEBSTOP;
-                case MDI.Key.X:
+                case Key.X:
                     return KeyCode.Key_X;
-                case MDI.Key.Y: return KeyCode.Key_Y;
-                case MDI.Key.Yen:
+                case Key.Y:
+                    return KeyCode.Key_Y;
+                case Key.Yen:
                     return KeyCode.Key_YEN;
-                case MDI.Key.Z:
+                case Key.Z:
                     return KeyCode.Key_Z;
-                    
-                default: return KeyCode.Key_UNLABELED;
+
+                default:
+                    return KeyCode.Key_UNLABELED;
             }
         }
 
@@ -411,36 +444,34 @@ namespace SharpInputSystem.DirectX
 
         #region InputObject Implementation
 
-        public override void Capture()
+        public override void Capture( )
         {
-            if ( this.IsBuffered )
-                _readBuffered();
+            if ( IsBuffered )
+                ReadBuffered( );
             else
-                _read();
+                Read( );
         }
 
-		protected override void initialize()
-		{
-			_keyboard = new MDI.Keyboard( _directInput );
+        protected override void Initialize( )
+        {
+            this._keyboard = new SharpDX.DirectInput.Keyboard( this._directInput );
 
-			//_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
+            //_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
 
-			_keyboard.SetCooperativeLevel( ( (DirectXInputManager)Creator ).WindowHandle, _coopSettings );
+            this._keyboard.SetCooperativeLevel( ( ( DirectXInputManager ) Creator ).WindowHandle, this._coopSettings );
 
-			if ( IsBuffered )
-			{
-				_keyboard.Properties.BufferSize = _BUFFER_SIZE;
-			}
+            if ( IsBuffered )
+                this._keyboard.Properties.BufferSize = BufferSize;
 
-			try
-			{
-				_keyboard.Acquire();
-			}
-			catch ( Exception e )
-			{
-				throw new Exception( "Failed to aquire keyboard using DirectInput.", e );
-			}
-		}
+            try
+            {
+                this._keyboard.Acquire( );
+            }
+            catch ( Exception e )
+            {
+                throw new Exception( "Failed to aquire keyboard using DirectInput.", e );
+            }
+        }
 
         #endregion InputObject Implementation
 
@@ -448,27 +479,24 @@ namespace SharpInputSystem.DirectX
 
         public override int[] KeyStates
         {
-            get
-            {
-                return (int[])_keyboardState.Clone();
-            }
+            get { return ( int[] ) this._keyboardState.Clone( ); }
         }
 
         public override bool IsKeyDown( KeyCode key )
         {
-            return ( ( _keyboardState[ (int)key ] ) != 0 );
+            return ( ( this._keyboardState[ ( int ) key ] ) != 0 );
         }
 
         public override string AsString( KeyCode key )
         {
-            return _keyboard.Properties.GetKeyName( (MDI.Key)key );
+            return this._keyboard.Properties.GetKeyName( ( Key ) key );
         }
 
         public override bool IsShiftState( ShiftState state )
         {
             return base.IsShiftState( state );
         }
-        #endregion Keyboard Implementation
 
+        #endregion Keyboard Implementation
     }
 }

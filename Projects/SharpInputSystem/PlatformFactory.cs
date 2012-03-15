@@ -1,4 +1,5 @@
 ﻿#region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,13 +28,13 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.IO;
 using System.Reflection;
 
@@ -41,71 +42,68 @@ using System.Reflection;
 
 namespace SharpInputSystem
 {
-	internal static class PlatformFactory
-	{
-		private static IList<IInputManagerFactory> systems = new List<IInputManagerFactory>();
+    internal static class PlatformFactory
+    {
+        private static IList<IInputManagerFactory> systems = new List<IInputManagerFactory>( );
 
-		public static InputManager Create( PlatformApi api )
-		{
-			IList<IInputManagerFactory> systems = CollectSystems();
-			foreach ( IInputManagerFactory system in systems )
-				if ( (system.Api & api) == api || ( api == PlatformApi.AutoDetect ))
-					return system.Create();
+        public static InputManager Create( PlatformApi api )
+        {
+            IList<IInputManagerFactory> systems = CollectSystems( );
+            foreach ( IInputManagerFactory system in systems )
+            {
+                if ( ( system.Api & api ) == api || ( api == PlatformApi.AutoDetect ) )
+                    return system.Create( );
+            }
 
-			throw new Exception( "No Supported Input system found." );
-		}
+            throw new Exception( "No Supported Input system found." );
+        }
 
-		private static IList<IInputManagerFactory> CollectSystems()
-		{
-			IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
+        private static IList<IInputManagerFactory> CollectSystems( )
+        {
+            IList<IInputManagerFactory> system = new List<IInputManagerFactory>( );
 #if !( WINDOWS_PHONE || SILVERLIGHT )
-			string[] files = Directory.GetFiles( ".", "*.dll" );
-			string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
+            string[] files = Directory.GetFiles( ".", "*.dll" );
+            string assemblyName = Assembly.GetExecutingAssembly( ).GetName( ).Name + ".dll";
 
-			foreach ( string file in files )
-			{
-				string currentFile = Path.GetFileName(file);
+            foreach ( string file in files )
+            {
+                string currentFile = Path.GetFileName( file );
 
-				if (Path.GetExtension(file) != ".dll" || currentFile == assemblyName)
-					continue;
+                if ( Path.GetExtension( file ) != ".dll" || currentFile == assemblyName )
+                    continue;
 
-				string fullPath = Path.GetFullPath( file );
-				try
-				{
-					Assembly assemembly = Assembly.LoadFrom( fullPath );
-					if ( assemblyName != null )
-					{
-						Type[] types = assemembly.GetTypes();
-						foreach ( Type t in types )
-						{
-							if ( typeof( IInputManagerFactory ).IsAssignableFrom( t ) )
-							{
-
-								system.Add( (IInputManagerFactory)Activator.CreateInstance( t ) );
-								break;
-							}
-						}
-					}
-				}
-				catch ( BadImageFormatException bifex )
-				{
-					// Nothing to do here
-					// Can't load this assembly most likely due to it not being a .Net Assembly
-				}
-				catch ( ReflectionTypeLoadException rtlex )
-				{
-					// Nothing to do here.
-					// Can't load this assembly most likely due to missing references.
-				}
-				finally
-				{
-					
-				}
-			}
+                string fullPath = Path.GetFullPath( file );
+                try
+                {
+                    Assembly assemembly = Assembly.LoadFrom( fullPath );
+                    if ( assemblyName != null )
+                    {
+                        Type[] types = assemembly.GetTypes( );
+                        foreach ( Type t in types )
+                        {
+                            if ( typeof ( IInputManagerFactory ).IsAssignableFrom( t ) )
+                            {
+                                system.Add( ( IInputManagerFactory ) Activator.CreateInstance( t ) );
+                                break;
+                            }
+                        }
+                    }
+                }
+                catch ( BadImageFormatException bifex )
+                {
+                    // Nothing to do here
+                    // Can't load this assembly most likely due to it not being a .Net Assembly
+                }
+                catch ( ReflectionTypeLoadException rtlex )
+                {
+                    // Nothing to do here.
+                    // Can't load this assembly most likely due to missing references.
+                }
+                finally {}
+            }
 #endif
 
-			return system;
-		}
-
-	}
+            return system;
+        }
+    }
 }

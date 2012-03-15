@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,288 +28,295 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
-#endregion MIT/X11 License
 
+#endregion MIT/X11 License
 
 #region Namespace Declarations
 
 using System;
-using System.Collections.Generic;
-
-using SlimDX.DirectInput;
-
-using SWF = System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-using MDI = SlimDX.DirectInput;
 using Common.Logging;
+
+using SWF = System.Windows.Forms;
+using SDX = SharpDX;
+using MDI = SharpDX.DirectInput;
+
 #endregion Namespace Declarations
 
 namespace SharpInputSystem.DirectX
 {
-	class DirectXMouse : SharpInputSystem.Mouse
-	{
-		[StructLayout( LayoutKind.Sequential )]
-		private struct POINT
-		{
-			public int X;
-			public int Y;
+    internal class DirectXMouse : Mouse
+    {
+        #region Nested type: POINT
 
-			public POINT( int x, int y )
-			{
-				this.X = x;
-				this.Y = y;
-			}
-		}
+        [StructLayout( LayoutKind.Sequential )]
+        private struct POINT
+        {
+            public readonly int X;
+            public readonly int Y;
 
-		#region Fields and Properties
-		
-		private static readonly ILog log = LogManager.GetLogger( typeof( DirectXMouse ) );
+            public POINT( int x, int y )
+            {
+                this.X = x;
+                this.Y = y;
+            }
+        }
 
-		private const int _BUFFER_SIZE = 64;
+        #endregion
 
-		private MDI.CooperativeLevel _coopSettings;
-		private MDI.DirectInput _directInput;
-		private MDI.Mouse _mouse;
-		private MouseInfo _msInfo;
-	    private bool _hideMouse;
-		private IntPtr _window;
+        #region Fields and Properties
 
-		[DllImport( "user32.dll" )]
-		private static extern bool GetCursorPos( out POINT lpPoint );
+        private const int BufferSize = 64;
+        private static readonly ILog Log = LogManager.GetLogger( typeof ( DirectXMouse ) );
+
+        private readonly MDI.CooperativeLevel _coopSettings;
+        private readonly MDI.DirectInput _directInput;
+        private readonly bool _hideMouse;
+        private readonly MouseInfo _msInfo;
+        private MDI.Mouse _mouse;
+        private IntPtr _window;
+
+        [DllImport( "user32.dll" )]
+        private static extern bool GetCursorPos( out POINT lpPoint );
+
         [DllImport( "user32.dll" )]
         private static extern IntPtr SetCursor( IntPtr hCursor );
+
         [DllImport( "user32.dll" )]
         private static extern int ShowCursor( bool bShow );
-        [DllImport("user32.dll")]
-		private static extern bool ScreenToClient( IntPtr hWnd, ref POINT lpPoint );
 
-		#endregion Fields and Properties
+        [DllImport( "user32.dll" )]
+        private static extern bool ScreenToClient( IntPtr hWnd, ref POINT lpPoint );
 
-		#region Construction and Destruction
+        #endregion Fields and Properties
 
-		public DirectXMouse( InputManager creator, MDI.DirectInput device, bool buffered, MDI.CooperativeLevel coopSettings )
-		{
-			Creator = creator;
-			_directInput = device;
-			IsBuffered = buffered;
-			_coopSettings = coopSettings;
-			Type = InputType.Mouse;
-			EventListener = null;
+        #region Construction and Destruction
 
-			_msInfo = (MouseInfo)( (DirectXInputManager)Creator ).CaptureDevice<Mouse>();
+        public DirectXMouse( InputManager creator, MDI.DirectInput device, bool buffered, MDI.CooperativeLevel coopSettings )
+        {
+            Creator = creator;
+            this._directInput = device;
+            IsBuffered = buffered;
+            this._coopSettings = coopSettings;
+            Type = InputType.Mouse;
+            EventListener = null;
 
-			if ( _msInfo == null )
-			{
-				throw new Exception( "No devices match requested type." );
-			}
+            this._msInfo = ( MouseInfo ) ( ( DirectXInputManager ) Creator ).CaptureDevice<Mouse>( );
 
-            _hideMouse = ((DirectXInputManager)creator).HideMouse;
+            if ( this._msInfo == null )
+                throw new Exception( "No devices match requested type." );
 
-			log.Debug( "DirectXMouse device created." );
+            this._hideMouse = ( ( DirectXInputManager ) creator ).HideMouse;
 
-		}
+            Log.Debug( "DirectXMouse device created." );
+        }
 
-		protected override void _dispose( bool disposeManagedResources )
-		{
-			if ( !isDisposed )
-			{
-				if ( disposeManagedResources )
-				{
-					// Dispose managed resources.
+        protected override void Dispose( bool disposeManagedResources )
+        {
+            if ( !IsDisposed )
+            {
+                if ( disposeManagedResources )
+                {
+                    // Dispose managed resources.
 
-					if ( _mouse != null )
-					{
-						try
-						{
-							_mouse.Unacquire();
-						}
-						catch
-						{
-							// NOTE : This is intentional
-						}
+                    if ( this._mouse != null )
+                    {
+                        try
+                        {
+                            this._mouse.Unacquire( );
+                        }
+                        catch
+                        {
+                            // NOTE : This is intentional
+                        }
 
-						finally
-						{
-							_mouse.Dispose();
-							_mouse = null;
-						}
-					}
+                        finally
+                        {
+                            this._mouse.Dispose( );
+                            this._mouse = null;
+                        }
+                    }
 
-					
-					( (DirectXInputManager)Creator ).ReleaseDevice<SharpInputSystem.Mouse>( _msInfo );
-				}
-				// There are no unmanaged resources to release, but
-				// if we add them, they need to be released here.
 
-				log.Debug( "DirectXMouse device disposed." );
-			}
+                    ( ( DirectXInputManager ) Creator ).ReleaseDevice<Mouse>( this._msInfo );
+                }
+                // There are no unmanaged resources to release, but
+                // if we add them, they need to be released here.
 
-			// If it is available, make the call to the
-			// base class's Dispose(Boolean) method
-			base._dispose( disposeManagedResources );
-		}
+                Log.Debug( "DirectXMouse device disposed." );
+            }
 
-		#endregion Construction and Destruction
+            // If it is available, make the call to the
+            // base class's Dispose(Boolean) method
+            base.Dispose( disposeManagedResources );
+        }
 
-		#region Methods
+        #endregion Construction and Destruction
 
-		private bool _doMouseClick( int mouseButton, MDI.MouseState bufferedData )
-		{
-			if ( bufferedData.IsPressed( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) == 0 )
-			{
-				MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
-				if ( EventListener != null && IsBuffered )
-					return EventListener.MousePressed( new MouseEventArgs( this, MouseState ), (MouseButtonID)mouseButton );
-			}
-			else if ( bufferedData.IsReleased( mouseButton ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) != 0 )
-			{
-				MouseState.Buttons &= ~( 1 << mouseButton ); //turn the bit flag off
-				if ( EventListener != null && IsBuffered )
-					return EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), (MouseButtonID)mouseButton );
-			}
+        #region Methods
 
-			return true;
-		}
+        private bool _doMouseClick( int mouseButton, MDI.MouseUpdate bufferedData )
+        {
+            if ( ( ( bufferedData.Value & 0x80 ) != 0 ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) == 0 )
+            {
+                MouseState.Buttons |= 1 << mouseButton; //turn the bit flag on
+                if ( EventListener != null && IsBuffered )
+                    return EventListener.MousePressed( new MouseEventArgs( this, MouseState ), ( MouseButtonID ) mouseButton );
+            }
+            else if ( ( ( bufferedData.Value & 0x80 ) == 0 ) && ( MouseState.Buttons & ( 1 << mouseButton ) ) != 0 )
+            {
+                MouseState.Buttons &= ~( 1 << mouseButton ); //turn the bit flag off
+                if ( EventListener != null && IsBuffered )
+                    return EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), ( MouseButtonID ) mouseButton );
+            }
+
+            return true;
+        }
 
         private void hide( bool hidePointer )
         {
-            if ( hidePointer ) SetCursor( IntPtr.Zero );
+            if ( hidePointer )
+                SetCursor( IntPtr.Zero );
             ShowCursor( !hidePointer );
         }
 
-		#endregion Methods
+        #endregion Methods
 
-		#region Mouse Implementation
+        #region Mouse Implementation
 
-		public override void Capture()
-		{
-			// Clear Relative movement
-			MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
-			if ( SlimDX.Result.Last.IsFailure )
-				return;
+        public override void Capture( )
+        {
+            // Clear Relative movement
+            MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
 
-			IEnumerable<MDI.MouseState> bufferedData = null;
-			try
-			{
-				bufferedData = _mouse.GetBufferedData();
-			}
-			catch ( Exception ex ) {}
+            MDI.MouseUpdate[] bufferedData = this._mouse.GetBufferedData( );
+            if ( bufferedData == null )
+            {
+                SDX.Result hr = this._mouse.Acquire( );
+                while ( hr == MDI.ResultCode.InputLost )
+                    hr = this._mouse.Acquire( );
 
-			if ( SlimDX.Result.Last.IsFailure || bufferedData == null )
-			{
-				if ( _mouse.Acquire().IsFailure )
-					return;
-				if ( _mouse.Poll().IsFailure )
-					return;
+                bufferedData = this._mouse.GetBufferedData( );
+                if ( bufferedData == null )
+                    return;
+            }
+            bool axesMoved = false;
 
-				try
-				{
-					bufferedData = _mouse.GetBufferedData();
-					if ( SlimDX.Result.Last.IsFailure || bufferedData == null )
-						return;
-				}
-				catch ( Exception ex )
-				{
-					return;
-				}
-			}
-			bool axesMoved = false;
+            //Accumulate all axis movements for one axesMove message..
+            //Buttons are fired off as they are found
+            foreach ( MDI.MouseUpdate packet in bufferedData )
+            {
+                switch ( packet.Offset )
+                {
+                    case MDI.MouseOffset.Buttons0:
+                        if ( !_doMouseClick( 0, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons1:
+                        if ( !_doMouseClick( 1, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons2:
+                        if ( !_doMouseClick( 2, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons3:
+                        if ( !_doMouseClick( 3, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons4:
+                        if ( !_doMouseClick( 4, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons5:
+                        if ( !_doMouseClick( 5, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons6:
+                        if ( !_doMouseClick( 6, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.Buttons7:
+                        if ( !_doMouseClick( 7, packet ) )
+                            return;
+                        break;
+                    case MDI.MouseOffset.X:
+                        MouseState.X.Relative = packet.Value;
+                        axesMoved = true;
+                        break;
+                    case MDI.MouseOffset.Y:
+                        MouseState.Y.Relative = packet.Value;
+                        axesMoved = true;
+                        break;
+                    case MDI.MouseOffset.Z:
+                        MouseState.Z.Relative = packet.Value;
+                        axesMoved = true;
+                        break;
+                }
+            }
 
-			//Accumulate all axis movements for one axesMove message..
-			//Buttons are fired off as they are found
-			foreach ( MDI.MouseState packet in bufferedData )
-			{
-				for ( int i = 0; i < packet.GetButtons().Length; i++ )
-				{
-					if ( !_doMouseClick( i, packet ) )
-						return;
-				}
+            if ( axesMoved )
+            {
+                if ( ( this._coopSettings & MDI.CooperativeLevel.NonExclusive ) == MDI.CooperativeLevel.NonExclusive )
+                {
+                    //DirectInput provides us with meaningless values, so correct that
+                    POINT point;
+                    GetCursorPos( out point );
+                    ScreenToClient( this._window, ref point );
+                    MouseState.X.Absolute = point.X;
+                    MouseState.Y.Absolute = point.Y;
+                }
+                else
+                {
+                    MouseState.X.Absolute += MouseState.X.Relative;
+                    MouseState.Y.Absolute += MouseState.Y.Relative;
+                }
+                MouseState.Z.Absolute += MouseState.Z.Relative;
 
-				if ( packet.X != 0 )
-				{
-					MouseState.X.Relative = packet.X;
-					axesMoved = true;
-				}
+                //Clip values to window
+                if ( MouseState.X.Absolute < 0 )
+                    MouseState.X.Absolute = 0;
+                else if ( MouseState.X.Absolute > MouseState.Width )
+                    MouseState.X.Absolute = MouseState.Width;
+                if ( MouseState.Y.Absolute < 0 )
+                    MouseState.Y.Absolute = 0;
+                else if ( MouseState.Y.Absolute > MouseState.Height )
+                    MouseState.Y.Absolute = MouseState.Height;
 
-				if ( packet.Y != 0 )
-				{
-					MouseState.Y.Relative = packet.Y;
-					axesMoved = true;
-				}
+                //Do the move
+                if ( EventListener != null && IsBuffered )
+                    EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
+            }
+        }
 
-				if ( packet.Z != 0 )
-				{
-					MouseState.Z.Relative = packet.Z;
-					axesMoved = true;
-				}
+        protected override void Initialize( )
+        {
+            MouseState.Clear( );
 
-			}
+            this._mouse = new SharpDX.DirectInput.Mouse( this._directInput );
 
-			if ( axesMoved )
-			{
-				if ( ( this._coopSettings & MDI.CooperativeLevel.Nonexclusive ) == MDI.CooperativeLevel.Nonexclusive )
-				{
-					//DirectInput provides us with meaningless values, so correct that
-					POINT point;
-					GetCursorPos( out point );
-					ScreenToClient( _window, ref point );
-					MouseState.X.Absolute = point.X;
-					MouseState.Y.Absolute = point.Y;
-				}
-				else
-				{
-					MouseState.X.Absolute += MouseState.X.Relative;
-					MouseState.Y.Absolute += MouseState.Y.Relative;
-				}
-				MouseState.Z.Absolute += MouseState.Z.Relative;
+            this._mouse.Properties.AxisMode = MDI.DeviceAxisMode.Relative;
 
-				//Clip values to window
-				if ( MouseState.X.Absolute < 0 )
-					MouseState.X.Absolute = 0;
-				else if ( MouseState.X.Absolute > MouseState.Width )
-					MouseState.X.Absolute = MouseState.Width;
-				if ( MouseState.Y.Absolute < 0 )
-					MouseState.Y.Absolute = 0;
-				else if ( MouseState.Y.Absolute > MouseState.Height )
-					MouseState.Y.Absolute = MouseState.Height;
+            this._window = ( ( DirectXInputManager ) Creator ).WindowHandle;
 
-				//Do the move
-				if ( EventListener != null && IsBuffered )
-					EventListener.MouseMoved( new MouseEventArgs( this, MouseState ) );
-			}
-		}
+            this._mouse.SetCooperativeLevel( this._window, this._coopSettings );
 
-		protected override void initialize()
-		{
-			MouseState.Clear();
+            if ( IsBuffered )
+                this._mouse.Properties.BufferSize = BufferSize;
 
-			_mouse = new MDI.Mouse( _directInput );
+            try
+            {
+                this._mouse.Acquire( );
+            }
+            catch ( Exception e )
+            {
+                throw new Exception( "Failed to acquire mouse using DirectInput.", e );
+            }
 
-			_mouse.Properties.AxisMode = DeviceAxisMode.Relative;
+            hide( this._hideMouse );
+        }
 
-			_window = ( (DirectXInputManager)Creator ).WindowHandle;
-
-			_mouse.SetCooperativeLevel( _window, _coopSettings );
-
-			if ( IsBuffered )
-			{
-				_mouse.Properties.BufferSize = _BUFFER_SIZE;
-			}
-
-			try
-			{
-				_mouse.Acquire();
-			}
-			catch ( Exception e )
-			{
-				throw new Exception( "Failed to acquire mouse using DirectInput.", e );
-			}
-
-		    hide( _hideMouse );
-		}
-
-		#endregion Mouse Implementation
-
-	}
+        #endregion Mouse Implementation
+    }
 }

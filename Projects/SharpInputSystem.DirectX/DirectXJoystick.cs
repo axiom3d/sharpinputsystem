@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,459 +28,451 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
 using System;
-using System.Drawing;
+using System.Collections.Generic;
+using System.Management;
+
+using SharpDX.XInput;
 
 using SWF = System.Windows.Forms;
+using MDI = SharpDX.DirectInput;
+using SXI = SharpDX.XInput;
 
-using MDI = SlimDX.DirectInput;
-using System.Collections.Generic;
-using SharpInputSystem;
 #endregion Namespace Declarations
 
 namespace SharpInputSystem.DirectX
 {
-	///<summary>
-	///
-	/// </summary>
-	class DirectXJoystick : Joystick
-	{
-		#region Fields and Properties
+    ///<summary>
+    ///
+    /// </summary>
+    internal class DirectXJoystick : Joystick
+    {
+        private const int BufferSize = 124;
 
-		private const int _BUFFER_SIZE = 124;
+        private readonly MDI.CooperativeLevel _coopSettings;
+        private readonly Guid _deviceGuid;
+        private readonly JoystickInfo _joyInfo;
+        private Dictionary<int, int> _axisMapping = new Dictionary<int, int>( );
+        private int _axisNumber;
+        private MDI.DirectInput _directInput;
+        private DirectXForceFeedback _forceFeedback;
+        private SharpDX.DirectInput.Joystick _joystick;
 
-		private MDI.CooperativeLevel _coopSettings;
-		private MDI.DirectInput _directInput;
-		private MDI.Joystick _joystick;
-		private DirectXForceFeedback _forceFeedback;
-		private JoystickInfo _joyInfo;
+        private IntPtr _window;
 
-		private Guid _deviceGuid;
-
-		private IntPtr _window;
-
-		private int _axisNumber;
-		private Dictionary<int, int> _axisMapping = new Dictionary<int, int>();
-        
-        // debugging stuff
-        // private int[] hatsw = new int[4];
-        // private int[] hatsw = { 4, 42, 420, 4200 };
-        // private bool[] povMoved = { false, false, false, false };
-        // end debugging stuff
-
-		#endregion Fields and Properties
-
-		#region Construction and Destruction
-
-		public DirectXJoystick( InputManager creator, MDI.DirectInput device, bool buffered, MDI.CooperativeLevel coopSettings )
-		{
-			Creator = creator;
-			_directInput = device;
-			IsBuffered = buffered;
-			_coopSettings = coopSettings;
-			Type = InputType.Joystick;
-			EventListener = null;
-
-			_joyInfo = (JoystickInfo)( (DirectXInputManager)Creator ).CaptureDevice<Joystick>();
-
-			if ( _joyInfo == null )
-			{
-				throw new Exception( "No devices match requested type." );
-			}
-
-			_deviceGuid = _joyInfo.DeviceId;
-			Vendor = _joyInfo.Vendor;
-			DeviceID = _joyInfo.Id.ToString();
-		}
-
-		protected override void _dispose( bool disposeManagedResources )
-		{
-			if ( !isDisposed )
-			{
-				if ( disposeManagedResources )
-				{
-					// Dispose managed resources.
-				}
-
-				// There are no unmanaged resources to release, but
-				// if we add them, they need to be released here.
-				if ( _joystick != null )
-				{
-					try
-					{
-						_joystick.Unacquire();
-					}
-					finally
-					{
-						_joystick.Dispose();
-						_joystick = null;
-						_directInput = null;
-						_forceFeedback = null;
-					}
-
-					( (DirectXInputManager)Creator ).ReleaseDevice<Joystick>( _joyInfo );
-
-				}
-			}
-			isDisposed = true;
-
-			// If it is available, make the call to the
-			// base class's Dispose(Boolean) method
-			base._dispose( disposeManagedResources );
-		}
-
-		#endregion Construction and Destruction
-
-		#region Methods
-
-		protected void _enumerate()
-		{
-			//We can check force feedback here too
-			MDI.Capabilities joystickCapabilities;
-
-			joystickCapabilities = _joystick.Capabilities;
-			this.AxisCount = (short)joystickCapabilities.AxesCount;
-			this.ButtonCount = (short)joystickCapabilities.ButtonCount;
-			this.HatCount = (short)joystickCapabilities.PovCount;
-			
-			_axisNumber = 0;
-			_axisMapping.Clear();
-
-			////Enumerate Force Feedback (if any)
-			if ( ( joystickCapabilities.Flags & MDI.DeviceFlags.ForceFeedback ) != 0 )
-			{
-				_forceFeedback = new DirectXForceFeedback( this );
-			}
-
-			////Enumerate and set axis constraints (and check FF Axes)
-			foreach ( MDI.DeviceObjectInstance doi in _joystick.GetObjects() )
-			{
-				if ( ( doi.ObjectType & MDI.ObjectDeviceType.Axis ) != 0 )
-				_axisMapping.Add( doi.Offset, _axisNumber++ );
-
-				if ( ( doi.ObjectType & MDI.ObjectDeviceType.ForceFeedbackActuator ) != 0 )
-				{
-					if ( _forceFeedback == null )
-					{
-						throw new Exception( "ForceFeedback Axis found but reported no ForceFeedback Effects!" );
-					}
-				}                               
-			}
-
-		}
-
-        private void _read()
+        public DirectXJoystick(InputManager creator, MDI.DirectInput device, bool buffered, MDI.CooperativeLevel coopSettings)
         {
-            if (_joystick.Acquire().IsFailure)
-                return;
-            if (_joystick.Poll().IsFailure)
-                return;
+            Creator = creator;
+            this._directInput = device;
+            IsBuffered = buffered;
+            this._coopSettings = coopSettings;
+            Type = InputType.Joystick;
+            EventListener = null;
 
-            MDI.JoystickState state = _joystick.GetCurrentState();
+            this._joyInfo = ( JoystickInfo ) ( ( DirectXInputManager ) Creator ).CaptureDevice<Joystick>( );
 
-            int axis = 0;
-            if (state.X != 0)
-            {
-                axis = 0;
-                JoystickState.Axis[axis].Absolute = state.X;
-            }
-            if (state.Y != 0)
-            {
-                axis = 1;
-                JoystickState.Axis[axis].Absolute = state.Y;
-            }
-            if (state.Z != 0)
-            {
-                axis = 2;
-                JoystickState.Axis[axis].Absolute = state.Z;
-            }
-            if (state.RotationZ != 0)
-            {
-                axis = 3;
-                JoystickState.Axis[axis].Absolute = state.RotationZ;
-            }
+            if ( this._joyInfo == null )
+                throw new Exception( "No devices match requested type." );
 
-            int[] hatsw = state.GetPointOfViewControllers();
-
-            #region hatswDebugginStuff
-
-            // debugging stuff
-            if (hatsw == null)
-            {
-                Console.Write(String.Format("hatsw is null \n"));
-                Console.ReadLine();
-            }
-
-            // Console.Write(String.Format("hatsw value:{0} length:{1} \n", hatsw[0], hatsw.Length));
-            // this works, but only outputs the 1st hat/povswitch(" [0] ")
-
-            // foreach (int hatIndex in hatsw)
-            // this loop doesn't work
-            // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
-            // but THIS loop works?! WTH? (and the hatswitch values reported in the console are correct, and promptly updated on input)
-            //{
-            //    Console.Write(String.Format("hatsw index:{0}, value:{1} length:{2} \n", hatIndex, hatsw[hatIndex], hatsw.Length));
-            //}
-            //
-
-            #endregion
-
-            // trying to convert the DirectX  hat/pov values into Axiom Directions
-            // foreach (int hatIndex in hatsw)
-            //{
-                //switch (hatsw[0])
-                //{
-                //    case -1:
-                //        JoystickState.Povs[0].Direction = Pov.Position.Centered;
-                //        break;
-                //    case 0:
-                //        JoystickState.Povs[0].Direction = Pov.Position.North;
-                //        break;
-                //    case 4500:
-                //        JoystickState.Povs[0].Direction = Pov.Position.NorthEast;
-                //        break;
-                //    case 9000:
-                //        JoystickState.Povs[0].Direction = Pov.Position.East;
-                //        break;
-                //    case 13500:
-                //        JoystickState.Povs[0].Direction = Pov.Position.SouthEast;
-                //        break;
-                //    case 18000:
-                //        JoystickState.Povs[0].Direction = Pov.Position.South;
-                //        break;
-                //    case 22500:
-                //        JoystickState.Povs[0].Direction = Pov.Position.SouthWest;
-                //        break;
-                //    case 27000:
-                //        JoystickState.Povs[0].Direction = Pov.Position.West;
-                //        break;
-                //    case 31500:
-                //        JoystickState.Povs[0].Direction = Pov.Position.NorthWest;
-                //        break;
-
-                //}
-            //} 
+            this._deviceGuid = this._joyInfo.DeviceId;
+            Vendor = this._joyInfo.Vendor;
+            DeviceID = this._joyInfo.Id.ToString( );
         }
 
-        private void _readBuffered()
+        protected override void Dispose( bool disposeManagedResources )
         {
-            IEnumerable<MDI.JoystickState> bufferedData = null;
+            if ( !IsDisposed )
+            {
+                if ( disposeManagedResources )
+                {
+                    // Dispose managed resources.
+                }
 
-            if (_joystick.Acquire().IsFailure)
+                // There are no unmanaged resources to release, but
+                // if we add them, they need to be released here.
+                if ( this._joystick != null )
+                {
+                    try
+                    {
+                        this._joystick.Unacquire( );
+                    }
+                    finally
+                    {
+                        this._joystick.Dispose( );
+                        this._joystick = null;
+                        this._directInput = null;
+                        this._forceFeedback = null;
+                    }
+
+                    ( ( DirectXInputManager ) Creator ).ReleaseDevice<Joystick>( this._joyInfo );
+                }
+            }
+            IsDisposed = true;
+
+            // If it is available, make the call to the
+            // base class's Dispose(Boolean) method
+            base.Dispose( disposeManagedResources );
+        }
+
+        protected void Enumerate( )
+        {
+            if ( _joyInfo.IsXInput )
+            {
+                this.PovCount = 1;
+                JoystickState.Axis.AddRange( new List<Axis>() { new Axis( ), new Axis( ), new Axis( ), new Axis( ), new Axis( ), new Axis( ) } );              
+            }
+            else
+            {
+                //We can check force feedback here too
+                MDI.Capabilities joystickCapabilities;
+
+                joystickCapabilities = _joystick.Capabilities;
+                this.AxisCount = ( short ) joystickCapabilities.AxeCount;
+                this.ButtonCount = ( short ) joystickCapabilities.ButtonCount;
+                this.PovCount = ( short ) joystickCapabilities.PovCount;
+
+                for (int axis = 0; axis < AxisCount; axis++ )
+                    JoystickState.Axis.Add(new Axis());
+
+                _axisNumber = 0;
+                _axisMapping.Clear( );
+
+                //TODO: Enumerate Force Feedback (if any)
+                /*
+                foreach ( var effect in _joystick.GetEffects() )
+                {
+                    if ( this._forceFeedback == null)
+                        this._forceFeedback = new DirectXForceFeedback( this._joystick, joystickCapabilities );
+                    this._forceFeedback.SupportedEffects.AddEffectSupport( effect );
+                }
+                */
+
+                //TODO: Enumerate and set axis constraints (and check FF Axes)
+                /*
+                foreach ( var doi in _joystick.GetObjects() )
+                {
+                    if ( doi.ObjectType == MDI.ObjectGuid.Slider)
+                    {
+                        this._sliders++;
+                        this.AxisCount--;
+                    }
+
+                    if ( doi.ObjectType != MDI.ObjectGuid.Slider)
+                    {
+                        this._axisNumber++;
+                    }
+
+                    if ( ( doi.Usage && MDI.DeviceObjectTypeFlags.ForceFeedbackActuator ) != 0 )
+                    {
+                        if (this._forceFeedback != null)
+                            this._forceFeedback.AddAxis( );
+                    }
+                }
+                */
+            }
+        }
+
+        internal static void CheckXInputDevices(List<DeviceInfo> unusedDevices)
+        {
+            if (unusedDevices.Count == 0)
                 return;
-            if (_joystick.Poll().IsFailure)
+
+            int xDeviceIndex = 0;
+
+            //dictionary object to hold the values
+            Dictionary<string, string> driveInfo = new Dictionary<string, string>();
+            //create our WMI searcher
+            var searcher = new ManagementObjectSearcher(@"select * from Win32_PNPEntity");
+            //now loop through all the item found with the query
+            foreach (var obj in searcher.Get())
+            {
+                
+                var deviceId = (string)obj[ "DeviceID" ];
+                string vId, pId;
+                if (deviceId.Contains("IG_"))
+                {
+                    vId = deviceId.Substring( deviceId.IndexOf( "VID_", System.StringComparison.Ordinal ) + 4, 4 );
+                    pId = deviceId.Substring( deviceId.IndexOf( "PID_", System.StringComparison.Ordinal ) + 4, 4 );
+
+                    string vpId = (pId + vId).ToLower();
+                    foreach ( var info in unusedDevices )
+                    {
+                        var joyInfo = info as JoystickInfo;
+                        if ( joyInfo != null)
+                        {
+                            if ( joyInfo.IsXInput == false && vpId == joyInfo.ProductGuid.ToString().Substring(0,8).ToLower() )
+                            {
+                                joyInfo.IsXInput = true;
+                                joyInfo.XInputDevice = xDeviceIndex++;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private bool DoButtonClick(int offset, MDI.JoystickUpdate entry)
+        {
+            var eventArgs = new JoystickEventArgs( this, JoystickState );
+            if ( ( entry.Value & 0x80 ) != 0 )
+            {
+                JoystickState.Buttons |= offset;
+                if ( IsBuffered && EventListener != null )
+                    return EventListener.ButtonPressed( eventArgs, 0 );
+            }
+            else
+            {
+                JoystickState.Buttons &= ~offset;
+                if ( IsBuffered && EventListener != null )
+                    return EventListener.ButtonReleased( eventArgs, 0 );
+            }
+            return true;
+        }
+
+        private bool ChangePOV(int button, MDI.JoystickUpdate entry)
+        {
+            return true;
+        }
+
+        public override void Capture( )
+        {
+            if ( _joyInfo.IsXInput )
+            {
+                CaptureXInput( );
                 return;
+            }
 
-            bufferedData = _joystick.GetBufferedData();
+            MDI.JoystickUpdate[] bufferedData = null;
+            if (this._joystick.Poll().Success)
+                bufferedData = this._joystick.GetBufferedData();
+            if (bufferedData == null)
+            {
+                while (this._joystick.Acquire() == MDI.ResultCode.InputLost);
 
-            bool[] axisMoved = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-								  false,false,false,false,false,false,false,false};
-            bool[] buttonsPressed = {false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,
-								  false,false,false,false,false,false,false,false};
+                this._joystick.Poll();
+                bufferedData = this._joystick.GetBufferedData();
+                if (bufferedData == null)
+                    return;
+            }
+
+            bool[] axisMoved = {
+                                   false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false,
+                                   false, false, false, false, false, false, false, false
+                               };
             bool[] sliderMoved = { false, false, false, false };
 
-            bool[] povMoved = { false, false, false, false };
-
-            // original parsing routine
-            //foreach (MDI.JoystickState data in bufferedData)
-            //{
-            //    int axis = 0;
-            //}
-
-            // begin parsing stickStates 
-            foreach (MDI.JoystickState data in bufferedData)
+            foreach (var entry in bufferedData)
             {
-                int axis = 0;
-
-                if (data.X != 0)
+                switch (entry.Offset)
                 {
-                    axis = 0;
-                    JoystickState.Axis[axis].Absolute = data.X;
-                    axisMoved[axis] = true;
+                    /* sliders */
+                    case MDI.JoystickOffset.Sliders1:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[0].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.Sliders0:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[0].Y = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.PointOfViewControllers0:
+                        if (ChangePOV(0, entry))
+                            return;
+                        break;
+                    case MDI.JoystickOffset.PointOfViewControllers1:
+                        if (ChangePOV(1, entry))
+                            return;
+                        break;
+                    case MDI.JoystickOffset.PointOfViewControllers2:
+                        if (ChangePOV(2, entry))
+                            return;
+                        break;
+                    case MDI.JoystickOffset.PointOfViewControllers3:
+                        if (ChangePOV(3, entry))
+                            return;
+                        break;
+                    case MDI.JoystickOffset.VelocitySliders0:
+                        sliderMoved[1] = true;
+                        JoystickState.Sliders[1].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.VelocitySliders1:
+                        sliderMoved[1] = true;
+                        JoystickState.Sliders[1].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.AccelerationSliders0:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[2].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.AccelerationSliders1:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[2].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.ForceSliders0:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[3].X = entry.Value;
+                        break;
+                    case MDI.JoystickOffset.ForceSliders1:
+                        sliderMoved[0] = true;
+                        JoystickState.Sliders[3].X = entry.Value;
+                        break;
+                    default:
+                        if (entry.Offset >= MDI.JoystickOffset.Buttons0 && entry.Offset < MDI.JoystickOffset.Buttons127)
+                        {
+                            if (!DoButtonClick((int)entry.Offset - (int)MDI.JoystickOffset.Buttons0, entry))
+                                return;
+                        }
+                        else { }
+
+                        break;
                 }
-                if (data.Y != 0)
-                {
-                    axis = 1;
-                    JoystickState.Axis[axis].Absolute = data.Y;
-                    axisMoved[axis] = true;
-                }
-                if (data.Z != 0)
-                {
-                    axis = 2;
-                    JoystickState.Axis[axis].Absolute = data.Z;
-                    axisMoved[axis] = true;
-                }
-                if (data.RotationZ != 0)
-                {
-                    axis = 3;
-                    JoystickState.Axis[axis].Absolute = data.RotationZ;
-                    axisMoved[axis] = true;
-                }
-
-                buttonsPressed = data.GetButtons();
-
-
-                int[] hatsw = data.GetPointOfViewControllers();
-
-                #region hatswDebugginStuff
-
-                // debugging stuff
-                if (hatsw == null)
-                {
-                    Console.Write(String.Format("hatsw is null \n"));
-                    Console.ReadLine();
-                }
-
-                // Console.Write(String.Format("hatsw value:{0} length:{1} \n", hatsw[0], hatsw.Length));
-                // this works, but only outputs the 1st hat/povswitch(" [0] ")
-
-                // foreach (int hatIndex in hatsw)
-                // this loop doesn't work
-                // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
-                // but THIS loop works?! WTH? (and the hatswitch values reported in the console are correct, and promptly updated on input)
-                //{
-                //    Console.Write(String.Format("hatsw index:{0}, value:{1} length:{2} \n", hatIndex, hatsw[hatIndex], hatsw.Length));
-                //}
-                //
-
-                #endregion
-
-                // converting DriverValues to AxiomDirections
-                // neither of these loops work
-                // foreach (int hatIndex in hatsw)
-                // for (int hatIndex = 0; hatIndex < hatsw.Length; hatIndex++)
-                //{
-                //    switch (hatsw[hatIndex])
-                //    {
-                //        case -1:
-                //            povMoved[hatIndex] = false;
-                //            break;
-                //        case 0:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.North;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 4500:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.NorthEast;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 9000:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.East;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 13500:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.SouthEast;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 18000:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.South;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 22500:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.SouthWest;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 27000:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.West;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //        case 31500:
-                //            JoystickState.Povs[hatIndex].Direction = Pov.Position.NorthWest;
-                //            povMoved[hatIndex] = true;
-                //            break;
-                //    }
-                //} 
-
-            } // end parsing stickStates
+            }
 
             //Check to see if any of the axes values have changed.. if so send events
-            if ((IsBuffered == true) && (EventListener != null))
+            if ((IsBuffered == true) && (EventListener != null) && bufferedData.Length > 0)
             {
                 JoystickEventArgs temp = new JoystickEventArgs(this, JoystickState);
 
                 //Update axes
                 for (int i = 0; i < axisMoved.Length; i++)
+                {
                     if (axisMoved[i])
+                    {
                         if (EventListener.AxisMoved(temp, i) == false)
                             return;
-
-                //Update buttons
-                for (int i = 0; i < buttonsPressed.Length; i++)
-                    if (buttonsPressed[i])
-                        if (EventListener.ButtonPressed(temp, i) == false)
-                            return;
+                    }
+                }
 
                 //Now update sliders
-                //for ( int i = 0; i < 4; i++ )
-                //    if ( sliderMoved[ i ] )
-                //        if ( EventListener.SliderMoved( temp, i ) == false )
-                //            return;
-
-                //Now update POV
-                //for (int i = 0; i < 4; i++)
-                //    if (povMoved[i])
-                //        if (EventListener.PovMoved(temp, i) == false)
-                //            return;
-
-            } //end event sending
+                for (int i = 0; i < 4; i++)
+                {
+                    if (sliderMoved[i])
+                    {
+                        if (EventListener.SliderMoved(temp, i) == false)
+                            return;
+                    }
+                }
+            }
         }
 
-		#endregion Methods
+        private void CaptureXInput()
+        {
+            var controller = new SXI.Controller( ( SXI.UserIndex ) _joyInfo.XInputDevice );
+            var inputState = controller.GetState( );
 
-		#region SharpInputSystem.Joystick Implementation
-		
-		public override void Capture()
-		{
-            if (this.IsBuffered)
-                _readBuffered();
+            bool[] axisMoved = { false, false, false, false, false, false, false, false };
+
+            //AXIS
+            axisMoved[ 0 ] = GetAxisMovement( JoystickState.Axis[ 0 ], -( int ) inputState.Gamepad.LeftThumbY );
+            axisMoved[ 1 ] = GetAxisMovement( JoystickState.Axis[ 1 ], inputState.Gamepad.LeftThumbX );
+            axisMoved[ 2 ] = GetAxisMovement( JoystickState.Axis[ 2 ], -( int ) inputState.Gamepad.RightThumbY );
+            axisMoved[ 3 ] = GetAxisMovement( JoystickState.Axis[ 3 ], inputState.Gamepad.RightThumbX );
+            axisMoved[ 4 ] = GetAxisMovement( JoystickState.Axis[ 4 ], inputState.Gamepad.LeftTrigger*129 < Joystick.Max_Axis ? inputState.Gamepad.LeftTrigger*129 : Joystick.Max_Axis );
+            axisMoved[ 5 ] = GetAxisMovement( JoystickState.Axis[ 5 ], inputState.Gamepad.RightTrigger*129 < Joystick.Max_Axis ? inputState.Gamepad.RightTrigger*129 : Joystick.Max_Axis );
+
+            //POV
+            Pov.Position previousPov = JoystickState.Povs[ 0 ].Direction;
+            Pov.Position pov = Pov.Position.Centered;
+            if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadUp ) != 0 )
+                pov |= Pov.Position.North;
+            else if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadDown ) != 0 )
+                pov |= Pov.Position.South;
+            if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadLeft ) != 0 )
+                pov |= Pov.Position.West;
+            else if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadRight ) != 0 )
+                pov |= Pov.Position.East;
+            JoystickState.Povs[ 0 ].Direction = pov;
+
+            //BUTTONS
+            // Skip the first 4 as they are the DPad.
+            var previousButtons = JoystickState.Buttons;
+            for ( int i = 0; i < 12; i++ )
+            {
+                if ( ( ( int ) inputState.Gamepad.Buttons & ( 1 << ( i + 4 ) ) ) != 0 )
+                {
+                    JoystickState.Buttons |= 1 << ( i + 4 );
+                }
+                else
+                {
+                    JoystickState.Buttons &= ~( 1 << ( i + 4 ) );
+                }
+            }
+
+            //Send Events
+            if ( IsBuffered && EventListener != null )
+            {
+                var joystickEvent = new JoystickEventArgs( this, JoystickState );
+
+                // Axes
+                for ( int index = 0; index < axisMoved.Length; index++ )
+                {
+                    if ( axisMoved[ index ] == true && EventListener.AxisMoved( joystickEvent, index ) )
+                        return;
+                }
+
+                //POV
+                if ( previousPov != pov && !EventListener.PovMoved( joystickEvent, 0 ) )
+                    return;
+
+                //Buttons
+                for ( int i = 4; i < 16; i++ )
+                {
+                    if ( ( ( previousButtons & ( 1 << i ) ) == 0 ) && JoystickState.IsButtonDown( i ) )
+                    {
+                        if ( !EventListener.ButtonPressed( joystickEvent, i ) )
+                            return;
+                    }
+                    else if ( ( ( previousButtons & ( 1 << i ) ) != 0 ) && !JoystickState.IsButtonDown( i ) )
+                    {
+                        if ( !EventListener.ButtonReleased( joystickEvent, i ) )
+                            return;
+                    }
+                }
+            }
+
+        }
+
+        private bool GetAxisMovement( Axis axis, int value )
+        {
+            axis.Relative = value - axis.Absolute;
+            axis.Absolute = value;
+            return axis.Relative != 0;
+        }
+
+        protected override void Initialize( )
+        {
+            if ( _joyInfo.IsXInput )
+                Enumerate( );
             else
-                _read();
+            {
+                JoystickState.Axis.Clear();
 
-		}
+                this._joystick = new SharpDX.DirectInput.Joystick( this._directInput, this._deviceGuid );
 
-		protected override void initialize()
-		{
-			JoystickState.Axis.Clear();
+                this._window = ( ( DirectXInputManager ) Creator ).WindowHandle;
 
-			_joystick = new MDI.Joystick( _directInput, _deviceGuid );
+                this._joystick.SetCooperativeLevel( this._window, this._coopSettings );
 
-			//_joystick.SetDataFormat( MDI.DeviceDataFormat.Joystick );
+                if ( IsBuffered )
+                    this._joystick.Properties.BufferSize = BufferSize;
 
-			_window = ( (DirectXInputManager)Creator ).WindowHandle;
+                //Enumerate all axes/buttons/sliders/etc before aquiring
+                Enumerate();
 
-			_joystick.SetCooperativeLevel( _window, _coopSettings );
+                JoystickState.Clear();
 
-			if ( IsBuffered )
-			{
-				_joystick.Properties.BufferSize = _BUFFER_SIZE;
-			}
+                Capture();
+            }
+        }
 
-			//Enumerate all axes/buttons/sliders/etc before aquiring
-			_enumerate();
-
-			JoystickState.Axis.Capacity = this.AxisCount;
-			for ( int i = 0; i < this.AxisCount; i++ )
-			{
-				JoystickState.Axis.Add( new Axis() );
-			}
-
-            JoystickState.Clear();
-
-			Capture();
-
-		}
-
-		public override IInputObjectInterface QueryInterface<T>()
-		{
-			if ( typeof( T ) == typeof( ForceFeedback ) )
-			{
-				return _forceFeedback;
-			}
-			return base.QueryInterface<T>();
-		}
-		#endregion SharpInputSystem.Joystick Implementation
-	}
+        public override IInputObjectInterface QueryInterface<T>( )
+        {
+            if ( typeof ( T ) == typeof ( ForceFeedback ) )
+                return this._forceFeedback;
+            return base.QueryInterface<T>( );
+        }
+    }
 }

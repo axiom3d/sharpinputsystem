@@ -1,4 +1,5 @@
 #region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,313 +28,241 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
-using System;
+
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-	/// <summary>
-	/// Button ID for mouse devices
-	/// </summary>
-	public enum MouseButtonID
-	{
-		Left = 0,
-		Right,
-		Middle,
-		Button3,
-		Button4,
-		Button5,
-		Button6,
-		Button7
-	};
+    /// <summary>
+    /// Button ID for mouse devices
+    /// </summary>
+    public enum MouseButtonID
+    {
+        Left = 0,
+        Right,
+        Middle,
+        Button3,
+        Button4,
+        Button5,
+        Button6,
+        Button7
+    };
 
 
-	/// <summary>
-	/// Represents the state of the mouse
-	///	All members are valid for both buffered and non buffered mode
-	/// </summary>
-	public class MouseState
-	{
-		#region Fields and Properties
+    /// <summary>
+    /// Represents the state of the mouse
+    ///	All members are valid for both buffered and non buffered mode
+    /// </summary>
+    public class MouseState
+    {
+        #region Fields and Properties
 
-		#region Width Property
+        #region Width Property
 
-		private int _width;
-		/// <summary>
-		/// Represents the width of your display area.. used if mouse clipping
-		/// or mouse grabbed in case of X11 - defaults to 50.. Make sure to set this
-		/// and change when your size changes.. */
-		/// </summary>
-		public int Width
-		{
-			get
-			{
-				return _width;
-			}
-			set
-			{
-				_width = value;
-			}
-		}
+        /// <summary>
+        /// Represents the width of your display area.. used if mouse clipping
+        /// or mouse grabbed in case of X11 - defaults to 50.. Make sure to set this
+        /// and change when your size changes.. */
+        /// </summary>
+        public int Width { get; set; }
 
-		#endregion Width Property
+        #endregion Width Property
 
-		#region Height Property
+        #region Height Property
 
-		private int _height;
-		/// <summary>
-		/// Represents the height of your display area.. used if mouse clipping
-		/// or mouse grabbed in case of X11 - defaults to 50.. Make sure to set this
-		/// and change when your size changes.. */
-		/// </summary>
-		public int Height
-		{
-			get
-			{
-				return _height;
-			}
-			set
-			{
-				_height = value;
-			}
-		}
+        /// <summary>
+        /// Represents the height of your display area.. used if mouse clipping
+        /// or mouse grabbed in case of X11 - defaults to 50.. Make sure to set this
+        /// and change when your size changes.. */
+        /// </summary>
+        public int Height { get; set; }
 
-		#endregion Height Property
+        #endregion Height Property
 
-		#region X Property
+        #region X Property
 
-		private Axis _x;
-		/// <summary>
-		/// X Axis Component
-		/// </summary>
-		public Axis X
-		{
-			get
-			{
-				return _x;
-			}
-			set
-			{
-				_x = value;
-			}
-		}
-		#endregion X Property
+        private Axis _x;
 
-		#region Y Property
+        /// <summary>
+        /// X Axis Component
+        /// </summary>
+        public Axis X
+        {
+            get { return this._x; }
+            set { this._x = value; }
+        }
 
-		private Axis _y;
-		/// <summary>
-		/// Y Axis Component
-		/// </summary>
-		public Axis Y
-		{
-			get
-			{
-				return _y;
-			}
-			set
-			{
-				_y = value;
-			}
-		}
+        #endregion X Property
 
-		#endregion Y Property
+        #region Y Property
 
-		#region Z Property
+        private Axis _y;
 
-		private Axis _z;
-		/// <summary>
-		/// Z Axis Component
-		/// </summary>
-		public Axis Z
-		{
-			get
-			{
-				return _z;
-			}
-			set
-			{
-				_z = value;
-			}
-		}
+        /// <summary>
+        /// Y Axis Component
+        /// </summary>
+        public Axis Y
+        {
+            get { return this._y; }
+            set { this._y = value; }
+        }
 
-		#endregion Z Property
+        #endregion Y Property
 
-		#region Buttons Property
+        #region Z Property
 
-		private int _buttons;
-		/// <summary>
-		/// represents all buttons - bit position indicates button down
-		/// </summary>
-		public int Buttons
-		{
-			get
-			{
-				return _buttons;
-			}
-			set
-			{
-				_buttons = value;
-			}
-		}
+        private Axis _z;
 
-		#endregion Buttons Property
+        /// <summary>
+        /// Z Axis Component
+        /// </summary>
+        public Axis Z
+        {
+            get { return this._z; }
+            set { this._z = value; }
+        }
 
-		#endregion Fields and Properties
+        #endregion Z Property
 
-		#region Constructor
+        #region Buttons Property
 
-		public MouseState()
-		{
-			_height = _width = 50;
-			_buttons = 0;
+        private int _buttons;
 
-			_x = new Axis();
-			_y = new Axis();
-			_z = new Axis();
-		}
+        /// <summary>
+        /// represents all buttons - bit position indicates button down
+        /// </summary>
+        public int Buttons
+        {
+            get { return this._buttons; }
+            set { this._buttons = value; }
+        }
 
-		#endregion Constructor
+        #endregion Buttons Property
 
-		#region Methods
+        #endregion Fields and Properties
 
-		/// <summary>
-		/// Button down test
-		/// </summary>
-		/// <param name="button"></param>
-		/// <returns></returns>
-		public bool IsButtonDown( MouseButtonID button )
-		{
-			return ( _buttons & ( 1 << (int)button ) ) == 0 ? false : true;
-		}
+        #region Constructor
 
-		/// <summary>
-		/// Clear all the values
-		/// </summary>
-		public void Clear()
-		{
-			_x.Clear();
-			_y.Clear();
-			_z.Clear();
-			_buttons = 0;
-		}
+        public MouseState( )
+        {
+            this.Height = this.Width = 50;
+            this._buttons = 0;
 
-		#endregion Methods
-	};
+            this._x = new Axis( );
+            this._y = new Axis( );
+            this._z = new Axis( );
+        }
 
-	/// <summary>
-	/// Specialized for mouse events 
-	/// </summary>
-	public sealed class MouseEventArgs : InputObjectEventArgs
-	{
+        #endregion Constructor
 
-		#region Fields and Properties
+        #region Methods
 
-		#region State Property
+        /// <summary>
+        /// Button down test
+        /// </summary>
+        /// <param name="button"></param>
+        /// <returns></returns>
+        public bool IsButtonDown( MouseButtonID button )
+        {
+            return ( this._buttons & ( 1 << ( int ) button ) ) == 0 ? false : true;
+        }
 
-		private MouseState _state;
-		/// <summary>
-		/// The state of the mouse - including buttons and axes
-		/// </summary>
-		public MouseState State
-		{
-			get
-			{
-				return _state;
-			}
-			set
-			{
-				_state = value;
-			}
-		}
+        /// <summary>
+        /// Clear all the values
+        /// </summary>
+        public void Clear( )
+        {
+            this._x.Clear( );
+            this._y.Clear( );
+            this._z.Clear( );
+            this._buttons = 0;
+        }
 
-		#endregion State Property
+        #endregion Methods
+    };
 
-		#endregion Fields and Properties
+    /// <summary>
+    /// Specialized for mouse events 
+    /// </summary>
+    public sealed class MouseEventArgs : InputObjectEventArgs
+    {
+        #region Fields and Properties
 
-		#region Constructors
+        #region State Property
 
-		public MouseEventArgs( InputObject obj, MouseState ms )
-			: base( obj )
-		{
-			_state = ms;
-		}
+        /// <summary>
+        /// The state of the mouse - including buttons and axes
+        /// </summary>
+        public MouseState State { get; set; }
 
-		#endregion Constructors
+        #endregion State Property
 
-	};
+        #endregion Fields and Properties
 
-	/// <summary>
-	/// To recieve buffered mouse input, derive a class from this, and implement the
-	///	methods here. Then set the call back to your Mouse instance with Mouse::setEventCallback
-	/// </summary>
-	public interface IMouseListener
-	{
-		bool MouseMoved( MouseEventArgs arg );
-		bool MousePressed( MouseEventArgs arg, MouseButtonID id );
-		bool MouseReleased( MouseEventArgs arg, MouseButtonID id );
-	};
+        #region Constructors
 
-	/// <summary>
-	/// Mouse base class. To be implemented by specific system (ie. DirectX Mouse)
-	/// This class is useful as you remain OS independent using this common interface.
-	/// </summary>
-	public abstract class Mouse : InputObject
-	{
-		#region Fields and Properties
+        public MouseEventArgs( InputObject obj, MouseState ms )
+            : base( obj )
+        {
+            this.State = ms;
+        }
 
-		#region EventListener Property
+        #endregion Constructors
+    };
 
-		/// <summary>
-		/// Used for buffered/actionmapping callback
-		/// </summary>
-		private IMouseListener _listener;
-		/// <summary>
-		/// Register/unregister a Mouse Listener - Only one allowed for simplicity. If broadcasting
-		/// is neccessary, just broadcast from the callback you registered.
-		/// </summary>
-		public IMouseListener EventListener
-		{
-			get
-			{
-				return _listener;
-			}
-			set
-			{
-				_listener = value;
-			}
-		}
+    /// <summary>
+    /// To recieve buffered mouse input, derive a class from this, and implement the
+    ///	methods here. Then set the call back to your Mouse instance with Mouse::setEventCallback
+    /// </summary>
+    public interface IMouseListener
+    {
+        bool MouseMoved( MouseEventArgs arg );
+        bool MousePressed( MouseEventArgs arg, MouseButtonID id );
+        bool MouseReleased( MouseEventArgs arg, MouseButtonID id );
+    };
 
-		#endregion EventListener Property
+    /// <summary>
+    /// Mouse base class. To be implemented by specific system (ie. DirectX Mouse)
+    /// This class is useful as you remain OS independent using this common interface.
+    /// </summary>
+    public abstract class Mouse : InputObject
+    {
+        #region Fields and Properties
 
-		#region MouseState Property
+        #region EventListener Property
 
-		/// <summary>
-		/// The state of the mouse.
-		/// </summary>
-		private MouseState _state = new MouseState();
-		/// <summary>
-		/// Returns the state of the mouse - is valid for both buffered and non buffered mode
-		/// </summary>
-		public MouseState MouseState
-		{
-			get
-			{
-				return _state;
-			}
-			protected set
-			{
-				_state = value;
-			}
-		}
+        /// <summary>
+        /// Register/unregister a Mouse Listener - Only one allowed for simplicity. If broadcasting
+        /// is neccessary, just broadcast from the callback you registered.
+        /// </summary>
+        public IMouseListener EventListener { get; set; }
 
-		#endregion MouseState Property
+        #endregion EventListener Property
 
-		#endregion Fields and Properties
-	};
+        #region MouseState Property
+
+        /// <summary>
+        /// The state of the mouse.
+        /// </summary>
+        private MouseState _state = new MouseState( );
+
+        /// <summary>
+        /// Returns the state of the mouse - is valid for both buffered and non buffered mode
+        /// </summary>
+        public MouseState MouseState
+        {
+            get { return this._state; }
+            protected set { this._state = value; }
+        }
+
+        #endregion MouseState Property
+
+        #endregion Fields and Properties
+    };
 }

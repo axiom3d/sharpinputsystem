@@ -1,4 +1,5 @@
 ﻿#region MIT/X11 License
+
 /*
 Sharp Input System Library
 Copyright © 2007-2011 Michael Cummings
@@ -27,31 +28,25 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
  THE SOFTWARE.
 
 */
+
 #endregion MIT/X11 License
 
 #region Namespace Declarations
 
-using System;
+
 
 #endregion Namespace Declarations
 
 namespace SharpInputSystem
 {
-    class Exception : System.Exception
+    internal class Exception : System.Exception
     {
-        public Exception()
-            : base()
-        {
-        }
+        public Exception( ) {}
 
-        public Exception(string message)
-            : base(message)
-        {
-        }
+        public Exception( string message )
+            : base( message ) {}
 
-        public Exception(string message, System.Exception innerException)
-            : base(message, innerException)
-        {
-        }
+        public Exception( string message, System.Exception innerException )
+            : base( message, innerException ) {}
     }
 }
