@@ -50,7 +50,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|Windows Phone' ">
-    <OutputPath>bin\Windows Phone\Debug</OutputPath>
+    <OutputPath>..\..\build\lib\xna\phone\debug\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -63,7 +63,7 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Windows Phone' ">
-    <OutputPath>bin\Windows Phone\Release</OutputPath>
+    <OutputPath>..\..\build\lib\xna\phone\release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoStdLib>true</NoStdLib>
@@ -148,6 +148,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging.Phone">
+      <HintPath>..\..\Dependencies\Common.Logging\2.0.0.4042\Phone\Common.Logging.Phone.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>

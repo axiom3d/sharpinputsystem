@@ -247,7 +247,9 @@ namespace Common.Logging
 				var message = (ConfigurationReader != null)
 				              	? string.Format(" ConfigurationReader '{0}' could not find {1} - suppressing logging output", ConfigurationReader.GetType().FullName, COMMON_LOGGING_SECTION)
 				              	: " No valid ConfigurationReader to initialize logging.";
+#if !WINDOWS_PHONE 
 				Trace.WriteLine(message);
+#endif
 				ILoggerFactoryAdapter defaultFactory = new NoOpLoggerFactoryAdapter();
 				return defaultFactory;
 			}
@@ -255,7 +257,9 @@ namespace Common.Logging
 			// ready to use ILoggerFactoryAdapter?
 			if (sectionResult is ILoggerFactoryAdapter)
 			{
+#if !WINDOWS_PHONE 
 				Trace.WriteLine(string.Format("Using ILoggerFactoryAdapter returned from custom ConfigurationReader '{0}'", ConfigurationReader.GetType().FullName));
+#endif
 				return (ILoggerFactoryAdapter)sectionResult;
 			}
 

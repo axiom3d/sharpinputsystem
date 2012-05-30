@@ -28,7 +28,9 @@ namespace Common.Logging.Simple
     /// </summary>
     /// <author>Gilles Bayon</author>
     /// <author>Erich Eichinger</author>
-    [Serializable]
+#if !WINDOWS_PHONE 
+	[Serializable]
+#endif
     [CoverageExclude]
     public sealed class NoOpLogger : ILog
     {

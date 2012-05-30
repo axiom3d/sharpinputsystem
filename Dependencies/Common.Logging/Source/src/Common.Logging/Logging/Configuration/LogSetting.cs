@@ -19,59 +19,75 @@
 #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Collections.Specialized;
+
+#if WINDOWS_PHONE
+
+namespace System.Collections.Specialized
+{
+	public class NameValueCollection : Dictionary<string, string>
+	{
+		public IEnumerable<string> AllKeys
+		{
+			get { return this.AllKeys; }
+		}
+	}
+}
+
+#endif
 
 namespace Common.Logging.Configuration
 {
-    /// <summary>
-    /// Container used to hold configuration information from config file.
-    /// </summary>
-    /// <author>Gilles Bayon</author>
-    public class LogSetting
-    {
-        #region Fields
+	/// <summary>
+	/// Container used to hold configuration information from config file.
+	/// </summary>
+	/// <author>Gilles Bayon</author>
+	public class LogSetting
+	{
+		#region Fields
 
-        private readonly Type _factoryAdapterType = null;
-        private readonly NameValueCollection _properties = null;
+		private readonly Type _factoryAdapterType = null;
+		private readonly NameValueCollection _properties = null;
 
-        #endregion
+		#endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="factoryAdapterType">
-        /// The <see cref="ILoggerFactoryAdapter" /> type 
-        /// that will be used for creating <see cref="ILog" />
-        /// </param>
-        /// <param name="properties">
-        /// Additional user supplied properties that are passed to the 
-        /// <paramref name="factoryAdapterType" />'s constructor.
-        /// </param>
-        public LogSetting(Type factoryAdapterType, NameValueCollection properties)
-        {
-            ArgUtils.AssertNotNull("factoryAdapterType", factoryAdapterType);
-            ArgUtils.AssertIsAssignable<ILoggerFactoryAdapter>("factoryAdapterType", factoryAdapterType
-                , "Type {0} does not implement {1}", factoryAdapterType.AssemblyQualifiedName, typeof(ILoggerFactoryAdapter).FullName);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="factoryAdapterType">
+		/// The <see cref="ILoggerFactoryAdapter" /> type 
+		/// that will be used for creating <see cref="ILog" />
+		/// </param>
+		/// <param name="properties">
+		/// Additional user supplied properties that are passed to the 
+		/// <paramref name="factoryAdapterType" />'s constructor.
+		/// </param>
+		public LogSetting(Type factoryAdapterType, NameValueCollection properties)
+		{
+			ArgUtils.AssertNotNull("factoryAdapterType", factoryAdapterType);
+			ArgUtils.AssertIsAssignable<ILoggerFactoryAdapter>("factoryAdapterType", factoryAdapterType
+				, "Type {0} does not implement {1}", factoryAdapterType.AssemblyQualifiedName, typeof(ILoggerFactoryAdapter).FullName);
 
-            _factoryAdapterType = factoryAdapterType;
-            _properties = properties;
-        }
+			_factoryAdapterType = factoryAdapterType;
+			_properties = properties;
+		}
 
-        /// <summary>
-        /// The <see cref="ILoggerFactoryAdapter" /> type that will be used for creating <see cref="ILog" />
-        /// instances.
-        /// </summary>
-        public Type FactoryAdapterType
-        {
-            get { return _factoryAdapterType; }
-        }
+		/// <summary>
+		/// The <see cref="ILoggerFactoryAdapter" /> type that will be used for creating <see cref="ILog" />
+		/// instances.
+		/// </summary>
+		public Type FactoryAdapterType
+		{
+			get { return _factoryAdapterType; }
+		}
 
-        /// <summary>
-        /// Additional user supplied properties that are passed to the <see cref="FactoryAdapterType" />'s constructor.
-        /// </summary>
-        public NameValueCollection Properties
-        {
-            get { return _properties; }
-        }
-    }
+		/// <summary>
+		/// Additional user supplied properties that are passed to the <see cref="FactoryAdapterType" />'s constructor.
+		/// </summary>
+		public NameValueCollection Properties
+		{
+			get { return _properties; }
+		}
+	}
 }

@@ -20,7 +20,9 @@
 
 using Common.Logging;
 using Common.Logging.Factory;
+#if !WINDOWS_PHONE
 using Common.Logging.Simple;
+#endif
 
 /// <summary>
     /// <h1>Overview</h1>

@@ -53,7 +53,7 @@ using System.Reflection;
 [assembly: AssemblyDescription( "Portable Input System in C#" )]
 [assembly: AssemblyCompany( "" )]
 [assembly: AssemblyProduct( "SharpInputSystem" )]
-[assembly: AssemblyCopyright( "Copyright © 2007-2011 Michael Cummings" )]
+[assembly: AssemblyCopyright( "Copyright © 2007-2012 Michael Cummings" )]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 [assembly: AssemblyTitle( "SharpInputSystem" )]

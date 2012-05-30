@@ -38,9 +38,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 using Common.Logging;
-#endif
 
 #endregion Namespace Declarations
 
@@ -85,9 +83,7 @@ namespace SharpInputSystem
 
 	public abstract class InputManager
 	{
-#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 		private static readonly ILog log = LogManager.GetLogger( typeof ( InputManager ) );
-#endif
 
 		private readonly List<InputObjectFactory> _factories = new List<InputObjectFactory>( );
 		protected Dictionary<InputObject, InputObjectFactory> _createdInputObjects = new Dictionary<InputObject, InputObjectFactory>( );
@@ -97,7 +93,7 @@ namespace SharpInputSystem
 		/// </summary>
 		static InputManager( )
 		{
-#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
+#if ( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 			LogManager.Reset( new NoopConfigurationReader()  );
 			log.Info( "Static initialization complete." );
 #endif
@@ -193,7 +189,7 @@ namespace SharpInputSystem
 #if !XBOX360
 				return ( ( AssemblyFileVersionAttribute ) ( Assembly.GetExecutingAssembly( ).GetCustomAttributes( typeof ( AssemblyFileVersionAttribute ), false )[ 0 ] ) ).Version;
 #else
-				return "0.3.0.0";
+				return "0.4.0.0";
 #endif
 			}
 		}

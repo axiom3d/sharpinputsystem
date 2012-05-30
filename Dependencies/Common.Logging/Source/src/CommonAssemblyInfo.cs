@@ -16,8 +16,10 @@ using System.Security.Permissions;
 
 [assembly: CLSCompliantAttribute(true)]
 [assembly: ComVisibleAttribute(false)]
+#if !WINDOWS_PHONE
 [assembly: AllowPartiallyTrustedCallersAttribute()]
-[assembly: SecurityPermissionAttribute(SecurityAction.RequestMinimum)]
+#endif
+/*[assembly: SecurityPermissionAttribute(SecurityAction.RequestMinimum)]*/
 [assembly: AssemblyCompanyAttribute("http://netcommon.sourceforge.net/")]
 [assembly: AssemblyCopyrightAttribute("Copyright 2006-20010 the Common Infrastructure Libraries Team.")]
 [assembly: AssemblyTrademarkAttribute("Apache License, Version 2.0")]

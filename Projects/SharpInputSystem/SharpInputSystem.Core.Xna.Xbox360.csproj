@@ -47,7 +47,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\bin\Debug\Xna\Xbox360\</OutputPath>
+    <OutputPath>..\..\build\lib\xna\xbox\debug\</OutputPath>
     <DefineConstants>TRACE;DEBUG;XBOX;XBOX360;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -60,7 +60,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|Xbox 360' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\bin\Release\Xna\Xbox360\</OutputPath>
+    <OutputPath>..\..\build\lib\xna\xbox\release\</OutputPath>
     <DefineConstants>TRACE;XBOX;XBOX360;SIS_XNA_PLATFORM</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -70,6 +70,9 @@
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common.Logging.Phone">
+      <HintPath>..\..\Dependencies\Common.Logging\2.0.0.4042\Phone\Common.Logging.Phone.dll</HintPath>
+    </Reference>
     <Reference Include="mscorlib">
       <Private>False</Private>
     </Reference>
