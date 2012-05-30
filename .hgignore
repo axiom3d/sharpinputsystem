@@ -7,5 +7,5 @@ build*
 *.user
 *.cachefile
 glob:*.cache
-/_Resharper*
-/packages/*
+_ReSharper*
+packages/*
