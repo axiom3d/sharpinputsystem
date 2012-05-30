@@ -33,13 +33,14 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Linq;
+
+#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
+using Common.Logging;
+#endif
 
 using XInput = Microsoft.Xna.Framework.Input;
 using MXF = Microsoft.Xna.Framework;
-
-//using Common.Logging;
 
 #endregion Namespace Declarations
 
@@ -52,7 +53,9 @@ namespace SharpInputSystem.Xna
 	{
 		#region Fields and Properties
 
-		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaInputManager ) );
+#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
+		private static readonly ILog log = LogManager.GetLogger( typeof( XnaInputManager ) );
+#endif
 
 		private IntPtr _hwnd;
 		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
@@ -88,7 +91,7 @@ namespace SharpInputSystem.Xna
 		}
 		#endregion keyboardInUse Property
 
-        public bool HideMouse { get; set; }
+		public bool HideMouse { get; set; }
 
 		#endregion Fields and Properties
 
@@ -120,16 +123,16 @@ namespace SharpInputSystem.Xna
 			int maxPlayers = /* (int)Xna.PlayerIndex.Four */ 4;
 			for ( int player = 0; player < maxPlayers; player++ )
 			{
-                XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities((MXF.PlayerIndex)player);
-                if (gpCaps.IsConnected)
-                {
-                    JoystickInfo joystickInfo = new JoystickInfo();
-                    joystickInfo.DeviceId = new Guid();
-                    joystickInfo.Vendor = this.InputSystemName;
-                    joystickInfo.Id = _gamePadCount++;
+				XInput.GamePadCapabilities gpCaps = XInput.GamePad.GetCapabilities((MXF.PlayerIndex)player);
+				if (gpCaps.IsConnected)
+				{
+					JoystickInfo joystickInfo = new JoystickInfo();
+					joystickInfo.DeviceId = new Guid();
+					joystickInfo.Vendor = this.InputSystemName;
+					joystickInfo.Id = _gamePadCount++;
 
-                    this._unusedDevices.Add(joystickInfo);
-                }
+					this._unusedDevices.Add(joystickInfo);
+				}
 			}
 		}
 
@@ -191,22 +194,22 @@ namespace SharpInputSystem.Xna
 		protected override void _initialize( ParameterList args )
 		{
 			// Find the first Parameter entry with WINDOW
-            var parameter = args.First( p => p.first.ToLower() == "window" );
-            if (parameter != null)
-            {
-                _hwnd = (IntPtr)parameter.second;
-            }
+			var parameter = args.First( p => p.first.ToLower() == "window" );
+			if (parameter != null)
+			{
+				_hwnd = (IntPtr)parameter.second;
+			}
 
-            parameter = args.FirstOrDefault( p => p.first.ToLower() == "w32_mouse_hide" );
-            if (parameter != null)
-            {
-                if (parameter.second is Boolean)
-                {
-                    HideMouse = (bool)parameter.second;
-                }
-            }
+			parameter = args.FirstOrDefault( p => p.first.ToLower() == "w32_mouse_hide" );
+			if (parameter != null)
+			{
+				if (parameter.second is Boolean)
+				{
+					HideMouse = (bool)parameter.second;
+				}
+			}
 
-		    _parseConfigSettings( args );
+			_parseConfigSettings( args );
 			_enumerateDevices();
 		}
 
@@ -300,9 +303,9 @@ namespace SharpInputSystem.Xna
 		InputObject InputObjectFactory.CreateInputObject<T>( InputManager creator, bool bufferMode, string vendor )
 		{
 			string typeName = this.InputSystemName + typeof( T ).Name;
-            string name = this.GetType().FullName.Remove( this.GetType().FullName.LastIndexOf( "." ) + 1 );
-            Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( name + typeName );
-            T obj = null;
+			string name = this.GetType().FullName.Remove( this.GetType().FullName.LastIndexOf( "." ) + 1 );
+			Type objectType = System.Reflection.Assembly.GetExecutingAssembly().GetType( name + typeName );
+			T obj = null;
 
 			System.Reflection.BindingFlags bindingFlags = System.Reflection.BindingFlags.CreateInstance;
 			try
@@ -313,10 +316,13 @@ namespace SharpInputSystem.Xna
 												  null,
 												  new object[] { this, bufferMode } );
 			}
+#if !( WINDOWS_PHONE || XBOX || XBOX360 || SILVERLIGHT )
 			catch ( Exception ex )
 			{
-				//log.Error( "Cannot create requested device.", ex );
+				log.Error( "Cannot create requested device.", ex );
 			}
+#endif
+			finally {}
 			return obj;
 		}
 

@@ -92,7 +92,6 @@ Global
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Debug|x86.ActiveCfg = Debug|Xbox 360
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Debug|Xbox 360.ActiveCfg = Debug|Xbox 360
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Debug|Xbox 360.Build.0 = Debug|Xbox 360
-		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Debug|Xbox 360.Deploy.0 = Debug|Xbox 360
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Release|Windows Phone.ActiveCfg = Release|Xbox 360
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Release|Windows Phone.Build.0 = Release|Xbox 360
 		{2ECF6A1A-5D53-4F32-9CA5-8DBAA34F37B1}.Release|x86.ActiveCfg = Release|Xbox 360

@@ -61,7 +61,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -78,7 +77,6 @@
     <Compile Include="Logging\Simple\CapturingLoggerFactoryAdapter.cs" />
     <Compile Include="Logging\Simple\CommonLoggingTraceListener.cs" />
     <Compile Include="Logging\ConfigurationException.cs" />
-    <Compile Include="Logging\Configuration\DefaultConfigurationReader.cs" />
     <Compile Include="Logging\Factory\NamespaceDoc.cs" />
     <Compile Include="Logging\Configuration\ArgUtils.cs" />
     <Compile Include="Logging\FormatMessageHandler.cs" />

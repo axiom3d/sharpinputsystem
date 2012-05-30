@@ -53,7 +53,7 @@ namespace SharpInputSystem.Xna
 		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaKeyboard ) );
 
 		// Variables for XnaKeyboard
-        private Dictionary<XInput.Keys, KeyCode> _keyMap = new Dictionary<XInput.Keys, KeyCode>();
+		private Dictionary<XInput.Keys, KeyCode> _keyMap = new Dictionary<XInput.Keys, KeyCode>();
 		private KeyboardInfo _kbInfo;
 		private int[] _keyboardState = new int[ 256 ];
 
@@ -79,9 +79,9 @@ namespace SharpInputSystem.Xna
 
 		}
 
-		protected override void _dispose( bool disposeManagedResources )
+		protected override void Dispose( bool disposeManagedResources )
 		{
-			if ( !isDisposed )
+			if ( !IsDisposed )
 			{
 				if ( disposeManagedResources )
 				{
@@ -96,11 +96,10 @@ namespace SharpInputSystem.Xna
 				//log.Debug( "XnaKeyboard device disposed." );
 
 			}
-			isDisposed = true;
 
 			// If it is available, make the call to the
 			// base class's Dispose(Boolean) method
-			base._dispose( disposeManagedResources );
+			base.Dispose( disposeManagedResources );
 		}
 
 		#endregion Construction and Destruction
@@ -109,7 +108,7 @@ namespace SharpInputSystem.Xna
 
 		public override void Capture()
 		{
-            XInput.KeyboardState currentState = XInput.Keyboard.GetState( MXF.PlayerIndex.One );
+			XInput.KeyboardState currentState = XInput.Keyboard.GetState( MXF.PlayerIndex.One );
 			XInput.Keys[] pressedKeys = currentState.GetPressedKeys();
 
 			bool keyReleased;
@@ -126,7 +125,7 @@ namespace SharpInputSystem.Xna
 							keyReleased = currentState.IsKeyDown( pressedKeys[ pressed ] );
 						}
 					}
-                    if ( keyReleased )
+					if ( keyReleased )
 					{
 						_keyboardState[ key ] = 0;
 						if ( IsBuffered && EventListener != null )
@@ -144,14 +143,14 @@ namespace SharpInputSystem.Xna
 				_keyboardState[ (int)_keyMap[ pressedKeys[ key ] ] ] = 1;
 				if ( IsBuffered && EventListener != null )
 				{
-                    if ( _keyMap[ pressedKeys[ key ] ] != KeyCode.Key_UNASSIGNED )
-                        if( EventListener.KeyPressed( new KeyEventArgs( this, (KeyCode)key, (int)pressedKeys[ key ] ) ) == false )
-                            break;
+					if ( _keyMap[ pressedKeys[ key ] ] != KeyCode.Key_UNASSIGNED )
+						if( EventListener.KeyPressed( new KeyEventArgs( this, (KeyCode)key, (int)pressedKeys[ key ] ) ) == false )
+							break;
 				}
 			}
 		}
 
-		protected override void initialize()
+		protected override void Initialize()
 		{
 			_keyMap.Add( (XInput.Keys) 0x00, KeyCode.Key_UNASSIGNED );
 			_keyMap.Add( (XInput.Keys) 0x09, KeyCode.Key_TAB );
@@ -240,15 +239,15 @@ namespace SharpInputSystem.Xna
 			_keyMap.Add( (XInput.Keys) 0x7c, KeyCode.Key_F13 );
 			_keyMap.Add( (XInput.Keys) 0x7d, KeyCode.Key_F14 );
 			_keyMap.Add( (XInput.Keys) 0x7e, KeyCode.Key_F15 );
-            _keyMap.Add( (XInput.Keys) 0x7f, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x80, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x81, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x82, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x83, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x84, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x85, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x86, KeyCode.Key_UNASSIGNED );
-            _keyMap.Add( (XInput.Keys) 0x87, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x7f, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x80, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x81, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x82, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x83, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x84, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x85, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x86, KeyCode.Key_UNASSIGNED );
+			_keyMap.Add( (XInput.Keys) 0x87, KeyCode.Key_UNASSIGNED );
 			_keyMap.Add( (XInput.Keys) 0x90, KeyCode.Key_NUMLOCK );
 			_keyMap.Add( (XInput.Keys) 0x91, KeyCode.Key_SCROLL );
 			_keyMap.Add( (XInput.Keys) 0xa0, KeyCode.Key_LSHIFT );

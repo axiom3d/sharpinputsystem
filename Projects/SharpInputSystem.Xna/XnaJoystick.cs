@@ -84,9 +84,9 @@ namespace SharpInputSystem.Xna
 
 		}
 
-		protected override void _dispose( bool disposeManagedResources )
+		protected override void Dispose( bool disposeManagedResources )
 		{
-			if ( !isDisposed )
+			if ( !IsDisposed )
 			{
 				if ( disposeManagedResources )
 				{
@@ -98,11 +98,10 @@ namespace SharpInputSystem.Xna
 
 				( (XnaInputManager)Creator ).ReleaseDevice<Joystick>( _joyInfo );
 			}
-			isDisposed = true;
 
 			// If it is available, make the call to the
 			// base class's Dispose(Boolean) method
-			base._dispose( disposeManagedResources );
+			base.Dispose( disposeManagedResources );
 		}
 
 		#endregion Construction and Destruction
@@ -135,7 +134,7 @@ namespace SharpInputSystem.Xna
 			if ( joystickCapabilities.HasLeftXThumbStick && joystickCapabilities.HasLeftYThumbStick ) this.AxisCount++;
 			if ( joystickCapabilities.HasRightXThumbStick && joystickCapabilities.HasRightYThumbStick ) this.AxisCount++;
 
-			this.HatCount++;
+			this.PovCount++;
 
 			_axisMapping.Clear();
 
@@ -154,7 +153,7 @@ namespace SharpInputSystem.Xna
 			XInput.GamePadState currentState = XInput.GamePad.GetState( (MXF.PlayerIndex)Int32.Parse( DeviceID ) );
 		}
 
-		protected override void initialize()
+		protected override void Initialize()
 		{
 			//Enumerate all axes/buttons/sliders/etc before aquiring
 			_enumerate();

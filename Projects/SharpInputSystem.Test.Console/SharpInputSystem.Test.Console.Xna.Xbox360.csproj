@@ -88,10 +88,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\Dependencies\log4net\1.2.10\cf\log4net.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Xna.Framework">
       <Private>False</Private>
     </Reference>
@@ -139,9 +135,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem.Xna\SharpInputSystem.Xna.Xbox360.csproj">
+      <Project>{A5A711F3-46C9-41F0-BD9C-465BB079A6FC}</Project>
+      <Name>SharpInputSystem.Xna.Xbox360</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.Xna.Xbox360.csproj">
       <Project>{348D66C8-2A8A-4A9A-8DEF-98C162328BDE}</Project>
-      <Name>SharpInputSystem.Xna.Xbox360</Name>
+      <Name>SharpInputSystem.Core.Xna.Xbox360</Name>
     </ProjectReference>
     <ProjectReference Include="Content\SharpInputSystem.Test.ConsoleContent.contentproj">
       <Project>{9B7F416E-ED15-44EB-BA2C-18DFBE40FE3E}</Project>

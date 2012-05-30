@@ -58,12 +58,12 @@ namespace SharpInputSystem
             throw new Exception( "No Supported Input system found." );
         }
 
-        private static IList<IInputManagerFactory> CollectSystems( )
+        private static IList<IInputManagerFactory> CollectSystems()
         {
-            IList<IInputManagerFactory> system = new List<IInputManagerFactory>( );
+            IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
 #if !( WINDOWS_PHONE || SILVERLIGHT )
             string[] files = Directory.GetFiles( ".", "*.dll" );
-            string assemblyName = Assembly.GetExecutingAssembly( ).GetName( ).Name + ".dll";
+            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
 
             foreach ( string file in files )
             {
@@ -76,7 +76,7 @@ namespace SharpInputSystem
                 try
                 {
                     Assembly assemembly = Assembly.LoadFrom( fullPath );
-                    if ( assemblyName != null )
+                    if ( !string.IsNullOrEmpty( assemblyName ) )
                     {
                         Type[] types = assemembly.GetTypes( );
                         foreach ( Type t in types )
@@ -99,7 +99,17 @@ namespace SharpInputSystem
                     // Nothing to do here.
                     // Can't load this assembly most likely due to missing references.
                 }
-                finally {}
+                catch ( FileLoadException ex )
+                {
+                    // Nothing to do here.
+                    // Can't load this assembly most likely due to missing references.
+                }
+                catch ( Exception ex )
+                {
+                    // Nothing to do here.
+                    // Can't load this assembly most likely due to missing references.
+                }
+                finally { }
             }
 #endif
 

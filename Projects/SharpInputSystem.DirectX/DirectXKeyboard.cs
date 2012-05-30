@@ -492,11 +492,6 @@ namespace SharpInputSystem.DirectX
             return this._keyboard.Properties.GetKeyName( ( Key ) key );
         }
 
-        public override bool IsShiftState( ShiftState state )
-        {
-            return base.IsShiftState( state );
-        }
-
         #endregion Keyboard Implementation
     }
 }

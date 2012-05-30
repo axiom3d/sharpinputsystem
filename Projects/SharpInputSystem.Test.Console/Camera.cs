@@ -165,6 +165,10 @@ namespace SharpInputSystem.Test.Console
 
             if ( gp != null )
             {
+            	var xAxis = gp.JoystickState.Axis[ 0 ];
+				var yAxis = gp.JoystickState.Axis[ 1 ];
+				this.camera.Rotate( xAxis.Absolute * 0.005f, yAxis.Absolute * 0.005f, 0 );
+
             }
             // TODO: Add your update code here
             base.Update(gameTime);

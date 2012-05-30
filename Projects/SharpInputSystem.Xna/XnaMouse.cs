@@ -49,10 +49,10 @@ namespace SharpInputSystem.Xna
 	/// </summary>
 	class XnaMouse : Mouse
 	{
-        [DllImport("user32.dll")]
-        private static extern IntPtr SetCursor(IntPtr hCursor);
-        [DllImport("user32.dll")]
-        private static extern int ShowCursor(bool bShow);
+		[DllImport("user32.dll")]
+		private static extern IntPtr SetCursor(IntPtr hCursor);
+		[DllImport("user32.dll")]
+		private static extern int ShowCursor(bool bShow);
 
 		#region Fields and Properties
 		//private static readonly ILog log = LogManager.GetLogger( typeof( XnaMouse ) );
@@ -60,7 +60,7 @@ namespace SharpInputSystem.Xna
 		// Variables for XnaKeyboard
 		private MouseInfo _mInfo;
 		private XInput.MouseState previousState;
-	    private bool hideMouse;
+		private bool hideMouse;
 
 		#endregion Fields and Properties
 
@@ -83,12 +83,12 @@ namespace SharpInputSystem.Xna
 //			log.Debug( "XnaMouse device created." );
 			previousState = XInput.Mouse.GetState();
 
-		    hideMouse = ((XnaInputManager)creator).HideMouse;
+			hideMouse = ((XnaInputManager)creator).HideMouse;
 		}
 
-		protected override void _dispose( bool disposeManagedResources )
+		protected override void Dispose( bool disposeManagedResources )
 		{
-			if ( !isDisposed )
+			if ( !IsDisposed )
 			{
 				if ( disposeManagedResources )
 				{
@@ -103,11 +103,10 @@ namespace SharpInputSystem.Xna
 				//log.Debug( "XnaMouse device disposed." );
 
 			}
-			isDisposed = true;
 
 			// If it is available, make the call to the
 			// base class's Dispose(Boolean) method
-			base._dispose( disposeManagedResources );
+			base.Dispose( disposeManagedResources );
 		}
 
 		#endregion Construction and Destruction
@@ -132,13 +131,13 @@ namespace SharpInputSystem.Xna
 			return true;
 		}
 
-	    private void hide( bool hidePointer )
-	    {
-	        if ( hidePointer ) SetCursor( IntPtr.Zero );
-	        ShowCursor( !hidePointer );
-	    }
+		private void hide( bool hidePointer )
+		{
+			if ( hidePointer ) SetCursor( IntPtr.Zero );
+			ShowCursor( !hidePointer );
+		}
 
-	    #endregion Methods
+		#endregion Methods
 
 		#region Mouse Implementation
 
@@ -147,16 +146,16 @@ namespace SharpInputSystem.Xna
 			// Clear Relative movement
 			MouseState.X.Relative = MouseState.Y.Relative = MouseState.Z.Relative = 0;
 
-            XInput.MouseState xnaMouseState = XInput.Mouse.GetState();
+			XInput.MouseState xnaMouseState = XInput.Mouse.GetState();
 			bool axesMoved = false;
 
 			//Accumulate all axis movements for one axesMove message..
 			//Buttons are fired off as they are found
-            _doMouseClick(0, xnaMouseState.LeftButton == XInput.ButtonState.Pressed);
-            _doMouseClick(1, xnaMouseState.MiddleButton == XInput.ButtonState.Pressed);
-            _doMouseClick(2, xnaMouseState.RightButton == XInput.ButtonState.Pressed);
-            _doMouseClick(3, xnaMouseState.XButton1 == XInput.ButtonState.Pressed);
-            _doMouseClick(4, xnaMouseState.XButton2 == XInput.ButtonState.Pressed);
+			_doMouseClick(0, xnaMouseState.LeftButton == XInput.ButtonState.Pressed);
+			_doMouseClick(1, xnaMouseState.MiddleButton == XInput.ButtonState.Pressed);
+			_doMouseClick(2, xnaMouseState.RightButton == XInput.ButtonState.Pressed);
+			_doMouseClick(3, xnaMouseState.XButton1 == XInput.ButtonState.Pressed);
+			_doMouseClick(4, xnaMouseState.XButton2 == XInput.ButtonState.Pressed);
 
 			//for (int i = 0; i < bufferedData.GetButtons().Length; i++)
 			//{
@@ -212,10 +211,10 @@ namespace SharpInputSystem.Xna
 			previousState = xnaMouseState;
 		}
 
-		protected override void initialize()
+		protected override void Initialize()
 		{
 			MouseState.Clear();
-            hide( hideMouse );
+			hide( hideMouse );
 		}
 
 		#endregion Mouse Implementation
