@@ -112,6 +112,8 @@ namespace SharpInputSystem.Xna
 			XInput.Keys[] pressedKeys = currentState.GetPressedKeys();
 
 			bool keyReleased;
+			KeyCode testKey;
+
 			//Process KeyRelease
 			for ( int key = 0; key < _keyboardState.Length; key++ )
 			{
@@ -120,7 +122,7 @@ namespace SharpInputSystem.Xna
 					keyReleased = true;
 					for ( int pressed = 0; pressed < pressedKeys.Length; pressed++ )
 					{
-						if ( (KeyCode)key == _keyMap[ pressedKeys[ pressed ] ] )
+						if ( _keyMap.TryGetValue( pressedKeys[ pressed ], out testKey ) && (KeyCode)key == testKey )
 						{
 							keyReleased = currentState.IsKeyDown( pressedKeys[ pressed ] );
 						}
@@ -140,12 +142,15 @@ namespace SharpInputSystem.Xna
 			//Process KeyDowns
 			for ( int key = 0; key < pressedKeys.Length; key++ )
 			{
-				_keyboardState[ (int)_keyMap[ pressedKeys[ key ] ] ] = 1;
-				if ( IsBuffered && EventListener != null )
+				if ( _keyMap.TryGetValue( pressedKeys[ key ], out testKey ) )
 				{
-					if ( _keyMap[ pressedKeys[ key ] ] != KeyCode.Key_UNASSIGNED )
-						if( EventListener.KeyPressed( new KeyEventArgs( this, (KeyCode)key, (int)pressedKeys[ key ] ) ) == false )
-							break;
+					_keyboardState[ (int)testKey ] = 1;
+					if ( IsBuffered && EventListener != null )
+					{
+						if ( testKey != KeyCode.Key_UNASSIGNED )
+							if ( EventListener.KeyPressed( new KeyEventArgs( this, (KeyCode)key, (int)pressedKeys[ key ] ) ) == false )
+								break;
+					}
 				}
 			}
 		}
