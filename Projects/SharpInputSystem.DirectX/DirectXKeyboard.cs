@@ -458,7 +458,8 @@ namespace SharpInputSystem.DirectX
 
             //_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
 
-            this._keyboard.SetCooperativeLevel( ( ( DirectXInputManager ) Creator ).WindowHandle, this._coopSettings );
+			if ( this._coopSettings != 0 )
+				this._keyboard.SetCooperativeLevel( ( (DirectXInputManager)Creator ).WindowHandle, this._coopSettings );
 
             if ( IsBuffered )
                 this._keyboard.Properties.BufferSize = BufferSize;

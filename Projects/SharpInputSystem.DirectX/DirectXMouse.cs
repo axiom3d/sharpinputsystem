@@ -300,7 +300,8 @@ namespace SharpInputSystem.DirectX
 
             this._window = ( ( DirectXInputManager ) Creator ).WindowHandle;
 
-            this._mouse.SetCooperativeLevel( this._window, this._coopSettings );
+			if ( this._coopSettings != 0 )
+				this._mouse.SetCooperativeLevel( this._window, this._coopSettings );
 
             if ( IsBuffered )
                 this._mouse.Properties.BufferSize = BufferSize;
