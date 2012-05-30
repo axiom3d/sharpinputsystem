@@ -39,10 +39,10 @@ namespace SharpInputSystem
 		public X11Joystick ()
 		{
 		}
-		
-		protected override void initialize ()
+
+		protected override void Initialize()
 		{
-			throw new NotImplementedException ();
+			throw new NotImplementedException();
 		}
 		
 		public static IList<DeviceInfo> ScanJoysticks()
@@ -55,11 +55,10 @@ namespace SharpInputSystem
 			throw new NotImplementedException ();
 		}
 
-		protected override void _dispose (bool disposeManagedResources)
+		protected override void Dispose( bool disposeManagedResources )
 		{
-			base._dispose (disposeManagedResources);
+			base.Dispose( disposeManagedResources );
 		}
-
 	}
 }
 

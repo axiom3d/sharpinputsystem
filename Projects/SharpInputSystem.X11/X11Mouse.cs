@@ -37,7 +37,7 @@ namespace SharpInputSystem
 {
 	public class X11Mouse : Mouse, IDisposable
 	{
-        private static readonly ILog log = LogManager.GetLogger( typeof( X11Mouse ) );
+		private static readonly ILog log = LogManager.GetLogger( typeof( X11Mouse ) );
 		
 		private IntPtr _display;
 		private IntPtr _window;
@@ -73,7 +73,7 @@ namespace SharpInputSystem
 			hideMouse = ((X11InputManager)creator).HideMouse;
 		}
 
-		protected override void initialize()
+		protected override void Initialize()
 		{
 			MouseState = new MouseState();
 			
@@ -205,7 +205,7 @@ namespace SharpInputSystem
 					if ( mouseFocusLost == true )
 					{
 						if ( sysX < 5 || sysX > MouseState.Width - 5 ||
-						 	 sysY < 5 || sysY > MouseState.Height - 5 )
+							 sysY < 5 || sysY > MouseState.Height - 5 )
 						{
 							_lastMouseX = MouseState.Width >> 1;
 							_lastMouseY = MouseState.Height >> 1;
@@ -317,7 +317,7 @@ namespace SharpInputSystem
 							if ( mouseFocusLost == true )
 							{
 								if ( sysX < 5 || sysX > MouseState.Width - 5 ||
-								 	 sysY < 5 || sysY > MouseState.Height - 5 )
+									 sysY < 5 || sysY > MouseState.Height - 5 )
 								{
 									_lastMouseX = MouseState.Width >> 1;
 									_lastMouseY = MouseState.Height >> 1;
@@ -351,20 +351,20 @@ namespace SharpInputSystem
 								if ( EventListener.MouseReleased( new MouseEventArgs( this, MouseState ), mb ) == false )									
 									return;
 						}
-	                    //The Z axis gets pushed/released pair message (this is up)
-	                    else if( _xEvent.ButtonEvent.button == 4 )
-	                    {
-	                            MouseState.Z.Relative += 120;
-	                            MouseState.Z.Absolute += 120;
-	                            _moved = true;
-	                    }
-	                    //The Z axis gets pushed/released pair message (this is down)
-	                    else if( _xEvent.ButtonEvent.button == 5 )
-	                    {
-	                            MouseState.Z.Relative -= 120;
-	                            MouseState.Z.Absolute -= 120;
-	                            _moved = true;
-	                    }						
+						//The Z axis gets pushed/released pair message (this is up)
+						else if( _xEvent.ButtonEvent.button == 4 )
+						{
+								MouseState.Z.Relative += 120;
+								MouseState.Z.Absolute += 120;
+								_moved = true;
+						}
+						//The Z axis gets pushed/released pair message (this is down)
+						else if( _xEvent.ButtonEvent.button == 5 )
+						{
+								MouseState.Z.Relative -= 120;
+								MouseState.Z.Absolute -= 120;
+								_moved = true;
+						}						
 						break;
 				}
 			}		
@@ -389,13 +389,15 @@ namespace SharpInputSystem
 				default : return (MouseButtonID)(-1);
 			}
 		}
-		protected override void _dispose( bool managed )
+
+		protected override void Dispose( bool managed )
 		{
 			if ( _display != IntPtr.Zero )
 			{
 				grab( false );
 				hide( false );
 			}
+			base.Dispose( managed );
 		}
 		
 		private void grab( bool grabPointer )

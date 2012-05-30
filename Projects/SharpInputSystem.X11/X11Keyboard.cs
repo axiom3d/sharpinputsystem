@@ -210,7 +210,7 @@ namespace SharpInputSystem
 			
 		}
 		
-		protected override void _dispose (bool disposeManagedResources)
+		protected override void Dispose (bool disposeManagedResources)
 		{
 			if ( _display != IntPtr.Zero )
 			{
@@ -219,10 +219,10 @@ namespace SharpInputSystem
 				LibX11.XCloseDisplay( _display );
 			}
 					
-			base._dispose (disposeManagedResources);
+			base.Dispose (disposeManagedResources);
 		}
 		
-		protected override void initialize()
+		protected override void Initialize()
 		{			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );
