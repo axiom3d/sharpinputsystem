@@ -89,14 +89,15 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="Common.Logging, Version=2.0.0.4042, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\..\Dependencies\Common.Logging\2.0.0.4042\Common.Logging.dll</HintPath>
+    <Reference Include="Common.Logging, Version=2.0.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Common.Logging.2.0.0\lib\2.0\Common.Logging.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
-      <Name>SharpInputSystem.Core.2010</Name>
+      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

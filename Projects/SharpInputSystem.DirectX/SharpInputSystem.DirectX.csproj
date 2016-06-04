@@ -103,7 +103,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
-      <Name>SharpInputSystem.Core.2010</Name>
+      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

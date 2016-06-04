@@ -120,11 +120,11 @@
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.DirectX\SharpInputSystem.DirectX.csproj">
       <Project>{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}</Project>
-      <Name>SharpInputSystem.DirectX.2010</Name>
+      <Name>SharpInputSystem.DirectX</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
-      <Name>SharpInputSystem.Core.2010</Name>
+      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
