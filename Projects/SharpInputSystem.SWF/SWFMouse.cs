@@ -51,7 +51,7 @@ namespace SharpInputSystem.SWF
             _window = window;
         }
 
-        protected override void _dispose (bool disposeManagedResources)
+        protected override void Dispose (bool disposeManagedResources)
         {
             if ( disposeManagedResources )
             {
@@ -59,10 +59,10 @@ namespace SharpInputSystem.SWF
                 _window.MouseUp -= Handle_windowMouseUp;
                 _window.MouseDown -= Handle_windowMouseDown;
             }
-            base._dispose (disposeManagedResources);
+            base.Dispose (disposeManagedResources);
         }
 
-        protected override void initialize()
+        protected override void Initialize()
         {
             _window.MouseMove += Handle_windowMouseMove;
             _window.MouseUp += Handle_windowMouseUp;

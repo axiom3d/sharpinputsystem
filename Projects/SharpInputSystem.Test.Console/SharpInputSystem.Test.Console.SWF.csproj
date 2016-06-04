@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="12.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -111,11 +111,11 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.2010.csproj">
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
       <Project>{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}</Project>
       <Name>SharpInputSystem.Core.2010</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SharpInputSystem.SWF\SharpInputSystem.SWF.2010.csproj">
+    <ProjectReference Include="..\SharpInputSystem.SWF\SharpInputSystem.SWF.csproj">
       <Project>{D12FE049-DFB1-476A-A726-CEABA59C93B4}</Project>
       <Name>SharpInputSystem.SWF.2010</Name>
     </ProjectReference>

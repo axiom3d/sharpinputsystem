@@ -53,7 +53,7 @@ namespace SharpInputSystem.SWF
             _window = window;
         }
 
-        protected override void _dispose( bool disposeManagedResources )
+        protected override void Dispose( bool disposeManagedResources )
         {
             if ( disposeManagedResources )
             {
@@ -61,10 +61,10 @@ namespace SharpInputSystem.SWF
                 _window.KeyUp -= Handle_windowKeyUp;
                 _window = null;
             }
-            base._dispose( disposeManagedResources );
+            base.Dispose( disposeManagedResources );
         }
 
-        protected override void initialize()
+        protected override void Initialize()
         {
             _window.KeyDown += Handle_windowKeyDown;
             _window.KeyUp += Handle_windowKeyUp;
