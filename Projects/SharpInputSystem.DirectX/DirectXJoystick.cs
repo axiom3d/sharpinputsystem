@@ -58,7 +58,7 @@ namespace SharpInputSystem.DirectX
         private readonly Guid _deviceGuid;
         private readonly JoystickInfo _joyInfo;
         private Dictionary<int, int> _axisMapping = new Dictionary<int, int>( );
-        private int _axisNumber;
+        //private int _axisNumber;
         private MDI.DirectInput _directInput;
         private DirectXForceFeedback _forceFeedback;
         private SharpDX.DirectInput.Joystick _joystick;
@@ -139,7 +139,7 @@ namespace SharpInputSystem.DirectX
                 for (int axis = 0; axis < AxisCount; axis++ )
                     JoystickState.Axis.Add(new Axis());
 
-                _axisNumber = 0;
+                //_axisNumber = 0;
                 _axisMapping.Clear( );
 
                 //TODO: Enumerate Force Feedback (if any)

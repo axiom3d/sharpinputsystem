@@ -89,22 +89,22 @@ namespace SharpInputSystem
                         }
                     }
                 }
-                catch ( BadImageFormatException bifex )
+                catch ( BadImageFormatException )
                 {
                     // Nothing to do here
                     // Can't load this assembly most likely due to it not being a .Net Assembly
                 }
-                catch ( ReflectionTypeLoadException rtlex )
+                catch ( ReflectionTypeLoadException )
                 {
                     // Nothing to do here.
                     // Can't load this assembly most likely due to missing references.
                 }
-                catch ( FileLoadException ex )
+                catch ( FileLoadException )
                 {
                     // Nothing to do here.
                     // Can't load this assembly most likely due to missing references.
                 }
-                catch ( Exception ex )
+                catch ( Exception )
                 {
                     // Nothing to do here.
                     // Can't load this assembly most likely due to missing references.

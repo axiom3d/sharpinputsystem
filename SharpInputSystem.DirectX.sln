@@ -1,10 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Core.2010", "Projects\SharpInputSystem\SharpInputSystem.Core.2010.csproj", "{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Core", "Projects\SharpInputSystem\SharpInputSystem.Core.csproj", "{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.2010", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.2010.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.DirectX.2010", "Projects\SharpInputSystem.DirectX\SharpInputSystem.DirectX.2010.csproj", "{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.DirectX", "Projects\SharpInputSystem.DirectX\SharpInputSystem.DirectX.csproj", "{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

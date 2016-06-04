@@ -153,30 +153,37 @@ namespace SharpInputSystem.DirectX
 			mouseInfo.Id = 0;
 			this._unusedDevices.Add( mouseInfo );
 
-			foreach ( MDI.DeviceInstance device in this.directInput.GetDevices( MDI.DeviceClass.GameControl, MDI.DeviceEnumerationFlags.AttachedOnly ) )
+			foreach (MDI.DeviceInstance device in this.directInput.GetDevices(MDI.DeviceClass.GameControl, MDI.DeviceEnumerationFlags.AttachedOnly))
 			{
 				//if ( device.Type == MDI.DeviceType.Joystick || device.Type == MDI.DeviceType.Gamepad ||
 				//     device.Type == MDI.DeviceType.FirstPerson || device.Type == MDI.DeviceType.Driving ||
 				//     device.Type == MDI.DeviceType.Flight )
 				//{
-				var joystickInfo = new JoystickInfo( );
+				var joystickInfo = new JoystickInfo();
 				joystickInfo.IsXInput = false;
 				joystickInfo.ProductGuid = device.ProductGuid;
 				joystickInfo.DeviceId = device.InstanceGuid;
 				joystickInfo.Vendor = device.ProductName;
 				joystickInfo.Id = this._joystickCount++;
 
-				this._unusedDevices.Add( joystickInfo );
+				this._unusedDevices.Add(joystickInfo);
 				//}
 			}
 
-			var controllers = new[] { new SXI.Controller(SXI.UserIndex.One), new SXI.Controller(SXI.UserIndex.Two), new SXI.Controller(SXI.UserIndex.Three), new SXI.Controller(SXI.UserIndex.Four) };
-			foreach ( var controller in controllers )
+			try
 			{
-				if ( controller.IsConnected )
+				var controllers = new[] { new SXI.Controller(SXI.UserIndex.One), new SXI.Controller(SXI.UserIndex.Two), new SXI.Controller(SXI.UserIndex.Three), new SXI.Controller(SXI.UserIndex.Four) };
+				foreach ( var controller in controllers )
 				{
-					DirectXJoystick.CheckXInputDevices( _unusedDevices );
+					if ( controller.IsConnected )
+					{
+						DirectXJoystick.CheckXInputDevices( _unusedDevices );
+					}
 				}
+			}
+			catch (DllNotFoundException)
+			{
+
 			}
 		}
 
