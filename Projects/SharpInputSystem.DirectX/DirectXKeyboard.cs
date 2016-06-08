@@ -400,7 +400,7 @@ namespace SharpInputSystem.DirectX
                     return KeyCode.Key_UNASSIGNED;
                 case Key.Unlabeled:
                     return KeyCode.Key_UNLABELED;
-                case Key.UpArrow:
+                case Key.Up:
                     return KeyCode.Key_UP;
                 case Key.V:
                     return KeyCode.Key_V;

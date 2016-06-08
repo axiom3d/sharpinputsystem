@@ -4,28 +4,100 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Core", "Projects\SharpInputSystem\SharpInputSystem.Core.csproj", "{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.DirectX", "Projects\SharpInputSystem.DirectX\SharpInputSystem.DirectX.csproj", "{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.SWF", "Projects\SharpInputSystem.SWF\SharpInputSystem.SWF.csproj", "{D12FE049-DFB1-476A-A726-CEABA59C93B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.DirectX", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.DirectX.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.X11", "Projects\SharpInputSystem.X11\SharpInputSystem.X11.csproj", "{E7611F78-E15A-4CFA-A491-86459129C7D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.SWF", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.SWF.csproj", "{3CC3BE20-4B0B-48A6-8771-8C0684B59208}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.X11", "Projects\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.X11.csproj", "{29045D60-94B4-4574-BDCB-E06D0CA26BFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x86 = Debug|x86
-		Release|x86 = Release|x86
+		Debug|DirectX = Debug|DirectX
+		Debug|SWF = Debug|SWF
+		Debug|X11 = Debug|X11
+		Release|DirectX = Release|DirectX
+		Release|SWF = Release|SWF
+		Release|X11 = Release|X11
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|x86.ActiveCfg = Debug|x86
-		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|x86.Build.0 = Debug|x86
-		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|x86.ActiveCfg = Release|x86
-		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|x86.Build.0 = Release|x86
-		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|x86.ActiveCfg = Debug|x86
-		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|x86.Build.0 = Debug|x86
-		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|x86.ActiveCfg = Release|x86
-		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|x86.Build.0 = Release|x86
-		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|x86.ActiveCfg = Debug|x86
-		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|x86.Build.0 = Debug|x86
-		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|x86.ActiveCfg = Release|x86
-		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|x86.Build.0 = Release|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|DirectX.ActiveCfg = Debug|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|DirectX.Build.0 = Debug|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|SWF.ActiveCfg = Debug|Any CPU
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|SWF.Build.0 = Debug|Any CPU
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|X11.ActiveCfg = Debug|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Debug|X11.Build.0 = Debug|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|DirectX.ActiveCfg = Release|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|DirectX.Build.0 = Release|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|SWF.ActiveCfg = Release|Any CPU
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|SWF.Build.0 = Release|Any CPU
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|X11.ActiveCfg = Release|x86
+		{5AA7DDED-70FA-4014-A289-01BC2FAD5D4F}.Release|X11.Build.0 = Release|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|DirectX.ActiveCfg = Debug|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|DirectX.Build.0 = Debug|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|SWF.ActiveCfg = Debug|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|X11.ActiveCfg = Debug|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|DirectX.ActiveCfg = Release|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|DirectX.Build.0 = Release|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|SWF.ActiveCfg = Release|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|X11.ActiveCfg = Release|x86
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|X11.Build.0 = Release|x86
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Debug|DirectX.ActiveCfg = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Debug|SWF.ActiveCfg = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Debug|SWF.Build.0 = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Debug|X11.ActiveCfg = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|DirectX.ActiveCfg = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|DirectX.Build.0 = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|SWF.ActiveCfg = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|SWF.Build.0 = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|X11.ActiveCfg = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|X11.Build.0 = Release|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|DirectX.ActiveCfg = Debug|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|DirectX.Build.0 = Debug|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|SWF.ActiveCfg = Debug|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|SWF.Build.0 = Debug|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|X11.ActiveCfg = Debug|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|X11.Build.0 = Debug|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|DirectX.ActiveCfg = Release|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|DirectX.Build.0 = Release|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|SWF.ActiveCfg = Release|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|SWF.Build.0 = Release|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|X11.ActiveCfg = Release|x86
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|X11.Build.0 = Release|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Debug|DirectX.ActiveCfg = Debug|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Debug|SWF.ActiveCfg = Debug|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Debug|X11.ActiveCfg = Debug|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Debug|X11.Build.0 = Debug|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|DirectX.ActiveCfg = Release|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|DirectX.Build.0 = Release|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|SWF.ActiveCfg = Release|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|SWF.Build.0 = Release|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|X11.ActiveCfg = Release|x86
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|X11.Build.0 = Release|x86
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Debug|DirectX.ActiveCfg = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Debug|SWF.ActiveCfg = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Debug|SWF.Build.0 = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Debug|X11.ActiveCfg = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|DirectX.ActiveCfg = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|DirectX.Build.0 = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|SWF.ActiveCfg = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|SWF.Build.0 = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|X11.ActiveCfg = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|X11.Build.0 = Release|Any CPU
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Debug|DirectX.ActiveCfg = Debug|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Debug|SWF.ActiveCfg = Debug|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Debug|X11.ActiveCfg = Debug|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Debug|X11.Build.0 = Debug|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|DirectX.ActiveCfg = Release|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|DirectX.Build.0 = Release|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|SWF.ActiveCfg = Release|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|X11.ActiveCfg = Release|x86
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|X11.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

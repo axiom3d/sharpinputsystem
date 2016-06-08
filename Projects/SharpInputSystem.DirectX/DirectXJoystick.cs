@@ -248,12 +248,9 @@ namespace SharpInputSystem.DirectX
             }
 
             MDI.JoystickUpdate[] bufferedData = null;
-            if (this._joystick.Poll().Success)
-                bufferedData = this._joystick.GetBufferedData();
+            bufferedData = this._joystick.GetBufferedData();
             if (bufferedData == null)
-            {
-                while (this._joystick.Acquire() == MDI.ResultCode.InputLost);
-
+            {               
                 this._joystick.Poll();
                 bufferedData = this._joystick.GetBufferedData();
                 if (bufferedData == null)

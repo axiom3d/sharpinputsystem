@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{414B57C9-4B95-4503-AD7B-99426D6FC47D}</ProjectGuid>
+    <ProjectGuid>{29045D60-94B4-4574-BDCB-E06D0CA26BFA}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>

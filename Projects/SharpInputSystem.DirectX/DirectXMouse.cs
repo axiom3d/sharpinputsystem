@@ -193,10 +193,8 @@ namespace SharpInputSystem.DirectX
             MDI.MouseUpdate[] bufferedData = this._mouse.GetBufferedData( );
             if ( bufferedData == null )
             {
-                SDX.Result hr = this._mouse.Acquire( );
-                while ( hr == MDI.ResultCode.InputLost )
-                    hr = this._mouse.Acquire( );
-
+                this._mouse.Acquire( );
+                
                 bufferedData = this._mouse.GetBufferedData( );
                 if ( bufferedData == null )
                     return;
