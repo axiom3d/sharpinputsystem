@@ -44,7 +44,7 @@ namespace SharpInputSystem
         AutoDetect,
         DirectX,
         X11,
-        Xna,
-        SWF,
+        SWF,         
+        Android,            
     }
 }

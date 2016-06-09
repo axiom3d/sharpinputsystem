@@ -142,7 +142,7 @@ namespace SharpInputSystem
 			{
 				try
 				{
-					_RunningOnX11 = LibX11.XOpenDisplay( IntPtr.Zero ) != IntPtr.Zero;
+                    _RunningOnX11 = LibX11.XOpenDisplay( IntPtr.Zero ) != IntPtr.Zero;
 				}
 				catch
 				{

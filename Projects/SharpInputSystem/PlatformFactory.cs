@@ -61,58 +61,14 @@ namespace SharpInputSystem
         private static IList<IInputManagerFactory> CollectSystems()
         {
             IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
-#if !( WINDOWS_PHONE || SILVERLIGHT )
-            string[] files = Directory.GetFiles( ".", "*.dll" );
-            string assemblyName = Assembly.GetExecutingAssembly().GetName().Name + ".dll";
-
-            foreach ( string file in files )
+            foreach ( Type t in Assembly.GetExecutingAssembly().GetTypes() )
             {
-                string currentFile = Path.GetFileName( file );
-
-                if ( Path.GetExtension( file ) != ".dll" || currentFile == assemblyName )
-                    continue;
-
-                string fullPath = Path.GetFullPath( file );
-                try
+                if ( t.GetInterface( typeof(IInputManagerFactory).Name ) != null )
                 {
-                    Assembly assemembly = Assembly.LoadFrom( fullPath );
-                    if ( !string.IsNullOrEmpty( assemblyName ) )
-                    {
-                        Type[] types = assemembly.GetTypes( );
-                        foreach ( Type t in types )
-                        {
-                            if ( typeof ( IInputManagerFactory ).IsAssignableFrom( t ) )
-                            {
-                                system.Add( ( IInputManagerFactory ) Activator.CreateInstance( t ) );
-                                break;
-                            }
-                        }
-                    }
+                    system.Add( ( IInputManagerFactory ) Activator.CreateInstance( t ) );
+                    break;
                 }
-                catch ( BadImageFormatException )
-                {
-                    // Nothing to do here
-                    // Can't load this assembly most likely due to it not being a .Net Assembly
-                }
-                catch ( ReflectionTypeLoadException )
-                {
-                    // Nothing to do here.
-                    // Can't load this assembly most likely due to missing references.
-                }
-                catch ( FileLoadException )
-                {
-                    // Nothing to do here.
-                    // Can't load this assembly most likely due to missing references.
-                }
-                catch ( Exception )
-                {
-                    // Nothing to do here.
-                    // Can't load this assembly most likely due to missing references.
-                }
-                finally { }
             }
-#endif
-
             return system;
         }
     }

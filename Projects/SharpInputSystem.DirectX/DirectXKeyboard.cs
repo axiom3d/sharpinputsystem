@@ -452,7 +452,7 @@ namespace SharpInputSystem.DirectX
                 Read( );
         }
 
-        protected override void Initialize( )
+        protected internal override void Initialize( )
         {
             this._keyboard = new SharpDX.DirectInput.Keyboard( this._directInput );
 

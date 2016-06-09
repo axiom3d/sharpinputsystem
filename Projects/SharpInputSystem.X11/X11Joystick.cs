@@ -40,7 +40,7 @@ namespace SharpInputSystem
 		{
 		}
 
-		protected override void Initialize()
+		protected internal override void Initialize()
 		{
 			throw new NotImplementedException();
 		}

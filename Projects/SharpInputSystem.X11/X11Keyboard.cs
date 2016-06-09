@@ -222,7 +222,7 @@ namespace SharpInputSystem
 			base.Dispose (disposeManagedResources);
 		}
 		
-		protected override void Initialize()
+		protected internal override void Initialize()
 		{			
 			if ( _display != IntPtr.Zero ) 
 				LibX11.XCloseDisplay( _display );

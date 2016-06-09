@@ -102,7 +102,7 @@ namespace SharpInputSystem
 			{
 				uname( out _uts );
 			}
-			catch ( Exception ex )
+			catch ( Exception )
 			{
 				//log.Error( m => m( "Failed to call uname()." ), ex );
 			}
