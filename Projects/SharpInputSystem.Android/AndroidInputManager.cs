@@ -35,6 +35,7 @@ using System.Text;
 using System.Linq;
 using Common.Logging;
 using Android.Views;
+using Android.Content;
 
 namespace SharpInputSystem
 {
@@ -61,8 +62,20 @@ namespace SharpInputSystem
             }
         }
         #endregion WindowHandle Property
+
 		
-		internal AndroidInputManager() 
+		#region Context Property
+        private Context _context;
+        public Context Context
+        {
+            get
+            {
+                return _context;
+            }
+        }
+        #endregion Context Property
+
+        internal AndroidInputManager() 
 			: base()
         {
 			GrabKeyboard = true;
@@ -91,7 +104,18 @@ namespace SharpInputSystem
 	                _hwnd = (View)window;
 	            }
 			}
-		}
+
+            // Find the CONTEXT parameter
+            parameter = args.Find((p) => { return p.first.ToLower() == "context"; });
+            if (parameter != null)
+            {
+                var context = parameter.second;
+                if (context is Context)
+                {
+                    _context = (Context)context;
+                }
+            }
+        }
 		
         private void _enumerateDevices()
         {

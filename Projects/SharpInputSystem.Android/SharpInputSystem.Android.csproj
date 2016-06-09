@@ -49,7 +49,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OnTouchListener.cs" />
+    <Compile Include="AndroidKeyboard.cs" />
+    <Compile Include="AndroidInputListeners.cs" />
     <Compile Include="AndroidMouse.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

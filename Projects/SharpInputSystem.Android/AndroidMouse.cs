@@ -51,7 +51,7 @@ using Common.Logging;
 
 namespace SharpInputSystem
 {
-    class AndroidMouse : Mouse
+    public class AndroidMouse : Mouse
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(AndroidMouse));
 
@@ -67,7 +67,7 @@ namespace SharpInputSystem
             Type = InputType.Mouse;
             EventListener = null;
 
-            _view.SetOnTouchListener(new OnTouchListener(this));
+            _view.SetOnTouchListener(new TouchListener(this));
 
             Log.Debug("AndroidMouse device created.");
         }

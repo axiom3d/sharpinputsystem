@@ -12,93 +12,8 @@ using Common.Logging;
 
 namespace SharpInputSystem.Test.OpenGL.Android
 {
-    internal class EventHandler : IKeyboardListener, IMouseListener, IJoystickListener
+    class GLView1 : AndroidGameView, SharpInputSystem.IKeyboardListener, IMouseListener, IJoystickListener
     {
-        private static readonly ILog log = LogManager.GetLogger(typeof(GLView1));
-
-        public bool appRunning = true;
-
-        #region IJoystickListener Members
-
-        public bool ButtonPressed(JoystickEventArgs arg, int button)
-        {
-            log.Info(String.Format("Joystick ButtonPressed : {0} )", button));
-            return true;
-        }
-
-        public bool ButtonReleased(JoystickEventArgs arg, int button)
-        {
-            log.Info(String.Format("Joystick ButtonReleased : {0} )", button));
-            return true;
-        }
-
-        public bool AxisMoved(JoystickEventArgs arg, int axis)
-        {
-            int axisValue = arg.State.Axis[axis].Absolute;
-            if (axisValue > 2500 || axisValue < -2500)
-                log.Info(String.Format("Joystick AxisMoved : {0} = {1} )", axis, axisValue));
-            return true;
-        }
-
-        public bool SliderMoved(JoystickEventArgs arg, int slider)
-        {
-            log.Info(String.Format("Joystick SliderMoved : {0} = {1}, {2} )", slider, arg.State.Sliders[slider].X, arg.State.Sliders[slider].Y));
-            return true;
-        }
-
-        public bool PovMoved(JoystickEventArgs arg, int pov)
-        {
-            log.Info(String.Format("Joystick PovMoved : {0} = {1} )", pov, arg.State.Povs[pov].Direction.ToString()));
-            return true;
-        }
-
-        #endregion
-
-        #region IKeyboardListener Members
-
-        public bool KeyPressed(KeyEventArgs e)
-        {
-            log.Info(String.Format("KeyPressed : {0} {1}", e.Key, e.Text));
-            return true;
-        }
-
-        public bool KeyReleased(KeyEventArgs e)
-        {
-            log.Info(String.Format("KeyReleased : {0} {1}", e.Key, e.Text));
-            if (e.Key == KeyCode.Key_ESCAPE || e.Key == KeyCode.Key_Q)
-                this.appRunning = false;
-            return true;
-        }
-
-        #endregion
-
-        #region IMouseListener Members
-
-        public bool MouseMoved(MouseEventArgs arg)
-        {
-            log.Info(String.Format("MouseMoved : R( {0} , {1} , {4} ) A( {2} , {3}, {5} )", arg.State.X.Relative, arg.State.Y.Relative, arg.State.X.Absolute, arg.State.Y.Absolute, arg.State.Z.Relative, arg.State.Z.Absolute));
-            return true;
-        }
-
-        public bool MousePressed(MouseEventArgs arg, MouseButtonID id)
-        {
-            log.Info(String.Format("MousePressed : {0}", arg.State.Buttons));
-            return true;
-        }
-
-        public bool MouseReleased(MouseEventArgs arg, MouseButtonID id)
-        {
-            log.Info(String.Format("MouseReleased : {0}", arg.State.Buttons));
-            return true;
-        }
-
-        #endregion
-    }
-
-    class GLView1 : AndroidGameView
-    {
-        private static readonly EventHandler _handler = new EventHandler();
-
         private static InputManager _inputManager;
         private static Keyboard _kb;
         private static Mouse _m;
@@ -110,7 +25,7 @@ namespace SharpInputSystem.Test.OpenGL.Android
 
         public GLView1(Context context) : base(context)
         {
-            
+            _context = context;
         }
 
         // This gets called when the drawing surface is ready
@@ -119,6 +34,7 @@ namespace SharpInputSystem.Test.OpenGL.Android
             base.OnLoad(e);
             var pl = new ParameterList();
             pl.Add(new Parameter("WINDOW", this));
+            pl.Add(new Parameter("CONTEXT", this._context));
 
             //This never returns null.. it will raise an exception on errors
             _inputManager = InputManager.CreateInputSystem(pl);
@@ -135,20 +51,20 @@ namespace SharpInputSystem.Test.OpenGL.Android
             {
                 _m = _inputManager.CreateInputObject<Mouse>(buffered, "");
                 log.Info(String.Format("Created {0}buffered mouse", buffered ? "" : "un"));
-                _m.EventListener = _handler;
+                _m.EventListener = this;
 
                 MouseState ms = _m.MouseState;
                 ms.Width = 100;
                 ms.Height = 100;
             }
-            /*
+            
             if (_inputManager.DeviceCount<Keyboard>() > 0)
             {
                 _kb = _inputManager.CreateInputObject<Keyboard>(buffered, "");
                 log.Info(String.Format("Created {0}buffered keyboard", buffered ? "" : "un"));
-                _kb.EventListener = _handler;
+                _kb.EventListener = this;
             }
-            */
+            
             // Run the render loop
             Run();
         }
@@ -217,6 +133,84 @@ namespace SharpInputSystem.Test.OpenGL.Android
 
             SwapBuffers();
         }
+        public bool appRunning = true;
+
+        #region IJoystickListener Members
+
+        public bool ButtonPressed(JoystickEventArgs arg, int button)
+        {
+            log.Info(String.Format("Joystick ButtonPressed : {0} )", button));
+            return true;
+        }
+
+        public bool ButtonReleased(JoystickEventArgs arg, int button)
+        {
+            log.Info(String.Format("Joystick ButtonReleased : {0} )", button));
+            return true;
+        }
+
+        public bool AxisMoved(JoystickEventArgs arg, int axis)
+        {
+            int axisValue = arg.State.Axis[axis].Absolute;
+            if (axisValue > 2500 || axisValue < -2500)
+                log.Info(String.Format("Joystick AxisMoved : {0} = {1} )", axis, axisValue));
+            return true;
+        }
+
+        public bool SliderMoved(JoystickEventArgs arg, int slider)
+        {
+            log.Info(String.Format("Joystick SliderMoved : {0} = {1}, {2} )", slider, arg.State.Sliders[slider].X, arg.State.Sliders[slider].Y));
+            return true;
+        }
+
+        public bool PovMoved(JoystickEventArgs arg, int pov)
+        {
+            log.Info(String.Format("Joystick PovMoved : {0} = {1} )", pov, arg.State.Povs[pov].Direction.ToString()));
+            return true;
+        }
+
+        #endregion
+
+        #region IKeyboardListener Members
+
+        public bool KeyPressed(SharpInputSystem.KeyEventArgs e)
+        {
+            log.Info(String.Format("KeyPressed : {0} {1}", e.Key, e.Text));
+            return true;
+        }
+
+        public bool KeyReleased(SharpInputSystem.KeyEventArgs e)
+        {
+            log.Info(String.Format("KeyReleased : {0} {1}", e.Key, e.Text));
+            if (e.Key == KeyCode.Key_ESCAPE || e.Key == KeyCode.Key_Q)
+                this.appRunning = false;
+            return true;
+        }
+
+        #endregion
+
+        #region IMouseListener Members
+
+        public bool MouseMoved(MouseEventArgs arg)
+        {
+            log.Info(String.Format("MouseMoved : R( {0} , {1} , {4} ) A( {2} , {3}, {5} )", arg.State.X.Relative, arg.State.Y.Relative, arg.State.X.Absolute, arg.State.Y.Absolute, arg.State.Z.Relative, arg.State.Z.Absolute));
+            return true;
+        }
+
+        public bool MousePressed(MouseEventArgs arg, MouseButtonID id)
+        {
+            log.Info(String.Format("MousePressed : {0}", arg.State.Buttons));
+            ((AndroidKeyboard)_kb).ShowSoftInput();
+            return true;
+        }
+
+        public bool MouseReleased(MouseEventArgs arg, MouseButtonID id)
+        {
+            log.Info(String.Format("MouseReleased : {0}", arg.State.Buttons));
+            return true;
+        }
+
+        #endregion
 
         float[] square_vertices = {
             -0.5f, -0.5f,
@@ -231,6 +225,6 @@ namespace SharpInputSystem.Test.OpenGL.Android
             0,     0,    0,  0,
             255,   0,  255, 255,
         };
-
+        private Context _context;
     }
 }
