@@ -26,8 +26,8 @@ namespace SharpInputSystem.Test.OpenGL.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::SharpInputSystem.Android.Resource.String.ApplicationName = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.ApplicationName;
-			global::SharpInputSystem.Android.Resource.String.Hello = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.Hello;
+			global::SharpInputSystem.Resource.String.ApplicationName = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.ApplicationName;
+			global::SharpInputSystem.Resource.String.Hello = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.Hello;
 		}
 		
 		public partial class Attribute

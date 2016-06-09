@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("SharpInputSystem.Android.Resource", IsApplication=false)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("SharpInputSystem.Resource", IsApplication=false)]
 
-namespace SharpInputSystem.Android
+namespace SharpInputSystem
 {
 	
 	

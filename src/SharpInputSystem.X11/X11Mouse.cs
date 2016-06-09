@@ -42,9 +42,7 @@ namespace SharpInputSystem
 		private IntPtr _display;
 		private IntPtr _window;
 		private IntPtr _cursor;
-		
-		private LibX11.XEvent _xEvent;
-		
+			
 		private int _lastMouseX;
 		private int _lastMouseY;
 		private int lastButtons = 0;

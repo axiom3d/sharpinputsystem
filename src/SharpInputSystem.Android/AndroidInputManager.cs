@@ -44,7 +44,6 @@ namespace SharpInputSystem
         private static readonly ILog log = LogManager.GetLogger( typeof( AndroidInputManager ) );
 		
 		private List<DeviceInfo> _unusedDevices = new List<DeviceInfo>();
-        private int _joystickCount = 0;
 		
 		public bool GrabKeyboard { get; set; }
 		public bool UseKeyboardXRepeat { get; set; }

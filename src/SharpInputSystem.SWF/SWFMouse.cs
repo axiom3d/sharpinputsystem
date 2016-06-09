@@ -41,7 +41,7 @@ namespace SharpInputSystem.SWF
     public class SWFMouse : Mouse
     {
         private Control _window;
-        private int _lastX, _lastY, _lastZ = 0;
+        private int _lastX, _lastY;
 
         public SWFMouse( InputManager creator, Control window, bool buffered )
         {
