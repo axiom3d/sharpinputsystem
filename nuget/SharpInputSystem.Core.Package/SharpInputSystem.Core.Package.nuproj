@@ -41,4 +41,12 @@
     <ProjectReference Include="..\..\src\SharpInputSystem\SharpInputSystem.Core.csproj" />
   </ItemGroup>
   <Import Project="$(NuProjPath)\NuProj.targets" />
+  <Import Project="$(NuProjPath)\Microsoft.Common.Nuproj.targets" Condition="Exists('$(NuProjPath)\Microsoft.Common.Nuproj.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(NuProjPath)\NuProj.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(NuProjPath)\NuProj.targets'))" />
+  </Target>
+  <Target Name="_SplitProjectReferencesByFileExistence" />
 </Project>
