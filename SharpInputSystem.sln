@@ -44,6 +44,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Core", "sr
 EndProject
 Project("{FF286327-C783-4F7A-AB73-9BCBAD0D4460}") = "SharpInputSystem.Core.Package", "nuget\SharpInputSystem.Core.Package\SharpInputSystem.Core.Package.nuproj", "{5075FDA2-C01E-4301-A019-F4C2D2FD9ECC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{76BC45C3-3858-4BD7-8DE2-CF8D315AD2B2}"
+	ProjectSection(SolutionItems) = preProject
+		SharpInputSystem.props = SharpInputSystem.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		src\SharpInputSystem\SharpInputSystem.Shared.projitems*{16b4a73a-8a44-4395-9136-0e9ad4160621}*SharedItemsImports = 13
