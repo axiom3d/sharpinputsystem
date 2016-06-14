@@ -41,7 +41,7 @@ namespace SharpInputSystem
 {
 	internal static class Environment
 	{
-		//private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Environment ) );
+		private static readonly Common.Logging.ILog log = Common.Logging.LogManager.GetLogger( typeof( Environment ) );
 
 		private static bool _RunningOnWindows;
 		public static bool RunningOnWindows
@@ -100,16 +100,8 @@ namespace SharpInputSystem
 		// Detects the underlying OS and runtime.
 		static Environment()
 		{
-			if ( System.Environment.OSVersion.Platform == PlatformID.Win32NT ||
-				 System.Environment.OSVersion.Platform == PlatformID.Win32S ||
-				 System.Environment.OSVersion.Platform == PlatformID.Win32Windows ||
-				 System.Environment.OSVersion.Platform == PlatformID.WinCE )
-			{
-				_RunningOnWindows = true;
-			}
-			else if ( System.Environment.OSVersion.Platform == PlatformID.Unix ||
-					  System.Environment.OSVersion.Platform == (PlatformID)4 )
-			{
+			try
+			{ 
 				// Distinguish between Linux, Mac OS X and other Unix operating systems.
 				string kernel_name = ( new UnixKernel() ).SysName;
 				switch ( kernel_name )
@@ -131,8 +123,10 @@ namespace SharpInputSystem
 						break;
 				}
 			}
-			else
-				throw new PlatformNotSupportedException( "Unknown platform." );
+			finally
+			{
+				_RunningOnWindows = true;
+			}
 
 			// Detect whether X is present.
 			// Hack: it seems that this check will cause X to initialize itself on Mac OS X Leopard and newer.
@@ -152,8 +146,8 @@ namespace SharpInputSystem
 			// Detect the Mono runtime (code adapted from http://mono.wikia.com/wiki/Detecting_if_program_is_running_in_Mono).
 			_RunningOnMono = Type.GetType( "Mono.Runtime" ) != null;
 
-			//log.Debug( m => m( "Detected Runtime Environment : {0} / {1}", RunningOnWindows ? "Windows" : RunningOnLinux ? "Linux" : RunningOnMacOS ? "MacOS" : RunningOnUnix ? "Unix" : RunningOnX11 ? "X11" : "Unknown Platform",
-			//                                                               RunningOnMono ? "Mono" : ".Net" ) );
+			log.Debug( m => m( "Detected Runtime Environment : {0} / {1}", RunningOnWindows ? "Windows" : RunningOnLinux ? "Linux" : RunningOnMacOS ? "MacOS" : RunningOnUnix ? "Unix" : RunningOnX11 ? "X11" : "Unknown Platform",
+			                                                               RunningOnMono ? "Mono" : ".Net" ) );
 		}
 
 	}

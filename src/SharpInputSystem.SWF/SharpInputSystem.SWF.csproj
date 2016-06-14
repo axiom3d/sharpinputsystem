@@ -79,6 +79,11 @@
     <Compile Include="SWFMouse.cs" />
     <Compile Include="SWFKeyboard.cs" />
   </ItemGroup>
-  <Import Project="..\SharpInputSystem\SharpInputSystem.Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
+      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
+      <Name>SharpInputSystem.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
 </Project>

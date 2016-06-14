@@ -288,7 +288,7 @@ namespace SharpInputSystem.DirectX
             }
         }
 
-        protected internal override void Initialize( )
+        protected override void Initialize( )
         {
             MouseState.Clear( );
 

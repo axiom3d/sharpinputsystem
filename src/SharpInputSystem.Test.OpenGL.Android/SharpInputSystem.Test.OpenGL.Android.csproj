@@ -87,6 +87,10 @@
       <Project>{188d41fb-7ddb-4d30-bc1f-89ce39dea4e4}</Project>
       <Name>SharpInputSystem.Android</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
+      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
+      <Name>SharpInputSystem.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />

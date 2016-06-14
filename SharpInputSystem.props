@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Configuration">
+    <Version>1.0.0-alpha</Version>
+    <Authors>Michael Cummings</Authors>
+    <Owners>Michael Cummings</Owners>
+    <ReleaseNotes>
+    </ReleaseNotes>
+    <ProjectUrl>
+    </ProjectUrl>
+    <LicenseUrl>
+    </LicenseUrl>
+    <Copyright>Copyright © Michael Cummings</Copyright>
+    <Tags>Android iOS, Xbox, Input, Windows, MacOS</Tags>
+  </PropertyGroup>
+</Project>

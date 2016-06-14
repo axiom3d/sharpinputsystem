@@ -77,7 +77,7 @@ namespace SharpInputSystem
             return false;
         }
 
-        protected internal override void Initialize()
+        protected override void Initialize()
         {
         }
 

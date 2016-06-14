@@ -64,7 +64,7 @@ namespace SharpInputSystem.SWF
             base.Dispose( disposeManagedResources );
         }
 
-        protected internal override void Initialize()
+        protected override void Initialize()
         {
             _window.KeyDown += Handle_windowKeyDown;
             _window.KeyUp += Handle_windowKeyUp;

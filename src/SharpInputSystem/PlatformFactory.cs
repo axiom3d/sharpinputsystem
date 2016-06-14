@@ -63,7 +63,7 @@ namespace SharpInputSystem
             IList<IInputManagerFactory> system = new List<IInputManagerFactory>();
             foreach ( Type t in Assembly.GetExecutingAssembly().GetTypes() )
             {
-                if ( t.GetInterface( typeof(IInputManagerFactory).Name ) != null )
+                if ( t.IsAssignableFrom( typeof(IInputManagerFactory) ) )
                 {
                     system.Add( ( IInputManagerFactory ) Activator.CreateInstance( t ) );
                     break;

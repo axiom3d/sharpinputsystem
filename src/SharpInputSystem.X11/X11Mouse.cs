@@ -71,7 +71,7 @@ namespace SharpInputSystem
 			hideMouse = ((X11InputManager)creator).HideMouse;
 		}
 
-		protected internal override void Initialize()
+		protected override void Initialize()
 		{
 			MouseState = new MouseState();
 			

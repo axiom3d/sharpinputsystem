@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 
 using Common.Logging;
+using SharpInputSystem;
 
 namespace SharpInputSystem.Test.Console
 {

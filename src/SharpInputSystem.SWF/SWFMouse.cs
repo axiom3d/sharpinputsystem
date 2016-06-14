@@ -62,7 +62,7 @@ namespace SharpInputSystem.SWF
             base.Dispose (disposeManagedResources);
         }
 
-        protected internal override void Initialize()
+        protected override void Initialize()
         {
             _window.MouseMove += Handle_windowMouseMove;
             _window.MouseUp += Handle_windowMouseUp;

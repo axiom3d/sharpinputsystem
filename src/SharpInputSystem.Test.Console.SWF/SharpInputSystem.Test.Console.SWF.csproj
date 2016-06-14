@@ -101,6 +101,10 @@
       <Project>{d12fe049-dfb1-476a-a726-ceaba59c93b4}</Project>
       <Name>SharpInputSystem.SWF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
+      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
+      <Name>SharpInputSystem.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

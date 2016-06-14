@@ -439,7 +439,7 @@ namespace SharpInputSystem.DirectX
             return axis.Relative != 0;
         }
 
-        protected internal override void Initialize( )
+        protected override void Initialize( )
         {
             if ( _joyInfo.IsXInput )
                 Enumerate( );

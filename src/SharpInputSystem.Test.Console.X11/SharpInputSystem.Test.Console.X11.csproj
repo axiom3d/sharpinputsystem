@@ -59,7 +59,7 @@
     <Reference Include="Common.Logging.Core, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.Core.3.3.2-Alpha3\lib\net40\Common.Logging.Core.dll</HintPath>
       <Private>True</Private>
-    </Reference>  
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -74,6 +74,10 @@
     <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem.X11.csproj">
       <Project>{E7611F78-E15A-4CFA-A491-86459129C7D8}</Project>
       <Name>SharpInputSystem.X11</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
+      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
+      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

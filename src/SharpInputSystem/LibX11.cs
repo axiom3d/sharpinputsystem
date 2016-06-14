@@ -43,27 +43,27 @@ namespace SharpInputSystem
 	/// <summary>
 	/// Part of the libX11 library on unix platforms.
 	/// </summary>
-	internal sealed class LibX11
+	public sealed class LibX11
 	{
-		internal const int BadWindow = 3;
-		internal const int BadAccess = 10;
+		public const int BadWindow = 3;
+		public const int BadAccess = 10;
 		#region - Structures -
 		
 		[StructLayout(LayoutKind.Sequential, Pack = 2)]
-	    internal struct XColor
+	    public struct XColor
 	    {
-	        internal IntPtr pixel;
-	        internal ushort red;
-	        internal ushort green;
-	        internal ushort blue;
-	        internal byte flags;
-	        internal byte pad;
-	    }		
+	        public IntPtr pixel;
+	        public ushort red;
+	        public ushort green;
+	        public ushort blue;
+	        public byte flags;
+	        public byte pad;
+	    }
 		#region - XEventName -
 		/// <summary>
 		/// 
 		/// </summary>
-		internal enum XEventName : int
+		public enum XEventName : int
 		{
 			KeyPress = 2,
 			KeyRelease = 3,
@@ -105,7 +105,7 @@ namespace SharpInputSystem
 
 		#region - XAnyEvent -
 		[StructLayout(LayoutKind.Sequential)]
-		internal struct XAnyEvent
+		public struct XAnyEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -190,7 +190,7 @@ namespace SharpInputSystem
 
 		#region - XKeyEvent -
 		[StructLayout(LayoutKind.Sequential)]
-		internal struct XKeyEvent
+		public struct XKeyEvent
 		{
 			public XEventName type;
 			public IntPtr serial;
@@ -256,7 +256,7 @@ namespace SharpInputSystem
 		
 		#region - XKeyboardState -
 		[StructLayout(LayoutKind.Sequential)]
-		internal struct XKeyboardState 
+		public struct XKeyboardState 
 		{
 			public int key_click_percent;
 			public int bell_percent;
@@ -439,22 +439,22 @@ namespace SharpInputSystem
 		/// <summary>
 		/// Name of the library we grab the input functions from
 		/// </summary>
-		internal const string LibraryName = "libX11";
+		public const string LibraryName = "libX11";
 		/// <summary>
 		/// 
 		/// </summary>
-		internal const int GrabModeAsync = 1;
+		public const int GrabModeAsync = 1;
 		/// <summary>
 		/// 
 		/// </summary>
-		internal const int AutoRepeatModeOff = 0;
-		internal const int AutoRepeatModeOn = 1;
-		internal const int AutoRepeatModeDefault = 2;
+		public const int AutoRepeatModeOff = 0;
+		public const int AutoRepeatModeOn = 1;
+		public const int AutoRepeatModeDefault = 2;
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		internal const long CurrentTime = 0;
+		public const long CurrentTime = 0;
 		public const int ButtonPressMask = 1 << 2;
 		public const int ButtonReleaseMask = 1 << 3;
 		public const int EnterWindowMask = 1 << 4;
@@ -470,11 +470,11 @@ namespace SharpInputSystem
 		public const int LockMask = ( 1 << 1 );
 
 		[DllImport(LibraryName)]
-		internal static extern int XGrabPointer(IntPtr display, IntPtr grabWindow, bool ownerMvents, int eventMask, int pointerMode, int keyboardMode, IntPtr confineTo, IntPtr cursor, long time);
+		public static extern int XGrabPointer(IntPtr display, IntPtr grabWindow, bool ownerMvents, int eventMask, int pointerMode, int keyboardMode, IntPtr confineTo, IntPtr cursor, long time);
 		[DllImport(LibraryName)]
-		internal static extern int XUngrabPointer(IntPtr display, long time);
+		public static extern int XUngrabPointer(IntPtr display, long time);
 		[DllImport( LibraryName )]
-		internal static extern int XLookupString( ref XKeyEvent even, StringBuilder bufferReturn, int bytesBuffer, out int keysymReturn, IntPtr xComposeStatus );
+		public static extern int XLookupString( ref XKeyEvent even, StringBuilder bufferReturn, int bytesBuffer, out int keysymReturn, IntPtr xComposeStatus );
 		/// <summary>
 		/// To open a connection to the X server that controls a display
 		/// </summary>
@@ -489,11 +489,11 @@ namespace SharpInputSystem
 		/// that contains all the information about that X server.
 		/// </returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern IntPtr XOpenDisplay(IntPtr displayName);
+		public static extern IntPtr XOpenDisplay(IntPtr displayName);
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XPending(IntPtr displayName);
+		public static extern int XPending(IntPtr displayName);
 		[DllImportAttribute(LibraryName)]
-		internal static extern void XWarpPointer(IntPtr display, IntPtr sourceWindow, IntPtr destWindow, int srcX, int srcY,int srcWidth, int srcHeight,int destX, int destY);
+		public static extern void XWarpPointer(IntPtr display, IntPtr sourceWindow, IntPtr destWindow, int srcX, int srcY,int srcWidth, int srcHeight,int destX, int destY);
 		// XQueryPointer( Display *display,
 		//			      Window w,
 		//			      Window *root_return, Window *child_return,
@@ -501,7 +501,7 @@ namespace SharpInputSystem
 		//			      int *win_x_return, int *win_y_return,
 		//			      unsigned int *mask_return )
 		[DllImportAttribute(LibraryName)]
-		internal static extern bool XQueryPointer( IntPtr display, IntPtr window, out IntPtr rootWindow, out IntPtr childWindow, out int root_x_return, out int root_y_return, out int win_x_return, out int win_y_return, out uint mask_return );
+		public static extern bool XQueryPointer( IntPtr display, IntPtr window, out IntPtr rootWindow, out IntPtr childWindow, out int root_x_return, out int root_y_return, out int win_x_return, out int win_y_return, out uint mask_return );
 		/// <summary>
 		/// 
 		/// </summary>
@@ -512,16 +512,16 @@ namespace SharpInputSystem
 		/// A <see cref="IntPtr"/>
 		/// </returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern IntPtr XCloseDisplay(IntPtr display);
+		public static extern IntPtr XCloseDisplay(IntPtr display);
 		[DllImport(LibraryName)]
-        internal static extern int XDefaultScreen(IntPtr display);
+        public static extern int XDefaultScreen(IntPtr display);
 		/// <summary>
 		/// Get's the root window for the default screen.
 		/// </summary>
 		/// <param name="display">Specifies the connection to the X server. </param>
 		/// <returns>returns the root window for the default screen.</returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern IntPtr XDefaultRootWindow(IntPtr display);
+		public static extern IntPtr XDefaultRootWindow(IntPtr display);
 		/// <summary>
 		/// The XUngrabKeyboard() function releases the keyboard and any queued events if this client
 		/// has it actively grabbed from either XGrabKeyboard() or XGrabKey(). 
@@ -535,7 +535,7 @@ namespace SharpInputSystem
 		/// <param name="currentTime">Specifies the time. You can pass either a timestamp or CurrentTime. </param>
 		/// <returns></returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern void XUngrabKeyboard(IntPtr display, long currentTime);
+		public static extern void XUngrabKeyboard(IntPtr display, long currentTime);
 		/// <summary>
 		/// The XGrabKeyboard() function actively grabs control of the keyboard and generates 
 		/// FocusIn and FocusOut events. Further key events are reported only to the grabbing client.
@@ -553,18 +553,18 @@ namespace SharpInputSystem
 		/// <param name="currentTime">Specifies the time. You can pass either a timestamp or CurrentTime. </param>
 		/// <returns></returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XGrabKeyboard(IntPtr display, IntPtr window, bool own, int pointerMode, int keyboardMode, long currentTime);
+		public static extern int XGrabKeyboard(IntPtr display, IntPtr window, bool own, int pointerMode, int keyboardMode, long currentTime);
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XSelectInput(IntPtr display, IntPtr window, long mask);
+		public static extern int XSelectInput(IntPtr display, IntPtr window, long mask);
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="display"></param>
 		/// <param name="xevent"></param>
 		[DllImportAttribute(LibraryName)]
-		internal static extern void XNextEvent(IntPtr display, ref XEvent even);
+		public static extern void XNextEvent(IntPtr display, ref XEvent even);
 		[DllImportAttribute(LibraryName)]
-		internal static extern bool XCheckMaskEvent(IntPtr display, int even_mask, ref XEvent even);
+		public static extern bool XCheckMaskEvent(IntPtr display, int even_mask, ref XEvent even);
 		/// <summary>
 		/// 
 		/// </summary>
@@ -572,10 +572,10 @@ namespace SharpInputSystem
 		/// <param name="index"></param>
 		/// <returns></returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern IntPtr XLookupKeysym(ref XKeyEvent key_event, int index);
+		public static extern IntPtr XLookupKeysym(ref XKeyEvent key_event, int index);
 		
 		[DllImport(LibraryName)]
-		internal static extern string XKeysymToString( KeySym keysym );
+		public static extern string XKeysymToString( KeySym keysym );
 		
 		/// <summary>
 		/// Sets DetectableAutorepeat
@@ -590,7 +590,7 @@ namespace SharpInputSystem
 		/// backfilled True if DetectableAutorepeat supported
 		/// </param>
 		[DllImportAttribute(LibraryName)]
-		internal static extern bool XkbSetDetectableAutoRepeat(IntPtr display, bool detectable, ref bool supported);
+		public static extern bool XkbSetDetectableAutoRepeat(IntPtr display, bool detectable, ref bool supported);
 		/// <summary>
 		/// 
 		/// </summary>
@@ -607,37 +607,37 @@ namespace SharpInputSystem
 		/// A <see cref="System.UInt32"/>
 		/// </returns>
 		[DllImportAttribute(LibraryName)]
-		internal static extern uint XKeycodeToKeysym(IntPtr display, int keycode, int index);
+		public static extern uint XKeycodeToKeysym(IntPtr display, int keycode, int index);
 		[DllImportAttribute(LibraryName)]
-		internal static extern bool XTranslateCoordinates(IntPtr display, IntPtr src_w, IntPtr dest_w, int src_x, int src_y, out int dest_x_return, out int dest_y_return, out IntPtr child_return);
+		public static extern bool XTranslateCoordinates(IntPtr display, IntPtr src_w, IntPtr dest_w, int src_x, int src_y, out int dest_x_return, out int dest_y_return, out IntPtr child_return);
 		
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XAutoRepeatOn( IntPtr display );
+		public static extern int XAutoRepeatOn( IntPtr display );
 
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XAutoRepeatOff( IntPtr display );
+		public static extern int XAutoRepeatOff( IntPtr display );
 		
 		[DllImportAttribute(LibraryName)]
-		internal static extern int XGetKeyboardControl( IntPtr display, out XKeyboardState old );
+		public static extern int XGetKeyboardControl( IntPtr display, out XKeyboardState old );
 		
 		[DllImport(LibraryName)]
-        internal extern static IntPtr XCreatePixmapCursor(IntPtr display, IntPtr source, IntPtr mask, ref XColor foreground_color, ref XColor background_color, int x_hot, int y_hot);		
+        public extern static IntPtr XCreatePixmapCursor(IntPtr display, IntPtr source, IntPtr mask, ref XColor foreground_color, ref XColor background_color, int x_hot, int y_hot);		
 		[DllImport(LibraryName)]
-        internal extern static IntPtr XDefaultColormap(IntPtr display, int screen_number);	
+        public extern static IntPtr XDefaultColormap(IntPtr display, int screen_number);	
 		[DllImport(LibraryName)]
-        internal extern static int XAllocColor(IntPtr display, IntPtr Colormap, ref XColor colorcell_def);		
+        public extern static int XAllocColor(IntPtr display, IntPtr Colormap, ref XColor colorcell_def);		
 		[DllImport(LibraryName)]
-        internal extern static int XAllocNamedColor(IntPtr display, IntPtr colormap, string color_name, ref XColor screen_def_return, ref XColor exact_def_return);
+        public extern static int XAllocNamedColor(IntPtr display, IntPtr colormap, string color_name, ref XColor screen_def_return, ref XColor exact_def_return);
 		[DllImport(LibraryName)]
-		internal extern static IntPtr XCreatePixmapFromBitmapData(IntPtr display, IntPtr d, byte[] data, int width, int height, long fg, int bg, int depth);
+		public extern static IntPtr XCreatePixmapFromBitmapData(IntPtr display, IntPtr d, byte[] data, int width, int height, long fg, int bg, int depth);
 		[DllImport(LibraryName)]
-		internal extern static IntPtr XCreateBitmapFromData(IntPtr display, IntPtr d, byte[] data, int width, int height);
+		public extern static IntPtr XCreateBitmapFromData(IntPtr display, IntPtr d, byte[] data, int width, int height);
 		
 		[DllImport(LibraryName)]
-        internal extern static int XDefineCursor(IntPtr display, IntPtr window, IntPtr cursor);
+        public extern static int XDefineCursor(IntPtr display, IntPtr window, IntPtr cursor);
 
 		[DllImport(LibraryName)]
-        internal extern static int XUndefineCursor(IntPtr display, IntPtr window);
+        public extern static int XUndefineCursor(IntPtr display, IntPtr window);
 		
 		/// <summary>
 		/// Convert's X11KeyCode to standard System.Windows.Forms.Keys;
@@ -648,7 +648,7 @@ namespace SharpInputSystem
 		/// <returns>
 		///  <see cref="System.Windows.Forms.Keys"/>
 		/// </returns>
-		internal static KeyCode ToKeys( uint x11keycode )
+		public static KeyCode ToKeys( uint x11keycode )
 		{
 			switch (x11keycode)
 			{
@@ -847,7 +847,7 @@ namespace SharpInputSystem
 		///// <returns>
 		/////  <see cref="System.Windows.Forms.Keys"/>
 		///// </returns>
-		//internal static KeyCode ToKeys( uint x11keycode )
+		//public static KeyCode ToKeys( uint x11keycode )
 		//{
 		//    switch ( x11keycode )
 		//    {
