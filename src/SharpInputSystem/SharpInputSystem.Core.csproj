@@ -37,13 +37,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging.Core, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging.Core">
       <HintPath>..\..\packages\Common.Logging.Core.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.dll</HintPath>
-      <Private>True</Private>
     </Reference>
-    <Reference Include="Common.Logging.Portable, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+    <Reference Include="Common.Logging.Portable">
       <HintPath>..\..\packages\Common.Logging.Portable.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7\Common.Logging.Portable.dll</HintPath>
-      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
