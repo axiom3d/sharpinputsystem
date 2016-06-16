@@ -8,8 +8,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.SWF", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.X11", "src\SharpInputSystem.X11\SharpInputSystem.X11.csproj", "{E7611F78-E15A-4CFA-A491-86459129C7D8}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharpInputSystem.Shared", "src\SharpInputSystem\SharpInputSystem.Shared.shproj", "{16B4A73A-8A44-4395-9136-0E9AD4160621}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SharpInputSystem.Test.Console.Shared", "src\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.shproj", "{11320596-1706-4146-8DB7-7A0AA01635B7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.Console.DirectX", "src\SharpInputSystem.Test.Console.DirectX\SharpInputSystem.Test.Console.DirectX.csproj", "{414B57C9-4B95-4503-AD7B-99426D6FC47D}"
@@ -41,10 +39,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{76BC45
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		src\SharpInputSystem\SharpInputSystem.Shared.projitems*{16b4a73a-8a44-4395-9136-0e9ad4160621}*SharedItemsImports = 13
 		src\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems*{414b57c9-4b95-4503-ad7b-99426d6fc47d}*SharedItemsImports = 4
 		src\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems*{3cc3be20-4b0b-48a6-8771-8c0684b59208}*SharedItemsImports = 4
-		src\SharpInputSystem\SharpInputSystem.Shared.projitems*{8476c51c-0028-4b79-b9a7-a666e11400cb}*SharedItemsImports = 4
 		src\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems*{29045d60-94b4-4574-bdcb-e06d0ca26bfa}*SharedItemsImports = 4
 		src\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems*{11320596-1706-4146-8db7-7a0aa01635b7}*SharedItemsImports = 13
 	EndGlobalSection
