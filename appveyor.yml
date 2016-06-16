@@ -1,20 +1,46 @@
 version: 0.5.{build}
+
+image: Visual Studio 2015
+
 assembly_info:
   patch: true
-  file: AssemblyInfo.*
+  file: CommonAssemblyInfo.*
   assembly_version: "{version}"
   assembly_file_version: "{version}"
   assembly_informational_version: "{version}-alpha"
+
 branches:
   only:
   - VS2015Upgrade
-configuration: Release
+
+configuration:
+  - Debug 
+  - Release
 platform: Any CPU
-environment:
-  NuProjPath: ..\..\packages\NuProj.0.10.4-beta-gf7fc34e7d8\tools
+
+matrix:
+  fast_finish: true
+
 build:
+  parallel: true 
   project: SharpInputSystem.sln
   verbosity: minimal
+  publish_nuget: true 
+  publish_nuget_symbols: true 
+  include_nuget_references: true
+
+
 artifacts:
 - path: '**\bin\**\*.nupkg'
   name: NuGet Packages
+
+deploy:
+     # Deploying to NuGet feed 
+#- provider: NuGet 
+#  server: https://my.nuget.server/feed 
+#  api_key: 
+#    secure: FYWX6NfjZIVw== 
+#  skip_symbols: false 
+#  symbol_server: https://your.symbol.server/feed 
+#  artifact: MyPackage.nupkg 
+  
