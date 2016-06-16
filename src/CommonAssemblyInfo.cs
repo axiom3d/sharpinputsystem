@@ -1,8 +1,8 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright © Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -31,24 +31,24 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 #endregion MIT/X11 License
 
-#region Namespace Declarations
+using System.Reflection;
 
-using System;
+// General Information about an assembly is controlled through the following 
+// set of attributes. Change these attribute values to modify the information
+// associated with an assembly.
 
-#endregion Namespace Declarations
+[assembly: AssemblyDescription( "Portable Input System in C#" )]
+[assembly: AssemblyCompany( "Michael Cummings" )]
+[assembly: AssemblyCopyright( "Copyright © Michael Cummings" )]
+[assembly: AssemblyTrademark( "" )]
+[assembly: AssemblyCulture( "" )]
+[assembly: AssemblyConfiguration( "" )]
 
-namespace SharpInputSystem
-{
-    public class MouseInfo : DeviceInfo
-    {
-        #region DeviceInfo Members
+#if DEBUG
+[assembly: AssemblyVersion( "0.4.0.*" )]
+#else
+[assembly: AssemblyVersion( "0.4.0.0" )]
+#endif
 
-        public int Id { get; set; }
-
-        public Guid DeviceId { get; set; }
-
-        public string Vendor { get; set; }
-
-        #endregion
-    }
-}
+[assembly: AssemblyFileVersion( "0.4.0.0" )]
+[assembly: AssemblyInformationalVersionAttribute("0.4.0.0-alpha")]

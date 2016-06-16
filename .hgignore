@@ -10,3 +10,5 @@ glob:*.cache
 _ReSharper*
 packages/*
 .vscode\settings.json
+*.nupkg
+*.zip

@@ -2,7 +2,7 @@
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright Â© 2007-2011 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 

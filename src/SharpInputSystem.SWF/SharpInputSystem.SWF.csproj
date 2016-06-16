@@ -58,21 +58,37 @@
   <ItemGroup>
     <Reference Include="Common.Logging, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.3.3.2-Alpha3\lib\net40\Common.Logging.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Common.Logging.Core, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Common.Logging.Core.3.3.2-Alpha3\lib\net40\Common.Logging.Core.dll</HintPath>
-      <Private>True</Private>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
+  <PropertyGroup Label="NuGetConfiguration">
+    <Title Condition=" '$(Title)' ==  ''">SharpInputSystem</Title>
+    <Authors Condition=" '$(Authors)' ==  ''">Michael Cummings</Authors>
+    <Owners Condition=" '$(Owners)' ==  ''">Michael Cummings</Owners>
+    <Summary Condition=" '$(Summary)' ==  ''"></Summary>
+    <Description Condition=" '$(Description)' ==  ''">Cross Platform Object Oriented Input System</Description>
+    <ReleaseNotes Condition=" '$(ProjeReleaseNotesctUrl)' ==  ''"></ReleaseNotes>
+    <ProjectUrl Condition=" '$(ProjectUrl)' ==  ''">https://bitbucket.org/borrillis/sharpinputsystem/overview</ProjectUrl>
+    <LicenseUrl Condition=" '$(LicenseUrl)' ==  ''">https://opensource.org/licenses/MIT</LicenseUrl>
+    <IconUrl Condition=" '$(IconUrl)' ==  ''">https://bitbucket.org/borrillis/sharpinputsystem/avatar/xxxlarge/?ts=1466081447</IconUrl>
+    <Copyright Condition=" '$(Copyright)' ==  ''">Copyright © Michael Cummings</Copyright>
+    <Tags Condition=" '$(Tags)' ==  ''">$(Tags), SWF, Forms</Tags>
+  </PropertyGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="..\CommonAssemblyInfo.cs">
+      <Link>Properties\CommonAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SWFInputManager.cs" />
     <Compile Include="SWFInputManagerFactory.cs" />
@@ -83,6 +99,7 @@
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
       <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
       <Name>SharpInputSystem.Core</Name>
+      <Private>False</Private>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />

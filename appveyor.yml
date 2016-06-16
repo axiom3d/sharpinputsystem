@@ -1,0 +1,20 @@
+version: 0.5.{build}
+assembly_info:
+  patch: true
+  file: AssemblyInfo.*
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}-alpha"
+branches:
+  only:
+  - VS2015Upgrade
+configuration: Release
+platform: Any CPU
+environment:
+  NuProjPath: ..\..\packages\NuProj.0.10.4-beta-gf7fc34e7d8\tools
+build:
+  project: SharpInputSystem.sln
+  verbosity: minimal
+artifacts:
+- path: '**\bin\**\*.nupkg'
+  name: NuGet Packages
