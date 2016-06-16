@@ -45,10 +45,10 @@ using System.Reflection;
 [assembly: AssemblyConfiguration( "" )]
 
 #if DEBUG
-[assembly: AssemblyVersion( "0.4.0.*" )]
+[assembly: AssemblyVersion( "0.5.0.*" )]
 #else
-[assembly: AssemblyVersion( "0.4.0.0" )]
+[assembly: AssemblyVersion( "0.5.0.0" )]
 #endif
 
-[assembly: AssemblyFileVersion( "0.4.0.0" )]
-[assembly: AssemblyInformationalVersionAttribute("0.4.0.0-alpha")]
+[assembly: AssemblyFileVersion( "0.5.0.0" )]
+[assembly: AssemblyInformationalVersionAttribute("0.5.0.0-alpha")]
