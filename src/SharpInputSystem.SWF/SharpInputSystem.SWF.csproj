@@ -68,19 +68,6 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
-  <PropertyGroup Label="NuGetConfiguration">
-    <Title Condition=" '$(Title)' ==  ''">SharpInputSystem</Title>
-    <Authors Condition=" '$(Authors)' ==  ''">Michael Cummings</Authors>
-    <Owners Condition=" '$(Owners)' ==  ''">Michael Cummings</Owners>
-    <Summary Condition=" '$(Summary)' ==  ''"></Summary>
-    <Description Condition=" '$(Description)' ==  ''">Cross Platform Object Oriented Input System</Description>
-    <ReleaseNotes Condition=" '$(ProjeReleaseNotesctUrl)' ==  ''"></ReleaseNotes>
-    <ProjectUrl Condition=" '$(ProjectUrl)' ==  ''">https://bitbucket.org/borrillis/sharpinputsystem/overview</ProjectUrl>
-    <LicenseUrl Condition=" '$(LicenseUrl)' ==  ''">https://opensource.org/licenses/MIT</LicenseUrl>
-    <IconUrl Condition=" '$(IconUrl)' ==  ''">https://bitbucket.org/borrillis/sharpinputsystem/avatar/xxxlarge/?ts=1466081447</IconUrl>
-    <Copyright Condition=" '$(Copyright)' ==  ''">Copyright © Michael Cummings</Copyright>
-    <Tags Condition=" '$(Tags)' ==  ''">$(Tags), SWF, Forms</Tags>
-  </PropertyGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>

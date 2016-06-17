@@ -38,4 +38,5 @@
     <Error Condition="!Exists('$(NuProjPath)\NuProj.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(NuProjPath)\NuProj.targets'))" />
   </Target>
   <Target Name="_SplitProjectReferencesByFileExistence" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
 </Project>
