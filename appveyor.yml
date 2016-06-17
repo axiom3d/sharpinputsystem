@@ -11,7 +11,7 @@ assembly_info:
 
 branches:
   only:
-  - VS2015Upgrade
+  - default
 
 configuration:
   - Debug 
