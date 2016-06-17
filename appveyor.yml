@@ -1,0 +1,42 @@
+version: 0.5.{build}
+
+image: Visual Studio 2015
+
+assembly_info:
+  patch: true
+  file: src\CommonAssemblyInfo.cs
+  assembly_version: "{version}"
+  assembly_file_version: "{version}"
+  assembly_informational_version: "{version}-alpha"
+
+branches:
+  only:
+  - VS2015Upgrade
+
+configuration:
+  - Debug 
+  - Release
+platform: Any CPU
+
+matrix:
+  fast_finish: true
+
+build:
+  parallel: true 
+  project: SharpInputSystem.sln
+  verbosity: minimal
+
+artifacts:
+- path: '**\bin\**\*.nupkg'
+  name: NuGet Packages
+
+deploy:
+     # Deploying to NuGet feed 
+#- provider: NuGet 
+#  server: https://my.nuget.server/feed 
+#  api_key: 
+#    secure: FYWX6NfjZIVw== 
+#  skip_symbols: false 
+#  symbol_server: https://your.symbol.server/feed 
+#  artifact: MyPackage.nupkg 
+  

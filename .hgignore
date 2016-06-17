@@ -1,0 +1,14 @@
+syntax: glob
+.svn*
+*.suo
+bin*
+obj*
+build*
+*.user
+*.cachefile
+glob:*.cache
+_ReSharper*
+packages/*
+.vscode\settings.json
+*.nupkg
+*.zip
