@@ -25,10 +25,6 @@ build:
   parallel: true 
   project: SharpInputSystem.sln
   verbosity: minimal
-  publish_nuget: true 
-  publish_nuget_symbols: true 
-  include_nuget_references: true
-
 
 artifacts:
 - path: '**\bin\**\*.nupkg'
