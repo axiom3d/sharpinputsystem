@@ -12,6 +12,7 @@ assembly_info:
 branches:
   only:
   - default
+  - dev
 
 configuration:
   - Debug 
