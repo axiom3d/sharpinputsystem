@@ -1,1 +1,0 @@
-﻿this example demonstrates the implementation of a custom logger
