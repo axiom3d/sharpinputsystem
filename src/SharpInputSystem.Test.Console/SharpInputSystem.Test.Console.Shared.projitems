@@ -16,6 +16,5 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Program.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
   </ItemGroup>
 </Project>
