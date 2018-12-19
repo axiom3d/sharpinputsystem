@@ -1,31 +1,31 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright © 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
 which can be found at http://www.sourceforge.net/projects/wgois.  
-Many thanks to the Phillip Castaneda for maintaining such a high quality project.
+Many thanks to Phillip Castaneda for maintaining such a high quality project.
 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 */
 
@@ -34,12 +34,8 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 #region tNamespace Declarations
 
 using System;
-
 using Common.Logging;
-
 using SharpDX.DirectInput;
-
-using MDI = SharpDX.DirectInput;
 
 #endregion Namespace Declarations
 
@@ -50,20 +46,20 @@ namespace SharpInputSystem.DirectX
         #region Fields and Properties
 
         private const int BufferSize = 17;
-        private static readonly ILog log = LogManager.GetLogger( typeof ( DirectXKeyboard ) );
+        private static readonly ILog log = LogManager.GetLogger(typeof(DirectXKeyboard));
 
         private readonly CooperativeLevel _coopSettings;
         private readonly DirectInput _directInput;
         private readonly KeyboardInfo _kbInfo;
 
-        private readonly int[] _keyboardState = new int[ 256 ];
+        private readonly int[] _keyboardState = new int[256];
         private SharpDX.DirectInput.Keyboard _keyboard;
 
         #endregion Fields and Properties
 
         #region Construction and Destruction
 
-        public DirectXKeyboard( InputManager creator, DirectInput directInput, bool buffered, CooperativeLevel coopSettings )
+        public DirectXKeyboard(InputManager creator, DirectInput directInput, bool buffered, CooperativeLevel coopSettings)
         {
             Creator = creator;
             this._directInput = directInput;
@@ -72,19 +68,19 @@ namespace SharpInputSystem.DirectX
             Type = InputType.Keyboard;
             EventListener = null;
 
-            this._kbInfo = ( KeyboardInfo ) ( ( DirectXInputManager ) Creator ).CaptureDevice<Keyboard>( );
+            this._kbInfo = (KeyboardInfo)((DirectXInputManager)Creator).CaptureDevice<Keyboard>();
 
-            if ( this._kbInfo == null )
-                throw new Exception( "No devices match requested type." );
+            if (this._kbInfo == null)
+                throw new Exception("No devices match requested type.");
 
-            log.Debug( "DirectXKeyboard device created." );
+            log.Debug("DirectXKeyboard device created.");
         }
 
-        protected override void Dispose( bool disposeManagedResources )
+        protected override void Dispose(bool disposeManagedResources)
         {
-            if ( !IsDisposed )
+            if (!IsDisposed)
             {
-                if ( disposeManagedResources )
+                if (disposeManagedResources)
                 {
                     // Dispose managed resources.
                 }
@@ -93,7 +89,7 @@ namespace SharpInputSystem.DirectX
                 // if we add them, they need to be released here.
                 try
                 {
-                    this._keyboard.Unacquire( );
+                    this._keyboard.Unacquire();
                 }
                 catch
                 {
@@ -101,94 +97,94 @@ namespace SharpInputSystem.DirectX
                 }
                 finally
                 {
-                    this._keyboard.Dispose( );
+                    this._keyboard.Dispose();
                     this._keyboard = null;
                 }
 
-                ( ( DirectXInputManager ) Creator ).ReleaseDevice<Keyboard>( this._kbInfo );
+                ((DirectXInputManager)Creator).ReleaseDevice<Keyboard>(this._kbInfo);
 
-                log.Debug( "DirectXKeyboard device disposed." );
+                log.Debug("DirectXKeyboard device disposed.");
             }
 
             // If it is available, make the call to the
             // base class's Dispose(Boolean) method
-            base.Dispose( disposeManagedResources );
+            base.Dispose(disposeManagedResources);
         }
 
         #endregion Construction and Destruction
 
         #region Methods
 
-        private void Read( )
+        private void Read()
         {
-            KeyboardState state = this._keyboard.GetCurrentState( );
-            for ( int i = 0; i < 256; i++ )
-                this._keyboardState[ i ] = state.IsPressed( ( Key ) i ) ? i : 0;
+            KeyboardState state = this._keyboard.GetCurrentState();
+            for (int i = 0; i < 256; i++)
+                this._keyboardState[i] = state.IsPressed((Key)i) ? i : 0;
 
             //Set Shift, Ctrl, Alt
             shiftState = 0;
-            if ( IsKeyDown( KeyCode.Key_LCONTROL ) || IsKeyDown( KeyCode.Key_RCONTROL ) )
+            if (IsKeyDown(KeyCode.Key_LCONTROL) || IsKeyDown(KeyCode.Key_RCONTROL))
                 shiftState |= ShiftState.Ctrl;
-            if ( IsKeyDown( KeyCode.Key_LSHIFT ) || IsKeyDown( KeyCode.Key_RSHIFT ) )
+            if (IsKeyDown(KeyCode.Key_LSHIFT) || IsKeyDown(KeyCode.Key_RSHIFT))
                 shiftState |= ShiftState.Shift;
-            if ( IsKeyDown( KeyCode.Key_LMENU ) || IsKeyDown( KeyCode.Key_RMENU ) )
+            if (IsKeyDown(KeyCode.Key_LMENU) || IsKeyDown(KeyCode.Key_RMENU))
                 shiftState |= ShiftState.Alt;
         }
 
-        private void ReadBuffered( )
+        private void ReadBuffered()
         {
             // grab the collection of buffered data
-            KeyboardUpdate[] bufferedData = this._keyboard.GetBufferedData( );
+            KeyboardUpdate[] bufferedData = this._keyboard.GetBufferedData();
 
             // please tell me why this would ever come back null, rather than an empty collection...
-            if ( bufferedData == null )
+            if (bufferedData == null)
                 return;
-            foreach ( KeyboardUpdate packet in bufferedData )
+            foreach (KeyboardUpdate packet in bufferedData)
             {
                 bool ret = true;
 
                 //foreach (MDI.Key key in packet.PressedKeys)
                 //{
-                KeyCode keyCode = Convert( packet.Key );
+                KeyCode keyCode = Convert(packet.Key);
 
                 //Store result in our keyBuffer too
-                this._keyboardState[ ( int ) packet.Key ] = 1;
+                this._keyboardState[(int)packet.Key] = 1;
 
-                if ( packet.IsPressed )
+                if (packet.IsPressed)
                 {
-                    if ( packet.Key == Key.RightControl || packet.Key == Key.LeftControl )
+                    if (packet.Key == Key.RightControl || packet.Key == Key.LeftControl)
                         shiftState |= ShiftState.Ctrl;
-                    if ( packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt )
+                    if (packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt)
                         shiftState |= ShiftState.Alt;
-                    if ( packet.Key == Key.RightShift || packet.Key == Key.LeftShift )
+                    if (packet.Key == Key.RightShift || packet.Key == Key.LeftShift)
                         shiftState |= ShiftState.Shift;
 
-                    if ( EventListener != null )
-                        ret = EventListener.KeyPressed( new KeyEventArgs( this, keyCode, 0 ) );
-                    if ( ret == false )
+                    if (EventListener != null)
+                        ret = EventListener.KeyPressed(new KeyEventArgs(this, keyCode, 0));
+                    if (ret == false)
                         break;
                 }
                 else
                 {
-                    if ( packet.Key == Key.RightControl || packet.Key == Key.LeftControl )
+                    if (packet.Key == Key.RightControl || packet.Key == Key.LeftControl)
                         shiftState &= ~ShiftState.Ctrl;
-                    if ( packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt )
+                    if (packet.Key == Key.RightAlt || packet.Key == Key.LeftAlt)
                         shiftState &= ~ShiftState.Alt;
-                    if ( packet.Key == Key.RightShift || packet.Key == Key.LeftShift )
+                    if (packet.Key == Key.RightShift || packet.Key == Key.LeftShift)
                         shiftState &= ~ShiftState.Shift;
 
 
-                    if ( EventListener != null )
-                        ret = EventListener.KeyReleased( new KeyEventArgs( this, keyCode, 0 ) );
-                    if ( ret == false )
+                    if (EventListener != null)
+                        ret = EventListener.KeyReleased(new KeyEventArgs(this, keyCode, 0));
+                    if (ret == false)
                         break;
                 }
             }
         }
 
-        private KeyCode Convert( Key key )
+        private KeyCode Convert(Key key)
         {
-            switch ( key )
+            switch (key)
             {
                 case Key.A:
                     return KeyCode.Key_A;
@@ -444,33 +440,33 @@ namespace SharpInputSystem.DirectX
 
         #region InputObject Implementation
 
-        public override void Capture( )
+        public override void Capture()
         {
-            if ( IsBuffered )
-                ReadBuffered( );
+            if (IsBuffered)
+                ReadBuffered();
             else
-                Read( );
+                Read();
         }
 
-        protected override void Initialize( )
+        protected override void Initialize()
         {
-            this._keyboard = new SharpDX.DirectInput.Keyboard( this._directInput );
+            this._keyboard = new SharpDX.DirectInput.Keyboard(this._directInput);
 
             //_keyboard.SetDataFormat( MDI.DeviceDataFormat.Keyboard );
 
-			if ( this._coopSettings != 0 )
-				this._keyboard.SetCooperativeLevel( ( (DirectXInputManager)Creator ).WindowHandle, this._coopSettings );
+            if (this._coopSettings != 0)
+                this._keyboard.SetCooperativeLevel(((DirectXInputManager)Creator).WindowHandle, this._coopSettings);
 
-            if ( IsBuffered )
+            if (IsBuffered)
                 this._keyboard.Properties.BufferSize = BufferSize;
 
             try
             {
-                this._keyboard.Acquire( );
+                this._keyboard.Acquire();
             }
-            catch ( Exception e )
+            catch (Exception e)
             {
-                throw new Exception( "Failed to aquire keyboard using DirectInput.", e );
+                throw new Exception("Failed to aquire keyboard using DirectInput.", e);
             }
         }
 
@@ -480,17 +476,17 @@ namespace SharpInputSystem.DirectX
 
         public override int[] KeyStates
         {
-            get { return ( int[] ) this._keyboardState.Clone( ); }
+            get { return (int[])this._keyboardState.Clone(); }
         }
 
-        public override bool IsKeyDown( KeyCode key )
+        public override bool IsKeyDown(KeyCode key)
         {
-            return ( ( this._keyboardState[ ( int ) key ] ) != 0 );
+            return ((this._keyboardState[(int)key]) != 0);
         }
 
-        public override string AsString( KeyCode key )
+        public override string AsString(KeyCode key)
         {
-            return this._keyboard.Properties.GetKeyName( ( Key ) key );
+            return this._keyboard.Properties.GetKeyName((Key)key);
         }
 
         #endregion Keyboard Implementation

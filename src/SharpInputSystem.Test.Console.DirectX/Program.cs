@@ -1,4 +1,4 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
@@ -31,24 +31,14 @@ THE SOFTWARE.
 
 #endregion MIT/X11 License
 
-using System;
 
-namespace SharpInputSystem.X11
+namespace SharpInputSystem.Test.Console
 {
-	public class X11InputManagerFactory : IInputManagerFactory
-	{
-		#region IInputManagerFactory implementation
-		
-		public PlatformApi Api 
-		{
-			get { return PlatformApi.X11; }
-		}
-		public InputManager Create ()
-		{
-			return new X11InputManager();
-		}
-
-		#endregion
-	}
+    partial class Program
+    {
+        static partial void CreatInputSystem(ParameterList pl)
+        {
+            _inputManager = InputManager.CreateInputSystem( typeof(SharpInputSystem.DirectX.DirectXInputManagerFactory), pl);
+        }
+    }
 }
-

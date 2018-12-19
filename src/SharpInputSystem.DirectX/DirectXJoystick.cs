@@ -1,31 +1,31 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright © 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
 which can be found at http://www.sourceforge.net/projects/wgois.  
-Many thanks to the Phillip Castaneda for maintaining such a high quality project.
+Many thanks to Phillip Castaneda for maintaining such a high quality project.
 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 */
 
@@ -35,11 +35,7 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 using System;
 using System.Collections.Generic;
-using System.Management;
 
-using SharpDX.XInput;
-
-using SWF = System.Windows.Forms;
 using MDI = SharpDX.DirectInput;
 using SXI = SharpDX.XInput;
 
@@ -57,7 +53,7 @@ namespace SharpInputSystem.DirectX
         private readonly MDI.CooperativeLevel _coopSettings;
         private readonly Guid _deviceGuid;
         private readonly JoystickInfo _joyInfo;
-        private Dictionary<int, int> _axisMapping = new Dictionary<int, int>( );
+        private Dictionary<int, int> _axisMapping = new Dictionary<int, int>();
         //private int _axisNumber;
         private MDI.DirectInput _directInput;
         private DirectXForceFeedback _forceFeedback;
@@ -74,57 +70,57 @@ namespace SharpInputSystem.DirectX
             Type = InputType.Joystick;
             EventListener = null;
 
-            this._joyInfo = ( JoystickInfo ) ( ( DirectXInputManager ) Creator ).CaptureDevice<Joystick>( );
+            this._joyInfo = (JoystickInfo)((DirectXInputManager)Creator).CaptureDevice<Joystick>();
 
-            if ( this._joyInfo == null )
-                throw new Exception( "No devices match requested type." );
+            if (this._joyInfo == null)
+                throw new Exception("No devices match requested type.");
 
             this._deviceGuid = this._joyInfo.DeviceId;
             Vendor = this._joyInfo.Vendor;
-            DeviceID = this._joyInfo.Id.ToString( );
+            DeviceID = this._joyInfo.Id.ToString();
         }
 
-        protected override void Dispose( bool disposeManagedResources )
+        protected override void Dispose(bool disposeManagedResources)
         {
-            if ( !IsDisposed )
+            if (!IsDisposed)
             {
-                if ( disposeManagedResources )
+                if (disposeManagedResources)
                 {
                     // Dispose managed resources.
                 }
 
                 // There are no unmanaged resources to release, but
                 // if we add them, they need to be released here.
-                if ( this._joystick != null )
+                if (this._joystick != null)
                 {
                     try
                     {
-                        this._joystick.Unacquire( );
+                        this._joystick.Unacquire();
                     }
                     finally
                     {
-                        this._joystick.Dispose( );
+                        this._joystick.Dispose();
                         this._joystick = null;
                         this._directInput = null;
                         this._forceFeedback = null;
                     }
 
-                    ( ( DirectXInputManager ) Creator ).ReleaseDevice<Joystick>( this._joyInfo );
+                    ((DirectXInputManager)Creator).ReleaseDevice<Joystick>(this._joyInfo);
                 }
             }
             IsDisposed = true;
 
             // If it is available, make the call to the
             // base class's Dispose(Boolean) method
-            base.Dispose( disposeManagedResources );
+            base.Dispose(disposeManagedResources);
         }
 
-        protected void Enumerate( )
+        protected void Enumerate()
         {
-            if ( _joyInfo.IsXInput )
+            if (_joyInfo.IsXInput)
             {
                 this.PovCount = 1;
-                JoystickState.Axis.AddRange( new List<Axis>() { new Axis( ), new Axis( ), new Axis( ), new Axis( ), new Axis( ), new Axis( ) } );              
+                JoystickState.Axis.AddRange(new List<Axis>() { new Axis(), new Axis(), new Axis(), new Axis(), new Axis(), new Axis() });
             }
             else
             {
@@ -132,15 +128,15 @@ namespace SharpInputSystem.DirectX
                 MDI.Capabilities joystickCapabilities;
 
                 joystickCapabilities = _joystick.Capabilities;
-                this.AxisCount = ( short ) joystickCapabilities.AxeCount;
-                this.ButtonCount = ( short ) joystickCapabilities.ButtonCount;
-                this.PovCount = ( short ) joystickCapabilities.PovCount;
+                this.AxisCount = (short)joystickCapabilities.AxeCount;
+                this.ButtonCount = (short)joystickCapabilities.ButtonCount;
+                this.PovCount = (short)joystickCapabilities.PovCount;
 
-                for (int axis = 0; axis < AxisCount; axis++ )
+                for (int axis = 0; axis < AxisCount; axis++)
                     JoystickState.Axis.Add(new Axis());
 
                 //_axisNumber = 0;
-                _axisMapping.Clear( );
+                _axisMapping.Clear();
 
                 //TODO: Enumerate Force Feedback (if any)
                 /*
@@ -181,6 +177,7 @@ namespace SharpInputSystem.DirectX
         {
             if (unusedDevices.Count == 0)
                 return;
+            /*
 
             int xDeviceIndex = 0;
 
@@ -214,22 +211,23 @@ namespace SharpInputSystem.DirectX
                     }
                 }
             }
+            */
         }
 
         private bool DoButtonClick(int offset, MDI.JoystickUpdate entry)
         {
-            var eventArgs = new JoystickEventArgs( this, JoystickState );
-            if ( ( entry.Value & 0x80 ) != 0 )
+            var eventArgs = new JoystickEventArgs(this, JoystickState);
+            if ((entry.Value & 0x80) != 0)
             {
                 JoystickState.Buttons |= offset;
-                if ( IsBuffered && EventListener != null )
-                    return EventListener.ButtonPressed( eventArgs, 0 );
+                if (IsBuffered && EventListener != null)
+                    return EventListener.ButtonPressed(eventArgs, 0);
             }
             else
             {
                 JoystickState.Buttons &= ~offset;
-                if ( IsBuffered && EventListener != null )
-                    return EventListener.ButtonReleased( eventArgs, 0 );
+                if (IsBuffered && EventListener != null)
+                    return EventListener.ButtonReleased(eventArgs, 0);
             }
             return true;
         }
@@ -239,18 +237,18 @@ namespace SharpInputSystem.DirectX
             return true;
         }
 
-        public override void Capture( )
+        public override void Capture()
         {
-            if ( _joyInfo.IsXInput )
+            if (_joyInfo.IsXInput)
             {
-                CaptureXInput( );
+                CaptureXInput();
                 return;
             }
 
             MDI.JoystickUpdate[] bufferedData = null;
             bufferedData = this._joystick.GetBufferedData();
             if (bufferedData == null)
-            {               
+            {
                 this._joystick.Poll();
                 bufferedData = this._joystick.GetBufferedData();
                 if (bufferedData == null)
@@ -357,74 +355,74 @@ namespace SharpInputSystem.DirectX
 
         private void CaptureXInput()
         {
-            var controller = new SXI.Controller( ( SXI.UserIndex ) _joyInfo.XInputDevice );
-            var inputState = controller.GetState( );
+            var controller = new SXI.Controller((SXI.UserIndex)_joyInfo.XInputDevice);
+            var inputState = controller.GetState();
 
             bool[] axisMoved = { false, false, false, false, false, false, false, false };
 
             //AXIS
-            axisMoved[ 0 ] = GetAxisMovement( JoystickState.Axis[ 0 ], -( int ) inputState.Gamepad.LeftThumbY );
-            axisMoved[ 1 ] = GetAxisMovement( JoystickState.Axis[ 1 ], inputState.Gamepad.LeftThumbX );
-            axisMoved[ 2 ] = GetAxisMovement( JoystickState.Axis[ 2 ], -( int ) inputState.Gamepad.RightThumbY );
-            axisMoved[ 3 ] = GetAxisMovement( JoystickState.Axis[ 3 ], inputState.Gamepad.RightThumbX );
-            axisMoved[ 4 ] = GetAxisMovement( JoystickState.Axis[ 4 ], inputState.Gamepad.LeftTrigger*129 < Joystick.Max_Axis ? inputState.Gamepad.LeftTrigger*129 : Joystick.Max_Axis );
-            axisMoved[ 5 ] = GetAxisMovement( JoystickState.Axis[ 5 ], inputState.Gamepad.RightTrigger*129 < Joystick.Max_Axis ? inputState.Gamepad.RightTrigger*129 : Joystick.Max_Axis );
+            axisMoved[0] = GetAxisMovement(JoystickState.Axis[0], -inputState.Gamepad.LeftThumbY);
+            axisMoved[1] = GetAxisMovement(JoystickState.Axis[1], inputState.Gamepad.LeftThumbX);
+            axisMoved[2] = GetAxisMovement(JoystickState.Axis[2], -inputState.Gamepad.RightThumbY);
+            axisMoved[3] = GetAxisMovement(JoystickState.Axis[3], inputState.Gamepad.RightThumbX);
+            axisMoved[4] = GetAxisMovement(JoystickState.Axis[4], inputState.Gamepad.LeftTrigger * 129 < Joystick.Max_Axis ? inputState.Gamepad.LeftTrigger * 129 : Joystick.Max_Axis);
+            axisMoved[5] = GetAxisMovement(JoystickState.Axis[5], inputState.Gamepad.RightTrigger * 129 < Joystick.Max_Axis ? inputState.Gamepad.RightTrigger * 129 : Joystick.Max_Axis);
 
             //POV
-            Pov.Position previousPov = JoystickState.Povs[ 0 ].Direction;
+            Pov.Position previousPov = JoystickState.Povs[0].Direction;
             Pov.Position pov = Pov.Position.Centered;
-            if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadUp ) != 0 )
+            if ((inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadUp) != 0)
                 pov |= Pov.Position.North;
-            else if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadDown ) != 0 )
+            else if ((inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadDown) != 0)
                 pov |= Pov.Position.South;
-            if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadLeft ) != 0 )
+            if ((inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadLeft) != 0)
                 pov |= Pov.Position.West;
-            else if ( ( inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadRight ) != 0 )
+            else if ((inputState.Gamepad.Buttons & SXI.GamepadButtonFlags.DPadRight) != 0)
                 pov |= Pov.Position.East;
-            JoystickState.Povs[ 0 ].Direction = pov;
+            JoystickState.Povs[0].Direction = pov;
 
             //BUTTONS
             // Skip the first 4 as they are the DPad.
             var previousButtons = JoystickState.Buttons;
-            for ( int i = 0; i < 12; i++ )
+            for (int i = 0; i < 12; i++)
             {
-                if ( ( ( int ) inputState.Gamepad.Buttons & ( 1 << ( i + 4 ) ) ) != 0 )
+                if (((int)inputState.Gamepad.Buttons & (1 << (i + 4))) != 0)
                 {
-                    JoystickState.Buttons |= 1 << ( i + 4 );
+                    JoystickState.Buttons |= 1 << (i + 4);
                 }
                 else
                 {
-                    JoystickState.Buttons &= ~( 1 << ( i + 4 ) );
+                    JoystickState.Buttons &= ~(1 << (i + 4));
                 }
             }
 
             //Send Events
-            if ( IsBuffered && EventListener != null )
+            if (IsBuffered && EventListener != null)
             {
-                var joystickEvent = new JoystickEventArgs( this, JoystickState );
+                var joystickEvent = new JoystickEventArgs(this, JoystickState);
 
                 // Axes
-                for ( int index = 0; index < axisMoved.Length; index++ )
+                for (int index = 0; index < axisMoved.Length; index++)
                 {
-                    if ( axisMoved[ index ] == true && EventListener.AxisMoved( joystickEvent, index ) )
+                    if (axisMoved[index] == true && EventListener.AxisMoved(joystickEvent, index))
                         return;
                 }
 
                 //POV
-                if ( previousPov != pov && !EventListener.PovMoved( joystickEvent, 0 ) )
+                if (previousPov != pov && !EventListener.PovMoved(joystickEvent, 0))
                     return;
 
                 //Buttons
-                for ( int i = 4; i < 16; i++ )
+                for (int i = 4; i < 16; i++)
                 {
-                    if ( ( ( previousButtons & ( 1 << i ) ) == 0 ) && JoystickState.IsButtonDown( i ) )
+                    if (((previousButtons & (1 << i)) == 0) && JoystickState.IsButtonDown(i))
                     {
-                        if ( !EventListener.ButtonPressed( joystickEvent, i ) )
+                        if (!EventListener.ButtonPressed(joystickEvent, i))
                             return;
                     }
-                    else if ( ( ( previousButtons & ( 1 << i ) ) != 0 ) && !JoystickState.IsButtonDown( i ) )
+                    else if (((previousButtons & (1 << i)) != 0) && !JoystickState.IsButtonDown(i))
                     {
-                        if ( !EventListener.ButtonReleased( joystickEvent, i ) )
+                        if (!EventListener.ButtonReleased(joystickEvent, i))
                             return;
                     }
                 }
@@ -432,28 +430,28 @@ namespace SharpInputSystem.DirectX
 
         }
 
-        private bool GetAxisMovement( Axis axis, int value )
+        private bool GetAxisMovement(Axis axis, int value)
         {
             axis.Relative = value - axis.Absolute;
             axis.Absolute = value;
             return axis.Relative != 0;
         }
 
-        protected override void Initialize( )
+        protected override void Initialize()
         {
-            if ( _joyInfo.IsXInput )
-                Enumerate( );
+            if (_joyInfo.IsXInput)
+                Enumerate();
             else
             {
                 JoystickState.Axis.Clear();
 
-                this._joystick = new SharpDX.DirectInput.Joystick( this._directInput, this._deviceGuid );
+                this._joystick = new SharpDX.DirectInput.Joystick(this._directInput, this._deviceGuid);
 
-                this._window = ( ( DirectXInputManager ) Creator ).WindowHandle;
+                this._window = ((DirectXInputManager)Creator).WindowHandle;
 
-                this._joystick.SetCooperativeLevel( this._window, this._coopSettings );
+                this._joystick.SetCooperativeLevel(this._window, this._coopSettings);
 
-                if ( IsBuffered )
+                if (IsBuffered)
                     this._joystick.Properties.BufferSize = BufferSize;
 
                 //Enumerate all axes/buttons/sliders/etc before aquiring
@@ -465,11 +463,11 @@ namespace SharpInputSystem.DirectX
             }
         }
 
-        public override IInputObjectInterface QueryInterface<T>( )
+        public override IInputObjectInterface QueryInterface<T>()
         {
-            if ( typeof ( T ) == typeof ( ForceFeedback ) )
+            if (typeof(T) == typeof(ForceFeedback))
                 return this._forceFeedback;
-            return base.QueryInterface<T>( );
+            return base.QueryInterface<T>();
         }
     }
 }
