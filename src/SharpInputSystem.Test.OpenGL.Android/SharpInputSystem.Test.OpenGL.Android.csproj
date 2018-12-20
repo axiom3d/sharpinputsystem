@@ -73,7 +73,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SharpInputSystem.Android81\SharpInputSystem.Android.csproj">
+    <ProjectReference Include="..\SharpInputSystem.Android\SharpInputSystem.Android.csproj">
       <Project>{864535de-7e55-4073-99a4-4447c09c5077}</Project>
       <Name>SharpInputSystem.Android</Name>
     </ProjectReference>
