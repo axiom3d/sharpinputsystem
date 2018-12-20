@@ -1,4 +1,4 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library

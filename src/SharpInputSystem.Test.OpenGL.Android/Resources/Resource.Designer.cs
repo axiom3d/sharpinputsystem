@@ -26,12 +26,2346 @@ namespace SharpInputSystem.Test.OpenGL.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::SharpInputSystem.Resource.String.ApplicationName = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.ApplicationName;
-			global::SharpInputSystem.Resource.String.Hello = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.Hello;
+			global::SharpInputSystem.Android.Resource.Animation.abc_fade_in = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_fade_in;
+			global::SharpInputSystem.Android.Resource.Animation.abc_fade_out = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_fade_out;
+			global::SharpInputSystem.Android.Resource.Animation.abc_grow_fade_in_from_bottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_grow_fade_in_from_bottom;
+			global::SharpInputSystem.Android.Resource.Animation.abc_popup_enter = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_popup_enter;
+			global::SharpInputSystem.Android.Resource.Animation.abc_popup_exit = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_popup_exit;
+			global::SharpInputSystem.Android.Resource.Animation.abc_shrink_fade_out_from_bottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_shrink_fade_out_from_bottom;
+			global::SharpInputSystem.Android.Resource.Animation.abc_slide_in_bottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_slide_in_bottom;
+			global::SharpInputSystem.Android.Resource.Animation.abc_slide_in_top = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_slide_in_top;
+			global::SharpInputSystem.Android.Resource.Animation.abc_slide_out_bottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_slide_out_bottom;
+			global::SharpInputSystem.Android.Resource.Animation.abc_slide_out_top = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.abc_slide_out_top;
+			global::SharpInputSystem.Android.Resource.Animation.tooltip_enter = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.tooltip_enter;
+			global::SharpInputSystem.Android.Resource.Animation.tooltip_exit = global::SharpInputSystem.Test.OpenGL.Android.Resource.Animation.tooltip_exit;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarDivider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarDivider;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarItemBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarItemBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarPopupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarPopupTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarSize;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarSplitStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarSplitStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarTabBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarTabBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarTabStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarTabStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarTabTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarTabTextStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.actionBarWidgetTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionBarWidgetTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.actionButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionDropDownStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionDropDownStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.actionMenuTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionMenuTextAppearance;
+			global::SharpInputSystem.Android.Resource.Attribute.actionMenuTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionMenuTextColor;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeCloseButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeCloseButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeCloseDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeCloseDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeCopyDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeCopyDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeCutDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeCutDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeFindDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeFindDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModePasteDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModePasteDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModePopupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModePopupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeSelectAllDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeSelectAllDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeShareDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeShareDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeSplitBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeSplitBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionModeWebSearchDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionModeWebSearchDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.actionOverflowButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionOverflowButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionOverflowMenuStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionOverflowMenuStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.actionProviderClass = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionProviderClass;
+			global::SharpInputSystem.Android.Resource.Attribute.actionViewClass = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.actionViewClass;
+			global::SharpInputSystem.Android.Resource.Attribute.activityChooserViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.activityChooserViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.alertDialogButtonGroupStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alertDialogButtonGroupStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.alertDialogCenterButtons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alertDialogCenterButtons;
+			global::SharpInputSystem.Android.Resource.Attribute.alertDialogStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alertDialogStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.alertDialogTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alertDialogTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.allowStacking = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.allowStacking;
+			global::SharpInputSystem.Android.Resource.Attribute.alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alpha;
+			global::SharpInputSystem.Android.Resource.Attribute.alphabeticModifiers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.alphabeticModifiers;
+			global::SharpInputSystem.Android.Resource.Attribute.arrowHeadLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.arrowHeadLength;
+			global::SharpInputSystem.Android.Resource.Attribute.arrowShaftLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.arrowShaftLength;
+			global::SharpInputSystem.Android.Resource.Attribute.autoCompleteTextViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoCompleteTextViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.autoSizeMaxTextSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoSizeMaxTextSize;
+			global::SharpInputSystem.Android.Resource.Attribute.autoSizeMinTextSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoSizeMinTextSize;
+			global::SharpInputSystem.Android.Resource.Attribute.autoSizePresetSizes = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoSizePresetSizes;
+			global::SharpInputSystem.Android.Resource.Attribute.autoSizeStepGranularity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoSizeStepGranularity;
+			global::SharpInputSystem.Android.Resource.Attribute.autoSizeTextType = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.autoSizeTextType;
+			global::SharpInputSystem.Android.Resource.Attribute.background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.background;
+			global::SharpInputSystem.Android.Resource.Attribute.backgroundSplit = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.backgroundSplit;
+			global::SharpInputSystem.Android.Resource.Attribute.backgroundStacked = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.backgroundStacked;
+			global::SharpInputSystem.Android.Resource.Attribute.backgroundTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.backgroundTint;
+			global::SharpInputSystem.Android.Resource.Attribute.backgroundTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.backgroundTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.barLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.barLength;
+			global::SharpInputSystem.Android.Resource.Attribute.borderlessButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.borderlessButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonBarButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonBarButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonBarNegativeButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonBarNegativeButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonBarNeutralButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonBarNeutralButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonBarPositiveButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonBarPositiveButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonGravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonGravity;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonPanelSideLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonPanelSideLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonStyleSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonStyleSmall;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonTint;
+			global::SharpInputSystem.Android.Resource.Attribute.buttonTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.buttonTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.checkboxStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.checkboxStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.checkedTextViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.checkedTextViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.closeIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.closeIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.closeItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.closeItemLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.collapseContentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.collapseContentDescription;
+			global::SharpInputSystem.Android.Resource.Attribute.collapseIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.collapseIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.color = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.color;
+			global::SharpInputSystem.Android.Resource.Attribute.colorAccent = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorAccent;
+			global::SharpInputSystem.Android.Resource.Attribute.colorBackgroundFloating = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorBackgroundFloating;
+			global::SharpInputSystem.Android.Resource.Attribute.colorButtonNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorButtonNormal;
+			global::SharpInputSystem.Android.Resource.Attribute.colorControlActivated = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorControlActivated;
+			global::SharpInputSystem.Android.Resource.Attribute.colorControlHighlight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorControlHighlight;
+			global::SharpInputSystem.Android.Resource.Attribute.colorControlNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorControlNormal;
+			global::SharpInputSystem.Android.Resource.Attribute.colorError = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorError;
+			global::SharpInputSystem.Android.Resource.Attribute.colorPrimary = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorPrimary;
+			global::SharpInputSystem.Android.Resource.Attribute.colorPrimaryDark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorPrimaryDark;
+			global::SharpInputSystem.Android.Resource.Attribute.colorSwitchThumbNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.colorSwitchThumbNormal;
+			global::SharpInputSystem.Android.Resource.Attribute.commitIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.commitIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.contentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentDescription;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetEnd;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetEndWithActions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetEndWithActions;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetLeft;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetRight;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetStart;
+			global::SharpInputSystem.Android.Resource.Attribute.contentInsetStartWithNavigation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.contentInsetStartWithNavigation;
+			global::SharpInputSystem.Android.Resource.Attribute.controlBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.controlBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.customNavigationLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.customNavigationLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.defaultQueryHint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.defaultQueryHint;
+			global::SharpInputSystem.Android.Resource.Attribute.dialogPreferredPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dialogPreferredPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.dialogTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dialogTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.displayOptions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.displayOptions;
+			global::SharpInputSystem.Android.Resource.Attribute.divider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.divider;
+			global::SharpInputSystem.Android.Resource.Attribute.dividerHorizontal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dividerHorizontal;
+			global::SharpInputSystem.Android.Resource.Attribute.dividerPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dividerPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.dividerVertical = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dividerVertical;
+			global::SharpInputSystem.Android.Resource.Attribute.drawableSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.drawableSize;
+			global::SharpInputSystem.Android.Resource.Attribute.drawerArrowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.drawerArrowStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.dropDownListViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dropDownListViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.dropdownListPreferredItemHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.dropdownListPreferredItemHeight;
+			global::SharpInputSystem.Android.Resource.Attribute.editTextBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.editTextBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.editTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.editTextColor;
+			global::SharpInputSystem.Android.Resource.Attribute.editTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.editTextStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.elevation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.elevation;
+			global::SharpInputSystem.Android.Resource.Attribute.expandActivityOverflowButtonDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.expandActivityOverflowButtonDrawable;
+			global::SharpInputSystem.Android.Resource.Attribute.font = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.font;
+			global::SharpInputSystem.Android.Resource.Attribute.fontFamily = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontFamily;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderAuthority = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderAuthority;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderCerts = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderCerts;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderFetchStrategy = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderFetchStrategy;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderFetchTimeout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderFetchTimeout;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderPackage = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderPackage;
+			global::SharpInputSystem.Android.Resource.Attribute.fontProviderQuery = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontProviderQuery;
+			global::SharpInputSystem.Android.Resource.Attribute.fontStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.fontWeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.fontWeight;
+			global::SharpInputSystem.Android.Resource.Attribute.gapBetweenBars = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.gapBetweenBars;
+			global::SharpInputSystem.Android.Resource.Attribute.goIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.goIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.height;
+			global::SharpInputSystem.Android.Resource.Attribute.hideOnContentScroll = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.hideOnContentScroll;
+			global::SharpInputSystem.Android.Resource.Attribute.homeAsUpIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.homeAsUpIndicator;
+			global::SharpInputSystem.Android.Resource.Attribute.homeLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.homeLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.icon;
+			global::SharpInputSystem.Android.Resource.Attribute.iconTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.iconTint;
+			global::SharpInputSystem.Android.Resource.Attribute.iconTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.iconTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.iconifiedByDefault = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.iconifiedByDefault;
+			global::SharpInputSystem.Android.Resource.Attribute.imageButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.imageButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.indeterminateProgressStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.indeterminateProgressStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.initialActivityCount = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.initialActivityCount;
+			global::SharpInputSystem.Android.Resource.Attribute.isLightTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.isLightTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.itemPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.itemPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.layout;
+			global::SharpInputSystem.Android.Resource.Attribute.listChoiceBackgroundIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listChoiceBackgroundIndicator;
+			global::SharpInputSystem.Android.Resource.Attribute.listDividerAlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listDividerAlertDialog;
+			global::SharpInputSystem.Android.Resource.Attribute.listItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listItemLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.listLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.listMenuViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listMenuViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.listPopupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPopupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.listPreferredItemHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPreferredItemHeight;
+			global::SharpInputSystem.Android.Resource.Attribute.listPreferredItemHeightLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPreferredItemHeightLarge;
+			global::SharpInputSystem.Android.Resource.Attribute.listPreferredItemHeightSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPreferredItemHeightSmall;
+			global::SharpInputSystem.Android.Resource.Attribute.listPreferredItemPaddingLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPreferredItemPaddingLeft;
+			global::SharpInputSystem.Android.Resource.Attribute.listPreferredItemPaddingRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.listPreferredItemPaddingRight;
+			global::SharpInputSystem.Android.Resource.Attribute.logo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.logo;
+			global::SharpInputSystem.Android.Resource.Attribute.logoDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.logoDescription;
+			global::SharpInputSystem.Android.Resource.Attribute.maxButtonHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.maxButtonHeight;
+			global::SharpInputSystem.Android.Resource.Attribute.measureWithLargestChild = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.measureWithLargestChild;
+			global::SharpInputSystem.Android.Resource.Attribute.multiChoiceItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.multiChoiceItemLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.navigationContentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.navigationContentDescription;
+			global::SharpInputSystem.Android.Resource.Attribute.navigationIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.navigationIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.navigationMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.navigationMode;
+			global::SharpInputSystem.Android.Resource.Attribute.numericModifiers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.numericModifiers;
+			global::SharpInputSystem.Android.Resource.Attribute.overlapAnchor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.overlapAnchor;
+			global::SharpInputSystem.Android.Resource.Attribute.paddingBottomNoButtons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.paddingBottomNoButtons;
+			global::SharpInputSystem.Android.Resource.Attribute.paddingEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.paddingEnd;
+			global::SharpInputSystem.Android.Resource.Attribute.paddingStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.paddingStart;
+			global::SharpInputSystem.Android.Resource.Attribute.paddingTopNoTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.paddingTopNoTitle;
+			global::SharpInputSystem.Android.Resource.Attribute.panelBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.panelBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.panelMenuListTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.panelMenuListTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.panelMenuListWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.panelMenuListWidth;
+			global::SharpInputSystem.Android.Resource.Attribute.popupMenuStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.popupMenuStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.popupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.popupTheme;
+			global::SharpInputSystem.Android.Resource.Attribute.popupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.popupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.preserveIconSpacing = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.preserveIconSpacing;
+			global::SharpInputSystem.Android.Resource.Attribute.progressBarPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.progressBarPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.progressBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.progressBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.queryBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.queryBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.queryHint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.queryHint;
+			global::SharpInputSystem.Android.Resource.Attribute.radioButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.radioButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.ratingBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.ratingBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.ratingBarStyleIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.ratingBarStyleIndicator;
+			global::SharpInputSystem.Android.Resource.Attribute.ratingBarStyleSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.ratingBarStyleSmall;
+			global::SharpInputSystem.Android.Resource.Attribute.searchHintIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.searchHintIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.searchIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.searchIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.searchViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.searchViewStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.seekBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.seekBarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.selectableItemBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.selectableItemBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.selectableItemBackgroundBorderless = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.selectableItemBackgroundBorderless;
+			global::SharpInputSystem.Android.Resource.Attribute.showAsAction = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.showAsAction;
+			global::SharpInputSystem.Android.Resource.Attribute.showDividers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.showDividers;
+			global::SharpInputSystem.Android.Resource.Attribute.showText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.showText;
+			global::SharpInputSystem.Android.Resource.Attribute.showTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.showTitle;
+			global::SharpInputSystem.Android.Resource.Attribute.singleChoiceItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.singleChoiceItemLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.spinBars = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.spinBars;
+			global::SharpInputSystem.Android.Resource.Attribute.spinnerDropDownItemStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.spinnerDropDownItemStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.spinnerStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.spinnerStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.splitTrack = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.splitTrack;
+			global::SharpInputSystem.Android.Resource.Attribute.srcCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.srcCompat;
+			global::SharpInputSystem.Android.Resource.Attribute.state_above_anchor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.state_above_anchor;
+			global::SharpInputSystem.Android.Resource.Attribute.subMenuArrow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.subMenuArrow;
+			global::SharpInputSystem.Android.Resource.Attribute.submitBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.submitBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.subtitle;
+			global::SharpInputSystem.Android.Resource.Attribute.subtitleTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.subtitleTextAppearance;
+			global::SharpInputSystem.Android.Resource.Attribute.subtitleTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.subtitleTextColor;
+			global::SharpInputSystem.Android.Resource.Attribute.subtitleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.subtitleTextStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.suggestionRowLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.suggestionRowLayout;
+			global::SharpInputSystem.Android.Resource.Attribute.switchMinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.switchMinWidth;
+			global::SharpInputSystem.Android.Resource.Attribute.switchPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.switchPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.switchStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.switchStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.switchTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.switchTextAppearance;
+			global::SharpInputSystem.Android.Resource.Attribute.textAllCaps = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAllCaps;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceLargePopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceLargePopupMenu;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceListItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceListItem;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceListItemSecondary = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceListItemSecondary;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceListItemSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceListItemSmall;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearancePopupMenuHeader = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearancePopupMenuHeader;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceSearchResultSubtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceSearchResultSubtitle;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceSearchResultTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceSearchResultTitle;
+			global::SharpInputSystem.Android.Resource.Attribute.textAppearanceSmallPopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textAppearanceSmallPopupMenu;
+			global::SharpInputSystem.Android.Resource.Attribute.textColorAlertDialogListItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textColorAlertDialogListItem;
+			global::SharpInputSystem.Android.Resource.Attribute.textColorSearchUrl = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.textColorSearchUrl;
+			global::SharpInputSystem.Android.Resource.Attribute.theme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.theme;
+			global::SharpInputSystem.Android.Resource.Attribute.thickness = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.thickness;
+			global::SharpInputSystem.Android.Resource.Attribute.thumbTextPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.thumbTextPadding;
+			global::SharpInputSystem.Android.Resource.Attribute.thumbTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.thumbTint;
+			global::SharpInputSystem.Android.Resource.Attribute.thumbTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.thumbTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.tickMark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tickMark;
+			global::SharpInputSystem.Android.Resource.Attribute.tickMarkTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tickMarkTint;
+			global::SharpInputSystem.Android.Resource.Attribute.tickMarkTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tickMarkTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.tint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tint;
+			global::SharpInputSystem.Android.Resource.Attribute.tintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.title;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMargin = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMargin;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMarginBottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMarginBottom;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMarginEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMarginEnd;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMarginStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMarginStart;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMarginTop = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMarginTop;
+			global::SharpInputSystem.Android.Resource.Attribute.titleMargins = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleMargins;
+			global::SharpInputSystem.Android.Resource.Attribute.titleTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleTextAppearance;
+			global::SharpInputSystem.Android.Resource.Attribute.titleTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleTextColor;
+			global::SharpInputSystem.Android.Resource.Attribute.titleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.titleTextStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.toolbarNavigationButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.toolbarNavigationButtonStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.toolbarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.toolbarStyle;
+			global::SharpInputSystem.Android.Resource.Attribute.tooltipForegroundColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tooltipForegroundColor;
+			global::SharpInputSystem.Android.Resource.Attribute.tooltipFrameBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tooltipFrameBackground;
+			global::SharpInputSystem.Android.Resource.Attribute.tooltipText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.tooltipText;
+			global::SharpInputSystem.Android.Resource.Attribute.track = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.track;
+			global::SharpInputSystem.Android.Resource.Attribute.trackTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.trackTint;
+			global::SharpInputSystem.Android.Resource.Attribute.trackTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.trackTintMode;
+			global::SharpInputSystem.Android.Resource.Attribute.voiceIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.voiceIcon;
+			global::SharpInputSystem.Android.Resource.Attribute.windowActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowActionBar;
+			global::SharpInputSystem.Android.Resource.Attribute.windowActionBarOverlay = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowActionBarOverlay;
+			global::SharpInputSystem.Android.Resource.Attribute.windowActionModeOverlay = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowActionModeOverlay;
+			global::SharpInputSystem.Android.Resource.Attribute.windowFixedHeightMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowFixedHeightMajor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowFixedHeightMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowFixedHeightMinor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowFixedWidthMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowFixedWidthMajor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowFixedWidthMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowFixedWidthMinor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowMinWidthMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowMinWidthMajor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowMinWidthMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowMinWidthMinor;
+			global::SharpInputSystem.Android.Resource.Attribute.windowNoTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Attribute.windowNoTitle;
+			global::SharpInputSystem.Android.Resource.Boolean.abc_action_bar_embed_tabs = global::SharpInputSystem.Test.OpenGL.Android.Resource.Boolean.abc_action_bar_embed_tabs;
+			global::SharpInputSystem.Android.Resource.Boolean.abc_allow_stacked_button_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Boolean.abc_allow_stacked_button_bar;
+			global::SharpInputSystem.Android.Resource.Boolean.abc_config_actionMenuItemAllCaps = global::SharpInputSystem.Test.OpenGL.Android.Resource.Boolean.abc_config_actionMenuItemAllCaps;
+			global::SharpInputSystem.Android.Resource.Boolean.abc_config_closeDialogWhenTouchOutside = global::SharpInputSystem.Test.OpenGL.Android.Resource.Boolean.abc_config_closeDialogWhenTouchOutside;
+			global::SharpInputSystem.Android.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent = global::SharpInputSystem.Test.OpenGL.Android.Resource.Boolean.abc_config_showMenuShortcutsWhenKeyboardPresent;
+			global::SharpInputSystem.Android.Resource.Color.abc_background_cache_hint_selector_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_background_cache_hint_selector_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.abc_background_cache_hint_selector_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_background_cache_hint_selector_material_light;
+			global::SharpInputSystem.Android.Resource.Color.abc_btn_colored_borderless_text_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_btn_colored_borderless_text_material;
+			global::SharpInputSystem.Android.Resource.Color.abc_btn_colored_text_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_btn_colored_text_material;
+			global::SharpInputSystem.Android.Resource.Color.abc_color_highlight_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_color_highlight_material;
+			global::SharpInputSystem.Android.Resource.Color.abc_hint_foreground_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_hint_foreground_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.abc_hint_foreground_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_hint_foreground_material_light;
+			global::SharpInputSystem.Android.Resource.Color.abc_input_method_navigation_guard = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_input_method_navigation_guard;
+			global::SharpInputSystem.Android.Resource.Color.abc_primary_text_disable_only_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_primary_text_disable_only_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.abc_primary_text_disable_only_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_primary_text_disable_only_material_light;
+			global::SharpInputSystem.Android.Resource.Color.abc_primary_text_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_primary_text_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.abc_primary_text_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_primary_text_material_light;
+			global::SharpInputSystem.Android.Resource.Color.abc_search_url_text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_search_url_text;
+			global::SharpInputSystem.Android.Resource.Color.abc_search_url_text_normal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_search_url_text_normal;
+			global::SharpInputSystem.Android.Resource.Color.abc_search_url_text_pressed = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_search_url_text_pressed;
+			global::SharpInputSystem.Android.Resource.Color.abc_search_url_text_selected = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_search_url_text_selected;
+			global::SharpInputSystem.Android.Resource.Color.abc_secondary_text_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_secondary_text_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.abc_secondary_text_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_secondary_text_material_light;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_btn_checkable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_btn_checkable;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_default = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_default;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_edittext = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_edittext;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_seek_thumb = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_seek_thumb;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_spinner;
+			global::SharpInputSystem.Android.Resource.Color.abc_tint_switch_track = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.abc_tint_switch_track;
+			global::SharpInputSystem.Android.Resource.Color.accent_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.accent_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.accent_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.accent_material_light;
+			global::SharpInputSystem.Android.Resource.Color.background_floating_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.background_floating_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.background_floating_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.background_floating_material_light;
+			global::SharpInputSystem.Android.Resource.Color.background_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.background_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.background_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.background_material_light;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_disabled_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_disabled_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_disabled_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_disabled_material_light;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_inverse_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_inverse_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_inverse_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_inverse_material_light;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.bright_foreground_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.bright_foreground_material_light;
+			global::SharpInputSystem.Android.Resource.Color.button_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.button_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.button_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.button_material_light;
+			global::SharpInputSystem.Android.Resource.Color.dim_foreground_disabled_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.dim_foreground_disabled_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.dim_foreground_disabled_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.dim_foreground_disabled_material_light;
+			global::SharpInputSystem.Android.Resource.Color.dim_foreground_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.dim_foreground_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.dim_foreground_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.dim_foreground_material_light;
+			global::SharpInputSystem.Android.Resource.Color.error_color_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.error_color_material;
+			global::SharpInputSystem.Android.Resource.Color.foreground_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.foreground_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.foreground_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.foreground_material_light;
+			global::SharpInputSystem.Android.Resource.Color.highlighted_text_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.highlighted_text_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.highlighted_text_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.highlighted_text_material_light;
+			global::SharpInputSystem.Android.Resource.Color.material_blue_grey_800 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_blue_grey_800;
+			global::SharpInputSystem.Android.Resource.Color.material_blue_grey_900 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_blue_grey_900;
+			global::SharpInputSystem.Android.Resource.Color.material_blue_grey_950 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_blue_grey_950;
+			global::SharpInputSystem.Android.Resource.Color.material_deep_teal_200 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_deep_teal_200;
+			global::SharpInputSystem.Android.Resource.Color.material_deep_teal_500 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_deep_teal_500;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_100 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_100;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_300 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_300;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_50 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_50;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_600 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_600;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_800 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_800;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_850 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_850;
+			global::SharpInputSystem.Android.Resource.Color.material_grey_900 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.material_grey_900;
+			global::SharpInputSystem.Android.Resource.Color.notification_action_color_filter = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.notification_action_color_filter;
+			global::SharpInputSystem.Android.Resource.Color.notification_icon_bg_color = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.notification_icon_bg_color;
+			global::SharpInputSystem.Android.Resource.Color.notification_material_background_media_default_color = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.notification_material_background_media_default_color;
+			global::SharpInputSystem.Android.Resource.Color.primary_dark_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_dark_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.primary_dark_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_dark_material_light;
+			global::SharpInputSystem.Android.Resource.Color.primary_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.primary_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_material_light;
+			global::SharpInputSystem.Android.Resource.Color.primary_text_default_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_text_default_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.primary_text_default_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_text_default_material_light;
+			global::SharpInputSystem.Android.Resource.Color.primary_text_disabled_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_text_disabled_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.primary_text_disabled_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.primary_text_disabled_material_light;
+			global::SharpInputSystem.Android.Resource.Color.ripple_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.ripple_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.ripple_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.ripple_material_light;
+			global::SharpInputSystem.Android.Resource.Color.secondary_text_default_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.secondary_text_default_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.secondary_text_default_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.secondary_text_default_material_light;
+			global::SharpInputSystem.Android.Resource.Color.secondary_text_disabled_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.secondary_text_disabled_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.secondary_text_disabled_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.secondary_text_disabled_material_light;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_disabled_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_disabled_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_disabled_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_disabled_material_light;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_material_light;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_normal_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_normal_material_dark;
+			global::SharpInputSystem.Android.Resource.Color.switch_thumb_normal_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.switch_thumb_normal_material_light;
+			global::SharpInputSystem.Android.Resource.Color.tooltip_background_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.tooltip_background_dark;
+			global::SharpInputSystem.Android.Resource.Color.tooltip_background_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Color.tooltip_background_light;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_content_inset_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_content_inset_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_content_inset_with_nav = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_content_inset_with_nav;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_default_height_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_default_height_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_default_padding_end_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_default_padding_end_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_default_padding_start_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_default_padding_start_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_elevation_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_elevation_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_icon_vertical_padding_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_icon_vertical_padding_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_overflow_padding_end_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_overflow_padding_end_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_overflow_padding_start_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_overflow_padding_start_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_progress_bar_size = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_progress_bar_size;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_stacked_max_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_stacked_max_height;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_stacked_tab_max_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_stacked_tab_max_width;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_subtitle_bottom_margin_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_bar_subtitle_top_margin_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_bar_subtitle_top_margin_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_button_min_height_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_button_min_height_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_button_min_width_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_button_min_width_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_action_button_min_width_overflow_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_action_button_min_width_overflow_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_alert_dialog_button_bar_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_alert_dialog_button_bar_height;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_button_inset_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_button_inset_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_button_inset_vertical_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_button_inset_vertical_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_button_padding_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_button_padding_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_button_padding_vertical_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_button_padding_vertical_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_cascading_menus_min_smallest_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_cascading_menus_min_smallest_width;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_config_prefDialogWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_config_prefDialogWidth;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_control_corner_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_control_corner_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_control_inset_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_control_inset_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_control_padding_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_control_padding_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_fixed_height_major = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_fixed_height_major;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_fixed_height_minor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_fixed_height_minor;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_fixed_width_major = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_fixed_width_major;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_fixed_width_minor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_fixed_width_minor;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_list_padding_bottom_no_buttons;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_list_padding_top_no_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_list_padding_top_no_title;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_min_width_major = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_min_width_major;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_min_width_minor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_min_width_minor;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_padding_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_padding_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_padding_top_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_padding_top_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dialog_title_divider_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dialog_title_divider_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_disabled_alpha_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_disabled_alpha_material_dark;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_disabled_alpha_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_disabled_alpha_material_light;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dropdownitem_icon_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dropdownitem_icon_width;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dropdownitem_text_padding_left = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dropdownitem_text_padding_left;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_dropdownitem_text_padding_right = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_dropdownitem_text_padding_right;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_edit_text_inset_bottom_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_edit_text_inset_bottom_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_edit_text_inset_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_edit_text_inset_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_edit_text_inset_top_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_edit_text_inset_top_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_floating_window_z = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_floating_window_z;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_list_item_padding_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_list_item_padding_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_panel_menu_list_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_panel_menu_list_width;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_progress_bar_height_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_progress_bar_height_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_search_view_preferred_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_search_view_preferred_height;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_search_view_preferred_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_search_view_preferred_width;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_seekbar_track_background_height_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_seekbar_track_background_height_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_seekbar_track_progress_height_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_seekbar_track_progress_height_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_select_dialog_padding_start_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_select_dialog_padding_start_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_switch_padding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_switch_padding;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_body_1_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_body_1_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_body_2_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_body_2_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_button_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_button_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_caption_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_caption_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_display_1_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_display_1_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_display_2_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_display_2_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_display_3_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_display_3_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_display_4_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_display_4_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_headline_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_headline_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_large_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_large_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_medium_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_medium_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_menu_header_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_menu_header_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_menu_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_menu_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_small_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_small_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_subhead_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_subhead_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_subtitle_material_toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_subtitle_material_toolbar;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_title_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_title_material;
+			global::SharpInputSystem.Android.Resource.Dimension.abc_text_size_title_material_toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.abc_text_size_title_material_toolbar;
+			global::SharpInputSystem.Android.Resource.Dimension.compat_button_inset_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.compat_button_inset_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.compat_button_inset_vertical_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.compat_button_inset_vertical_material;
+			global::SharpInputSystem.Android.Resource.Dimension.compat_button_padding_horizontal_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.compat_button_padding_horizontal_material;
+			global::SharpInputSystem.Android.Resource.Dimension.compat_button_padding_vertical_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.compat_button_padding_vertical_material;
+			global::SharpInputSystem.Android.Resource.Dimension.compat_control_corner_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.compat_control_corner_material;
+			global::SharpInputSystem.Android.Resource.Dimension.disabled_alpha_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.disabled_alpha_material_dark;
+			global::SharpInputSystem.Android.Resource.Dimension.disabled_alpha_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.disabled_alpha_material_light;
+			global::SharpInputSystem.Android.Resource.Dimension.highlight_alpha_material_colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.highlight_alpha_material_colored;
+			global::SharpInputSystem.Android.Resource.Dimension.highlight_alpha_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.highlight_alpha_material_dark;
+			global::SharpInputSystem.Android.Resource.Dimension.highlight_alpha_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.highlight_alpha_material_light;
+			global::SharpInputSystem.Android.Resource.Dimension.hint_alpha_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.hint_alpha_material_dark;
+			global::SharpInputSystem.Android.Resource.Dimension.hint_alpha_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.hint_alpha_material_light;
+			global::SharpInputSystem.Android.Resource.Dimension.hint_pressed_alpha_material_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.hint_pressed_alpha_material_dark;
+			global::SharpInputSystem.Android.Resource.Dimension.hint_pressed_alpha_material_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.hint_pressed_alpha_material_light;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_action_icon_size = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_action_icon_size;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_action_text_size = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_action_text_size;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_big_circle_margin = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_big_circle_margin;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_content_margin_start = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_content_margin_start;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_large_icon_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_large_icon_height;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_large_icon_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_large_icon_width;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_main_column_padding_top = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_main_column_padding_top;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_media_narrow_margin = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_media_narrow_margin;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_right_icon_size = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_right_icon_size;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_right_side_padding_top = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_right_side_padding_top;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_small_icon_background_padding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_small_icon_background_padding;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_small_icon_size_as_large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_small_icon_size_as_large;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_subtext_size = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_subtext_size;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_top_pad = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_top_pad;
+			global::SharpInputSystem.Android.Resource.Dimension.notification_top_pad_large_text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.notification_top_pad_large_text;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_corner_radius = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_corner_radius;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_horizontal_padding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_horizontal_padding;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_margin = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_margin;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_precise_anchor_extra_offset = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_precise_anchor_extra_offset;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_precise_anchor_threshold = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_precise_anchor_threshold;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_vertical_padding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_vertical_padding;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_y_offset_non_touch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_y_offset_non_touch;
+			global::SharpInputSystem.Android.Resource.Dimension.tooltip_y_offset_touch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Dimension.tooltip_y_offset_touch;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ab_share_pack_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ab_share_pack_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_action_bar_item_background_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_action_bar_item_background_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_borderless_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_borderless_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_check_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_check_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_000 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_000;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_015 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_check_to_on_mtrl_015;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_colored_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_colored_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_default_mtrl_shape = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_default_mtrl_shape;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_radio_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_radio_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_000 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_000;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_015 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_radio_to_on_mtrl_015;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00001;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_btn_switch_to_on_mtrl_00012;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_cab_background_internal_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_cab_background_internal_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_cab_background_top_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_cab_background_top_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_cab_background_top_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_cab_background_top_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_control_background_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_control_background_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_dialog_material_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_dialog_material_background;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_edit_text_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_edit_text_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_ab_back_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_ab_back_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_arrow_drop_right_black_24dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_clear_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_clear_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_commit_search_api_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_go_search_api_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_go_search_api_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_copy_mtrl_am_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_cut_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_overflow_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_overflow_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_paste_mtrl_am_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_selectall_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_menu_share_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_menu_share_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_search_api_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_search_api_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_black_16dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_black_16dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_black_36dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_black_36dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_black_48dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_black_48dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_half_black_16dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_half_black_16dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_half_black_36dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_half_black_36dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_star_half_black_48dp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_star_half_black_48dp;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ic_voice_search_api_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ic_voice_search_api_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_item_background_holo_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_item_background_holo_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_item_background_holo_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_item_background_holo_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_divider_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_divider_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_focused_holo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_focused_holo;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_longpressed_holo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_longpressed_holo;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_pressed_holo_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_pressed_holo_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_pressed_holo_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_pressed_holo_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_background_transition_holo_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_background_transition_holo_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_background_transition_holo_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_background_transition_holo_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_disabled_holo_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_disabled_holo_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_disabled_holo_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_disabled_holo_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_holo_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_holo_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_list_selector_holo_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_list_selector_holo_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_popup_background_mtrl_mult = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_popup_background_mtrl_mult;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ratingbar_indicator_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ratingbar_indicator_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ratingbar_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ratingbar_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_ratingbar_small_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_ratingbar_small_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_scrubber_control_off_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_000;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_scrubber_control_to_pressed_mtrl_005;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_scrubber_primary_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_scrubber_primary_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_scrubber_track_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_scrubber_track_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_seekbar_thumb_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_seekbar_thumb_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_seekbar_tick_mark_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_seekbar_tick_mark_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_seekbar_track_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_seekbar_track_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_spinner_mtrl_am_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_spinner_mtrl_am_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_spinner_textfield_background_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_spinner_textfield_background_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_switch_thumb_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_switch_thumb_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_switch_track_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_switch_track_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_tab_indicator_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_tab_indicator_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_tab_indicator_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_tab_indicator_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_cursor_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_cursor_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_left_mtrl_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_middle_mtrl_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_text_select_handle_right_mtrl_light;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_textfield_activated_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_textfield_activated_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_textfield_default_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_textfield_default_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_textfield_search_activated_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_textfield_search_default_mtrl_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_textfield_search_default_mtrl_alpha;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_textfield_search_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_textfield_search_material;
+			global::SharpInputSystem.Android.Resource.Drawable.abc_vector_test = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.abc_vector_test;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_action_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_action_background;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg_low = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg_low;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg_low_normal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg_low_normal;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg_low_pressed = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg_low_pressed;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg_normal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg_normal;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_bg_normal_pressed = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_bg_normal_pressed;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_icon_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_icon_background;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_template_icon_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_template_icon_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_template_icon_low_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_template_icon_low_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.notification_tile_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notification_tile_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.notify_panel_notification_icon_bg = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.notify_panel_notification_icon_bg;
+			global::SharpInputSystem.Android.Resource.Drawable.tooltip_frame_dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.tooltip_frame_dark;
+			global::SharpInputSystem.Android.Resource.Drawable.tooltip_frame_light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Drawable.tooltip_frame_light;
+			global::SharpInputSystem.Android.Resource.Id.ALT = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.ALT;
+			global::SharpInputSystem.Android.Resource.Id.CTRL = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.CTRL;
+			global::SharpInputSystem.Android.Resource.Id.FUNCTION = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.FUNCTION;
+			global::SharpInputSystem.Android.Resource.Id.META = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.META;
+			global::SharpInputSystem.Android.Resource.Id.SHIFT = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.SHIFT;
+			global::SharpInputSystem.Android.Resource.Id.SYM = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.SYM;
+			global::SharpInputSystem.Android.Resource.Id.action0 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action0;
+			global::SharpInputSystem.Android.Resource.Id.action_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_activity_content = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_activity_content;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_container = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_container;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_root = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_root;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_spinner;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_subtitle;
+			global::SharpInputSystem.Android.Resource.Id.action_bar_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_bar_title;
+			global::SharpInputSystem.Android.Resource.Id.action_container = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_container;
+			global::SharpInputSystem.Android.Resource.Id.action_context_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_context_bar;
+			global::SharpInputSystem.Android.Resource.Id.action_divider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_divider;
+			global::SharpInputSystem.Android.Resource.Id.action_image = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_image;
+			global::SharpInputSystem.Android.Resource.Id.action_menu_divider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_menu_divider;
+			global::SharpInputSystem.Android.Resource.Id.action_menu_presenter = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_menu_presenter;
+			global::SharpInputSystem.Android.Resource.Id.action_mode_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_mode_bar;
+			global::SharpInputSystem.Android.Resource.Id.action_mode_bar_stub = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_mode_bar_stub;
+			global::SharpInputSystem.Android.Resource.Id.action_mode_close_button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_mode_close_button;
+			global::SharpInputSystem.Android.Resource.Id.action_text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.action_text;
+			global::SharpInputSystem.Android.Resource.Id.actions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.actions;
+			global::SharpInputSystem.Android.Resource.Id.activity_chooser_view_content = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.activity_chooser_view_content;
+			global::SharpInputSystem.Android.Resource.Id.add = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.add;
+			global::SharpInputSystem.Android.Resource.Id.alertTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.alertTitle;
+			global::SharpInputSystem.Android.Resource.Id.always = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.always;
+			global::SharpInputSystem.Android.Resource.Id.async = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.async;
+			global::SharpInputSystem.Android.Resource.Id.beginning = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.beginning;
+			global::SharpInputSystem.Android.Resource.Id.blocking = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.blocking;
+			global::SharpInputSystem.Android.Resource.Id.bottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.bottom;
+			global::SharpInputSystem.Android.Resource.Id.buttonPanel = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.buttonPanel;
+			global::SharpInputSystem.Android.Resource.Id.cancel_action = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.cancel_action;
+			global::SharpInputSystem.Android.Resource.Id.checkbox = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.checkbox;
+			global::SharpInputSystem.Android.Resource.Id.chronometer = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.chronometer;
+			global::SharpInputSystem.Android.Resource.Id.collapseActionView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.collapseActionView;
+			global::SharpInputSystem.Android.Resource.Id.contentPanel = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.contentPanel;
+			global::SharpInputSystem.Android.Resource.Id.custom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.custom;
+			global::SharpInputSystem.Android.Resource.Id.customPanel = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.customPanel;
+			global::SharpInputSystem.Android.Resource.Id.decor_content_parent = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.decor_content_parent;
+			global::SharpInputSystem.Android.Resource.Id.default_activity_button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.default_activity_button;
+			global::SharpInputSystem.Android.Resource.Id.disableHome = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.disableHome;
+			global::SharpInputSystem.Android.Resource.Id.edit_query = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.edit_query;
+			global::SharpInputSystem.Android.Resource.Id.end = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.end;
+			global::SharpInputSystem.Android.Resource.Id.end_padder = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.end_padder;
+			global::SharpInputSystem.Android.Resource.Id.expand_activities_button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.expand_activities_button;
+			global::SharpInputSystem.Android.Resource.Id.expanded_menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.expanded_menu;
+			global::SharpInputSystem.Android.Resource.Id.forever = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.forever;
+			global::SharpInputSystem.Android.Resource.Id.home = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.home;
+			global::SharpInputSystem.Android.Resource.Id.homeAsUp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.homeAsUp;
+			global::SharpInputSystem.Android.Resource.Id.icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.icon;
+			global::SharpInputSystem.Android.Resource.Id.icon_group = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.icon_group;
+			global::SharpInputSystem.Android.Resource.Id.ifRoom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.ifRoom;
+			global::SharpInputSystem.Android.Resource.Id.image = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.image;
+			global::SharpInputSystem.Android.Resource.Id.info = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.info;
+			global::SharpInputSystem.Android.Resource.Id.italic = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.italic;
+			global::SharpInputSystem.Android.Resource.Id.line1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.line1;
+			global::SharpInputSystem.Android.Resource.Id.line3 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.line3;
+			global::SharpInputSystem.Android.Resource.Id.listMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.listMode;
+			global::SharpInputSystem.Android.Resource.Id.list_item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.list_item;
+			global::SharpInputSystem.Android.Resource.Id.media_actions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.media_actions;
+			global::SharpInputSystem.Android.Resource.Id.message = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.message;
+			global::SharpInputSystem.Android.Resource.Id.middle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.middle;
+			global::SharpInputSystem.Android.Resource.Id.multiply = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.multiply;
+			global::SharpInputSystem.Android.Resource.Id.never = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.never;
+			global::SharpInputSystem.Android.Resource.Id.none = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.none;
+			global::SharpInputSystem.Android.Resource.Id.normal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.normal;
+			global::SharpInputSystem.Android.Resource.Id.notification_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.notification_background;
+			global::SharpInputSystem.Android.Resource.Id.notification_main_column = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.notification_main_column;
+			global::SharpInputSystem.Android.Resource.Id.notification_main_column_container = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.notification_main_column_container;
+			global::SharpInputSystem.Android.Resource.Id.parentPanel = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.parentPanel;
+			global::SharpInputSystem.Android.Resource.Id.progress_circular = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.progress_circular;
+			global::SharpInputSystem.Android.Resource.Id.progress_horizontal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.progress_horizontal;
+			global::SharpInputSystem.Android.Resource.Id.radio = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.radio;
+			global::SharpInputSystem.Android.Resource.Id.right_icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.right_icon;
+			global::SharpInputSystem.Android.Resource.Id.right_side = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.right_side;
+			global::SharpInputSystem.Android.Resource.Id.screen = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.screen;
+			global::SharpInputSystem.Android.Resource.Id.scrollIndicatorDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.scrollIndicatorDown;
+			global::SharpInputSystem.Android.Resource.Id.scrollIndicatorUp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.scrollIndicatorUp;
+			global::SharpInputSystem.Android.Resource.Id.scrollView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.scrollView;
+			global::SharpInputSystem.Android.Resource.Id.search_badge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_badge;
+			global::SharpInputSystem.Android.Resource.Id.search_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_bar;
+			global::SharpInputSystem.Android.Resource.Id.search_button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_button;
+			global::SharpInputSystem.Android.Resource.Id.search_close_btn = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_close_btn;
+			global::SharpInputSystem.Android.Resource.Id.search_edit_frame = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_edit_frame;
+			global::SharpInputSystem.Android.Resource.Id.search_go_btn = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_go_btn;
+			global::SharpInputSystem.Android.Resource.Id.search_mag_icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_mag_icon;
+			global::SharpInputSystem.Android.Resource.Id.search_plate = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_plate;
+			global::SharpInputSystem.Android.Resource.Id.search_src_text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_src_text;
+			global::SharpInputSystem.Android.Resource.Id.search_voice_btn = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.search_voice_btn;
+			global::SharpInputSystem.Android.Resource.Id.select_dialog_listview = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.select_dialog_listview;
+			global::SharpInputSystem.Android.Resource.Id.shortcut = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.shortcut;
+			global::SharpInputSystem.Android.Resource.Id.showCustom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.showCustom;
+			global::SharpInputSystem.Android.Resource.Id.showHome = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.showHome;
+			global::SharpInputSystem.Android.Resource.Id.showTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.showTitle;
+			global::SharpInputSystem.Android.Resource.Id.spacer = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.spacer;
+			global::SharpInputSystem.Android.Resource.Id.split_action_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.split_action_bar;
+			global::SharpInputSystem.Android.Resource.Id.src_atop = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.src_atop;
+			global::SharpInputSystem.Android.Resource.Id.src_in = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.src_in;
+			global::SharpInputSystem.Android.Resource.Id.src_over = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.src_over;
+			global::SharpInputSystem.Android.Resource.Id.status_bar_latest_event_content = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.status_bar_latest_event_content;
+			global::SharpInputSystem.Android.Resource.Id.submenuarrow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.submenuarrow;
+			global::SharpInputSystem.Android.Resource.Id.submit_area = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.submit_area;
+			global::SharpInputSystem.Android.Resource.Id.tabMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.tabMode;
+			global::SharpInputSystem.Android.Resource.Id.tag_transition_group = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.tag_transition_group;
+			global::SharpInputSystem.Android.Resource.Id.text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.text;
+			global::SharpInputSystem.Android.Resource.Id.text2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.text2;
+			global::SharpInputSystem.Android.Resource.Id.textSpacerNoButtons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.textSpacerNoButtons;
+			global::SharpInputSystem.Android.Resource.Id.textSpacerNoTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.textSpacerNoTitle;
+			global::SharpInputSystem.Android.Resource.Id.time = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.time;
+			global::SharpInputSystem.Android.Resource.Id.title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.title;
+			global::SharpInputSystem.Android.Resource.Id.titleDividerNoCustom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.titleDividerNoCustom;
+			global::SharpInputSystem.Android.Resource.Id.title_template = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.title_template;
+			global::SharpInputSystem.Android.Resource.Id.top = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.top;
+			global::SharpInputSystem.Android.Resource.Id.topPanel = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.topPanel;
+			global::SharpInputSystem.Android.Resource.Id.uniform = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.uniform;
+			global::SharpInputSystem.Android.Resource.Id.up = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.up;
+			global::SharpInputSystem.Android.Resource.Id.useLogo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.useLogo;
+			global::SharpInputSystem.Android.Resource.Id.withText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.withText;
+			global::SharpInputSystem.Android.Resource.Id.wrap_content = global::SharpInputSystem.Test.OpenGL.Android.Resource.Id.wrap_content;
+			global::SharpInputSystem.Android.Resource.Integer.abc_config_activityDefaultDur = global::SharpInputSystem.Test.OpenGL.Android.Resource.Integer.abc_config_activityDefaultDur;
+			global::SharpInputSystem.Android.Resource.Integer.abc_config_activityShortDur = global::SharpInputSystem.Test.OpenGL.Android.Resource.Integer.abc_config_activityShortDur;
+			global::SharpInputSystem.Android.Resource.Integer.cancel_button_image_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Integer.cancel_button_image_alpha;
+			global::SharpInputSystem.Android.Resource.Integer.config_tooltipAnimTime = global::SharpInputSystem.Test.OpenGL.Android.Resource.Integer.config_tooltipAnimTime;
+			global::SharpInputSystem.Android.Resource.Integer.status_bar_notification_info_maxnum = global::SharpInputSystem.Test.OpenGL.Android.Resource.Integer.status_bar_notification_info_maxnum;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_bar_title_item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_bar_title_item;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_bar_up_container = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_bar_up_container;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_menu_item_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_menu_item_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_menu_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_menu_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_mode_bar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_mode_bar;
+			global::SharpInputSystem.Android.Resource.Layout.abc_action_mode_close_item_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_action_mode_close_item_material;
+			global::SharpInputSystem.Android.Resource.Layout.abc_activity_chooser_view = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_activity_chooser_view;
+			global::SharpInputSystem.Android.Resource.Layout.abc_activity_chooser_view_list_item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_activity_chooser_view_list_item;
+			global::SharpInputSystem.Android.Resource.Layout.abc_alert_dialog_button_bar_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_alert_dialog_button_bar_material;
+			global::SharpInputSystem.Android.Resource.Layout.abc_alert_dialog_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_alert_dialog_material;
+			global::SharpInputSystem.Android.Resource.Layout.abc_alert_dialog_title_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_alert_dialog_title_material;
+			global::SharpInputSystem.Android.Resource.Layout.abc_dialog_title_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_dialog_title_material;
+			global::SharpInputSystem.Android.Resource.Layout.abc_expanded_menu_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_expanded_menu_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_list_menu_item_checkbox = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_list_menu_item_checkbox;
+			global::SharpInputSystem.Android.Resource.Layout.abc_list_menu_item_icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_list_menu_item_icon;
+			global::SharpInputSystem.Android.Resource.Layout.abc_list_menu_item_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_list_menu_item_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_list_menu_item_radio = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_list_menu_item_radio;
+			global::SharpInputSystem.Android.Resource.Layout.abc_popup_menu_header_item_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_popup_menu_header_item_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_popup_menu_item_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_popup_menu_item_layout;
+			global::SharpInputSystem.Android.Resource.Layout.abc_screen_content_include = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_screen_content_include;
+			global::SharpInputSystem.Android.Resource.Layout.abc_screen_simple = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_screen_simple;
+			global::SharpInputSystem.Android.Resource.Layout.abc_screen_simple_overlay_action_mode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_screen_simple_overlay_action_mode;
+			global::SharpInputSystem.Android.Resource.Layout.abc_screen_toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_screen_toolbar;
+			global::SharpInputSystem.Android.Resource.Layout.abc_search_dropdown_item_icons_2line = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_search_dropdown_item_icons_2line;
+			global::SharpInputSystem.Android.Resource.Layout.abc_search_view = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_search_view;
+			global::SharpInputSystem.Android.Resource.Layout.abc_select_dialog_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.abc_select_dialog_material;
+			global::SharpInputSystem.Android.Resource.Layout.notification_action = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_action;
+			global::SharpInputSystem.Android.Resource.Layout.notification_action_tombstone = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_action_tombstone;
+			global::SharpInputSystem.Android.Resource.Layout.notification_media_action = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_media_action;
+			global::SharpInputSystem.Android.Resource.Layout.notification_media_cancel_action = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_media_cancel_action;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_big_media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_big_media;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_big_media_custom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_big_media_custom;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_big_media_narrow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_big_media_narrow;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_big_media_narrow_custom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_big_media_narrow_custom;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_custom_big = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_custom_big;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_icon_group = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_icon_group;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_lines_media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_lines_media;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_media;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_media_custom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_media_custom;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_part_chronometer = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_part_chronometer;
+			global::SharpInputSystem.Android.Resource.Layout.notification_template_part_time = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.notification_template_part_time;
+			global::SharpInputSystem.Android.Resource.Layout.select_dialog_item_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.select_dialog_item_material;
+			global::SharpInputSystem.Android.Resource.Layout.select_dialog_multichoice_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.select_dialog_multichoice_material;
+			global::SharpInputSystem.Android.Resource.Layout.select_dialog_singlechoice_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.select_dialog_singlechoice_material;
+			global::SharpInputSystem.Android.Resource.Layout.support_simple_spinner_dropdown_item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.support_simple_spinner_dropdown_item;
+			global::SharpInputSystem.Android.Resource.Layout.tooltip = global::SharpInputSystem.Test.OpenGL.Android.Resource.Layout.tooltip;
+			global::SharpInputSystem.Android.Resource.String.abc_action_bar_home_description = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_action_bar_home_description;
+			global::SharpInputSystem.Android.Resource.String.abc_action_bar_up_description = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_action_bar_up_description;
+			global::SharpInputSystem.Android.Resource.String.abc_action_menu_overflow_description = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_action_menu_overflow_description;
+			global::SharpInputSystem.Android.Resource.String.abc_action_mode_done = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_action_mode_done;
+			global::SharpInputSystem.Android.Resource.String.abc_activity_chooser_view_see_all = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_activity_chooser_view_see_all;
+			global::SharpInputSystem.Android.Resource.String.abc_activitychooserview_choose_application = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_activitychooserview_choose_application;
+			global::SharpInputSystem.Android.Resource.String.abc_capital_off = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_capital_off;
+			global::SharpInputSystem.Android.Resource.String.abc_capital_on = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_capital_on;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_body_1_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_body_1_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_body_2_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_body_2_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_button_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_button_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_caption_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_caption_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_display_1_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_display_1_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_display_2_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_display_2_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_display_3_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_display_3_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_display_4_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_display_4_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_headline_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_headline_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_menu_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_menu_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_subhead_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_subhead_material;
+			global::SharpInputSystem.Android.Resource.String.abc_font_family_title_material = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_font_family_title_material;
+			global::SharpInputSystem.Android.Resource.String.abc_search_hint = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_search_hint;
+			global::SharpInputSystem.Android.Resource.String.abc_searchview_description_clear = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_searchview_description_clear;
+			global::SharpInputSystem.Android.Resource.String.abc_searchview_description_query = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_searchview_description_query;
+			global::SharpInputSystem.Android.Resource.String.abc_searchview_description_search = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_searchview_description_search;
+			global::SharpInputSystem.Android.Resource.String.abc_searchview_description_submit = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_searchview_description_submit;
+			global::SharpInputSystem.Android.Resource.String.abc_searchview_description_voice = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_searchview_description_voice;
+			global::SharpInputSystem.Android.Resource.String.abc_shareactionprovider_share_with = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_shareactionprovider_share_with;
+			global::SharpInputSystem.Android.Resource.String.abc_shareactionprovider_share_with_application = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_shareactionprovider_share_with_application;
+			global::SharpInputSystem.Android.Resource.String.abc_toolbar_collapse_description = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.abc_toolbar_collapse_description;
+			global::SharpInputSystem.Android.Resource.String.app_name = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.app_name;
+			global::SharpInputSystem.Android.Resource.String.hello = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.hello;
+			global::SharpInputSystem.Android.Resource.String.search_menu_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.search_menu_title;
+			global::SharpInputSystem.Android.Resource.String.status_bar_notification_info_overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.String.status_bar_notification_info_overflow;
+			global::SharpInputSystem.Android.Resource.Style.AlertDialog_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.AlertDialog_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.AlertDialog_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.AlertDialog_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Animation_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Animation_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Animation_AppCompat_DropDownUp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Animation_AppCompat_DropDownUp;
+			global::SharpInputSystem.Android.Resource.Style.Animation_AppCompat_Tooltip = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Animation_AppCompat_Tooltip;
+			global::SharpInputSystem.Android.Resource.Style.Base_AlertDialog_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_AlertDialog_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_AlertDialog_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_AlertDialog_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_Animation_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Animation_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_Animation_AppCompat_DropDownUp = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Animation_AppCompat_DropDownUp;
+			global::SharpInputSystem.Android.Resource.Style.Base_Animation_AppCompat_Tooltip = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Animation_AppCompat_Tooltip;
+			global::SharpInputSystem.Android.Resource.Style.Base_DialogWindowTitle_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_DialogWindowTitle_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_DialogWindowTitleBackground_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_DialogWindowTitleBackground_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Body1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Body1;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Body2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Body2;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Button;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Caption = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Caption;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Display1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Display1;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Display2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Display2;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Display3 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Display3;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Display4 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Display4;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Headline = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Headline;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Large;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Large_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Medium_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Menu;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_SearchResult_Title;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Small;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Small_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Subhead_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Title;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Title_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Tooltip = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Tooltip;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_DropDownItem;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_Switch;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_CompactMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_CompactMenu;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Dialog_FixedSize;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Dialog_MinWidth;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_DialogWhenLarge;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_DarkActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_FixedSize;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_Dialog_MinWidth;
+			global::SharpInputSystem.Android.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Theme_AppCompat_Light_DialogWhenLarge;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_ThemeOverlay_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V11_Theme_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V11_Theme_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V11_Theme_AppCompat_Light_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V11_ThemeOverlay_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V12_Widget_AppCompat_AutoCompleteTextView;
+			global::SharpInputSystem.Android.Resource.Style.Base_V12_Widget_AppCompat_EditText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V12_Widget_AppCompat_EditText;
+			global::SharpInputSystem.Android.Resource.Style.Base_V21_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V21_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_V21_Theme_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V21_Theme_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V21_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V21_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V21_Theme_AppCompat_Light_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V21_ThemeOverlay_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V22_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V22_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_V22_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V22_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V23_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V23_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_V23_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V23_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V26_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V26_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_V26_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V26_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V26_Widget_AppCompat_Toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V26_Widget_AppCompat_Toolbar;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Theme_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Theme_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Theme_AppCompat_Light_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_ThemeOverlay_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Widget_AppCompat_AutoCompleteTextView;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Widget_AppCompat_EditText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Widget_AppCompat_EditText;
+			global::SharpInputSystem.Android.Resource.Style.Base_V7_Widget_AppCompat_Toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_V7_Widget_AppCompat_Toolbar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_Solid;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabText;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionBar_TabView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionButton;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_CloseMode;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionButton_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActionMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActionMode;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ActivityChooserView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ActivityChooserView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_AutoCompleteTextView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button_Borderless_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Button_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Button_Small;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ButtonBar_AlertDialog;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_CheckBox;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_RadioButton;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_CompoundButton_Switch;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_DrawerArrowToggle_Common;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_DropDownItem_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_EditText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_EditText;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ImageButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ImageButton;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_Solid;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_ActionBar_TabView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ListMenuView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ListMenuView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ListPopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ListPopupWindow;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ListView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ListView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ListView_DropDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ListView_DropDown;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ListView_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ListView_Menu;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_PopupMenu_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_PopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_PopupWindow;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_ProgressBar_Horizontal;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_RatingBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_RatingBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Indicator;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_RatingBar_Small;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_SearchView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_SearchView;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_SearchView_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_SeekBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_SeekBar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_SeekBar_Discrete;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Spinner_Underlined;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_TextView_SpinnerItem;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Toolbar;
+			global::SharpInputSystem.Android.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Base_Widget_AppCompat_Toolbar_Button_Navigation;
+			global::SharpInputSystem.Android.Resource.Style.Platform_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_ThemeOverlay_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_ThemeOverlay_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Dark;
+			global::SharpInputSystem.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_ThemeOverlay_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V11_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V11_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V11_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V11_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V14_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V14_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V14_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V14_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V21_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V21_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V21_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V21_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V25_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V25_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Platform_V25_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_V25_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Platform_Widget_AppCompat_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Platform_Widget_AppCompat_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_DialogWindowTitle_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_ActionBar_TitleItem;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_DialogTitle_Icon;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_PopupMenuItem_Text;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Query;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_Search_DropDown_Text;
+			global::SharpInputSystem.Android.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlOverlay_Widget_AppCompat_SearchView_MagIcon;
+			global::SharpInputSystem.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton;
+			global::SharpInputSystem.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.RtlUnderlay_Widget_AppCompat_ActionButton_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Body1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Body1;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Body2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Body2;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Button;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Caption = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Caption;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Display1 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Display1;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Display2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Display2;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Display3 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Display3;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Display4 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Display4;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Headline = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Headline;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Large;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Large_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Large_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Light_SearchResult_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Large;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Light_Widget_PopupMenu_Small;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Medium = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Medium;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Medium_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Medium_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Menu;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_SearchResult_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Small;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Small_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Small_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Subhead = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Subhead;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Subhead_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Title_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Title_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Tooltip = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Tooltip;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Menu;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Borderless_Colored;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Colored;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_Button_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_DropDownItem;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Header;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Large;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_PopupMenu_Small;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_Switch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_Switch;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_AppCompat_Widget_TextView_SpinnerItem;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Info = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Info;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Info_Media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Info_Media;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Line2 = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Line2;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Line2_Media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Line2_Media;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Media;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Time = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Time;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Time_Media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Time_Media;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Title;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Compat_Notification_Title_Media = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Compat_Notification_Title_Media;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Widget_AppCompat_ExpandedMenu_Item;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Subtitle;
+			global::SharpInputSystem.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.TextAppearance_Widget_AppCompat_Toolbar_Title;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_CompactMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_CompactMenu;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_DarkActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_Dialog_MinWidth;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_DialogWhenLarge;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DayNight_NoActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DayNight_NoActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Dialog_MinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Dialog_MinWidth;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_DialogWhenLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_DialogWhenLarge;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_DarkActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_DarkActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_Dialog_MinWidth;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_DialogWhenLarge;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_Light_NoActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_Light_NoActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Theme_AppCompat_NoActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Theme_AppCompat_NoActionBar;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_Dark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_Dark;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_Dark_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_Dialog_Alert;
+			global::SharpInputSystem.Android.Resource.Style.ThemeOverlay_AppCompat_Light = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.ThemeOverlay_AppCompat_Light;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionBar_Solid = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionBar_Solid;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionBar_TabBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionBar_TabBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionBar_TabText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionBar_TabText;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionBar_TabView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionBar_TabView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionButton;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionButton_CloseMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionButton_CloseMode;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionButton_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionButton_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActionMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActionMode;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ActivityChooserView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ActivityChooserView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_AutoCompleteTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_AutoCompleteTextView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button_Borderless = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button_Borderless;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button_Borderless_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button_Borderless_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button_ButtonBar_AlertDialog;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button_Colored = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button_Colored;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Button_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Button_Small;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ButtonBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ButtonBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ButtonBar_AlertDialog;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_CompoundButton_CheckBox;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_CompoundButton_RadioButton;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_CompoundButton_Switch = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_CompoundButton_Switch;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_DrawerArrowToggle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_DrawerArrowToggle;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_DropDownItem_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_DropDownItem_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_EditText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_EditText;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ImageButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ImageButton;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_Solid_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabBar_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabText_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionBar_TabView_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionButton;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_CloseMode;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionButton_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActionMode_Inverse;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ActivityChooserView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ActivityChooserView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_AutoCompleteTextView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_DropDownItem_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ListPopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ListPopupWindow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_ListView_DropDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_ListView_DropDown;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_PopupMenu_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_SearchView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_SearchView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Light_Spinner_DropDown_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ListMenuView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ListMenuView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ListPopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ListPopupWindow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ListView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ListView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ListView_DropDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ListView_DropDown;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ListView_Menu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ListView_Menu;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_PopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_PopupMenu;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_PopupMenu_Overflow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_PopupMenu_Overflow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_PopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_PopupWindow;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ProgressBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ProgressBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_ProgressBar_Horizontal;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_RatingBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_RatingBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_RatingBar_Indicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_RatingBar_Indicator;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_RatingBar_Small = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_RatingBar_Small;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_SearchView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_SearchView;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_SearchView_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_SearchView_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_SeekBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_SeekBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_SeekBar_Discrete = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_SeekBar_Discrete;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Spinner;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Spinner_DropDown_ActionBar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Spinner_Underlined = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Spinner_Underlined;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_TextView_SpinnerItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_TextView_SpinnerItem;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Toolbar;
+			global::SharpInputSystem.Android.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_AppCompat_Toolbar_Button_Navigation;
+			global::SharpInputSystem.Android.Resource.Style.Widget_Compat_NotificationActionContainer = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_Compat_NotificationActionContainer;
+			global::SharpInputSystem.Android.Resource.Style.Widget_Compat_NotificationActionText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Style.Widget_Compat_NotificationActionText;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_background;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_backgroundSplit = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_backgroundSplit;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_backgroundStacked = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_backgroundStacked;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetEnd;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetEndWithActions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetEndWithActions;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetLeft;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetRight;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetStart;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_contentInsetStartWithNavigation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_contentInsetStartWithNavigation;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_customNavigationLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_customNavigationLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_displayOptions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_displayOptions;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_divider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_divider;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_elevation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_elevation;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_height;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_hideOnContentScroll = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_hideOnContentScroll;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_homeAsUpIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_homeAsUpIndicator;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_homeLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_homeLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_icon;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_indeterminateProgressStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_indeterminateProgressStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_itemPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_itemPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_logo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_logo;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_navigationMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_navigationMode;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_popupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_popupTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_progressBarPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_progressBarPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_progressBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_progressBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_subtitle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_subtitleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_subtitleTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_title;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBar_titleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBar_titleTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBarLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBarLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionBarLayout_android_layout_gravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionBarLayout_android_layout_gravity;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMenuItemView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMenuItemView;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMenuItemView_android_minWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMenuItemView_android_minWidth;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMenuView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMenuView;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_background;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_backgroundSplit = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_backgroundSplit;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_closeItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_closeItemLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_height;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_subtitleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_subtitleTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActionMode_titleTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActionMode_titleTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.ActivityChooserView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActivityChooserView;
+			global::SharpInputSystem.Android.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActivityChooserView_expandActivityOverflowButtonDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.ActivityChooserView_initialActivityCount = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ActivityChooserView_initialActivityCount;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_android_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_android_layout;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_buttonPanelSideLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_buttonPanelSideLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_listItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_listItemLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_listLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_listLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_multiChoiceItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_multiChoiceItemLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_showTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_showTitle;
+			global::SharpInputSystem.Android.Resource.Styleable.AlertDialog_singleChoiceItemLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AlertDialog_singleChoiceItemLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatImageView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatImageView;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatImageView_android_src = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatImageView_android_src;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatImageView_srcCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatImageView_srcCompat;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatImageView_tint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatImageView_tint;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatImageView_tintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatImageView_tintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatSeekBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatSeekBar;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatSeekBar_android_thumb = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatSeekBar_android_thumb;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatSeekBar_tickMark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatSeekBar_tickMark;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTint;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatSeekBar_tickMarkTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableBottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableBottom;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableEnd;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableLeft;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableRight;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableStart;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_drawableTop = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_drawableTop;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextHelper_android_textAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextHelper_android_textAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_android_textAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_android_textAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_autoSizeMaxTextSize;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_autoSizeMinTextSize;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_autoSizePresetSizes = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_autoSizePresetSizes;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_autoSizeStepGranularity;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_autoSizeTextType = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_autoSizeTextType;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_fontFamily = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_fontFamily;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTextView_textAllCaps = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTextView_textAllCaps;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarDivider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarDivider;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarItemBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarItemBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarPopupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarPopupTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarSize;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarSplitStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarSplitStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarTabBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarTabStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarTabStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarTabTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionBarWidgetTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionDropDownStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionDropDownStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionMenuTextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionMenuTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionMenuTextColor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeCloseButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeCloseDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeCopyDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeCutDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeCutDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeFindDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeFindDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModePasteDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModePasteDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModePopupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeSelectAllDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeShareDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeShareDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeSplitBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeSplitBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionModeWebSearchDrawable;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionOverflowButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_actionOverflowMenuStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_activityChooserViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_activityChooserViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_alertDialogButtonGroupStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_alertDialogCenterButtons;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_alertDialogStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_alertDialogStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_alertDialogTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_alertDialogTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_android_windowAnimationStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_android_windowIsFloating = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_android_windowIsFloating;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_autoCompleteTextViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_borderlessButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_borderlessButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonBarButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonBarNegativeButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonBarNeutralButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonBarPositiveButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_buttonStyleSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_buttonStyleSmall;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_checkboxStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_checkboxStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_checkedTextViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_checkedTextViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorAccent = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorAccent;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorBackgroundFloating = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorBackgroundFloating;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorButtonNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorButtonNormal;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorControlActivated = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorControlActivated;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorControlHighlight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorControlHighlight;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorControlNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorControlNormal;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorError = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorError;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorPrimary = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorPrimary;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorPrimaryDark = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorPrimaryDark;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_colorSwitchThumbNormal;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_controlBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_controlBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dialogPreferredPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dialogPreferredPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dialogTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dialogTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dividerHorizontal = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dividerHorizontal;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dividerVertical = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dividerVertical;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dropDownListViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dropDownListViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_dropdownListPreferredItemHeight;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_editTextBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_editTextBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_editTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_editTextColor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_editTextStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_editTextStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_homeAsUpIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_homeAsUpIndicator;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_imageButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_imageButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listChoiceBackgroundIndicator;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listDividerAlertDialog = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listDividerAlertDialog;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listMenuViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listMenuViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPopupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPopupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeight;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightLarge;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPreferredItemHeightSmall;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingLeft;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_listPreferredItemPaddingRight;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_panelBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_panelBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_panelMenuListTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_panelMenuListTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_panelMenuListWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_panelMenuListWidth;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_popupMenuStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_popupMenuStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_popupWindowStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_popupWindowStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_radioButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_radioButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_ratingBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_ratingBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleIndicator;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_ratingBarStyleSmall;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_searchViewStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_searchViewStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_seekBarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_seekBarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_selectableItemBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_selectableItemBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_selectableItemBackgroundBorderless;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_spinnerDropDownItemStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_spinnerStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_spinnerStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_switchStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_switchStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceLargePopupMenu;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItem;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSecondary;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceListItemSmall;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearancePopupMenuHeader;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultSubtitle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceSearchResultTitle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textAppearanceSmallPopupMenu;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textColorAlertDialogListItem;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_textColorSearchUrl = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_textColorSearchUrl;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_toolbarNavigationButtonStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_toolbarStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_toolbarStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_tooltipForegroundColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_tooltipForegroundColor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_tooltipFrameBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_tooltipFrameBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowActionBar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowActionBar;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowActionBarOverlay = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowActionBarOverlay;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowActionModeOverlay = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowActionModeOverlay;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMajor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowFixedHeightMinor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMajor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowFixedWidthMinor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMajor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMajor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMinor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowMinWidthMinor;
+			global::SharpInputSystem.Android.Resource.Styleable.AppCompatTheme_windowNoTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.AppCompatTheme_windowNoTitle;
+			global::SharpInputSystem.Android.Resource.Styleable.ButtonBarLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ButtonBarLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.ButtonBarLayout_allowStacking = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ButtonBarLayout_allowStacking;
+			global::SharpInputSystem.Android.Resource.Styleable.ColorStateListItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ColorStateListItem;
+			global::SharpInputSystem.Android.Resource.Styleable.ColorStateListItem_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ColorStateListItem_alpha;
+			global::SharpInputSystem.Android.Resource.Styleable.ColorStateListItem_android_alpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ColorStateListItem_android_alpha;
+			global::SharpInputSystem.Android.Resource.Styleable.ColorStateListItem_android_color = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ColorStateListItem_android_color;
+			global::SharpInputSystem.Android.Resource.Styleable.CompoundButton = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.CompoundButton;
+			global::SharpInputSystem.Android.Resource.Styleable.CompoundButton_android_button = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.CompoundButton_android_button;
+			global::SharpInputSystem.Android.Resource.Styleable.CompoundButton_buttonTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.CompoundButton_buttonTint;
+			global::SharpInputSystem.Android.Resource.Styleable.CompoundButton_buttonTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.CompoundButton_buttonTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_arrowHeadLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_arrowHeadLength;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_arrowShaftLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_arrowShaftLength;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_barLength = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_barLength;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_color = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_color;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_drawableSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_drawableSize;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_gapBetweenBars = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_gapBetweenBars;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_spinBars = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_spinBars;
+			global::SharpInputSystem.Android.Resource.Styleable.DrawerArrowToggle_thickness = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.DrawerArrowToggle_thickness;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderAuthority = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderAuthority;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderCerts = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderCerts;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderFetchStrategy = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderFetchStrategy;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderFetchTimeout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderFetchTimeout;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderPackage = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderPackage;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamily_fontProviderQuery = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamily_fontProviderQuery;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_android_font = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_android_font;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_android_fontStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_android_fontStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_android_fontWeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_android_fontWeight;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_font = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_font;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_fontStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_fontStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.FontFamilyFont_fontWeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.FontFamilyFont_fontWeight;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAligned = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAligned;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_android_baselineAlignedChildIndex;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_android_gravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_android_gravity;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_android_orientation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_android_orientation;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_android_weightSum = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_android_weightSum;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_divider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_divider;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_dividerPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_dividerPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_measureWithLargestChild;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_showDividers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_showDividers;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_Layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_Layout;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_gravity;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_height;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_weight;
+			global::SharpInputSystem.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.LinearLayoutCompat_Layout_android_layout_width;
+			global::SharpInputSystem.Android.Resource.Styleable.ListPopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ListPopupWindow;
+			global::SharpInputSystem.Android.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ListPopupWindow_android_dropDownHorizontalOffset;
+			global::SharpInputSystem.Android.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ListPopupWindow_android_dropDownVerticalOffset;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_checkableBehavior = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_checkableBehavior;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_enabled = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_enabled;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_id = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_id;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_menuCategory = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_menuCategory;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_orderInCategory = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_orderInCategory;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuGroup_android_visible = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuGroup_android_visible;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_actionLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_actionLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_actionProviderClass = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_actionProviderClass;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_actionViewClass = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_actionViewClass;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_alphabeticModifiers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_alphabeticModifiers;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_alphabeticShortcut = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_alphabeticShortcut;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_checkable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_checkable;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_checked = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_checked;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_enabled = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_enabled;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_icon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_icon;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_id = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_id;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_menuCategory = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_menuCategory;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_numericShortcut = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_numericShortcut;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_onClick = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_onClick;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_orderInCategory = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_orderInCategory;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_title;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_titleCondensed = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_titleCondensed;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_android_visible = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_android_visible;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_contentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_contentDescription;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_iconTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_iconTint;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_iconTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_iconTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_numericModifiers = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_numericModifiers;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_showAsAction = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_showAsAction;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuItem_tooltipText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuItem_tooltipText;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_headerBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_headerBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_horizontalDivider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_horizontalDivider;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_itemBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_itemBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_itemIconDisabledAlpha = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_itemIconDisabledAlpha;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_itemTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_itemTextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_verticalDivider = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_verticalDivider;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_android_windowAnimationStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_android_windowAnimationStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_preserveIconSpacing = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_preserveIconSpacing;
+			global::SharpInputSystem.Android.Resource.Styleable.MenuView_subMenuArrow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.MenuView_subMenuArrow;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindow = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindow;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindow_android_popupAnimationStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindow_android_popupAnimationStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindow_android_popupBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindow_android_popupBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindow_overlapAnchor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindow_overlapAnchor;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindowBackgroundState = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindowBackgroundState;
+			global::SharpInputSystem.Android.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.PopupWindowBackgroundState_state_above_anchor;
+			global::SharpInputSystem.Android.Resource.Styleable.RecycleListView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.RecycleListView;
+			global::SharpInputSystem.Android.Resource.Styleable.RecycleListView_paddingBottomNoButtons = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.RecycleListView_paddingBottomNoButtons;
+			global::SharpInputSystem.Android.Resource.Styleable.RecycleListView_paddingTopNoTitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.RecycleListView_paddingTopNoTitle;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_android_focusable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_android_focusable;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_android_imeOptions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_android_imeOptions;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_android_inputType = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_android_inputType;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_android_maxWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_android_maxWidth;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_closeIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_closeIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_commitIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_commitIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_defaultQueryHint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_defaultQueryHint;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_goIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_goIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_iconifiedByDefault = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_iconifiedByDefault;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_layout;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_queryBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_queryBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_queryHint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_queryHint;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_searchHintIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_searchHintIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_searchIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_searchIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_submitBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_submitBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_suggestionRowLayout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_suggestionRowLayout;
+			global::SharpInputSystem.Android.Resource.Styleable.SearchView_voiceIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SearchView_voiceIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner_android_dropDownWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner_android_dropDownWidth;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner_android_entries = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner_android_entries;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner_android_popupBackground = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner_android_popupBackground;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner_android_prompt = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner_android_prompt;
+			global::SharpInputSystem.Android.Resource.Styleable.Spinner_popupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Spinner_popupTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_android_textOff = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_android_textOff;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_android_textOn = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_android_textOn;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_android_thumb = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_android_thumb;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_showText = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_showText;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_splitTrack = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_splitTrack;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_switchMinWidth = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_switchMinWidth;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_switchPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_switchPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_switchTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_switchTextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_thumbTextPadding = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_thumbTextPadding;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_thumbTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_thumbTint;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_thumbTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_thumbTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_track = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_track;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_trackTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_trackTint;
+			global::SharpInputSystem.Android.Resource.Styleable.SwitchCompat_trackTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.SwitchCompat_trackTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_fontFamily = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_fontFamily;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_shadowColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_shadowColor;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_shadowDx = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_shadowDx;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_shadowDy = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_shadowDy;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_shadowRadius = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_shadowRadius;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_textColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_textColor;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_textColorHint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_textColorHint;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_textColorLink = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_textColorLink;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_textSize = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_textSize;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_textStyle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_textStyle;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_android_typeface = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_android_typeface;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_fontFamily = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_fontFamily;
+			global::SharpInputSystem.Android.Resource.Styleable.TextAppearance_textAllCaps = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.TextAppearance_textAllCaps;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_android_gravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_android_gravity;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_android_minHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_android_minHeight;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_buttonGravity = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_buttonGravity;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_collapseContentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_collapseContentDescription;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_collapseIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_collapseIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetEnd;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetEndWithActions = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetEndWithActions;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetLeft = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetLeft;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetRight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetRight;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetStart;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_contentInsetStartWithNavigation = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_contentInsetStartWithNavigation;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_logo = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_logo;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_logoDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_logoDescription;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_maxButtonHeight = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_maxButtonHeight;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_navigationContentDescription = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_navigationContentDescription;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_navigationIcon = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_navigationIcon;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_popupTheme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_popupTheme;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_subtitle = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_subtitle;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_subtitleTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_subtitleTextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_subtitleTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_subtitleTextColor;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_title = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_title;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMargin = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMargin;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMarginBottom = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMarginBottom;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMarginEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMarginEnd;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMarginStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMarginStart;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMarginTop = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMarginTop;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleMargins = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleMargins;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleTextAppearance = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleTextAppearance;
+			global::SharpInputSystem.Android.Resource.Styleable.Toolbar_titleTextColor = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.Toolbar_titleTextColor;
+			global::SharpInputSystem.Android.Resource.Styleable.View = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View;
+			global::SharpInputSystem.Android.Resource.Styleable.View_android_focusable = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View_android_focusable;
+			global::SharpInputSystem.Android.Resource.Styleable.View_android_theme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View_android_theme;
+			global::SharpInputSystem.Android.Resource.Styleable.View_paddingEnd = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View_paddingEnd;
+			global::SharpInputSystem.Android.Resource.Styleable.View_paddingStart = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View_paddingStart;
+			global::SharpInputSystem.Android.Resource.Styleable.View_theme = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.View_theme;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewBackgroundHelper = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewBackgroundHelper;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewBackgroundHelper_android_background = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewBackgroundHelper_android_background;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTint = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTint;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewBackgroundHelper_backgroundTintMode;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewStubCompat = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewStubCompat;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewStubCompat_android_id = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewStubCompat_android_id;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewStubCompat_android_inflatedId = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewStubCompat_android_inflatedId;
+			global::SharpInputSystem.Android.Resource.Styleable.ViewStubCompat_android_layout = global::SharpInputSystem.Test.OpenGL.Android.Resource.Styleable.ViewStubCompat_android_layout;
+		}
+		
+		public partial class Animation
+		{
+			
+			// aapt resource value: 0x7f040000
+			public const int abc_fade_in = 2130968576;
+			
+			// aapt resource value: 0x7f040001
+			public const int abc_fade_out = 2130968577;
+			
+			// aapt resource value: 0x7f040002
+			public const int abc_grow_fade_in_from_bottom = 2130968578;
+			
+			// aapt resource value: 0x7f040003
+			public const int abc_popup_enter = 2130968579;
+			
+			// aapt resource value: 0x7f040004
+			public const int abc_popup_exit = 2130968580;
+			
+			// aapt resource value: 0x7f040005
+			public const int abc_shrink_fade_out_from_bottom = 2130968581;
+			
+			// aapt resource value: 0x7f040006
+			public const int abc_slide_in_bottom = 2130968582;
+			
+			// aapt resource value: 0x7f040007
+			public const int abc_slide_in_top = 2130968583;
+			
+			// aapt resource value: 0x7f040008
+			public const int abc_slide_out_bottom = 2130968584;
+			
+			// aapt resource value: 0x7f040009
+			public const int abc_slide_out_top = 2130968585;
+			
+			// aapt resource value: 0x7f04000a
+			public const int tooltip_enter = 2130968586;
+			
+			// aapt resource value: 0x7f04000b
+			public const int tooltip_exit = 2130968587;
+			
+			static Animation()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Animation()
+			{
+			}
 		}
 		
 		public partial class Attribute
 		{
+			
+			// aapt resource value: 0x7f010049
+			public const int actionBarDivider = 2130772041;
+			
+			// aapt resource value: 0x7f01004a
+			public const int actionBarItemBackground = 2130772042;
+			
+			// aapt resource value: 0x7f010043
+			public const int actionBarPopupTheme = 2130772035;
+			
+			// aapt resource value: 0x7f010048
+			public const int actionBarSize = 2130772040;
+			
+			// aapt resource value: 0x7f010045
+			public const int actionBarSplitStyle = 2130772037;
+			
+			// aapt resource value: 0x7f010044
+			public const int actionBarStyle = 2130772036;
+			
+			// aapt resource value: 0x7f01003f
+			public const int actionBarTabBarStyle = 2130772031;
+			
+			// aapt resource value: 0x7f01003e
+			public const int actionBarTabStyle = 2130772030;
+			
+			// aapt resource value: 0x7f010040
+			public const int actionBarTabTextStyle = 2130772032;
+			
+			// aapt resource value: 0x7f010046
+			public const int actionBarTheme = 2130772038;
+			
+			// aapt resource value: 0x7f010047
+			public const int actionBarWidgetTheme = 2130772039;
+			
+			// aapt resource value: 0x7f010064
+			public const int actionButtonStyle = 2130772068;
+			
+			// aapt resource value: 0x7f010060
+			public const int actionDropDownStyle = 2130772064;
+			
+			// aapt resource value: 0x7f0100bb
+			public const int actionLayout = 2130772155;
+			
+			// aapt resource value: 0x7f01004b
+			public const int actionMenuTextAppearance = 2130772043;
+			
+			// aapt resource value: 0x7f01004c
+			public const int actionMenuTextColor = 2130772044;
+			
+			// aapt resource value: 0x7f01004f
+			public const int actionModeBackground = 2130772047;
+			
+			// aapt resource value: 0x7f01004e
+			public const int actionModeCloseButtonStyle = 2130772046;
+			
+			// aapt resource value: 0x7f010051
+			public const int actionModeCloseDrawable = 2130772049;
+			
+			// aapt resource value: 0x7f010053
+			public const int actionModeCopyDrawable = 2130772051;
+			
+			// aapt resource value: 0x7f010052
+			public const int actionModeCutDrawable = 2130772050;
+			
+			// aapt resource value: 0x7f010057
+			public const int actionModeFindDrawable = 2130772055;
+			
+			// aapt resource value: 0x7f010054
+			public const int actionModePasteDrawable = 2130772052;
+			
+			// aapt resource value: 0x7f010059
+			public const int actionModePopupWindowStyle = 2130772057;
+			
+			// aapt resource value: 0x7f010055
+			public const int actionModeSelectAllDrawable = 2130772053;
+			
+			// aapt resource value: 0x7f010056
+			public const int actionModeShareDrawable = 2130772054;
+			
+			// aapt resource value: 0x7f010050
+			public const int actionModeSplitBackground = 2130772048;
+			
+			// aapt resource value: 0x7f01004d
+			public const int actionModeStyle = 2130772045;
+			
+			// aapt resource value: 0x7f010058
+			public const int actionModeWebSearchDrawable = 2130772056;
+			
+			// aapt resource value: 0x7f010041
+			public const int actionOverflowButtonStyle = 2130772033;
+			
+			// aapt resource value: 0x7f010042
+			public const int actionOverflowMenuStyle = 2130772034;
+			
+			// aapt resource value: 0x7f0100bd
+			public const int actionProviderClass = 2130772157;
+			
+			// aapt resource value: 0x7f0100bc
+			public const int actionViewClass = 2130772156;
+			
+			// aapt resource value: 0x7f01006c
+			public const int activityChooserViewStyle = 2130772076;
+			
+			// aapt resource value: 0x7f010091
+			public const int alertDialogButtonGroupStyle = 2130772113;
+			
+			// aapt resource value: 0x7f010092
+			public const int alertDialogCenterButtons = 2130772114;
+			
+			// aapt resource value: 0x7f010090
+			public const int alertDialogStyle = 2130772112;
+			
+			// aapt resource value: 0x7f010093
+			public const int alertDialogTheme = 2130772115;
+			
+			// aapt resource value: 0x7f0100a9
+			public const int allowStacking = 2130772137;
+			
+			// aapt resource value: 0x7f0100aa
+			public const int alpha = 2130772138;
+			
+			// aapt resource value: 0x7f0100b8
+			public const int alphabeticModifiers = 2130772152;
+			
+			// aapt resource value: 0x7f0100b1
+			public const int arrowHeadLength = 2130772145;
+			
+			// aapt resource value: 0x7f0100b2
+			public const int arrowShaftLength = 2130772146;
+			
+			// aapt resource value: 0x7f010098
+			public const int autoCompleteTextViewStyle = 2130772120;
+			
+			// aapt resource value: 0x7f010032
+			public const int autoSizeMaxTextSize = 2130772018;
+			
+			// aapt resource value: 0x7f010031
+			public const int autoSizeMinTextSize = 2130772017;
+			
+			// aapt resource value: 0x7f010030
+			public const int autoSizePresetSizes = 2130772016;
+			
+			// aapt resource value: 0x7f01002f
+			public const int autoSizeStepGranularity = 2130772015;
+			
+			// aapt resource value: 0x7f01002e
+			public const int autoSizeTextType = 2130772014;
+			
+			// aapt resource value: 0x7f01000c
+			public const int background = 2130771980;
+			
+			// aapt resource value: 0x7f01000e
+			public const int backgroundSplit = 2130771982;
+			
+			// aapt resource value: 0x7f01000d
+			public const int backgroundStacked = 2130771981;
+			
+			// aapt resource value: 0x7f0100f4
+			public const int backgroundTint = 2130772212;
+			
+			// aapt resource value: 0x7f0100f5
+			public const int backgroundTintMode = 2130772213;
+			
+			// aapt resource value: 0x7f0100b3
+			public const int barLength = 2130772147;
+			
+			// aapt resource value: 0x7f010069
+			public const int borderlessButtonStyle = 2130772073;
+			
+			// aapt resource value: 0x7f010066
+			public const int buttonBarButtonStyle = 2130772070;
+			
+			// aapt resource value: 0x7f010096
+			public const int buttonBarNegativeButtonStyle = 2130772118;
+			
+			// aapt resource value: 0x7f010097
+			public const int buttonBarNeutralButtonStyle = 2130772119;
+			
+			// aapt resource value: 0x7f010095
+			public const int buttonBarPositiveButtonStyle = 2130772117;
+			
+			// aapt resource value: 0x7f010065
+			public const int buttonBarStyle = 2130772069;
+			
+			// aapt resource value: 0x7f0100e9
+			public const int buttonGravity = 2130772201;
+			
+			// aapt resource value: 0x7f010021
+			public const int buttonPanelSideLayout = 2130772001;
+			
+			// aapt resource value: 0x7f010099
+			public const int buttonStyle = 2130772121;
+			
+			// aapt resource value: 0x7f01009a
+			public const int buttonStyleSmall = 2130772122;
+			
+			// aapt resource value: 0x7f0100ab
+			public const int buttonTint = 2130772139;
+			
+			// aapt resource value: 0x7f0100ac
+			public const int buttonTintMode = 2130772140;
+			
+			// aapt resource value: 0x7f01009b
+			public const int checkboxStyle = 2130772123;
+			
+			// aapt resource value: 0x7f01009c
+			public const int checkedTextViewStyle = 2130772124;
+			
+			// aapt resource value: 0x7f0100cc
+			public const int closeIcon = 2130772172;
+			
+			// aapt resource value: 0x7f01001e
+			public const int closeItemLayout = 2130771998;
+			
+			// aapt resource value: 0x7f0100eb
+			public const int collapseContentDescription = 2130772203;
+			
+			// aapt resource value: 0x7f0100ea
+			public const int collapseIcon = 2130772202;
+			
+			// aapt resource value: 0x7f0100ad
+			public const int color = 2130772141;
+			
+			// aapt resource value: 0x7f010088
+			public const int colorAccent = 2130772104;
+			
+			// aapt resource value: 0x7f01008f
+			public const int colorBackgroundFloating = 2130772111;
+			
+			// aapt resource value: 0x7f01008c
+			public const int colorButtonNormal = 2130772108;
+			
+			// aapt resource value: 0x7f01008a
+			public const int colorControlActivated = 2130772106;
+			
+			// aapt resource value: 0x7f01008b
+			public const int colorControlHighlight = 2130772107;
+			
+			// aapt resource value: 0x7f010089
+			public const int colorControlNormal = 2130772105;
+			
+			// aapt resource value: 0x7f0100a8
+			public const int colorError = 2130772136;
+			
+			// aapt resource value: 0x7f010086
+			public const int colorPrimary = 2130772102;
+			
+			// aapt resource value: 0x7f010087
+			public const int colorPrimaryDark = 2130772103;
+			
+			// aapt resource value: 0x7f01008d
+			public const int colorSwitchThumbNormal = 2130772109;
+			
+			// aapt resource value: 0x7f0100d1
+			public const int commitIcon = 2130772177;
+			
+			// aapt resource value: 0x7f0100be
+			public const int contentDescription = 2130772158;
+			
+			// aapt resource value: 0x7f010017
+			public const int contentInsetEnd = 2130771991;
+			
+			// aapt resource value: 0x7f01001b
+			public const int contentInsetEndWithActions = 2130771995;
+			
+			// aapt resource value: 0x7f010018
+			public const int contentInsetLeft = 2130771992;
+			
+			// aapt resource value: 0x7f010019
+			public const int contentInsetRight = 2130771993;
+			
+			// aapt resource value: 0x7f010016
+			public const int contentInsetStart = 2130771990;
+			
+			// aapt resource value: 0x7f01001a
+			public const int contentInsetStartWithNavigation = 2130771994;
+			
+			// aapt resource value: 0x7f01008e
+			public const int controlBackground = 2130772110;
+			
+			// aapt resource value: 0x7f01000f
+			public const int customNavigationLayout = 2130771983;
+			
+			// aapt resource value: 0x7f0100cb
+			public const int defaultQueryHint = 2130772171;
+			
+			// aapt resource value: 0x7f01005e
+			public const int dialogPreferredPadding = 2130772062;
+			
+			// aapt resource value: 0x7f01005d
+			public const int dialogTheme = 2130772061;
+			
+			// aapt resource value: 0x7f010005
+			public const int displayOptions = 2130771973;
+			
+			// aapt resource value: 0x7f01000b
+			public const int divider = 2130771979;
+			
+			// aapt resource value: 0x7f01006b
+			public const int dividerHorizontal = 2130772075;
+			
+			// aapt resource value: 0x7f0100b7
+			public const int dividerPadding = 2130772151;
+			
+			// aapt resource value: 0x7f01006a
+			public const int dividerVertical = 2130772074;
+			
+			// aapt resource value: 0x7f0100af
+			public const int drawableSize = 2130772143;
+			
+			// aapt resource value: 0x7f010000
+			public const int drawerArrowStyle = 2130771968;
+			
+			// aapt resource value: 0x7f01007d
+			public const int dropDownListViewStyle = 2130772093;
+			
+			// aapt resource value: 0x7f010061
+			public const int dropdownListPreferredItemHeight = 2130772065;
+			
+			// aapt resource value: 0x7f010072
+			public const int editTextBackground = 2130772082;
+			
+			// aapt resource value: 0x7f010071
+			public const int editTextColor = 2130772081;
+			
+			// aapt resource value: 0x7f01009d
+			public const int editTextStyle = 2130772125;
+			
+			// aapt resource value: 0x7f01001c
+			public const int elevation = 2130771996;
+			
+			// aapt resource value: 0x7f010020
+			public const int expandActivityOverflowButtonDrawable = 2130772000;
+			
+			// aapt resource value: 0x7f0100fd
+			public const int font = 2130772221;
+			
+			// aapt resource value: 0x7f010033
+			public const int fontFamily = 2130772019;
+			
+			// aapt resource value: 0x7f0100f6
+			public const int fontProviderAuthority = 2130772214;
+			
+			// aapt resource value: 0x7f0100f9
+			public const int fontProviderCerts = 2130772217;
+			
+			// aapt resource value: 0x7f0100fa
+			public const int fontProviderFetchStrategy = 2130772218;
+			
+			// aapt resource value: 0x7f0100fb
+			public const int fontProviderFetchTimeout = 2130772219;
+			
+			// aapt resource value: 0x7f0100f7
+			public const int fontProviderPackage = 2130772215;
+			
+			// aapt resource value: 0x7f0100f8
+			public const int fontProviderQuery = 2130772216;
+			
+			// aapt resource value: 0x7f0100fc
+			public const int fontStyle = 2130772220;
+			
+			// aapt resource value: 0x7f0100fe
+			public const int fontWeight = 2130772222;
+			
+			// aapt resource value: 0x7f0100b0
+			public const int gapBetweenBars = 2130772144;
+			
+			// aapt resource value: 0x7f0100cd
+			public const int goIcon = 2130772173;
+			
+			// aapt resource value: 0x7f010001
+			public const int height = 2130771969;
+			
+			// aapt resource value: 0x7f010015
+			public const int hideOnContentScroll = 2130771989;
+			
+			// aapt resource value: 0x7f010063
+			public const int homeAsUpIndicator = 2130772067;
+			
+			// aapt resource value: 0x7f010010
+			public const int homeLayout = 2130771984;
+			
+			// aapt resource value: 0x7f010009
+			public const int icon = 2130771977;
+			
+			// aapt resource value: 0x7f0100c0
+			public const int iconTint = 2130772160;
+			
+			// aapt resource value: 0x7f0100c1
+			public const int iconTintMode = 2130772161;
+			
+			// aapt resource value: 0x7f0100c9
+			public const int iconifiedByDefault = 2130772169;
+			
+			// aapt resource value: 0x7f010073
+			public const int imageButtonStyle = 2130772083;
+			
+			// aapt resource value: 0x7f010012
+			public const int indeterminateProgressStyle = 2130771986;
+			
+			// aapt resource value: 0x7f01001f
+			public const int initialActivityCount = 2130771999;
+			
+			// aapt resource value: 0x7f010002
+			public const int isLightTheme = 2130771970;
+			
+			// aapt resource value: 0x7f010014
+			public const int itemPadding = 2130771988;
+			
+			// aapt resource value: 0x7f0100c8
+			public const int layout = 2130772168;
+			
+			// aapt resource value: 0x7f010085
+			public const int listChoiceBackgroundIndicator = 2130772101;
+			
+			// aapt resource value: 0x7f01005f
+			public const int listDividerAlertDialog = 2130772063;
+			
+			// aapt resource value: 0x7f010025
+			public const int listItemLayout = 2130772005;
+			
+			// aapt resource value: 0x7f010022
+			public const int listLayout = 2130772002;
+			
+			// aapt resource value: 0x7f0100a5
+			public const int listMenuViewStyle = 2130772133;
+			
+			// aapt resource value: 0x7f01007e
+			public const int listPopupWindowStyle = 2130772094;
+			
+			// aapt resource value: 0x7f010078
+			public const int listPreferredItemHeight = 2130772088;
+			
+			// aapt resource value: 0x7f01007a
+			public const int listPreferredItemHeightLarge = 2130772090;
+			
+			// aapt resource value: 0x7f010079
+			public const int listPreferredItemHeightSmall = 2130772089;
+			
+			// aapt resource value: 0x7f01007b
+			public const int listPreferredItemPaddingLeft = 2130772091;
+			
+			// aapt resource value: 0x7f01007c
+			public const int listPreferredItemPaddingRight = 2130772092;
+			
+			// aapt resource value: 0x7f01000a
+			public const int logo = 2130771978;
+			
+			// aapt resource value: 0x7f0100ee
+			public const int logoDescription = 2130772206;
+			
+			// aapt resource value: 0x7f0100e8
+			public const int maxButtonHeight = 2130772200;
+			
+			// aapt resource value: 0x7f0100b5
+			public const int measureWithLargestChild = 2130772149;
+			
+			// aapt resource value: 0x7f010023
+			public const int multiChoiceItemLayout = 2130772003;
+			
+			// aapt resource value: 0x7f0100ed
+			public const int navigationContentDescription = 2130772205;
+			
+			// aapt resource value: 0x7f0100ec
+			public const int navigationIcon = 2130772204;
+			
+			// aapt resource value: 0x7f010004
+			public const int navigationMode = 2130771972;
+			
+			// aapt resource value: 0x7f0100b9
+			public const int numericModifiers = 2130772153;
+			
+			// aapt resource value: 0x7f0100c4
+			public const int overlapAnchor = 2130772164;
+			
+			// aapt resource value: 0x7f0100c6
+			public const int paddingBottomNoButtons = 2130772166;
+			
+			// aapt resource value: 0x7f0100f2
+			public const int paddingEnd = 2130772210;
+			
+			// aapt resource value: 0x7f0100f1
+			public const int paddingStart = 2130772209;
+			
+			// aapt resource value: 0x7f0100c7
+			public const int paddingTopNoTitle = 2130772167;
+			
+			// aapt resource value: 0x7f010082
+			public const int panelBackground = 2130772098;
+			
+			// aapt resource value: 0x7f010084
+			public const int panelMenuListTheme = 2130772100;
+			
+			// aapt resource value: 0x7f010083
+			public const int panelMenuListWidth = 2130772099;
+			
+			// aapt resource value: 0x7f01006f
+			public const int popupMenuStyle = 2130772079;
+			
+			// aapt resource value: 0x7f01001d
+			public const int popupTheme = 2130771997;
+			
+			// aapt resource value: 0x7f010070
+			public const int popupWindowStyle = 2130772080;
+			
+			// aapt resource value: 0x7f0100c2
+			public const int preserveIconSpacing = 2130772162;
+			
+			// aapt resource value: 0x7f010013
+			public const int progressBarPadding = 2130771987;
+			
+			// aapt resource value: 0x7f010011
+			public const int progressBarStyle = 2130771985;
+			
+			// aapt resource value: 0x7f0100d3
+			public const int queryBackground = 2130772179;
+			
+			// aapt resource value: 0x7f0100ca
+			public const int queryHint = 2130772170;
+			
+			// aapt resource value: 0x7f01009e
+			public const int radioButtonStyle = 2130772126;
+			
+			// aapt resource value: 0x7f01009f
+			public const int ratingBarStyle = 2130772127;
+			
+			// aapt resource value: 0x7f0100a0
+			public const int ratingBarStyleIndicator = 2130772128;
+			
+			// aapt resource value: 0x7f0100a1
+			public const int ratingBarStyleSmall = 2130772129;
+			
+			// aapt resource value: 0x7f0100cf
+			public const int searchHintIcon = 2130772175;
+			
+			// aapt resource value: 0x7f0100ce
+			public const int searchIcon = 2130772174;
+			
+			// aapt resource value: 0x7f010077
+			public const int searchViewStyle = 2130772087;
+			
+			// aapt resource value: 0x7f0100a2
+			public const int seekBarStyle = 2130772130;
+			
+			// aapt resource value: 0x7f010067
+			public const int selectableItemBackground = 2130772071;
+			
+			// aapt resource value: 0x7f010068
+			public const int selectableItemBackgroundBorderless = 2130772072;
+			
+			// aapt resource value: 0x7f0100ba
+			public const int showAsAction = 2130772154;
+			
+			// aapt resource value: 0x7f0100b6
+			public const int showDividers = 2130772150;
+			
+			// aapt resource value: 0x7f0100df
+			public const int showText = 2130772191;
+			
+			// aapt resource value: 0x7f010026
+			public const int showTitle = 2130772006;
+			
+			// aapt resource value: 0x7f010024
+			public const int singleChoiceItemLayout = 2130772004;
+			
+			// aapt resource value: 0x7f0100ae
+			public const int spinBars = 2130772142;
+			
+			// aapt resource value: 0x7f010062
+			public const int spinnerDropDownItemStyle = 2130772066;
+			
+			// aapt resource value: 0x7f0100a3
+			public const int spinnerStyle = 2130772131;
+			
+			// aapt resource value: 0x7f0100de
+			public const int splitTrack = 2130772190;
+			
+			// aapt resource value: 0x7f010027
+			public const int srcCompat = 2130772007;
+			
+			// aapt resource value: 0x7f0100c5
+			public const int state_above_anchor = 2130772165;
+			
+			// aapt resource value: 0x7f0100c3
+			public const int subMenuArrow = 2130772163;
+			
+			// aapt resource value: 0x7f0100d4
+			public const int submitBackground = 2130772180;
+			
+			// aapt resource value: 0x7f010006
+			public const int subtitle = 2130771974;
+			
+			// aapt resource value: 0x7f0100e1
+			public const int subtitleTextAppearance = 2130772193;
+			
+			// aapt resource value: 0x7f0100f0
+			public const int subtitleTextColor = 2130772208;
+			
+			// aapt resource value: 0x7f010008
+			public const int subtitleTextStyle = 2130771976;
+			
+			// aapt resource value: 0x7f0100d2
+			public const int suggestionRowLayout = 2130772178;
+			
+			// aapt resource value: 0x7f0100dc
+			public const int switchMinWidth = 2130772188;
+			
+			// aapt resource value: 0x7f0100dd
+			public const int switchPadding = 2130772189;
+			
+			// aapt resource value: 0x7f0100a4
+			public const int switchStyle = 2130772132;
+			
+			// aapt resource value: 0x7f0100db
+			public const int switchTextAppearance = 2130772187;
+			
+			// aapt resource value: 0x7f01002d
+			public const int textAllCaps = 2130772013;
+			
+			// aapt resource value: 0x7f01005a
+			public const int textAppearanceLargePopupMenu = 2130772058;
+			
+			// aapt resource value: 0x7f01007f
+			public const int textAppearanceListItem = 2130772095;
+			
+			// aapt resource value: 0x7f010080
+			public const int textAppearanceListItemSecondary = 2130772096;
+			
+			// aapt resource value: 0x7f010081
+			public const int textAppearanceListItemSmall = 2130772097;
+			
+			// aapt resource value: 0x7f01005c
+			public const int textAppearancePopupMenuHeader = 2130772060;
+			
+			// aapt resource value: 0x7f010075
+			public const int textAppearanceSearchResultSubtitle = 2130772085;
+			
+			// aapt resource value: 0x7f010074
+			public const int textAppearanceSearchResultTitle = 2130772084;
+			
+			// aapt resource value: 0x7f01005b
+			public const int textAppearanceSmallPopupMenu = 2130772059;
+			
+			// aapt resource value: 0x7f010094
+			public const int textColorAlertDialogListItem = 2130772116;
+			
+			// aapt resource value: 0x7f010076
+			public const int textColorSearchUrl = 2130772086;
+			
+			// aapt resource value: 0x7f0100f3
+			public const int theme = 2130772211;
+			
+			// aapt resource value: 0x7f0100b4
+			public const int thickness = 2130772148;
+			
+			// aapt resource value: 0x7f0100da
+			public const int thumbTextPadding = 2130772186;
+			
+			// aapt resource value: 0x7f0100d5
+			public const int thumbTint = 2130772181;
+			
+			// aapt resource value: 0x7f0100d6
+			public const int thumbTintMode = 2130772182;
+			
+			// aapt resource value: 0x7f01002a
+			public const int tickMark = 2130772010;
+			
+			// aapt resource value: 0x7f01002b
+			public const int tickMarkTint = 2130772011;
+			
+			// aapt resource value: 0x7f01002c
+			public const int tickMarkTintMode = 2130772012;
+			
+			// aapt resource value: 0x7f010028
+			public const int tint = 2130772008;
+			
+			// aapt resource value: 0x7f010029
+			public const int tintMode = 2130772009;
+			
+			// aapt resource value: 0x7f010003
+			public const int title = 2130771971;
+			
+			// aapt resource value: 0x7f0100e2
+			public const int titleMargin = 2130772194;
+			
+			// aapt resource value: 0x7f0100e6
+			public const int titleMarginBottom = 2130772198;
+			
+			// aapt resource value: 0x7f0100e4
+			public const int titleMarginEnd = 2130772196;
+			
+			// aapt resource value: 0x7f0100e3
+			public const int titleMarginStart = 2130772195;
+			
+			// aapt resource value: 0x7f0100e5
+			public const int titleMarginTop = 2130772197;
+			
+			// aapt resource value: 0x7f0100e7
+			public const int titleMargins = 2130772199;
+			
+			// aapt resource value: 0x7f0100e0
+			public const int titleTextAppearance = 2130772192;
+			
+			// aapt resource value: 0x7f0100ef
+			public const int titleTextColor = 2130772207;
+			
+			// aapt resource value: 0x7f010007
+			public const int titleTextStyle = 2130771975;
+			
+			// aapt resource value: 0x7f01006e
+			public const int toolbarNavigationButtonStyle = 2130772078;
+			
+			// aapt resource value: 0x7f01006d
+			public const int toolbarStyle = 2130772077;
+			
+			// aapt resource value: 0x7f0100a7
+			public const int tooltipForegroundColor = 2130772135;
+			
+			// aapt resource value: 0x7f0100a6
+			public const int tooltipFrameBackground = 2130772134;
+			
+			// aapt resource value: 0x7f0100bf
+			public const int tooltipText = 2130772159;
+			
+			// aapt resource value: 0x7f0100d7
+			public const int track = 2130772183;
+			
+			// aapt resource value: 0x7f0100d8
+			public const int trackTint = 2130772184;
+			
+			// aapt resource value: 0x7f0100d9
+			public const int trackTintMode = 2130772185;
+			
+			// aapt resource value: 0x7f0100d0
+			public const int voiceIcon = 2130772176;
+			
+			// aapt resource value: 0x7f010034
+			public const int windowActionBar = 2130772020;
+			
+			// aapt resource value: 0x7f010036
+			public const int windowActionBarOverlay = 2130772022;
+			
+			// aapt resource value: 0x7f010037
+			public const int windowActionModeOverlay = 2130772023;
+			
+			// aapt resource value: 0x7f01003b
+			public const int windowFixedHeightMajor = 2130772027;
+			
+			// aapt resource value: 0x7f010039
+			public const int windowFixedHeightMinor = 2130772025;
+			
+			// aapt resource value: 0x7f010038
+			public const int windowFixedWidthMajor = 2130772024;
+			
+			// aapt resource value: 0x7f01003a
+			public const int windowFixedWidthMinor = 2130772026;
+			
+			// aapt resource value: 0x7f01003c
+			public const int windowMinWidthMajor = 2130772028;
+			
+			// aapt resource value: 0x7f01003d
+			public const int windowMinWidthMinor = 2130772029;
+			
+			// aapt resource value: 0x7f010035
+			public const int windowNoTitle = 2130772021;
 			
 			static Attribute()
 			{
@@ -43,11 +2377,941 @@ namespace SharpInputSystem.Test.OpenGL.Android
 			}
 		}
 		
+		public partial class Boolean
+		{
+			
+			// aapt resource value: 0x7f080000
+			public const int abc_action_bar_embed_tabs = 2131230720;
+			
+			// aapt resource value: 0x7f080001
+			public const int abc_allow_stacked_button_bar = 2131230721;
+			
+			// aapt resource value: 0x7f080002
+			public const int abc_config_actionMenuItemAllCaps = 2131230722;
+			
+			// aapt resource value: 0x7f080003
+			public const int abc_config_closeDialogWhenTouchOutside = 2131230723;
+			
+			// aapt resource value: 0x7f080004
+			public const int abc_config_showMenuShortcutsWhenKeyboardPresent = 2131230724;
+			
+			static Boolean()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Boolean()
+			{
+			}
+		}
+		
+		public partial class Color
+		{
+			
+			// aapt resource value: 0x7f09003e
+			public const int abc_background_cache_hint_selector_material_dark = 2131296318;
+			
+			// aapt resource value: 0x7f09003f
+			public const int abc_background_cache_hint_selector_material_light = 2131296319;
+			
+			// aapt resource value: 0x7f090040
+			public const int abc_btn_colored_borderless_text_material = 2131296320;
+			
+			// aapt resource value: 0x7f090041
+			public const int abc_btn_colored_text_material = 2131296321;
+			
+			// aapt resource value: 0x7f090042
+			public const int abc_color_highlight_material = 2131296322;
+			
+			// aapt resource value: 0x7f090043
+			public const int abc_hint_foreground_material_dark = 2131296323;
+			
+			// aapt resource value: 0x7f090044
+			public const int abc_hint_foreground_material_light = 2131296324;
+			
+			// aapt resource value: 0x7f090000
+			public const int abc_input_method_navigation_guard = 2131296256;
+			
+			// aapt resource value: 0x7f090045
+			public const int abc_primary_text_disable_only_material_dark = 2131296325;
+			
+			// aapt resource value: 0x7f090046
+			public const int abc_primary_text_disable_only_material_light = 2131296326;
+			
+			// aapt resource value: 0x7f090047
+			public const int abc_primary_text_material_dark = 2131296327;
+			
+			// aapt resource value: 0x7f090048
+			public const int abc_primary_text_material_light = 2131296328;
+			
+			// aapt resource value: 0x7f090049
+			public const int abc_search_url_text = 2131296329;
+			
+			// aapt resource value: 0x7f090001
+			public const int abc_search_url_text_normal = 2131296257;
+			
+			// aapt resource value: 0x7f090002
+			public const int abc_search_url_text_pressed = 2131296258;
+			
+			// aapt resource value: 0x7f090003
+			public const int abc_search_url_text_selected = 2131296259;
+			
+			// aapt resource value: 0x7f09004a
+			public const int abc_secondary_text_material_dark = 2131296330;
+			
+			// aapt resource value: 0x7f09004b
+			public const int abc_secondary_text_material_light = 2131296331;
+			
+			// aapt resource value: 0x7f09004c
+			public const int abc_tint_btn_checkable = 2131296332;
+			
+			// aapt resource value: 0x7f09004d
+			public const int abc_tint_default = 2131296333;
+			
+			// aapt resource value: 0x7f09004e
+			public const int abc_tint_edittext = 2131296334;
+			
+			// aapt resource value: 0x7f09004f
+			public const int abc_tint_seek_thumb = 2131296335;
+			
+			// aapt resource value: 0x7f090050
+			public const int abc_tint_spinner = 2131296336;
+			
+			// aapt resource value: 0x7f090051
+			public const int abc_tint_switch_track = 2131296337;
+			
+			// aapt resource value: 0x7f090004
+			public const int accent_material_dark = 2131296260;
+			
+			// aapt resource value: 0x7f090005
+			public const int accent_material_light = 2131296261;
+			
+			// aapt resource value: 0x7f090006
+			public const int background_floating_material_dark = 2131296262;
+			
+			// aapt resource value: 0x7f090007
+			public const int background_floating_material_light = 2131296263;
+			
+			// aapt resource value: 0x7f090008
+			public const int background_material_dark = 2131296264;
+			
+			// aapt resource value: 0x7f090009
+			public const int background_material_light = 2131296265;
+			
+			// aapt resource value: 0x7f09000a
+			public const int bright_foreground_disabled_material_dark = 2131296266;
+			
+			// aapt resource value: 0x7f09000b
+			public const int bright_foreground_disabled_material_light = 2131296267;
+			
+			// aapt resource value: 0x7f09000c
+			public const int bright_foreground_inverse_material_dark = 2131296268;
+			
+			// aapt resource value: 0x7f09000d
+			public const int bright_foreground_inverse_material_light = 2131296269;
+			
+			// aapt resource value: 0x7f09000e
+			public const int bright_foreground_material_dark = 2131296270;
+			
+			// aapt resource value: 0x7f09000f
+			public const int bright_foreground_material_light = 2131296271;
+			
+			// aapt resource value: 0x7f090010
+			public const int button_material_dark = 2131296272;
+			
+			// aapt resource value: 0x7f090011
+			public const int button_material_light = 2131296273;
+			
+			// aapt resource value: 0x7f090012
+			public const int dim_foreground_disabled_material_dark = 2131296274;
+			
+			// aapt resource value: 0x7f090013
+			public const int dim_foreground_disabled_material_light = 2131296275;
+			
+			// aapt resource value: 0x7f090014
+			public const int dim_foreground_material_dark = 2131296276;
+			
+			// aapt resource value: 0x7f090015
+			public const int dim_foreground_material_light = 2131296277;
+			
+			// aapt resource value: 0x7f090016
+			public const int error_color_material = 2131296278;
+			
+			// aapt resource value: 0x7f090017
+			public const int foreground_material_dark = 2131296279;
+			
+			// aapt resource value: 0x7f090018
+			public const int foreground_material_light = 2131296280;
+			
+			// aapt resource value: 0x7f090019
+			public const int highlighted_text_material_dark = 2131296281;
+			
+			// aapt resource value: 0x7f09001a
+			public const int highlighted_text_material_light = 2131296282;
+			
+			// aapt resource value: 0x7f09001b
+			public const int material_blue_grey_800 = 2131296283;
+			
+			// aapt resource value: 0x7f09001c
+			public const int material_blue_grey_900 = 2131296284;
+			
+			// aapt resource value: 0x7f09001d
+			public const int material_blue_grey_950 = 2131296285;
+			
+			// aapt resource value: 0x7f09001e
+			public const int material_deep_teal_200 = 2131296286;
+			
+			// aapt resource value: 0x7f09001f
+			public const int material_deep_teal_500 = 2131296287;
+			
+			// aapt resource value: 0x7f090020
+			public const int material_grey_100 = 2131296288;
+			
+			// aapt resource value: 0x7f090021
+			public const int material_grey_300 = 2131296289;
+			
+			// aapt resource value: 0x7f090022
+			public const int material_grey_50 = 2131296290;
+			
+			// aapt resource value: 0x7f090023
+			public const int material_grey_600 = 2131296291;
+			
+			// aapt resource value: 0x7f090024
+			public const int material_grey_800 = 2131296292;
+			
+			// aapt resource value: 0x7f090025
+			public const int material_grey_850 = 2131296293;
+			
+			// aapt resource value: 0x7f090026
+			public const int material_grey_900 = 2131296294;
+			
+			// aapt resource value: 0x7f09003c
+			public const int notification_action_color_filter = 2131296316;
+			
+			// aapt resource value: 0x7f09003d
+			public const int notification_icon_bg_color = 2131296317;
+			
+			// aapt resource value: 0x7f09003b
+			public const int notification_material_background_media_default_color = 2131296315;
+			
+			// aapt resource value: 0x7f090027
+			public const int primary_dark_material_dark = 2131296295;
+			
+			// aapt resource value: 0x7f090028
+			public const int primary_dark_material_light = 2131296296;
+			
+			// aapt resource value: 0x7f090029
+			public const int primary_material_dark = 2131296297;
+			
+			// aapt resource value: 0x7f09002a
+			public const int primary_material_light = 2131296298;
+			
+			// aapt resource value: 0x7f09002b
+			public const int primary_text_default_material_dark = 2131296299;
+			
+			// aapt resource value: 0x7f09002c
+			public const int primary_text_default_material_light = 2131296300;
+			
+			// aapt resource value: 0x7f09002d
+			public const int primary_text_disabled_material_dark = 2131296301;
+			
+			// aapt resource value: 0x7f09002e
+			public const int primary_text_disabled_material_light = 2131296302;
+			
+			// aapt resource value: 0x7f09002f
+			public const int ripple_material_dark = 2131296303;
+			
+			// aapt resource value: 0x7f090030
+			public const int ripple_material_light = 2131296304;
+			
+			// aapt resource value: 0x7f090031
+			public const int secondary_text_default_material_dark = 2131296305;
+			
+			// aapt resource value: 0x7f090032
+			public const int secondary_text_default_material_light = 2131296306;
+			
+			// aapt resource value: 0x7f090033
+			public const int secondary_text_disabled_material_dark = 2131296307;
+			
+			// aapt resource value: 0x7f090034
+			public const int secondary_text_disabled_material_light = 2131296308;
+			
+			// aapt resource value: 0x7f090035
+			public const int switch_thumb_disabled_material_dark = 2131296309;
+			
+			// aapt resource value: 0x7f090036
+			public const int switch_thumb_disabled_material_light = 2131296310;
+			
+			// aapt resource value: 0x7f090052
+			public const int switch_thumb_material_dark = 2131296338;
+			
+			// aapt resource value: 0x7f090053
+			public const int switch_thumb_material_light = 2131296339;
+			
+			// aapt resource value: 0x7f090037
+			public const int switch_thumb_normal_material_dark = 2131296311;
+			
+			// aapt resource value: 0x7f090038
+			public const int switch_thumb_normal_material_light = 2131296312;
+			
+			// aapt resource value: 0x7f090039
+			public const int tooltip_background_dark = 2131296313;
+			
+			// aapt resource value: 0x7f09003a
+			public const int tooltip_background_light = 2131296314;
+			
+			static Color()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Color()
+			{
+			}
+		}
+		
+		public partial class Dimension
+		{
+			
+			// aapt resource value: 0x7f06000c
+			public const int abc_action_bar_content_inset_material = 2131099660;
+			
+			// aapt resource value: 0x7f06000d
+			public const int abc_action_bar_content_inset_with_nav = 2131099661;
+			
+			// aapt resource value: 0x7f060001
+			public const int abc_action_bar_default_height_material = 2131099649;
+			
+			// aapt resource value: 0x7f06000e
+			public const int abc_action_bar_default_padding_end_material = 2131099662;
+			
+			// aapt resource value: 0x7f06000f
+			public const int abc_action_bar_default_padding_start_material = 2131099663;
+			
+			// aapt resource value: 0x7f060011
+			public const int abc_action_bar_elevation_material = 2131099665;
+			
+			// aapt resource value: 0x7f060012
+			public const int abc_action_bar_icon_vertical_padding_material = 2131099666;
+			
+			// aapt resource value: 0x7f060013
+			public const int abc_action_bar_overflow_padding_end_material = 2131099667;
+			
+			// aapt resource value: 0x7f060014
+			public const int abc_action_bar_overflow_padding_start_material = 2131099668;
+			
+			// aapt resource value: 0x7f060002
+			public const int abc_action_bar_progress_bar_size = 2131099650;
+			
+			// aapt resource value: 0x7f060015
+			public const int abc_action_bar_stacked_max_height = 2131099669;
+			
+			// aapt resource value: 0x7f060016
+			public const int abc_action_bar_stacked_tab_max_width = 2131099670;
+			
+			// aapt resource value: 0x7f060017
+			public const int abc_action_bar_subtitle_bottom_margin_material = 2131099671;
+			
+			// aapt resource value: 0x7f060018
+			public const int abc_action_bar_subtitle_top_margin_material = 2131099672;
+			
+			// aapt resource value: 0x7f060019
+			public const int abc_action_button_min_height_material = 2131099673;
+			
+			// aapt resource value: 0x7f06001a
+			public const int abc_action_button_min_width_material = 2131099674;
+			
+			// aapt resource value: 0x7f06001b
+			public const int abc_action_button_min_width_overflow_material = 2131099675;
+			
+			// aapt resource value: 0x7f060000
+			public const int abc_alert_dialog_button_bar_height = 2131099648;
+			
+			// aapt resource value: 0x7f06001c
+			public const int abc_button_inset_horizontal_material = 2131099676;
+			
+			// aapt resource value: 0x7f06001d
+			public const int abc_button_inset_vertical_material = 2131099677;
+			
+			// aapt resource value: 0x7f06001e
+			public const int abc_button_padding_horizontal_material = 2131099678;
+			
+			// aapt resource value: 0x7f06001f
+			public const int abc_button_padding_vertical_material = 2131099679;
+			
+			// aapt resource value: 0x7f060020
+			public const int abc_cascading_menus_min_smallest_width = 2131099680;
+			
+			// aapt resource value: 0x7f060005
+			public const int abc_config_prefDialogWidth = 2131099653;
+			
+			// aapt resource value: 0x7f060021
+			public const int abc_control_corner_material = 2131099681;
+			
+			// aapt resource value: 0x7f060022
+			public const int abc_control_inset_material = 2131099682;
+			
+			// aapt resource value: 0x7f060023
+			public const int abc_control_padding_material = 2131099683;
+			
+			// aapt resource value: 0x7f060006
+			public const int abc_dialog_fixed_height_major = 2131099654;
+			
+			// aapt resource value: 0x7f060007
+			public const int abc_dialog_fixed_height_minor = 2131099655;
+			
+			// aapt resource value: 0x7f060008
+			public const int abc_dialog_fixed_width_major = 2131099656;
+			
+			// aapt resource value: 0x7f060009
+			public const int abc_dialog_fixed_width_minor = 2131099657;
+			
+			// aapt resource value: 0x7f060024
+			public const int abc_dialog_list_padding_bottom_no_buttons = 2131099684;
+			
+			// aapt resource value: 0x7f060025
+			public const int abc_dialog_list_padding_top_no_title = 2131099685;
+			
+			// aapt resource value: 0x7f06000a
+			public const int abc_dialog_min_width_major = 2131099658;
+			
+			// aapt resource value: 0x7f06000b
+			public const int abc_dialog_min_width_minor = 2131099659;
+			
+			// aapt resource value: 0x7f060026
+			public const int abc_dialog_padding_material = 2131099686;
+			
+			// aapt resource value: 0x7f060027
+			public const int abc_dialog_padding_top_material = 2131099687;
+			
+			// aapt resource value: 0x7f060028
+			public const int abc_dialog_title_divider_material = 2131099688;
+			
+			// aapt resource value: 0x7f060029
+			public const int abc_disabled_alpha_material_dark = 2131099689;
+			
+			// aapt resource value: 0x7f06002a
+			public const int abc_disabled_alpha_material_light = 2131099690;
+			
+			// aapt resource value: 0x7f06002b
+			public const int abc_dropdownitem_icon_width = 2131099691;
+			
+			// aapt resource value: 0x7f06002c
+			public const int abc_dropdownitem_text_padding_left = 2131099692;
+			
+			// aapt resource value: 0x7f06002d
+			public const int abc_dropdownitem_text_padding_right = 2131099693;
+			
+			// aapt resource value: 0x7f06002e
+			public const int abc_edit_text_inset_bottom_material = 2131099694;
+			
+			// aapt resource value: 0x7f06002f
+			public const int abc_edit_text_inset_horizontal_material = 2131099695;
+			
+			// aapt resource value: 0x7f060030
+			public const int abc_edit_text_inset_top_material = 2131099696;
+			
+			// aapt resource value: 0x7f060031
+			public const int abc_floating_window_z = 2131099697;
+			
+			// aapt resource value: 0x7f060032
+			public const int abc_list_item_padding_horizontal_material = 2131099698;
+			
+			// aapt resource value: 0x7f060033
+			public const int abc_panel_menu_list_width = 2131099699;
+			
+			// aapt resource value: 0x7f060034
+			public const int abc_progress_bar_height_material = 2131099700;
+			
+			// aapt resource value: 0x7f060035
+			public const int abc_search_view_preferred_height = 2131099701;
+			
+			// aapt resource value: 0x7f060036
+			public const int abc_search_view_preferred_width = 2131099702;
+			
+			// aapt resource value: 0x7f060037
+			public const int abc_seekbar_track_background_height_material = 2131099703;
+			
+			// aapt resource value: 0x7f060038
+			public const int abc_seekbar_track_progress_height_material = 2131099704;
+			
+			// aapt resource value: 0x7f060039
+			public const int abc_select_dialog_padding_start_material = 2131099705;
+			
+			// aapt resource value: 0x7f060010
+			public const int abc_switch_padding = 2131099664;
+			
+			// aapt resource value: 0x7f06003a
+			public const int abc_text_size_body_1_material = 2131099706;
+			
+			// aapt resource value: 0x7f06003b
+			public const int abc_text_size_body_2_material = 2131099707;
+			
+			// aapt resource value: 0x7f06003c
+			public const int abc_text_size_button_material = 2131099708;
+			
+			// aapt resource value: 0x7f06003d
+			public const int abc_text_size_caption_material = 2131099709;
+			
+			// aapt resource value: 0x7f06003e
+			public const int abc_text_size_display_1_material = 2131099710;
+			
+			// aapt resource value: 0x7f06003f
+			public const int abc_text_size_display_2_material = 2131099711;
+			
+			// aapt resource value: 0x7f060040
+			public const int abc_text_size_display_3_material = 2131099712;
+			
+			// aapt resource value: 0x7f060041
+			public const int abc_text_size_display_4_material = 2131099713;
+			
+			// aapt resource value: 0x7f060042
+			public const int abc_text_size_headline_material = 2131099714;
+			
+			// aapt resource value: 0x7f060043
+			public const int abc_text_size_large_material = 2131099715;
+			
+			// aapt resource value: 0x7f060044
+			public const int abc_text_size_medium_material = 2131099716;
+			
+			// aapt resource value: 0x7f060045
+			public const int abc_text_size_menu_header_material = 2131099717;
+			
+			// aapt resource value: 0x7f060046
+			public const int abc_text_size_menu_material = 2131099718;
+			
+			// aapt resource value: 0x7f060047
+			public const int abc_text_size_small_material = 2131099719;
+			
+			// aapt resource value: 0x7f060048
+			public const int abc_text_size_subhead_material = 2131099720;
+			
+			// aapt resource value: 0x7f060003
+			public const int abc_text_size_subtitle_material_toolbar = 2131099651;
+			
+			// aapt resource value: 0x7f060049
+			public const int abc_text_size_title_material = 2131099721;
+			
+			// aapt resource value: 0x7f060004
+			public const int abc_text_size_title_material_toolbar = 2131099652;
+			
+			// aapt resource value: 0x7f06005f
+			public const int compat_button_inset_horizontal_material = 2131099743;
+			
+			// aapt resource value: 0x7f060060
+			public const int compat_button_inset_vertical_material = 2131099744;
+			
+			// aapt resource value: 0x7f060061
+			public const int compat_button_padding_horizontal_material = 2131099745;
+			
+			// aapt resource value: 0x7f060062
+			public const int compat_button_padding_vertical_material = 2131099746;
+			
+			// aapt resource value: 0x7f060063
+			public const int compat_control_corner_material = 2131099747;
+			
+			// aapt resource value: 0x7f06004a
+			public const int disabled_alpha_material_dark = 2131099722;
+			
+			// aapt resource value: 0x7f06004b
+			public const int disabled_alpha_material_light = 2131099723;
+			
+			// aapt resource value: 0x7f06004c
+			public const int highlight_alpha_material_colored = 2131099724;
+			
+			// aapt resource value: 0x7f06004d
+			public const int highlight_alpha_material_dark = 2131099725;
+			
+			// aapt resource value: 0x7f06004e
+			public const int highlight_alpha_material_light = 2131099726;
+			
+			// aapt resource value: 0x7f06004f
+			public const int hint_alpha_material_dark = 2131099727;
+			
+			// aapt resource value: 0x7f060050
+			public const int hint_alpha_material_light = 2131099728;
+			
+			// aapt resource value: 0x7f060051
+			public const int hint_pressed_alpha_material_dark = 2131099729;
+			
+			// aapt resource value: 0x7f060052
+			public const int hint_pressed_alpha_material_light = 2131099730;
+			
+			// aapt resource value: 0x7f060064
+			public const int notification_action_icon_size = 2131099748;
+			
+			// aapt resource value: 0x7f060065
+			public const int notification_action_text_size = 2131099749;
+			
+			// aapt resource value: 0x7f060066
+			public const int notification_big_circle_margin = 2131099750;
+			
+			// aapt resource value: 0x7f06005c
+			public const int notification_content_margin_start = 2131099740;
+			
+			// aapt resource value: 0x7f060067
+			public const int notification_large_icon_height = 2131099751;
+			
+			// aapt resource value: 0x7f060068
+			public const int notification_large_icon_width = 2131099752;
+			
+			// aapt resource value: 0x7f06005d
+			public const int notification_main_column_padding_top = 2131099741;
+			
+			// aapt resource value: 0x7f06005e
+			public const int notification_media_narrow_margin = 2131099742;
+			
+			// aapt resource value: 0x7f060069
+			public const int notification_right_icon_size = 2131099753;
+			
+			// aapt resource value: 0x7f06005b
+			public const int notification_right_side_padding_top = 2131099739;
+			
+			// aapt resource value: 0x7f06006a
+			public const int notification_small_icon_background_padding = 2131099754;
+			
+			// aapt resource value: 0x7f06006b
+			public const int notification_small_icon_size_as_large = 2131099755;
+			
+			// aapt resource value: 0x7f06006c
+			public const int notification_subtext_size = 2131099756;
+			
+			// aapt resource value: 0x7f06006d
+			public const int notification_top_pad = 2131099757;
+			
+			// aapt resource value: 0x7f06006e
+			public const int notification_top_pad_large_text = 2131099758;
+			
+			// aapt resource value: 0x7f060053
+			public const int tooltip_corner_radius = 2131099731;
+			
+			// aapt resource value: 0x7f060054
+			public const int tooltip_horizontal_padding = 2131099732;
+			
+			// aapt resource value: 0x7f060055
+			public const int tooltip_margin = 2131099733;
+			
+			// aapt resource value: 0x7f060056
+			public const int tooltip_precise_anchor_extra_offset = 2131099734;
+			
+			// aapt resource value: 0x7f060057
+			public const int tooltip_precise_anchor_threshold = 2131099735;
+			
+			// aapt resource value: 0x7f060058
+			public const int tooltip_vertical_padding = 2131099736;
+			
+			// aapt resource value: 0x7f060059
+			public const int tooltip_y_offset_non_touch = 2131099737;
+			
+			// aapt resource value: 0x7f06005a
+			public const int tooltip_y_offset_touch = 2131099738;
+			
+			static Dimension()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Dimension()
+			{
+			}
+		}
+		
 		public partial class Drawable
 		{
 			
 			// aapt resource value: 0x7f020000
-			public const int Icon = 2130837504;
+			public const int abc_ab_share_pack_mtrl_alpha = 2130837504;
+			
+			// aapt resource value: 0x7f020001
+			public const int abc_action_bar_item_background_material = 2130837505;
+			
+			// aapt resource value: 0x7f020002
+			public const int abc_btn_borderless_material = 2130837506;
+			
+			// aapt resource value: 0x7f020003
+			public const int abc_btn_check_material = 2130837507;
+			
+			// aapt resource value: 0x7f020004
+			public const int abc_btn_check_to_on_mtrl_000 = 2130837508;
+			
+			// aapt resource value: 0x7f020005
+			public const int abc_btn_check_to_on_mtrl_015 = 2130837509;
+			
+			// aapt resource value: 0x7f020006
+			public const int abc_btn_colored_material = 2130837510;
+			
+			// aapt resource value: 0x7f020007
+			public const int abc_btn_default_mtrl_shape = 2130837511;
+			
+			// aapt resource value: 0x7f020008
+			public const int abc_btn_radio_material = 2130837512;
+			
+			// aapt resource value: 0x7f020009
+			public const int abc_btn_radio_to_on_mtrl_000 = 2130837513;
+			
+			// aapt resource value: 0x7f02000a
+			public const int abc_btn_radio_to_on_mtrl_015 = 2130837514;
+			
+			// aapt resource value: 0x7f02000b
+			public const int abc_btn_switch_to_on_mtrl_00001 = 2130837515;
+			
+			// aapt resource value: 0x7f02000c
+			public const int abc_btn_switch_to_on_mtrl_00012 = 2130837516;
+			
+			// aapt resource value: 0x7f02000d
+			public const int abc_cab_background_internal_bg = 2130837517;
+			
+			// aapt resource value: 0x7f02000e
+			public const int abc_cab_background_top_material = 2130837518;
+			
+			// aapt resource value: 0x7f02000f
+			public const int abc_cab_background_top_mtrl_alpha = 2130837519;
+			
+			// aapt resource value: 0x7f020010
+			public const int abc_control_background_material = 2130837520;
+			
+			// aapt resource value: 0x7f020011
+			public const int abc_dialog_material_background = 2130837521;
+			
+			// aapt resource value: 0x7f020012
+			public const int abc_edit_text_material = 2130837522;
+			
+			// aapt resource value: 0x7f020013
+			public const int abc_ic_ab_back_material = 2130837523;
+			
+			// aapt resource value: 0x7f020014
+			public const int abc_ic_arrow_drop_right_black_24dp = 2130837524;
+			
+			// aapt resource value: 0x7f020015
+			public const int abc_ic_clear_material = 2130837525;
+			
+			// aapt resource value: 0x7f020016
+			public const int abc_ic_commit_search_api_mtrl_alpha = 2130837526;
+			
+			// aapt resource value: 0x7f020017
+			public const int abc_ic_go_search_api_material = 2130837527;
+			
+			// aapt resource value: 0x7f020018
+			public const int abc_ic_menu_copy_mtrl_am_alpha = 2130837528;
+			
+			// aapt resource value: 0x7f020019
+			public const int abc_ic_menu_cut_mtrl_alpha = 2130837529;
+			
+			// aapt resource value: 0x7f02001a
+			public const int abc_ic_menu_overflow_material = 2130837530;
+			
+			// aapt resource value: 0x7f02001b
+			public const int abc_ic_menu_paste_mtrl_am_alpha = 2130837531;
+			
+			// aapt resource value: 0x7f02001c
+			public const int abc_ic_menu_selectall_mtrl_alpha = 2130837532;
+			
+			// aapt resource value: 0x7f02001d
+			public const int abc_ic_menu_share_mtrl_alpha = 2130837533;
+			
+			// aapt resource value: 0x7f02001e
+			public const int abc_ic_search_api_material = 2130837534;
+			
+			// aapt resource value: 0x7f02001f
+			public const int abc_ic_star_black_16dp = 2130837535;
+			
+			// aapt resource value: 0x7f020020
+			public const int abc_ic_star_black_36dp = 2130837536;
+			
+			// aapt resource value: 0x7f020021
+			public const int abc_ic_star_black_48dp = 2130837537;
+			
+			// aapt resource value: 0x7f020022
+			public const int abc_ic_star_half_black_16dp = 2130837538;
+			
+			// aapt resource value: 0x7f020023
+			public const int abc_ic_star_half_black_36dp = 2130837539;
+			
+			// aapt resource value: 0x7f020024
+			public const int abc_ic_star_half_black_48dp = 2130837540;
+			
+			// aapt resource value: 0x7f020025
+			public const int abc_ic_voice_search_api_material = 2130837541;
+			
+			// aapt resource value: 0x7f020026
+			public const int abc_item_background_holo_dark = 2130837542;
+			
+			// aapt resource value: 0x7f020027
+			public const int abc_item_background_holo_light = 2130837543;
+			
+			// aapt resource value: 0x7f020028
+			public const int abc_list_divider_mtrl_alpha = 2130837544;
+			
+			// aapt resource value: 0x7f020029
+			public const int abc_list_focused_holo = 2130837545;
+			
+			// aapt resource value: 0x7f02002a
+			public const int abc_list_longpressed_holo = 2130837546;
+			
+			// aapt resource value: 0x7f02002b
+			public const int abc_list_pressed_holo_dark = 2130837547;
+			
+			// aapt resource value: 0x7f02002c
+			public const int abc_list_pressed_holo_light = 2130837548;
+			
+			// aapt resource value: 0x7f02002d
+			public const int abc_list_selector_background_transition_holo_dark = 2130837549;
+			
+			// aapt resource value: 0x7f02002e
+			public const int abc_list_selector_background_transition_holo_light = 2130837550;
+			
+			// aapt resource value: 0x7f02002f
+			public const int abc_list_selector_disabled_holo_dark = 2130837551;
+			
+			// aapt resource value: 0x7f020030
+			public const int abc_list_selector_disabled_holo_light = 2130837552;
+			
+			// aapt resource value: 0x7f020031
+			public const int abc_list_selector_holo_dark = 2130837553;
+			
+			// aapt resource value: 0x7f020032
+			public const int abc_list_selector_holo_light = 2130837554;
+			
+			// aapt resource value: 0x7f020033
+			public const int abc_menu_hardkey_panel_mtrl_mult = 2130837555;
+			
+			// aapt resource value: 0x7f020034
+			public const int abc_popup_background_mtrl_mult = 2130837556;
+			
+			// aapt resource value: 0x7f020035
+			public const int abc_ratingbar_indicator_material = 2130837557;
+			
+			// aapt resource value: 0x7f020036
+			public const int abc_ratingbar_material = 2130837558;
+			
+			// aapt resource value: 0x7f020037
+			public const int abc_ratingbar_small_material = 2130837559;
+			
+			// aapt resource value: 0x7f020038
+			public const int abc_scrubber_control_off_mtrl_alpha = 2130837560;
+			
+			// aapt resource value: 0x7f020039
+			public const int abc_scrubber_control_to_pressed_mtrl_000 = 2130837561;
+			
+			// aapt resource value: 0x7f02003a
+			public const int abc_scrubber_control_to_pressed_mtrl_005 = 2130837562;
+			
+			// aapt resource value: 0x7f02003b
+			public const int abc_scrubber_primary_mtrl_alpha = 2130837563;
+			
+			// aapt resource value: 0x7f02003c
+			public const int abc_scrubber_track_mtrl_alpha = 2130837564;
+			
+			// aapt resource value: 0x7f02003d
+			public const int abc_seekbar_thumb_material = 2130837565;
+			
+			// aapt resource value: 0x7f02003e
+			public const int abc_seekbar_tick_mark_material = 2130837566;
+			
+			// aapt resource value: 0x7f02003f
+			public const int abc_seekbar_track_material = 2130837567;
+			
+			// aapt resource value: 0x7f020040
+			public const int abc_spinner_mtrl_am_alpha = 2130837568;
+			
+			// aapt resource value: 0x7f020041
+			public const int abc_spinner_textfield_background_material = 2130837569;
+			
+			// aapt resource value: 0x7f020042
+			public const int abc_switch_thumb_material = 2130837570;
+			
+			// aapt resource value: 0x7f020043
+			public const int abc_switch_track_mtrl_alpha = 2130837571;
+			
+			// aapt resource value: 0x7f020044
+			public const int abc_tab_indicator_material = 2130837572;
+			
+			// aapt resource value: 0x7f020045
+			public const int abc_tab_indicator_mtrl_alpha = 2130837573;
+			
+			// aapt resource value: 0x7f020046
+			public const int abc_text_cursor_material = 2130837574;
+			
+			// aapt resource value: 0x7f020047
+			public const int abc_text_select_handle_left_mtrl_dark = 2130837575;
+			
+			// aapt resource value: 0x7f020048
+			public const int abc_text_select_handle_left_mtrl_light = 2130837576;
+			
+			// aapt resource value: 0x7f020049
+			public const int abc_text_select_handle_middle_mtrl_dark = 2130837577;
+			
+			// aapt resource value: 0x7f02004a
+			public const int abc_text_select_handle_middle_mtrl_light = 2130837578;
+			
+			// aapt resource value: 0x7f02004b
+			public const int abc_text_select_handle_right_mtrl_dark = 2130837579;
+			
+			// aapt resource value: 0x7f02004c
+			public const int abc_text_select_handle_right_mtrl_light = 2130837580;
+			
+			// aapt resource value: 0x7f02004d
+			public const int abc_textfield_activated_mtrl_alpha = 2130837581;
+			
+			// aapt resource value: 0x7f02004e
+			public const int abc_textfield_default_mtrl_alpha = 2130837582;
+			
+			// aapt resource value: 0x7f02004f
+			public const int abc_textfield_search_activated_mtrl_alpha = 2130837583;
+			
+			// aapt resource value: 0x7f020050
+			public const int abc_textfield_search_default_mtrl_alpha = 2130837584;
+			
+			// aapt resource value: 0x7f020051
+			public const int abc_textfield_search_material = 2130837585;
+			
+			// aapt resource value: 0x7f020052
+			public const int abc_vector_test = 2130837586;
+			
+			// aapt resource value: 0x7f020053
+			public const int Icon = 2130837587;
+			
+			// aapt resource value: 0x7f020054
+			public const int notification_action_background = 2130837588;
+			
+			// aapt resource value: 0x7f020055
+			public const int notification_bg = 2130837589;
+			
+			// aapt resource value: 0x7f020056
+			public const int notification_bg_low = 2130837590;
+			
+			// aapt resource value: 0x7f020057
+			public const int notification_bg_low_normal = 2130837591;
+			
+			// aapt resource value: 0x7f020058
+			public const int notification_bg_low_pressed = 2130837592;
+			
+			// aapt resource value: 0x7f020059
+			public const int notification_bg_normal = 2130837593;
+			
+			// aapt resource value: 0x7f02005a
+			public const int notification_bg_normal_pressed = 2130837594;
+			
+			// aapt resource value: 0x7f02005b
+			public const int notification_icon_background = 2130837595;
+			
+			// aapt resource value: 0x7f020060
+			public const int notification_template_icon_bg = 2130837600;
+			
+			// aapt resource value: 0x7f020061
+			public const int notification_template_icon_low_bg = 2130837601;
+			
+			// aapt resource value: 0x7f02005c
+			public const int notification_tile_bg = 2130837596;
+			
+			// aapt resource value: 0x7f02005d
+			public const int notify_panel_notification_icon_bg = 2130837597;
+			
+			// aapt resource value: 0x7f02005e
+			public const int tooltip_frame_dark = 2130837598;
+			
+			// aapt resource value: 0x7f02005f
+			public const int tooltip_frame_light = 2130837599;
 			
 			static Drawable()
 			{
@@ -59,11 +3323,556 @@ namespace SharpInputSystem.Test.OpenGL.Android
 			}
 		}
 		
+		public partial class Id
+		{
+			
+			// aapt resource value: 0x7f0a0024
+			public const int ALT = 2131361828;
+			
+			// aapt resource value: 0x7f0a0025
+			public const int CTRL = 2131361829;
+			
+			// aapt resource value: 0x7f0a0026
+			public const int FUNCTION = 2131361830;
+			
+			// aapt resource value: 0x7f0a0027
+			public const int META = 2131361831;
+			
+			// aapt resource value: 0x7f0a0028
+			public const int SHIFT = 2131361832;
+			
+			// aapt resource value: 0x7f0a0029
+			public const int SYM = 2131361833;
+			
+			// aapt resource value: 0x7f0a0069
+			public const int action0 = 2131361897;
+			
+			// aapt resource value: 0x7f0a0057
+			public const int action_bar = 2131361879;
+			
+			// aapt resource value: 0x7f0a0000
+			public const int action_bar_activity_content = 2131361792;
+			
+			// aapt resource value: 0x7f0a0056
+			public const int action_bar_container = 2131361878;
+			
+			// aapt resource value: 0x7f0a0052
+			public const int action_bar_root = 2131361874;
+			
+			// aapt resource value: 0x7f0a0001
+			public const int action_bar_spinner = 2131361793;
+			
+			// aapt resource value: 0x7f0a0036
+			public const int action_bar_subtitle = 2131361846;
+			
+			// aapt resource value: 0x7f0a0035
+			public const int action_bar_title = 2131361845;
+			
+			// aapt resource value: 0x7f0a0066
+			public const int action_container = 2131361894;
+			
+			// aapt resource value: 0x7f0a0058
+			public const int action_context_bar = 2131361880;
+			
+			// aapt resource value: 0x7f0a006d
+			public const int action_divider = 2131361901;
+			
+			// aapt resource value: 0x7f0a0067
+			public const int action_image = 2131361895;
+			
+			// aapt resource value: 0x7f0a0002
+			public const int action_menu_divider = 2131361794;
+			
+			// aapt resource value: 0x7f0a0003
+			public const int action_menu_presenter = 2131361795;
+			
+			// aapt resource value: 0x7f0a0054
+			public const int action_mode_bar = 2131361876;
+			
+			// aapt resource value: 0x7f0a0053
+			public const int action_mode_bar_stub = 2131361875;
+			
+			// aapt resource value: 0x7f0a0037
+			public const int action_mode_close_button = 2131361847;
+			
+			// aapt resource value: 0x7f0a0068
+			public const int action_text = 2131361896;
+			
+			// aapt resource value: 0x7f0a0076
+			public const int actions = 2131361910;
+			
+			// aapt resource value: 0x7f0a0038
+			public const int activity_chooser_view_content = 2131361848;
+			
+			// aapt resource value: 0x7f0a0019
+			public const int add = 2131361817;
+			
+			// aapt resource value: 0x7f0a004b
+			public const int alertTitle = 2131361867;
+			
+			// aapt resource value: 0x7f0a002a
+			public const int always = 2131361834;
+			
+			// aapt resource value: 0x7f0a0031
+			public const int async = 2131361841;
+			
+			// aapt resource value: 0x7f0a0021
+			public const int beginning = 2131361825;
+			
+			// aapt resource value: 0x7f0a0032
+			public const int blocking = 2131361842;
+			
+			// aapt resource value: 0x7f0a002f
+			public const int bottom = 2131361839;
+			
+			// aapt resource value: 0x7f0a003e
+			public const int buttonPanel = 2131361854;
+			
+			// aapt resource value: 0x7f0a006a
+			public const int cancel_action = 2131361898;
+			
+			// aapt resource value: 0x7f0a004e
+			public const int checkbox = 2131361870;
+			
+			// aapt resource value: 0x7f0a0072
+			public const int chronometer = 2131361906;
+			
+			// aapt resource value: 0x7f0a002b
+			public const int collapseActionView = 2131361835;
+			
+			// aapt resource value: 0x7f0a0041
+			public const int contentPanel = 2131361857;
+			
+			// aapt resource value: 0x7f0a0048
+			public const int custom = 2131361864;
+			
+			// aapt resource value: 0x7f0a0047
+			public const int customPanel = 2131361863;
+			
+			// aapt resource value: 0x7f0a0055
+			public const int decor_content_parent = 2131361877;
+			
+			// aapt resource value: 0x7f0a003b
+			public const int default_activity_button = 2131361851;
+			
+			// aapt resource value: 0x7f0a0012
+			public const int disableHome = 2131361810;
+			
+			// aapt resource value: 0x7f0a0059
+			public const int edit_query = 2131361881;
+			
+			// aapt resource value: 0x7f0a0022
+			public const int end = 2131361826;
+			
+			// aapt resource value: 0x7f0a0078
+			public const int end_padder = 2131361912;
+			
+			// aapt resource value: 0x7f0a0039
+			public const int expand_activities_button = 2131361849;
+			
+			// aapt resource value: 0x7f0a004d
+			public const int expanded_menu = 2131361869;
+			
+			// aapt resource value: 0x7f0a0033
+			public const int forever = 2131361843;
+			
+			// aapt resource value: 0x7f0a0004
+			public const int home = 2131361796;
+			
+			// aapt resource value: 0x7f0a0013
+			public const int homeAsUp = 2131361811;
+			
+			// aapt resource value: 0x7f0a003d
+			public const int icon = 2131361853;
+			
+			// aapt resource value: 0x7f0a0077
+			public const int icon_group = 2131361911;
+			
+			// aapt resource value: 0x7f0a002c
+			public const int ifRoom = 2131361836;
+			
+			// aapt resource value: 0x7f0a003a
+			public const int image = 2131361850;
+			
+			// aapt resource value: 0x7f0a0073
+			public const int info = 2131361907;
+			
+			// aapt resource value: 0x7f0a0034
+			public const int italic = 2131361844;
+			
+			// aapt resource value: 0x7f0a0009
+			public const int line1 = 2131361801;
+			
+			// aapt resource value: 0x7f0a000a
+			public const int line3 = 2131361802;
+			
+			// aapt resource value: 0x7f0a000f
+			public const int listMode = 2131361807;
+			
+			// aapt resource value: 0x7f0a003c
+			public const int list_item = 2131361852;
+			
+			// aapt resource value: 0x7f0a006c
+			public const int media_actions = 2131361900;
+			
+			// aapt resource value: 0x7f0a0079
+			public const int message = 2131361913;
+			
+			// aapt resource value: 0x7f0a0023
+			public const int middle = 2131361827;
+			
+			// aapt resource value: 0x7f0a001a
+			public const int multiply = 2131361818;
+			
+			// aapt resource value: 0x7f0a002d
+			public const int never = 2131361837;
+			
+			// aapt resource value: 0x7f0a0014
+			public const int none = 2131361812;
+			
+			// aapt resource value: 0x7f0a0010
+			public const int normal = 2131361808;
+			
+			// aapt resource value: 0x7f0a0075
+			public const int notification_background = 2131361909;
+			
+			// aapt resource value: 0x7f0a006f
+			public const int notification_main_column = 2131361903;
+			
+			// aapt resource value: 0x7f0a006e
+			public const int notification_main_column_container = 2131361902;
+			
+			// aapt resource value: 0x7f0a0040
+			public const int parentPanel = 2131361856;
+			
+			// aapt resource value: 0x7f0a0005
+			public const int progress_circular = 2131361797;
+			
+			// aapt resource value: 0x7f0a0006
+			public const int progress_horizontal = 2131361798;
+			
+			// aapt resource value: 0x7f0a0050
+			public const int radio = 2131361872;
+			
+			// aapt resource value: 0x7f0a0074
+			public const int right_icon = 2131361908;
+			
+			// aapt resource value: 0x7f0a0070
+			public const int right_side = 2131361904;
+			
+			// aapt resource value: 0x7f0a001b
+			public const int screen = 2131361819;
+			
+			// aapt resource value: 0x7f0a0046
+			public const int scrollIndicatorDown = 2131361862;
+			
+			// aapt resource value: 0x7f0a0042
+			public const int scrollIndicatorUp = 2131361858;
+			
+			// aapt resource value: 0x7f0a0043
+			public const int scrollView = 2131361859;
+			
+			// aapt resource value: 0x7f0a005b
+			public const int search_badge = 2131361883;
+			
+			// aapt resource value: 0x7f0a005a
+			public const int search_bar = 2131361882;
+			
+			// aapt resource value: 0x7f0a005c
+			public const int search_button = 2131361884;
+			
+			// aapt resource value: 0x7f0a0061
+			public const int search_close_btn = 2131361889;
+			
+			// aapt resource value: 0x7f0a005d
+			public const int search_edit_frame = 2131361885;
+			
+			// aapt resource value: 0x7f0a0063
+			public const int search_go_btn = 2131361891;
+			
+			// aapt resource value: 0x7f0a005e
+			public const int search_mag_icon = 2131361886;
+			
+			// aapt resource value: 0x7f0a005f
+			public const int search_plate = 2131361887;
+			
+			// aapt resource value: 0x7f0a0060
+			public const int search_src_text = 2131361888;
+			
+			// aapt resource value: 0x7f0a0064
+			public const int search_voice_btn = 2131361892;
+			
+			// aapt resource value: 0x7f0a0065
+			public const int select_dialog_listview = 2131361893;
+			
+			// aapt resource value: 0x7f0a004f
+			public const int shortcut = 2131361871;
+			
+			// aapt resource value: 0x7f0a0015
+			public const int showCustom = 2131361813;
+			
+			// aapt resource value: 0x7f0a0016
+			public const int showHome = 2131361814;
+			
+			// aapt resource value: 0x7f0a0017
+			public const int showTitle = 2131361815;
+			
+			// aapt resource value: 0x7f0a003f
+			public const int spacer = 2131361855;
+			
+			// aapt resource value: 0x7f0a0007
+			public const int split_action_bar = 2131361799;
+			
+			// aapt resource value: 0x7f0a001c
+			public const int src_atop = 2131361820;
+			
+			// aapt resource value: 0x7f0a001d
+			public const int src_in = 2131361821;
+			
+			// aapt resource value: 0x7f0a001e
+			public const int src_over = 2131361822;
+			
+			// aapt resource value: 0x7f0a006b
+			public const int status_bar_latest_event_content = 2131361899;
+			
+			// aapt resource value: 0x7f0a0051
+			public const int submenuarrow = 2131361873;
+			
+			// aapt resource value: 0x7f0a0062
+			public const int submit_area = 2131361890;
+			
+			// aapt resource value: 0x7f0a0011
+			public const int tabMode = 2131361809;
+			
+			// aapt resource value: 0x7f0a000b
+			public const int tag_transition_group = 2131361803;
+			
+			// aapt resource value: 0x7f0a000c
+			public const int text = 2131361804;
+			
+			// aapt resource value: 0x7f0a000d
+			public const int text2 = 2131361805;
+			
+			// aapt resource value: 0x7f0a0045
+			public const int textSpacerNoButtons = 2131361861;
+			
+			// aapt resource value: 0x7f0a0044
+			public const int textSpacerNoTitle = 2131361860;
+			
+			// aapt resource value: 0x7f0a0071
+			public const int time = 2131361905;
+			
+			// aapt resource value: 0x7f0a000e
+			public const int title = 2131361806;
+			
+			// aapt resource value: 0x7f0a004c
+			public const int titleDividerNoCustom = 2131361868;
+			
+			// aapt resource value: 0x7f0a004a
+			public const int title_template = 2131361866;
+			
+			// aapt resource value: 0x7f0a0030
+			public const int top = 2131361840;
+			
+			// aapt resource value: 0x7f0a0049
+			public const int topPanel = 2131361865;
+			
+			// aapt resource value: 0x7f0a001f
+			public const int uniform = 2131361823;
+			
+			// aapt resource value: 0x7f0a0008
+			public const int up = 2131361800;
+			
+			// aapt resource value: 0x7f0a0018
+			public const int useLogo = 2131361816;
+			
+			// aapt resource value: 0x7f0a002e
+			public const int withText = 2131361838;
+			
+			// aapt resource value: 0x7f0a0020
+			public const int wrap_content = 2131361824;
+			
+			static Id()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Id()
+			{
+			}
+		}
+		
+		public partial class Integer
+		{
+			
+			// aapt resource value: 0x7f0b0000
+			public const int abc_config_activityDefaultDur = 2131427328;
+			
+			// aapt resource value: 0x7f0b0001
+			public const int abc_config_activityShortDur = 2131427329;
+			
+			// aapt resource value: 0x7f0b0002
+			public const int cancel_button_image_alpha = 2131427330;
+			
+			// aapt resource value: 0x7f0b0003
+			public const int config_tooltipAnimTime = 2131427331;
+			
+			// aapt resource value: 0x7f0b0004
+			public const int status_bar_notification_info_maxnum = 2131427332;
+			
+			static Integer()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Integer()
+			{
+			}
+		}
+		
 		public partial class Layout
 		{
 			
 			// aapt resource value: 0x7f030000
-			public const int Main = 2130903040;
+			public const int abc_action_bar_title_item = 2130903040;
+			
+			// aapt resource value: 0x7f030001
+			public const int abc_action_bar_up_container = 2130903041;
+			
+			// aapt resource value: 0x7f030002
+			public const int abc_action_menu_item_layout = 2130903042;
+			
+			// aapt resource value: 0x7f030003
+			public const int abc_action_menu_layout = 2130903043;
+			
+			// aapt resource value: 0x7f030004
+			public const int abc_action_mode_bar = 2130903044;
+			
+			// aapt resource value: 0x7f030005
+			public const int abc_action_mode_close_item_material = 2130903045;
+			
+			// aapt resource value: 0x7f030006
+			public const int abc_activity_chooser_view = 2130903046;
+			
+			// aapt resource value: 0x7f030007
+			public const int abc_activity_chooser_view_list_item = 2130903047;
+			
+			// aapt resource value: 0x7f030008
+			public const int abc_alert_dialog_button_bar_material = 2130903048;
+			
+			// aapt resource value: 0x7f030009
+			public const int abc_alert_dialog_material = 2130903049;
+			
+			// aapt resource value: 0x7f03000a
+			public const int abc_alert_dialog_title_material = 2130903050;
+			
+			// aapt resource value: 0x7f03000b
+			public const int abc_dialog_title_material = 2130903051;
+			
+			// aapt resource value: 0x7f03000c
+			public const int abc_expanded_menu_layout = 2130903052;
+			
+			// aapt resource value: 0x7f03000d
+			public const int abc_list_menu_item_checkbox = 2130903053;
+			
+			// aapt resource value: 0x7f03000e
+			public const int abc_list_menu_item_icon = 2130903054;
+			
+			// aapt resource value: 0x7f03000f
+			public const int abc_list_menu_item_layout = 2130903055;
+			
+			// aapt resource value: 0x7f030010
+			public const int abc_list_menu_item_radio = 2130903056;
+			
+			// aapt resource value: 0x7f030011
+			public const int abc_popup_menu_header_item_layout = 2130903057;
+			
+			// aapt resource value: 0x7f030012
+			public const int abc_popup_menu_item_layout = 2130903058;
+			
+			// aapt resource value: 0x7f030013
+			public const int abc_screen_content_include = 2130903059;
+			
+			// aapt resource value: 0x7f030014
+			public const int abc_screen_simple = 2130903060;
+			
+			// aapt resource value: 0x7f030015
+			public const int abc_screen_simple_overlay_action_mode = 2130903061;
+			
+			// aapt resource value: 0x7f030016
+			public const int abc_screen_toolbar = 2130903062;
+			
+			// aapt resource value: 0x7f030017
+			public const int abc_search_dropdown_item_icons_2line = 2130903063;
+			
+			// aapt resource value: 0x7f030018
+			public const int abc_search_view = 2130903064;
+			
+			// aapt resource value: 0x7f030019
+			public const int abc_select_dialog_material = 2130903065;
+			
+			// aapt resource value: 0x7f03001a
+			public const int Main = 2130903066;
+			
+			// aapt resource value: 0x7f03001b
+			public const int notification_action = 2130903067;
+			
+			// aapt resource value: 0x7f03001c
+			public const int notification_action_tombstone = 2130903068;
+			
+			// aapt resource value: 0x7f03001d
+			public const int notification_media_action = 2130903069;
+			
+			// aapt resource value: 0x7f03001e
+			public const int notification_media_cancel_action = 2130903070;
+			
+			// aapt resource value: 0x7f03001f
+			public const int notification_template_big_media = 2130903071;
+			
+			// aapt resource value: 0x7f030020
+			public const int notification_template_big_media_custom = 2130903072;
+			
+			// aapt resource value: 0x7f030021
+			public const int notification_template_big_media_narrow = 2130903073;
+			
+			// aapt resource value: 0x7f030022
+			public const int notification_template_big_media_narrow_custom = 2130903074;
+			
+			// aapt resource value: 0x7f030023
+			public const int notification_template_custom_big = 2130903075;
+			
+			// aapt resource value: 0x7f030024
+			public const int notification_template_icon_group = 2130903076;
+			
+			// aapt resource value: 0x7f030025
+			public const int notification_template_lines_media = 2130903077;
+			
+			// aapt resource value: 0x7f030026
+			public const int notification_template_media = 2130903078;
+			
+			// aapt resource value: 0x7f030027
+			public const int notification_template_media_custom = 2130903079;
+			
+			// aapt resource value: 0x7f030028
+			public const int notification_template_part_chronometer = 2130903080;
+			
+			// aapt resource value: 0x7f030029
+			public const int notification_template_part_time = 2130903081;
+			
+			// aapt resource value: 0x7f03002a
+			public const int select_dialog_item_material = 2130903082;
+			
+			// aapt resource value: 0x7f03002b
+			public const int select_dialog_multichoice_material = 2130903083;
+			
+			// aapt resource value: 0x7f03002c
+			public const int select_dialog_singlechoice_material = 2130903084;
+			
+			// aapt resource value: 0x7f03002d
+			public const int support_simple_spinner_dropdown_item = 2130903085;
+			
+			// aapt resource value: 0x7f03002e
+			public const int tooltip = 2130903086;
 			
 			static Layout()
 			{
@@ -78,11 +3887,110 @@ namespace SharpInputSystem.Test.OpenGL.Android
 		public partial class String
 		{
 			
-			// aapt resource value: 0x7f040001
-			public const int ApplicationName = 2130968577;
+			// aapt resource value: 0x7f050022
+			public const int ApplicationName = 2131034146;
 			
-			// aapt resource value: 0x7f040000
-			public const int Hello = 2130968576;
+			// aapt resource value: 0x7f050021
+			public const int Hello = 2131034145;
+			
+			// aapt resource value: 0x7f050000
+			public const int abc_action_bar_home_description = 2131034112;
+			
+			// aapt resource value: 0x7f050001
+			public const int abc_action_bar_up_description = 2131034113;
+			
+			// aapt resource value: 0x7f050002
+			public const int abc_action_menu_overflow_description = 2131034114;
+			
+			// aapt resource value: 0x7f050003
+			public const int abc_action_mode_done = 2131034115;
+			
+			// aapt resource value: 0x7f050004
+			public const int abc_activity_chooser_view_see_all = 2131034116;
+			
+			// aapt resource value: 0x7f050005
+			public const int abc_activitychooserview_choose_application = 2131034117;
+			
+			// aapt resource value: 0x7f050006
+			public const int abc_capital_off = 2131034118;
+			
+			// aapt resource value: 0x7f050007
+			public const int abc_capital_on = 2131034119;
+			
+			// aapt resource value: 0x7f050012
+			public const int abc_font_family_body_1_material = 2131034130;
+			
+			// aapt resource value: 0x7f050013
+			public const int abc_font_family_body_2_material = 2131034131;
+			
+			// aapt resource value: 0x7f050014
+			public const int abc_font_family_button_material = 2131034132;
+			
+			// aapt resource value: 0x7f050015
+			public const int abc_font_family_caption_material = 2131034133;
+			
+			// aapt resource value: 0x7f050016
+			public const int abc_font_family_display_1_material = 2131034134;
+			
+			// aapt resource value: 0x7f050017
+			public const int abc_font_family_display_2_material = 2131034135;
+			
+			// aapt resource value: 0x7f050018
+			public const int abc_font_family_display_3_material = 2131034136;
+			
+			// aapt resource value: 0x7f050019
+			public const int abc_font_family_display_4_material = 2131034137;
+			
+			// aapt resource value: 0x7f05001a
+			public const int abc_font_family_headline_material = 2131034138;
+			
+			// aapt resource value: 0x7f05001b
+			public const int abc_font_family_menu_material = 2131034139;
+			
+			// aapt resource value: 0x7f05001c
+			public const int abc_font_family_subhead_material = 2131034140;
+			
+			// aapt resource value: 0x7f05001d
+			public const int abc_font_family_title_material = 2131034141;
+			
+			// aapt resource value: 0x7f050008
+			public const int abc_search_hint = 2131034120;
+			
+			// aapt resource value: 0x7f050009
+			public const int abc_searchview_description_clear = 2131034121;
+			
+			// aapt resource value: 0x7f05000a
+			public const int abc_searchview_description_query = 2131034122;
+			
+			// aapt resource value: 0x7f05000b
+			public const int abc_searchview_description_search = 2131034123;
+			
+			// aapt resource value: 0x7f05000c
+			public const int abc_searchview_description_submit = 2131034124;
+			
+			// aapt resource value: 0x7f05000d
+			public const int abc_searchview_description_voice = 2131034125;
+			
+			// aapt resource value: 0x7f05000e
+			public const int abc_shareactionprovider_share_with = 2131034126;
+			
+			// aapt resource value: 0x7f05000f
+			public const int abc_shareactionprovider_share_with_application = 2131034127;
+			
+			// aapt resource value: 0x7f050010
+			public const int abc_toolbar_collapse_description = 2131034128;
+			
+			// aapt resource value: 0x7f050020
+			public const int app_name = 2131034144;
+			
+			// aapt resource value: 0x7f05001f
+			public const int hello = 2131034143;
+			
+			// aapt resource value: 0x7f050011
+			public const int search_menu_title = 2131034129;
+			
+			// aapt resource value: 0x7f05001e
+			public const int status_bar_notification_info_overflow = 2131034142;
 			
 			static String()
 			{
@@ -90,6 +3998,2616 @@ namespace SharpInputSystem.Test.OpenGL.Android
 			}
 			
 			private String()
+			{
+			}
+		}
+		
+		public partial class Style
+		{
+			
+			// aapt resource value: 0x7f070095
+			public const int AlertDialog_AppCompat = 2131165333;
+			
+			// aapt resource value: 0x7f070096
+			public const int AlertDialog_AppCompat_Light = 2131165334;
+			
+			// aapt resource value: 0x7f070097
+			public const int Animation_AppCompat_Dialog = 2131165335;
+			
+			// aapt resource value: 0x7f070098
+			public const int Animation_AppCompat_DropDownUp = 2131165336;
+			
+			// aapt resource value: 0x7f070099
+			public const int Animation_AppCompat_Tooltip = 2131165337;
+			
+			// aapt resource value: 0x7f07009a
+			public const int Base_AlertDialog_AppCompat = 2131165338;
+			
+			// aapt resource value: 0x7f07009b
+			public const int Base_AlertDialog_AppCompat_Light = 2131165339;
+			
+			// aapt resource value: 0x7f07009c
+			public const int Base_Animation_AppCompat_Dialog = 2131165340;
+			
+			// aapt resource value: 0x7f07009d
+			public const int Base_Animation_AppCompat_DropDownUp = 2131165341;
+			
+			// aapt resource value: 0x7f07009e
+			public const int Base_Animation_AppCompat_Tooltip = 2131165342;
+			
+			// aapt resource value: 0x7f07009f
+			public const int Base_DialogWindowTitle_AppCompat = 2131165343;
+			
+			// aapt resource value: 0x7f0700a0
+			public const int Base_DialogWindowTitleBackground_AppCompat = 2131165344;
+			
+			// aapt resource value: 0x7f070039
+			public const int Base_TextAppearance_AppCompat = 2131165241;
+			
+			// aapt resource value: 0x7f07003a
+			public const int Base_TextAppearance_AppCompat_Body1 = 2131165242;
+			
+			// aapt resource value: 0x7f07003b
+			public const int Base_TextAppearance_AppCompat_Body2 = 2131165243;
+			
+			// aapt resource value: 0x7f070027
+			public const int Base_TextAppearance_AppCompat_Button = 2131165223;
+			
+			// aapt resource value: 0x7f07003c
+			public const int Base_TextAppearance_AppCompat_Caption = 2131165244;
+			
+			// aapt resource value: 0x7f07003d
+			public const int Base_TextAppearance_AppCompat_Display1 = 2131165245;
+			
+			// aapt resource value: 0x7f07003e
+			public const int Base_TextAppearance_AppCompat_Display2 = 2131165246;
+			
+			// aapt resource value: 0x7f07003f
+			public const int Base_TextAppearance_AppCompat_Display3 = 2131165247;
+			
+			// aapt resource value: 0x7f070040
+			public const int Base_TextAppearance_AppCompat_Display4 = 2131165248;
+			
+			// aapt resource value: 0x7f070041
+			public const int Base_TextAppearance_AppCompat_Headline = 2131165249;
+			
+			// aapt resource value: 0x7f07000b
+			public const int Base_TextAppearance_AppCompat_Inverse = 2131165195;
+			
+			// aapt resource value: 0x7f070042
+			public const int Base_TextAppearance_AppCompat_Large = 2131165250;
+			
+			// aapt resource value: 0x7f07000c
+			public const int Base_TextAppearance_AppCompat_Large_Inverse = 2131165196;
+			
+			// aapt resource value: 0x7f070043
+			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165251;
+			
+			// aapt resource value: 0x7f070044
+			public const int Base_TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165252;
+			
+			// aapt resource value: 0x7f070045
+			public const int Base_TextAppearance_AppCompat_Medium = 2131165253;
+			
+			// aapt resource value: 0x7f07000d
+			public const int Base_TextAppearance_AppCompat_Medium_Inverse = 2131165197;
+			
+			// aapt resource value: 0x7f070046
+			public const int Base_TextAppearance_AppCompat_Menu = 2131165254;
+			
+			// aapt resource value: 0x7f0700a1
+			public const int Base_TextAppearance_AppCompat_SearchResult = 2131165345;
+			
+			// aapt resource value: 0x7f070047
+			public const int Base_TextAppearance_AppCompat_SearchResult_Subtitle = 2131165255;
+			
+			// aapt resource value: 0x7f070048
+			public const int Base_TextAppearance_AppCompat_SearchResult_Title = 2131165256;
+			
+			// aapt resource value: 0x7f070049
+			public const int Base_TextAppearance_AppCompat_Small = 2131165257;
+			
+			// aapt resource value: 0x7f07000e
+			public const int Base_TextAppearance_AppCompat_Small_Inverse = 2131165198;
+			
+			// aapt resource value: 0x7f07004a
+			public const int Base_TextAppearance_AppCompat_Subhead = 2131165258;
+			
+			// aapt resource value: 0x7f07000f
+			public const int Base_TextAppearance_AppCompat_Subhead_Inverse = 2131165199;
+			
+			// aapt resource value: 0x7f07004b
+			public const int Base_TextAppearance_AppCompat_Title = 2131165259;
+			
+			// aapt resource value: 0x7f070010
+			public const int Base_TextAppearance_AppCompat_Title_Inverse = 2131165200;
+			
+			// aapt resource value: 0x7f0700a2
+			public const int Base_TextAppearance_AppCompat_Tooltip = 2131165346;
+			
+			// aapt resource value: 0x7f070086
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165318;
+			
+			// aapt resource value: 0x7f07004c
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165260;
+			
+			// aapt resource value: 0x7f07004d
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165261;
+			
+			// aapt resource value: 0x7f07004e
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165262;
+			
+			// aapt resource value: 0x7f07004f
+			public const int Base_TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165263;
+			
+			// aapt resource value: 0x7f070050
+			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165264;
+			
+			// aapt resource value: 0x7f070051
+			public const int Base_TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165265;
+			
+			// aapt resource value: 0x7f070052
+			public const int Base_TextAppearance_AppCompat_Widget_Button = 2131165266;
+			
+			// aapt resource value: 0x7f07008d
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131165325;
+			
+			// aapt resource value: 0x7f07008e
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Colored = 2131165326;
+			
+			// aapt resource value: 0x7f070087
+			public const int Base_TextAppearance_AppCompat_Widget_Button_Inverse = 2131165319;
+			
+			// aapt resource value: 0x7f0700a3
+			public const int Base_TextAppearance_AppCompat_Widget_DropDownItem = 2131165347;
+			
+			// aapt resource value: 0x7f070053
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131165267;
+			
+			// aapt resource value: 0x7f070054
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165268;
+			
+			// aapt resource value: 0x7f070055
+			public const int Base_TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165269;
+			
+			// aapt resource value: 0x7f070056
+			public const int Base_TextAppearance_AppCompat_Widget_Switch = 2131165270;
+			
+			// aapt resource value: 0x7f070057
+			public const int Base_TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165271;
+			
+			// aapt resource value: 0x7f0700a4
+			public const int Base_TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165348;
+			
+			// aapt resource value: 0x7f070058
+			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165272;
+			
+			// aapt resource value: 0x7f070059
+			public const int Base_TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165273;
+			
+			// aapt resource value: 0x7f07005a
+			public const int Base_Theme_AppCompat = 2131165274;
+			
+			// aapt resource value: 0x7f0700a5
+			public const int Base_Theme_AppCompat_CompactMenu = 2131165349;
+			
+			// aapt resource value: 0x7f070011
+			public const int Base_Theme_AppCompat_Dialog = 2131165201;
+			
+			// aapt resource value: 0x7f070012
+			public const int Base_Theme_AppCompat_Dialog_Alert = 2131165202;
+			
+			// aapt resource value: 0x7f0700a6
+			public const int Base_Theme_AppCompat_Dialog_FixedSize = 2131165350;
+			
+			// aapt resource value: 0x7f070013
+			public const int Base_Theme_AppCompat_Dialog_MinWidth = 2131165203;
+			
+			// aapt resource value: 0x7f070001
+			public const int Base_Theme_AppCompat_DialogWhenLarge = 2131165185;
+			
+			// aapt resource value: 0x7f07005b
+			public const int Base_Theme_AppCompat_Light = 2131165275;
+			
+			// aapt resource value: 0x7f0700a7
+			public const int Base_Theme_AppCompat_Light_DarkActionBar = 2131165351;
+			
+			// aapt resource value: 0x7f070014
+			public const int Base_Theme_AppCompat_Light_Dialog = 2131165204;
+			
+			// aapt resource value: 0x7f070015
+			public const int Base_Theme_AppCompat_Light_Dialog_Alert = 2131165205;
+			
+			// aapt resource value: 0x7f0700a8
+			public const int Base_Theme_AppCompat_Light_Dialog_FixedSize = 2131165352;
+			
+			// aapt resource value: 0x7f070016
+			public const int Base_Theme_AppCompat_Light_Dialog_MinWidth = 2131165206;
+			
+			// aapt resource value: 0x7f070002
+			public const int Base_Theme_AppCompat_Light_DialogWhenLarge = 2131165186;
+			
+			// aapt resource value: 0x7f0700a9
+			public const int Base_ThemeOverlay_AppCompat = 2131165353;
+			
+			// aapt resource value: 0x7f0700aa
+			public const int Base_ThemeOverlay_AppCompat_ActionBar = 2131165354;
+			
+			// aapt resource value: 0x7f0700ab
+			public const int Base_ThemeOverlay_AppCompat_Dark = 2131165355;
+			
+			// aapt resource value: 0x7f0700ac
+			public const int Base_ThemeOverlay_AppCompat_Dark_ActionBar = 2131165356;
+			
+			// aapt resource value: 0x7f070017
+			public const int Base_ThemeOverlay_AppCompat_Dialog = 2131165207;
+			
+			// aapt resource value: 0x7f070018
+			public const int Base_ThemeOverlay_AppCompat_Dialog_Alert = 2131165208;
+			
+			// aapt resource value: 0x7f0700ad
+			public const int Base_ThemeOverlay_AppCompat_Light = 2131165357;
+			
+			// aapt resource value: 0x7f070019
+			public const int Base_V11_Theme_AppCompat_Dialog = 2131165209;
+			
+			// aapt resource value: 0x7f07001a
+			public const int Base_V11_Theme_AppCompat_Light_Dialog = 2131165210;
+			
+			// aapt resource value: 0x7f07001b
+			public const int Base_V11_ThemeOverlay_AppCompat_Dialog = 2131165211;
+			
+			// aapt resource value: 0x7f070023
+			public const int Base_V12_Widget_AppCompat_AutoCompleteTextView = 2131165219;
+			
+			// aapt resource value: 0x7f070024
+			public const int Base_V12_Widget_AppCompat_EditText = 2131165220;
+			
+			// aapt resource value: 0x7f07005c
+			public const int Base_V21_Theme_AppCompat = 2131165276;
+			
+			// aapt resource value: 0x7f07005d
+			public const int Base_V21_Theme_AppCompat_Dialog = 2131165277;
+			
+			// aapt resource value: 0x7f07005e
+			public const int Base_V21_Theme_AppCompat_Light = 2131165278;
+			
+			// aapt resource value: 0x7f07005f
+			public const int Base_V21_Theme_AppCompat_Light_Dialog = 2131165279;
+			
+			// aapt resource value: 0x7f070060
+			public const int Base_V21_ThemeOverlay_AppCompat_Dialog = 2131165280;
+			
+			// aapt resource value: 0x7f070084
+			public const int Base_V22_Theme_AppCompat = 2131165316;
+			
+			// aapt resource value: 0x7f070085
+			public const int Base_V22_Theme_AppCompat_Light = 2131165317;
+			
+			// aapt resource value: 0x7f070088
+			public const int Base_V23_Theme_AppCompat = 2131165320;
+			
+			// aapt resource value: 0x7f070089
+			public const int Base_V23_Theme_AppCompat_Light = 2131165321;
+			
+			// aapt resource value: 0x7f070091
+			public const int Base_V26_Theme_AppCompat = 2131165329;
+			
+			// aapt resource value: 0x7f070092
+			public const int Base_V26_Theme_AppCompat_Light = 2131165330;
+			
+			// aapt resource value: 0x7f070093
+			public const int Base_V26_Widget_AppCompat_Toolbar = 2131165331;
+			
+			// aapt resource value: 0x7f0700ae
+			public const int Base_V7_Theme_AppCompat = 2131165358;
+			
+			// aapt resource value: 0x7f0700af
+			public const int Base_V7_Theme_AppCompat_Dialog = 2131165359;
+			
+			// aapt resource value: 0x7f0700b0
+			public const int Base_V7_Theme_AppCompat_Light = 2131165360;
+			
+			// aapt resource value: 0x7f0700b1
+			public const int Base_V7_Theme_AppCompat_Light_Dialog = 2131165361;
+			
+			// aapt resource value: 0x7f0700b2
+			public const int Base_V7_ThemeOverlay_AppCompat_Dialog = 2131165362;
+			
+			// aapt resource value: 0x7f0700b3
+			public const int Base_V7_Widget_AppCompat_AutoCompleteTextView = 2131165363;
+			
+			// aapt resource value: 0x7f0700b4
+			public const int Base_V7_Widget_AppCompat_EditText = 2131165364;
+			
+			// aapt resource value: 0x7f0700b5
+			public const int Base_V7_Widget_AppCompat_Toolbar = 2131165365;
+			
+			// aapt resource value: 0x7f0700b6
+			public const int Base_Widget_AppCompat_ActionBar = 2131165366;
+			
+			// aapt resource value: 0x7f0700b7
+			public const int Base_Widget_AppCompat_ActionBar_Solid = 2131165367;
+			
+			// aapt resource value: 0x7f0700b8
+			public const int Base_Widget_AppCompat_ActionBar_TabBar = 2131165368;
+			
+			// aapt resource value: 0x7f070061
+			public const int Base_Widget_AppCompat_ActionBar_TabText = 2131165281;
+			
+			// aapt resource value: 0x7f070062
+			public const int Base_Widget_AppCompat_ActionBar_TabView = 2131165282;
+			
+			// aapt resource value: 0x7f070063
+			public const int Base_Widget_AppCompat_ActionButton = 2131165283;
+			
+			// aapt resource value: 0x7f070064
+			public const int Base_Widget_AppCompat_ActionButton_CloseMode = 2131165284;
+			
+			// aapt resource value: 0x7f070065
+			public const int Base_Widget_AppCompat_ActionButton_Overflow = 2131165285;
+			
+			// aapt resource value: 0x7f0700b9
+			public const int Base_Widget_AppCompat_ActionMode = 2131165369;
+			
+			// aapt resource value: 0x7f0700ba
+			public const int Base_Widget_AppCompat_ActivityChooserView = 2131165370;
+			
+			// aapt resource value: 0x7f070025
+			public const int Base_Widget_AppCompat_AutoCompleteTextView = 2131165221;
+			
+			// aapt resource value: 0x7f070066
+			public const int Base_Widget_AppCompat_Button = 2131165286;
+			
+			// aapt resource value: 0x7f070067
+			public const int Base_Widget_AppCompat_Button_Borderless = 2131165287;
+			
+			// aapt resource value: 0x7f070068
+			public const int Base_Widget_AppCompat_Button_Borderless_Colored = 2131165288;
+			
+			// aapt resource value: 0x7f0700bb
+			public const int Base_Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165371;
+			
+			// aapt resource value: 0x7f07008a
+			public const int Base_Widget_AppCompat_Button_Colored = 2131165322;
+			
+			// aapt resource value: 0x7f070069
+			public const int Base_Widget_AppCompat_Button_Small = 2131165289;
+			
+			// aapt resource value: 0x7f07006a
+			public const int Base_Widget_AppCompat_ButtonBar = 2131165290;
+			
+			// aapt resource value: 0x7f0700bc
+			public const int Base_Widget_AppCompat_ButtonBar_AlertDialog = 2131165372;
+			
+			// aapt resource value: 0x7f07006b
+			public const int Base_Widget_AppCompat_CompoundButton_CheckBox = 2131165291;
+			
+			// aapt resource value: 0x7f07006c
+			public const int Base_Widget_AppCompat_CompoundButton_RadioButton = 2131165292;
+			
+			// aapt resource value: 0x7f0700bd
+			public const int Base_Widget_AppCompat_CompoundButton_Switch = 2131165373;
+			
+			// aapt resource value: 0x7f070000
+			public const int Base_Widget_AppCompat_DrawerArrowToggle = 2131165184;
+			
+			// aapt resource value: 0x7f0700be
+			public const int Base_Widget_AppCompat_DrawerArrowToggle_Common = 2131165374;
+			
+			// aapt resource value: 0x7f07006d
+			public const int Base_Widget_AppCompat_DropDownItem_Spinner = 2131165293;
+			
+			// aapt resource value: 0x7f070026
+			public const int Base_Widget_AppCompat_EditText = 2131165222;
+			
+			// aapt resource value: 0x7f07006e
+			public const int Base_Widget_AppCompat_ImageButton = 2131165294;
+			
+			// aapt resource value: 0x7f0700bf
+			public const int Base_Widget_AppCompat_Light_ActionBar = 2131165375;
+			
+			// aapt resource value: 0x7f0700c0
+			public const int Base_Widget_AppCompat_Light_ActionBar_Solid = 2131165376;
+			
+			// aapt resource value: 0x7f0700c1
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabBar = 2131165377;
+			
+			// aapt resource value: 0x7f07006f
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabText = 2131165295;
+			
+			// aapt resource value: 0x7f070070
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165296;
+			
+			// aapt resource value: 0x7f070071
+			public const int Base_Widget_AppCompat_Light_ActionBar_TabView = 2131165297;
+			
+			// aapt resource value: 0x7f070072
+			public const int Base_Widget_AppCompat_Light_PopupMenu = 2131165298;
+			
+			// aapt resource value: 0x7f070073
+			public const int Base_Widget_AppCompat_Light_PopupMenu_Overflow = 2131165299;
+			
+			// aapt resource value: 0x7f0700c2
+			public const int Base_Widget_AppCompat_ListMenuView = 2131165378;
+			
+			// aapt resource value: 0x7f070074
+			public const int Base_Widget_AppCompat_ListPopupWindow = 2131165300;
+			
+			// aapt resource value: 0x7f070075
+			public const int Base_Widget_AppCompat_ListView = 2131165301;
+			
+			// aapt resource value: 0x7f070076
+			public const int Base_Widget_AppCompat_ListView_DropDown = 2131165302;
+			
+			// aapt resource value: 0x7f070077
+			public const int Base_Widget_AppCompat_ListView_Menu = 2131165303;
+			
+			// aapt resource value: 0x7f070078
+			public const int Base_Widget_AppCompat_PopupMenu = 2131165304;
+			
+			// aapt resource value: 0x7f070079
+			public const int Base_Widget_AppCompat_PopupMenu_Overflow = 2131165305;
+			
+			// aapt resource value: 0x7f0700c3
+			public const int Base_Widget_AppCompat_PopupWindow = 2131165379;
+			
+			// aapt resource value: 0x7f07001c
+			public const int Base_Widget_AppCompat_ProgressBar = 2131165212;
+			
+			// aapt resource value: 0x7f07001d
+			public const int Base_Widget_AppCompat_ProgressBar_Horizontal = 2131165213;
+			
+			// aapt resource value: 0x7f07007a
+			public const int Base_Widget_AppCompat_RatingBar = 2131165306;
+			
+			// aapt resource value: 0x7f07008b
+			public const int Base_Widget_AppCompat_RatingBar_Indicator = 2131165323;
+			
+			// aapt resource value: 0x7f07008c
+			public const int Base_Widget_AppCompat_RatingBar_Small = 2131165324;
+			
+			// aapt resource value: 0x7f0700c4
+			public const int Base_Widget_AppCompat_SearchView = 2131165380;
+			
+			// aapt resource value: 0x7f0700c5
+			public const int Base_Widget_AppCompat_SearchView_ActionBar = 2131165381;
+			
+			// aapt resource value: 0x7f07007b
+			public const int Base_Widget_AppCompat_SeekBar = 2131165307;
+			
+			// aapt resource value: 0x7f0700c6
+			public const int Base_Widget_AppCompat_SeekBar_Discrete = 2131165382;
+			
+			// aapt resource value: 0x7f07007c
+			public const int Base_Widget_AppCompat_Spinner = 2131165308;
+			
+			// aapt resource value: 0x7f070003
+			public const int Base_Widget_AppCompat_Spinner_Underlined = 2131165187;
+			
+			// aapt resource value: 0x7f07007d
+			public const int Base_Widget_AppCompat_TextView_SpinnerItem = 2131165309;
+			
+			// aapt resource value: 0x7f070094
+			public const int Base_Widget_AppCompat_Toolbar = 2131165332;
+			
+			// aapt resource value: 0x7f07007e
+			public const int Base_Widget_AppCompat_Toolbar_Button_Navigation = 2131165310;
+			
+			// aapt resource value: 0x7f07001e
+			public const int Platform_AppCompat = 2131165214;
+			
+			// aapt resource value: 0x7f07001f
+			public const int Platform_AppCompat_Light = 2131165215;
+			
+			// aapt resource value: 0x7f07007f
+			public const int Platform_ThemeOverlay_AppCompat = 2131165311;
+			
+			// aapt resource value: 0x7f070080
+			public const int Platform_ThemeOverlay_AppCompat_Dark = 2131165312;
+			
+			// aapt resource value: 0x7f070081
+			public const int Platform_ThemeOverlay_AppCompat_Light = 2131165313;
+			
+			// aapt resource value: 0x7f070020
+			public const int Platform_V11_AppCompat = 2131165216;
+			
+			// aapt resource value: 0x7f070021
+			public const int Platform_V11_AppCompat_Light = 2131165217;
+			
+			// aapt resource value: 0x7f070028
+			public const int Platform_V14_AppCompat = 2131165224;
+			
+			// aapt resource value: 0x7f070029
+			public const int Platform_V14_AppCompat_Light = 2131165225;
+			
+			// aapt resource value: 0x7f070082
+			public const int Platform_V21_AppCompat = 2131165314;
+			
+			// aapt resource value: 0x7f070083
+			public const int Platform_V21_AppCompat_Light = 2131165315;
+			
+			// aapt resource value: 0x7f07008f
+			public const int Platform_V25_AppCompat = 2131165327;
+			
+			// aapt resource value: 0x7f070090
+			public const int Platform_V25_AppCompat_Light = 2131165328;
+			
+			// aapt resource value: 0x7f070022
+			public const int Platform_Widget_AppCompat_Spinner = 2131165218;
+			
+			// aapt resource value: 0x7f07002b
+			public const int RtlOverlay_DialogWindowTitle_AppCompat = 2131165227;
+			
+			// aapt resource value: 0x7f07002c
+			public const int RtlOverlay_Widget_AppCompat_ActionBar_TitleItem = 2131165228;
+			
+			// aapt resource value: 0x7f07002d
+			public const int RtlOverlay_Widget_AppCompat_DialogTitle_Icon = 2131165229;
+			
+			// aapt resource value: 0x7f07002e
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem = 2131165230;
+			
+			// aapt resource value: 0x7f07002f
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_InternalGroup = 2131165231;
+			
+			// aapt resource value: 0x7f070030
+			public const int RtlOverlay_Widget_AppCompat_PopupMenuItem_Text = 2131165232;
+			
+			// aapt resource value: 0x7f070031
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown = 2131165233;
+			
+			// aapt resource value: 0x7f070032
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon1 = 2131165234;
+			
+			// aapt resource value: 0x7f070033
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Icon2 = 2131165235;
+			
+			// aapt resource value: 0x7f070034
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Query = 2131165236;
+			
+			// aapt resource value: 0x7f070035
+			public const int RtlOverlay_Widget_AppCompat_Search_DropDown_Text = 2131165237;
+			
+			// aapt resource value: 0x7f070036
+			public const int RtlOverlay_Widget_AppCompat_SearchView_MagIcon = 2131165238;
+			
+			// aapt resource value: 0x7f070037
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton = 2131165239;
+			
+			// aapt resource value: 0x7f070038
+			public const int RtlUnderlay_Widget_AppCompat_ActionButton_Overflow = 2131165240;
+			
+			// aapt resource value: 0x7f0700c7
+			public const int TextAppearance_AppCompat = 2131165383;
+			
+			// aapt resource value: 0x7f0700c8
+			public const int TextAppearance_AppCompat_Body1 = 2131165384;
+			
+			// aapt resource value: 0x7f0700c9
+			public const int TextAppearance_AppCompat_Body2 = 2131165385;
+			
+			// aapt resource value: 0x7f0700ca
+			public const int TextAppearance_AppCompat_Button = 2131165386;
+			
+			// aapt resource value: 0x7f0700cb
+			public const int TextAppearance_AppCompat_Caption = 2131165387;
+			
+			// aapt resource value: 0x7f0700cc
+			public const int TextAppearance_AppCompat_Display1 = 2131165388;
+			
+			// aapt resource value: 0x7f0700cd
+			public const int TextAppearance_AppCompat_Display2 = 2131165389;
+			
+			// aapt resource value: 0x7f0700ce
+			public const int TextAppearance_AppCompat_Display3 = 2131165390;
+			
+			// aapt resource value: 0x7f0700cf
+			public const int TextAppearance_AppCompat_Display4 = 2131165391;
+			
+			// aapt resource value: 0x7f0700d0
+			public const int TextAppearance_AppCompat_Headline = 2131165392;
+			
+			// aapt resource value: 0x7f0700d1
+			public const int TextAppearance_AppCompat_Inverse = 2131165393;
+			
+			// aapt resource value: 0x7f0700d2
+			public const int TextAppearance_AppCompat_Large = 2131165394;
+			
+			// aapt resource value: 0x7f0700d3
+			public const int TextAppearance_AppCompat_Large_Inverse = 2131165395;
+			
+			// aapt resource value: 0x7f0700d4
+			public const int TextAppearance_AppCompat_Light_SearchResult_Subtitle = 2131165396;
+			
+			// aapt resource value: 0x7f0700d5
+			public const int TextAppearance_AppCompat_Light_SearchResult_Title = 2131165397;
+			
+			// aapt resource value: 0x7f0700d6
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Large = 2131165398;
+			
+			// aapt resource value: 0x7f0700d7
+			public const int TextAppearance_AppCompat_Light_Widget_PopupMenu_Small = 2131165399;
+			
+			// aapt resource value: 0x7f0700d8
+			public const int TextAppearance_AppCompat_Medium = 2131165400;
+			
+			// aapt resource value: 0x7f0700d9
+			public const int TextAppearance_AppCompat_Medium_Inverse = 2131165401;
+			
+			// aapt resource value: 0x7f0700da
+			public const int TextAppearance_AppCompat_Menu = 2131165402;
+			
+			// aapt resource value: 0x7f0700db
+			public const int TextAppearance_AppCompat_SearchResult_Subtitle = 2131165403;
+			
+			// aapt resource value: 0x7f0700dc
+			public const int TextAppearance_AppCompat_SearchResult_Title = 2131165404;
+			
+			// aapt resource value: 0x7f0700dd
+			public const int TextAppearance_AppCompat_Small = 2131165405;
+			
+			// aapt resource value: 0x7f0700de
+			public const int TextAppearance_AppCompat_Small_Inverse = 2131165406;
+			
+			// aapt resource value: 0x7f0700df
+			public const int TextAppearance_AppCompat_Subhead = 2131165407;
+			
+			// aapt resource value: 0x7f0700e0
+			public const int TextAppearance_AppCompat_Subhead_Inverse = 2131165408;
+			
+			// aapt resource value: 0x7f0700e1
+			public const int TextAppearance_AppCompat_Title = 2131165409;
+			
+			// aapt resource value: 0x7f0700e2
+			public const int TextAppearance_AppCompat_Title_Inverse = 2131165410;
+			
+			// aapt resource value: 0x7f07002a
+			public const int TextAppearance_AppCompat_Tooltip = 2131165226;
+			
+			// aapt resource value: 0x7f0700e3
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Menu = 2131165411;
+			
+			// aapt resource value: 0x7f0700e4
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle = 2131165412;
+			
+			// aapt resource value: 0x7f0700e5
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Subtitle_Inverse = 2131165413;
+			
+			// aapt resource value: 0x7f0700e6
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title = 2131165414;
+			
+			// aapt resource value: 0x7f0700e7
+			public const int TextAppearance_AppCompat_Widget_ActionBar_Title_Inverse = 2131165415;
+			
+			// aapt resource value: 0x7f0700e8
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle = 2131165416;
+			
+			// aapt resource value: 0x7f0700e9
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Subtitle_Inverse = 2131165417;
+			
+			// aapt resource value: 0x7f0700ea
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title = 2131165418;
+			
+			// aapt resource value: 0x7f0700eb
+			public const int TextAppearance_AppCompat_Widget_ActionMode_Title_Inverse = 2131165419;
+			
+			// aapt resource value: 0x7f0700ec
+			public const int TextAppearance_AppCompat_Widget_Button = 2131165420;
+			
+			// aapt resource value: 0x7f0700ed
+			public const int TextAppearance_AppCompat_Widget_Button_Borderless_Colored = 2131165421;
+			
+			// aapt resource value: 0x7f0700ee
+			public const int TextAppearance_AppCompat_Widget_Button_Colored = 2131165422;
+			
+			// aapt resource value: 0x7f0700ef
+			public const int TextAppearance_AppCompat_Widget_Button_Inverse = 2131165423;
+			
+			// aapt resource value: 0x7f0700f0
+			public const int TextAppearance_AppCompat_Widget_DropDownItem = 2131165424;
+			
+			// aapt resource value: 0x7f0700f1
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Header = 2131165425;
+			
+			// aapt resource value: 0x7f0700f2
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Large = 2131165426;
+			
+			// aapt resource value: 0x7f0700f3
+			public const int TextAppearance_AppCompat_Widget_PopupMenu_Small = 2131165427;
+			
+			// aapt resource value: 0x7f0700f4
+			public const int TextAppearance_AppCompat_Widget_Switch = 2131165428;
+			
+			// aapt resource value: 0x7f0700f5
+			public const int TextAppearance_AppCompat_Widget_TextView_SpinnerItem = 2131165429;
+			
+			// aapt resource value: 0x7f07015b
+			public const int TextAppearance_Compat_Notification = 2131165531;
+			
+			// aapt resource value: 0x7f07015c
+			public const int TextAppearance_Compat_Notification_Info = 2131165532;
+			
+			// aapt resource value: 0x7f070156
+			public const int TextAppearance_Compat_Notification_Info_Media = 2131165526;
+			
+			// aapt resource value: 0x7f070161
+			public const int TextAppearance_Compat_Notification_Line2 = 2131165537;
+			
+			// aapt resource value: 0x7f07015a
+			public const int TextAppearance_Compat_Notification_Line2_Media = 2131165530;
+			
+			// aapt resource value: 0x7f070157
+			public const int TextAppearance_Compat_Notification_Media = 2131165527;
+			
+			// aapt resource value: 0x7f07015d
+			public const int TextAppearance_Compat_Notification_Time = 2131165533;
+			
+			// aapt resource value: 0x7f070158
+			public const int TextAppearance_Compat_Notification_Time_Media = 2131165528;
+			
+			// aapt resource value: 0x7f07015e
+			public const int TextAppearance_Compat_Notification_Title = 2131165534;
+			
+			// aapt resource value: 0x7f070159
+			public const int TextAppearance_Compat_Notification_Title_Media = 2131165529;
+			
+			// aapt resource value: 0x7f0700f6
+			public const int TextAppearance_Widget_AppCompat_ExpandedMenu_Item = 2131165430;
+			
+			// aapt resource value: 0x7f0700f7
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Subtitle = 2131165431;
+			
+			// aapt resource value: 0x7f0700f8
+			public const int TextAppearance_Widget_AppCompat_Toolbar_Title = 2131165432;
+			
+			// aapt resource value: 0x7f0700f9
+			public const int Theme_AppCompat = 2131165433;
+			
+			// aapt resource value: 0x7f0700fa
+			public const int Theme_AppCompat_CompactMenu = 2131165434;
+			
+			// aapt resource value: 0x7f070004
+			public const int Theme_AppCompat_DayNight = 2131165188;
+			
+			// aapt resource value: 0x7f070005
+			public const int Theme_AppCompat_DayNight_DarkActionBar = 2131165189;
+			
+			// aapt resource value: 0x7f070006
+			public const int Theme_AppCompat_DayNight_Dialog = 2131165190;
+			
+			// aapt resource value: 0x7f070007
+			public const int Theme_AppCompat_DayNight_Dialog_Alert = 2131165191;
+			
+			// aapt resource value: 0x7f070008
+			public const int Theme_AppCompat_DayNight_Dialog_MinWidth = 2131165192;
+			
+			// aapt resource value: 0x7f070009
+			public const int Theme_AppCompat_DayNight_DialogWhenLarge = 2131165193;
+			
+			// aapt resource value: 0x7f07000a
+			public const int Theme_AppCompat_DayNight_NoActionBar = 2131165194;
+			
+			// aapt resource value: 0x7f0700fb
+			public const int Theme_AppCompat_Dialog = 2131165435;
+			
+			// aapt resource value: 0x7f0700fc
+			public const int Theme_AppCompat_Dialog_Alert = 2131165436;
+			
+			// aapt resource value: 0x7f0700fd
+			public const int Theme_AppCompat_Dialog_MinWidth = 2131165437;
+			
+			// aapt resource value: 0x7f0700fe
+			public const int Theme_AppCompat_DialogWhenLarge = 2131165438;
+			
+			// aapt resource value: 0x7f0700ff
+			public const int Theme_AppCompat_Light = 2131165439;
+			
+			// aapt resource value: 0x7f070100
+			public const int Theme_AppCompat_Light_DarkActionBar = 2131165440;
+			
+			// aapt resource value: 0x7f070101
+			public const int Theme_AppCompat_Light_Dialog = 2131165441;
+			
+			// aapt resource value: 0x7f070102
+			public const int Theme_AppCompat_Light_Dialog_Alert = 2131165442;
+			
+			// aapt resource value: 0x7f070103
+			public const int Theme_AppCompat_Light_Dialog_MinWidth = 2131165443;
+			
+			// aapt resource value: 0x7f070104
+			public const int Theme_AppCompat_Light_DialogWhenLarge = 2131165444;
+			
+			// aapt resource value: 0x7f070105
+			public const int Theme_AppCompat_Light_NoActionBar = 2131165445;
+			
+			// aapt resource value: 0x7f070106
+			public const int Theme_AppCompat_NoActionBar = 2131165446;
+			
+			// aapt resource value: 0x7f070107
+			public const int ThemeOverlay_AppCompat = 2131165447;
+			
+			// aapt resource value: 0x7f070108
+			public const int ThemeOverlay_AppCompat_ActionBar = 2131165448;
+			
+			// aapt resource value: 0x7f070109
+			public const int ThemeOverlay_AppCompat_Dark = 2131165449;
+			
+			// aapt resource value: 0x7f07010a
+			public const int ThemeOverlay_AppCompat_Dark_ActionBar = 2131165450;
+			
+			// aapt resource value: 0x7f07010b
+			public const int ThemeOverlay_AppCompat_Dialog = 2131165451;
+			
+			// aapt resource value: 0x7f07010c
+			public const int ThemeOverlay_AppCompat_Dialog_Alert = 2131165452;
+			
+			// aapt resource value: 0x7f07010d
+			public const int ThemeOverlay_AppCompat_Light = 2131165453;
+			
+			// aapt resource value: 0x7f07010e
+			public const int Widget_AppCompat_ActionBar = 2131165454;
+			
+			// aapt resource value: 0x7f07010f
+			public const int Widget_AppCompat_ActionBar_Solid = 2131165455;
+			
+			// aapt resource value: 0x7f070110
+			public const int Widget_AppCompat_ActionBar_TabBar = 2131165456;
+			
+			// aapt resource value: 0x7f070111
+			public const int Widget_AppCompat_ActionBar_TabText = 2131165457;
+			
+			// aapt resource value: 0x7f070112
+			public const int Widget_AppCompat_ActionBar_TabView = 2131165458;
+			
+			// aapt resource value: 0x7f070113
+			public const int Widget_AppCompat_ActionButton = 2131165459;
+			
+			// aapt resource value: 0x7f070114
+			public const int Widget_AppCompat_ActionButton_CloseMode = 2131165460;
+			
+			// aapt resource value: 0x7f070115
+			public const int Widget_AppCompat_ActionButton_Overflow = 2131165461;
+			
+			// aapt resource value: 0x7f070116
+			public const int Widget_AppCompat_ActionMode = 2131165462;
+			
+			// aapt resource value: 0x7f070117
+			public const int Widget_AppCompat_ActivityChooserView = 2131165463;
+			
+			// aapt resource value: 0x7f070118
+			public const int Widget_AppCompat_AutoCompleteTextView = 2131165464;
+			
+			// aapt resource value: 0x7f070119
+			public const int Widget_AppCompat_Button = 2131165465;
+			
+			// aapt resource value: 0x7f07011a
+			public const int Widget_AppCompat_Button_Borderless = 2131165466;
+			
+			// aapt resource value: 0x7f07011b
+			public const int Widget_AppCompat_Button_Borderless_Colored = 2131165467;
+			
+			// aapt resource value: 0x7f07011c
+			public const int Widget_AppCompat_Button_ButtonBar_AlertDialog = 2131165468;
+			
+			// aapt resource value: 0x7f07011d
+			public const int Widget_AppCompat_Button_Colored = 2131165469;
+			
+			// aapt resource value: 0x7f07011e
+			public const int Widget_AppCompat_Button_Small = 2131165470;
+			
+			// aapt resource value: 0x7f07011f
+			public const int Widget_AppCompat_ButtonBar = 2131165471;
+			
+			// aapt resource value: 0x7f070120
+			public const int Widget_AppCompat_ButtonBar_AlertDialog = 2131165472;
+			
+			// aapt resource value: 0x7f070121
+			public const int Widget_AppCompat_CompoundButton_CheckBox = 2131165473;
+			
+			// aapt resource value: 0x7f070122
+			public const int Widget_AppCompat_CompoundButton_RadioButton = 2131165474;
+			
+			// aapt resource value: 0x7f070123
+			public const int Widget_AppCompat_CompoundButton_Switch = 2131165475;
+			
+			// aapt resource value: 0x7f070124
+			public const int Widget_AppCompat_DrawerArrowToggle = 2131165476;
+			
+			// aapt resource value: 0x7f070125
+			public const int Widget_AppCompat_DropDownItem_Spinner = 2131165477;
+			
+			// aapt resource value: 0x7f070126
+			public const int Widget_AppCompat_EditText = 2131165478;
+			
+			// aapt resource value: 0x7f070127
+			public const int Widget_AppCompat_ImageButton = 2131165479;
+			
+			// aapt resource value: 0x7f070128
+			public const int Widget_AppCompat_Light_ActionBar = 2131165480;
+			
+			// aapt resource value: 0x7f070129
+			public const int Widget_AppCompat_Light_ActionBar_Solid = 2131165481;
+			
+			// aapt resource value: 0x7f07012a
+			public const int Widget_AppCompat_Light_ActionBar_Solid_Inverse = 2131165482;
+			
+			// aapt resource value: 0x7f07012b
+			public const int Widget_AppCompat_Light_ActionBar_TabBar = 2131165483;
+			
+			// aapt resource value: 0x7f07012c
+			public const int Widget_AppCompat_Light_ActionBar_TabBar_Inverse = 2131165484;
+			
+			// aapt resource value: 0x7f07012d
+			public const int Widget_AppCompat_Light_ActionBar_TabText = 2131165485;
+			
+			// aapt resource value: 0x7f07012e
+			public const int Widget_AppCompat_Light_ActionBar_TabText_Inverse = 2131165486;
+			
+			// aapt resource value: 0x7f07012f
+			public const int Widget_AppCompat_Light_ActionBar_TabView = 2131165487;
+			
+			// aapt resource value: 0x7f070130
+			public const int Widget_AppCompat_Light_ActionBar_TabView_Inverse = 2131165488;
+			
+			// aapt resource value: 0x7f070131
+			public const int Widget_AppCompat_Light_ActionButton = 2131165489;
+			
+			// aapt resource value: 0x7f070132
+			public const int Widget_AppCompat_Light_ActionButton_CloseMode = 2131165490;
+			
+			// aapt resource value: 0x7f070133
+			public const int Widget_AppCompat_Light_ActionButton_Overflow = 2131165491;
+			
+			// aapt resource value: 0x7f070134
+			public const int Widget_AppCompat_Light_ActionMode_Inverse = 2131165492;
+			
+			// aapt resource value: 0x7f070135
+			public const int Widget_AppCompat_Light_ActivityChooserView = 2131165493;
+			
+			// aapt resource value: 0x7f070136
+			public const int Widget_AppCompat_Light_AutoCompleteTextView = 2131165494;
+			
+			// aapt resource value: 0x7f070137
+			public const int Widget_AppCompat_Light_DropDownItem_Spinner = 2131165495;
+			
+			// aapt resource value: 0x7f070138
+			public const int Widget_AppCompat_Light_ListPopupWindow = 2131165496;
+			
+			// aapt resource value: 0x7f070139
+			public const int Widget_AppCompat_Light_ListView_DropDown = 2131165497;
+			
+			// aapt resource value: 0x7f07013a
+			public const int Widget_AppCompat_Light_PopupMenu = 2131165498;
+			
+			// aapt resource value: 0x7f07013b
+			public const int Widget_AppCompat_Light_PopupMenu_Overflow = 2131165499;
+			
+			// aapt resource value: 0x7f07013c
+			public const int Widget_AppCompat_Light_SearchView = 2131165500;
+			
+			// aapt resource value: 0x7f07013d
+			public const int Widget_AppCompat_Light_Spinner_DropDown_ActionBar = 2131165501;
+			
+			// aapt resource value: 0x7f07013e
+			public const int Widget_AppCompat_ListMenuView = 2131165502;
+			
+			// aapt resource value: 0x7f07013f
+			public const int Widget_AppCompat_ListPopupWindow = 2131165503;
+			
+			// aapt resource value: 0x7f070140
+			public const int Widget_AppCompat_ListView = 2131165504;
+			
+			// aapt resource value: 0x7f070141
+			public const int Widget_AppCompat_ListView_DropDown = 2131165505;
+			
+			// aapt resource value: 0x7f070142
+			public const int Widget_AppCompat_ListView_Menu = 2131165506;
+			
+			// aapt resource value: 0x7f070143
+			public const int Widget_AppCompat_PopupMenu = 2131165507;
+			
+			// aapt resource value: 0x7f070144
+			public const int Widget_AppCompat_PopupMenu_Overflow = 2131165508;
+			
+			// aapt resource value: 0x7f070145
+			public const int Widget_AppCompat_PopupWindow = 2131165509;
+			
+			// aapt resource value: 0x7f070146
+			public const int Widget_AppCompat_ProgressBar = 2131165510;
+			
+			// aapt resource value: 0x7f070147
+			public const int Widget_AppCompat_ProgressBar_Horizontal = 2131165511;
+			
+			// aapt resource value: 0x7f070148
+			public const int Widget_AppCompat_RatingBar = 2131165512;
+			
+			// aapt resource value: 0x7f070149
+			public const int Widget_AppCompat_RatingBar_Indicator = 2131165513;
+			
+			// aapt resource value: 0x7f07014a
+			public const int Widget_AppCompat_RatingBar_Small = 2131165514;
+			
+			// aapt resource value: 0x7f07014b
+			public const int Widget_AppCompat_SearchView = 2131165515;
+			
+			// aapt resource value: 0x7f07014c
+			public const int Widget_AppCompat_SearchView_ActionBar = 2131165516;
+			
+			// aapt resource value: 0x7f07014d
+			public const int Widget_AppCompat_SeekBar = 2131165517;
+			
+			// aapt resource value: 0x7f07014e
+			public const int Widget_AppCompat_SeekBar_Discrete = 2131165518;
+			
+			// aapt resource value: 0x7f07014f
+			public const int Widget_AppCompat_Spinner = 2131165519;
+			
+			// aapt resource value: 0x7f070150
+			public const int Widget_AppCompat_Spinner_DropDown = 2131165520;
+			
+			// aapt resource value: 0x7f070151
+			public const int Widget_AppCompat_Spinner_DropDown_ActionBar = 2131165521;
+			
+			// aapt resource value: 0x7f070152
+			public const int Widget_AppCompat_Spinner_Underlined = 2131165522;
+			
+			// aapt resource value: 0x7f070153
+			public const int Widget_AppCompat_TextView_SpinnerItem = 2131165523;
+			
+			// aapt resource value: 0x7f070154
+			public const int Widget_AppCompat_Toolbar = 2131165524;
+			
+			// aapt resource value: 0x7f070155
+			public const int Widget_AppCompat_Toolbar_Button_Navigation = 2131165525;
+			
+			// aapt resource value: 0x7f07015f
+			public const int Widget_Compat_NotificationActionContainer = 2131165535;
+			
+			// aapt resource value: 0x7f070160
+			public const int Widget_Compat_NotificationActionText = 2131165536;
+			
+			static Style()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Style()
+			{
+			}
+		}
+		
+		public partial class Styleable
+		{
+			
+			public static int[] ActionBar = new int[] {
+					2130771969,
+					2130771971,
+					2130771972,
+					2130771973,
+					2130771974,
+					2130771975,
+					2130771976,
+					2130771977,
+					2130771978,
+					2130771979,
+					2130771980,
+					2130771981,
+					2130771982,
+					2130771983,
+					2130771984,
+					2130771985,
+					2130771986,
+					2130771987,
+					2130771988,
+					2130771989,
+					2130771990,
+					2130771991,
+					2130771992,
+					2130771993,
+					2130771994,
+					2130771995,
+					2130771996,
+					2130771997,
+					2130772067};
+			
+			// aapt resource value: 10
+			public const int ActionBar_background = 10;
+			
+			// aapt resource value: 12
+			public const int ActionBar_backgroundSplit = 12;
+			
+			// aapt resource value: 11
+			public const int ActionBar_backgroundStacked = 11;
+			
+			// aapt resource value: 21
+			public const int ActionBar_contentInsetEnd = 21;
+			
+			// aapt resource value: 25
+			public const int ActionBar_contentInsetEndWithActions = 25;
+			
+			// aapt resource value: 22
+			public const int ActionBar_contentInsetLeft = 22;
+			
+			// aapt resource value: 23
+			public const int ActionBar_contentInsetRight = 23;
+			
+			// aapt resource value: 20
+			public const int ActionBar_contentInsetStart = 20;
+			
+			// aapt resource value: 24
+			public const int ActionBar_contentInsetStartWithNavigation = 24;
+			
+			// aapt resource value: 13
+			public const int ActionBar_customNavigationLayout = 13;
+			
+			// aapt resource value: 3
+			public const int ActionBar_displayOptions = 3;
+			
+			// aapt resource value: 9
+			public const int ActionBar_divider = 9;
+			
+			// aapt resource value: 26
+			public const int ActionBar_elevation = 26;
+			
+			// aapt resource value: 0
+			public const int ActionBar_height = 0;
+			
+			// aapt resource value: 19
+			public const int ActionBar_hideOnContentScroll = 19;
+			
+			// aapt resource value: 28
+			public const int ActionBar_homeAsUpIndicator = 28;
+			
+			// aapt resource value: 14
+			public const int ActionBar_homeLayout = 14;
+			
+			// aapt resource value: 7
+			public const int ActionBar_icon = 7;
+			
+			// aapt resource value: 16
+			public const int ActionBar_indeterminateProgressStyle = 16;
+			
+			// aapt resource value: 18
+			public const int ActionBar_itemPadding = 18;
+			
+			// aapt resource value: 8
+			public const int ActionBar_logo = 8;
+			
+			// aapt resource value: 2
+			public const int ActionBar_navigationMode = 2;
+			
+			// aapt resource value: 27
+			public const int ActionBar_popupTheme = 27;
+			
+			// aapt resource value: 17
+			public const int ActionBar_progressBarPadding = 17;
+			
+			// aapt resource value: 15
+			public const int ActionBar_progressBarStyle = 15;
+			
+			// aapt resource value: 4
+			public const int ActionBar_subtitle = 4;
+			
+			// aapt resource value: 6
+			public const int ActionBar_subtitleTextStyle = 6;
+			
+			// aapt resource value: 1
+			public const int ActionBar_title = 1;
+			
+			// aapt resource value: 5
+			public const int ActionBar_titleTextStyle = 5;
+			
+			public static int[] ActionBarLayout = new int[] {
+					16842931};
+			
+			// aapt resource value: 0
+			public const int ActionBarLayout_android_layout_gravity = 0;
+			
+			public static int[] ActionMenuItemView = new int[] {
+					16843071};
+			
+			// aapt resource value: 0
+			public const int ActionMenuItemView_android_minWidth = 0;
+			
+			public static int[] ActionMenuView;
+			
+			public static int[] ActionMode = new int[] {
+					2130771969,
+					2130771975,
+					2130771976,
+					2130771980,
+					2130771982,
+					2130771998};
+			
+			// aapt resource value: 3
+			public const int ActionMode_background = 3;
+			
+			// aapt resource value: 4
+			public const int ActionMode_backgroundSplit = 4;
+			
+			// aapt resource value: 5
+			public const int ActionMode_closeItemLayout = 5;
+			
+			// aapt resource value: 0
+			public const int ActionMode_height = 0;
+			
+			// aapt resource value: 2
+			public const int ActionMode_subtitleTextStyle = 2;
+			
+			// aapt resource value: 1
+			public const int ActionMode_titleTextStyle = 1;
+			
+			public static int[] ActivityChooserView = new int[] {
+					2130771999,
+					2130772000};
+			
+			// aapt resource value: 1
+			public const int ActivityChooserView_expandActivityOverflowButtonDrawable = 1;
+			
+			// aapt resource value: 0
+			public const int ActivityChooserView_initialActivityCount = 0;
+			
+			public static int[] AlertDialog = new int[] {
+					16842994,
+					2130772001,
+					2130772002,
+					2130772003,
+					2130772004,
+					2130772005,
+					2130772006};
+			
+			// aapt resource value: 0
+			public const int AlertDialog_android_layout = 0;
+			
+			// aapt resource value: 1
+			public const int AlertDialog_buttonPanelSideLayout = 1;
+			
+			// aapt resource value: 5
+			public const int AlertDialog_listItemLayout = 5;
+			
+			// aapt resource value: 2
+			public const int AlertDialog_listLayout = 2;
+			
+			// aapt resource value: 3
+			public const int AlertDialog_multiChoiceItemLayout = 3;
+			
+			// aapt resource value: 6
+			public const int AlertDialog_showTitle = 6;
+			
+			// aapt resource value: 4
+			public const int AlertDialog_singleChoiceItemLayout = 4;
+			
+			public static int[] AppCompatImageView = new int[] {
+					16843033,
+					2130772007,
+					2130772008,
+					2130772009};
+			
+			// aapt resource value: 0
+			public const int AppCompatImageView_android_src = 0;
+			
+			// aapt resource value: 1
+			public const int AppCompatImageView_srcCompat = 1;
+			
+			// aapt resource value: 2
+			public const int AppCompatImageView_tint = 2;
+			
+			// aapt resource value: 3
+			public const int AppCompatImageView_tintMode = 3;
+			
+			public static int[] AppCompatSeekBar = new int[] {
+					16843074,
+					2130772010,
+					2130772011,
+					2130772012};
+			
+			// aapt resource value: 0
+			public const int AppCompatSeekBar_android_thumb = 0;
+			
+			// aapt resource value: 1
+			public const int AppCompatSeekBar_tickMark = 1;
+			
+			// aapt resource value: 2
+			public const int AppCompatSeekBar_tickMarkTint = 2;
+			
+			// aapt resource value: 3
+			public const int AppCompatSeekBar_tickMarkTintMode = 3;
+			
+			public static int[] AppCompatTextHelper = new int[] {
+					16842804,
+					16843117,
+					16843118,
+					16843119,
+					16843120,
+					16843666,
+					16843667};
+			
+			// aapt resource value: 2
+			public const int AppCompatTextHelper_android_drawableBottom = 2;
+			
+			// aapt resource value: 6
+			public const int AppCompatTextHelper_android_drawableEnd = 6;
+			
+			// aapt resource value: 3
+			public const int AppCompatTextHelper_android_drawableLeft = 3;
+			
+			// aapt resource value: 4
+			public const int AppCompatTextHelper_android_drawableRight = 4;
+			
+			// aapt resource value: 5
+			public const int AppCompatTextHelper_android_drawableStart = 5;
+			
+			// aapt resource value: 1
+			public const int AppCompatTextHelper_android_drawableTop = 1;
+			
+			// aapt resource value: 0
+			public const int AppCompatTextHelper_android_textAppearance = 0;
+			
+			public static int[] AppCompatTextView = new int[] {
+					16842804,
+					2130772013,
+					2130772014,
+					2130772015,
+					2130772016,
+					2130772017,
+					2130772018,
+					2130772019};
+			
+			// aapt resource value: 0
+			public const int AppCompatTextView_android_textAppearance = 0;
+			
+			// aapt resource value: 6
+			public const int AppCompatTextView_autoSizeMaxTextSize = 6;
+			
+			// aapt resource value: 5
+			public const int AppCompatTextView_autoSizeMinTextSize = 5;
+			
+			// aapt resource value: 4
+			public const int AppCompatTextView_autoSizePresetSizes = 4;
+			
+			// aapt resource value: 3
+			public const int AppCompatTextView_autoSizeStepGranularity = 3;
+			
+			// aapt resource value: 2
+			public const int AppCompatTextView_autoSizeTextType = 2;
+			
+			// aapt resource value: 7
+			public const int AppCompatTextView_fontFamily = 7;
+			
+			// aapt resource value: 1
+			public const int AppCompatTextView_textAllCaps = 1;
+			
+			public static int[] AppCompatTheme = new int[] {
+					16842839,
+					16842926,
+					2130772020,
+					2130772021,
+					2130772022,
+					2130772023,
+					2130772024,
+					2130772025,
+					2130772026,
+					2130772027,
+					2130772028,
+					2130772029,
+					2130772030,
+					2130772031,
+					2130772032,
+					2130772033,
+					2130772034,
+					2130772035,
+					2130772036,
+					2130772037,
+					2130772038,
+					2130772039,
+					2130772040,
+					2130772041,
+					2130772042,
+					2130772043,
+					2130772044,
+					2130772045,
+					2130772046,
+					2130772047,
+					2130772048,
+					2130772049,
+					2130772050,
+					2130772051,
+					2130772052,
+					2130772053,
+					2130772054,
+					2130772055,
+					2130772056,
+					2130772057,
+					2130772058,
+					2130772059,
+					2130772060,
+					2130772061,
+					2130772062,
+					2130772063,
+					2130772064,
+					2130772065,
+					2130772066,
+					2130772067,
+					2130772068,
+					2130772069,
+					2130772070,
+					2130772071,
+					2130772072,
+					2130772073,
+					2130772074,
+					2130772075,
+					2130772076,
+					2130772077,
+					2130772078,
+					2130772079,
+					2130772080,
+					2130772081,
+					2130772082,
+					2130772083,
+					2130772084,
+					2130772085,
+					2130772086,
+					2130772087,
+					2130772088,
+					2130772089,
+					2130772090,
+					2130772091,
+					2130772092,
+					2130772093,
+					2130772094,
+					2130772095,
+					2130772096,
+					2130772097,
+					2130772098,
+					2130772099,
+					2130772100,
+					2130772101,
+					2130772102,
+					2130772103,
+					2130772104,
+					2130772105,
+					2130772106,
+					2130772107,
+					2130772108,
+					2130772109,
+					2130772110,
+					2130772111,
+					2130772112,
+					2130772113,
+					2130772114,
+					2130772115,
+					2130772116,
+					2130772117,
+					2130772118,
+					2130772119,
+					2130772120,
+					2130772121,
+					2130772122,
+					2130772123,
+					2130772124,
+					2130772125,
+					2130772126,
+					2130772127,
+					2130772128,
+					2130772129,
+					2130772130,
+					2130772131,
+					2130772132,
+					2130772133,
+					2130772134,
+					2130772135,
+					2130772136};
+			
+			// aapt resource value: 23
+			public const int AppCompatTheme_actionBarDivider = 23;
+			
+			// aapt resource value: 24
+			public const int AppCompatTheme_actionBarItemBackground = 24;
+			
+			// aapt resource value: 17
+			public const int AppCompatTheme_actionBarPopupTheme = 17;
+			
+			// aapt resource value: 22
+			public const int AppCompatTheme_actionBarSize = 22;
+			
+			// aapt resource value: 19
+			public const int AppCompatTheme_actionBarSplitStyle = 19;
+			
+			// aapt resource value: 18
+			public const int AppCompatTheme_actionBarStyle = 18;
+			
+			// aapt resource value: 13
+			public const int AppCompatTheme_actionBarTabBarStyle = 13;
+			
+			// aapt resource value: 12
+			public const int AppCompatTheme_actionBarTabStyle = 12;
+			
+			// aapt resource value: 14
+			public const int AppCompatTheme_actionBarTabTextStyle = 14;
+			
+			// aapt resource value: 20
+			public const int AppCompatTheme_actionBarTheme = 20;
+			
+			// aapt resource value: 21
+			public const int AppCompatTheme_actionBarWidgetTheme = 21;
+			
+			// aapt resource value: 50
+			public const int AppCompatTheme_actionButtonStyle = 50;
+			
+			// aapt resource value: 46
+			public const int AppCompatTheme_actionDropDownStyle = 46;
+			
+			// aapt resource value: 25
+			public const int AppCompatTheme_actionMenuTextAppearance = 25;
+			
+			// aapt resource value: 26
+			public const int AppCompatTheme_actionMenuTextColor = 26;
+			
+			// aapt resource value: 29
+			public const int AppCompatTheme_actionModeBackground = 29;
+			
+			// aapt resource value: 28
+			public const int AppCompatTheme_actionModeCloseButtonStyle = 28;
+			
+			// aapt resource value: 31
+			public const int AppCompatTheme_actionModeCloseDrawable = 31;
+			
+			// aapt resource value: 33
+			public const int AppCompatTheme_actionModeCopyDrawable = 33;
+			
+			// aapt resource value: 32
+			public const int AppCompatTheme_actionModeCutDrawable = 32;
+			
+			// aapt resource value: 37
+			public const int AppCompatTheme_actionModeFindDrawable = 37;
+			
+			// aapt resource value: 34
+			public const int AppCompatTheme_actionModePasteDrawable = 34;
+			
+			// aapt resource value: 39
+			public const int AppCompatTheme_actionModePopupWindowStyle = 39;
+			
+			// aapt resource value: 35
+			public const int AppCompatTheme_actionModeSelectAllDrawable = 35;
+			
+			// aapt resource value: 36
+			public const int AppCompatTheme_actionModeShareDrawable = 36;
+			
+			// aapt resource value: 30
+			public const int AppCompatTheme_actionModeSplitBackground = 30;
+			
+			// aapt resource value: 27
+			public const int AppCompatTheme_actionModeStyle = 27;
+			
+			// aapt resource value: 38
+			public const int AppCompatTheme_actionModeWebSearchDrawable = 38;
+			
+			// aapt resource value: 15
+			public const int AppCompatTheme_actionOverflowButtonStyle = 15;
+			
+			// aapt resource value: 16
+			public const int AppCompatTheme_actionOverflowMenuStyle = 16;
+			
+			// aapt resource value: 58
+			public const int AppCompatTheme_activityChooserViewStyle = 58;
+			
+			// aapt resource value: 95
+			public const int AppCompatTheme_alertDialogButtonGroupStyle = 95;
+			
+			// aapt resource value: 96
+			public const int AppCompatTheme_alertDialogCenterButtons = 96;
+			
+			// aapt resource value: 94
+			public const int AppCompatTheme_alertDialogStyle = 94;
+			
+			// aapt resource value: 97
+			public const int AppCompatTheme_alertDialogTheme = 97;
+			
+			// aapt resource value: 1
+			public const int AppCompatTheme_android_windowAnimationStyle = 1;
+			
+			// aapt resource value: 0
+			public const int AppCompatTheme_android_windowIsFloating = 0;
+			
+			// aapt resource value: 102
+			public const int AppCompatTheme_autoCompleteTextViewStyle = 102;
+			
+			// aapt resource value: 55
+			public const int AppCompatTheme_borderlessButtonStyle = 55;
+			
+			// aapt resource value: 52
+			public const int AppCompatTheme_buttonBarButtonStyle = 52;
+			
+			// aapt resource value: 100
+			public const int AppCompatTheme_buttonBarNegativeButtonStyle = 100;
+			
+			// aapt resource value: 101
+			public const int AppCompatTheme_buttonBarNeutralButtonStyle = 101;
+			
+			// aapt resource value: 99
+			public const int AppCompatTheme_buttonBarPositiveButtonStyle = 99;
+			
+			// aapt resource value: 51
+			public const int AppCompatTheme_buttonBarStyle = 51;
+			
+			// aapt resource value: 103
+			public const int AppCompatTheme_buttonStyle = 103;
+			
+			// aapt resource value: 104
+			public const int AppCompatTheme_buttonStyleSmall = 104;
+			
+			// aapt resource value: 105
+			public const int AppCompatTheme_checkboxStyle = 105;
+			
+			// aapt resource value: 106
+			public const int AppCompatTheme_checkedTextViewStyle = 106;
+			
+			// aapt resource value: 86
+			public const int AppCompatTheme_colorAccent = 86;
+			
+			// aapt resource value: 93
+			public const int AppCompatTheme_colorBackgroundFloating = 93;
+			
+			// aapt resource value: 90
+			public const int AppCompatTheme_colorButtonNormal = 90;
+			
+			// aapt resource value: 88
+			public const int AppCompatTheme_colorControlActivated = 88;
+			
+			// aapt resource value: 89
+			public const int AppCompatTheme_colorControlHighlight = 89;
+			
+			// aapt resource value: 87
+			public const int AppCompatTheme_colorControlNormal = 87;
+			
+			// aapt resource value: 118
+			public const int AppCompatTheme_colorError = 118;
+			
+			// aapt resource value: 84
+			public const int AppCompatTheme_colorPrimary = 84;
+			
+			// aapt resource value: 85
+			public const int AppCompatTheme_colorPrimaryDark = 85;
+			
+			// aapt resource value: 91
+			public const int AppCompatTheme_colorSwitchThumbNormal = 91;
+			
+			// aapt resource value: 92
+			public const int AppCompatTheme_controlBackground = 92;
+			
+			// aapt resource value: 44
+			public const int AppCompatTheme_dialogPreferredPadding = 44;
+			
+			// aapt resource value: 43
+			public const int AppCompatTheme_dialogTheme = 43;
+			
+			// aapt resource value: 57
+			public const int AppCompatTheme_dividerHorizontal = 57;
+			
+			// aapt resource value: 56
+			public const int AppCompatTheme_dividerVertical = 56;
+			
+			// aapt resource value: 75
+			public const int AppCompatTheme_dropDownListViewStyle = 75;
+			
+			// aapt resource value: 47
+			public const int AppCompatTheme_dropdownListPreferredItemHeight = 47;
+			
+			// aapt resource value: 64
+			public const int AppCompatTheme_editTextBackground = 64;
+			
+			// aapt resource value: 63
+			public const int AppCompatTheme_editTextColor = 63;
+			
+			// aapt resource value: 107
+			public const int AppCompatTheme_editTextStyle = 107;
+			
+			// aapt resource value: 49
+			public const int AppCompatTheme_homeAsUpIndicator = 49;
+			
+			// aapt resource value: 65
+			public const int AppCompatTheme_imageButtonStyle = 65;
+			
+			// aapt resource value: 83
+			public const int AppCompatTheme_listChoiceBackgroundIndicator = 83;
+			
+			// aapt resource value: 45
+			public const int AppCompatTheme_listDividerAlertDialog = 45;
+			
+			// aapt resource value: 115
+			public const int AppCompatTheme_listMenuViewStyle = 115;
+			
+			// aapt resource value: 76
+			public const int AppCompatTheme_listPopupWindowStyle = 76;
+			
+			// aapt resource value: 70
+			public const int AppCompatTheme_listPreferredItemHeight = 70;
+			
+			// aapt resource value: 72
+			public const int AppCompatTheme_listPreferredItemHeightLarge = 72;
+			
+			// aapt resource value: 71
+			public const int AppCompatTheme_listPreferredItemHeightSmall = 71;
+			
+			// aapt resource value: 73
+			public const int AppCompatTheme_listPreferredItemPaddingLeft = 73;
+			
+			// aapt resource value: 74
+			public const int AppCompatTheme_listPreferredItemPaddingRight = 74;
+			
+			// aapt resource value: 80
+			public const int AppCompatTheme_panelBackground = 80;
+			
+			// aapt resource value: 82
+			public const int AppCompatTheme_panelMenuListTheme = 82;
+			
+			// aapt resource value: 81
+			public const int AppCompatTheme_panelMenuListWidth = 81;
+			
+			// aapt resource value: 61
+			public const int AppCompatTheme_popupMenuStyle = 61;
+			
+			// aapt resource value: 62
+			public const int AppCompatTheme_popupWindowStyle = 62;
+			
+			// aapt resource value: 108
+			public const int AppCompatTheme_radioButtonStyle = 108;
+			
+			// aapt resource value: 109
+			public const int AppCompatTheme_ratingBarStyle = 109;
+			
+			// aapt resource value: 110
+			public const int AppCompatTheme_ratingBarStyleIndicator = 110;
+			
+			// aapt resource value: 111
+			public const int AppCompatTheme_ratingBarStyleSmall = 111;
+			
+			// aapt resource value: 69
+			public const int AppCompatTheme_searchViewStyle = 69;
+			
+			// aapt resource value: 112
+			public const int AppCompatTheme_seekBarStyle = 112;
+			
+			// aapt resource value: 53
+			public const int AppCompatTheme_selectableItemBackground = 53;
+			
+			// aapt resource value: 54
+			public const int AppCompatTheme_selectableItemBackgroundBorderless = 54;
+			
+			// aapt resource value: 48
+			public const int AppCompatTheme_spinnerDropDownItemStyle = 48;
+			
+			// aapt resource value: 113
+			public const int AppCompatTheme_spinnerStyle = 113;
+			
+			// aapt resource value: 114
+			public const int AppCompatTheme_switchStyle = 114;
+			
+			// aapt resource value: 40
+			public const int AppCompatTheme_textAppearanceLargePopupMenu = 40;
+			
+			// aapt resource value: 77
+			public const int AppCompatTheme_textAppearanceListItem = 77;
+			
+			// aapt resource value: 78
+			public const int AppCompatTheme_textAppearanceListItemSecondary = 78;
+			
+			// aapt resource value: 79
+			public const int AppCompatTheme_textAppearanceListItemSmall = 79;
+			
+			// aapt resource value: 42
+			public const int AppCompatTheme_textAppearancePopupMenuHeader = 42;
+			
+			// aapt resource value: 67
+			public const int AppCompatTheme_textAppearanceSearchResultSubtitle = 67;
+			
+			// aapt resource value: 66
+			public const int AppCompatTheme_textAppearanceSearchResultTitle = 66;
+			
+			// aapt resource value: 41
+			public const int AppCompatTheme_textAppearanceSmallPopupMenu = 41;
+			
+			// aapt resource value: 98
+			public const int AppCompatTheme_textColorAlertDialogListItem = 98;
+			
+			// aapt resource value: 68
+			public const int AppCompatTheme_textColorSearchUrl = 68;
+			
+			// aapt resource value: 60
+			public const int AppCompatTheme_toolbarNavigationButtonStyle = 60;
+			
+			// aapt resource value: 59
+			public const int AppCompatTheme_toolbarStyle = 59;
+			
+			// aapt resource value: 117
+			public const int AppCompatTheme_tooltipForegroundColor = 117;
+			
+			// aapt resource value: 116
+			public const int AppCompatTheme_tooltipFrameBackground = 116;
+			
+			// aapt resource value: 2
+			public const int AppCompatTheme_windowActionBar = 2;
+			
+			// aapt resource value: 4
+			public const int AppCompatTheme_windowActionBarOverlay = 4;
+			
+			// aapt resource value: 5
+			public const int AppCompatTheme_windowActionModeOverlay = 5;
+			
+			// aapt resource value: 9
+			public const int AppCompatTheme_windowFixedHeightMajor = 9;
+			
+			// aapt resource value: 7
+			public const int AppCompatTheme_windowFixedHeightMinor = 7;
+			
+			// aapt resource value: 6
+			public const int AppCompatTheme_windowFixedWidthMajor = 6;
+			
+			// aapt resource value: 8
+			public const int AppCompatTheme_windowFixedWidthMinor = 8;
+			
+			// aapt resource value: 10
+			public const int AppCompatTheme_windowMinWidthMajor = 10;
+			
+			// aapt resource value: 11
+			public const int AppCompatTheme_windowMinWidthMinor = 11;
+			
+			// aapt resource value: 3
+			public const int AppCompatTheme_windowNoTitle = 3;
+			
+			public static int[] ButtonBarLayout = new int[] {
+					2130772137};
+			
+			// aapt resource value: 0
+			public const int ButtonBarLayout_allowStacking = 0;
+			
+			public static int[] ColorStateListItem = new int[] {
+					16843173,
+					16843551,
+					2130772138};
+			
+			// aapt resource value: 2
+			public const int ColorStateListItem_alpha = 2;
+			
+			// aapt resource value: 1
+			public const int ColorStateListItem_android_alpha = 1;
+			
+			// aapt resource value: 0
+			public const int ColorStateListItem_android_color = 0;
+			
+			public static int[] CompoundButton = new int[] {
+					16843015,
+					2130772139,
+					2130772140};
+			
+			// aapt resource value: 0
+			public const int CompoundButton_android_button = 0;
+			
+			// aapt resource value: 1
+			public const int CompoundButton_buttonTint = 1;
+			
+			// aapt resource value: 2
+			public const int CompoundButton_buttonTintMode = 2;
+			
+			public static int[] DrawerArrowToggle = new int[] {
+					2130772141,
+					2130772142,
+					2130772143,
+					2130772144,
+					2130772145,
+					2130772146,
+					2130772147,
+					2130772148};
+			
+			// aapt resource value: 4
+			public const int DrawerArrowToggle_arrowHeadLength = 4;
+			
+			// aapt resource value: 5
+			public const int DrawerArrowToggle_arrowShaftLength = 5;
+			
+			// aapt resource value: 6
+			public const int DrawerArrowToggle_barLength = 6;
+			
+			// aapt resource value: 0
+			public const int DrawerArrowToggle_color = 0;
+			
+			// aapt resource value: 2
+			public const int DrawerArrowToggle_drawableSize = 2;
+			
+			// aapt resource value: 3
+			public const int DrawerArrowToggle_gapBetweenBars = 3;
+			
+			// aapt resource value: 1
+			public const int DrawerArrowToggle_spinBars = 1;
+			
+			// aapt resource value: 7
+			public const int DrawerArrowToggle_thickness = 7;
+			
+			public static int[] FontFamily = new int[] {
+					2130772214,
+					2130772215,
+					2130772216,
+					2130772217,
+					2130772218,
+					2130772219};
+			
+			// aapt resource value: 0
+			public const int FontFamily_fontProviderAuthority = 0;
+			
+			// aapt resource value: 3
+			public const int FontFamily_fontProviderCerts = 3;
+			
+			// aapt resource value: 4
+			public const int FontFamily_fontProviderFetchStrategy = 4;
+			
+			// aapt resource value: 5
+			public const int FontFamily_fontProviderFetchTimeout = 5;
+			
+			// aapt resource value: 1
+			public const int FontFamily_fontProviderPackage = 1;
+			
+			// aapt resource value: 2
+			public const int FontFamily_fontProviderQuery = 2;
+			
+			public static int[] FontFamilyFont = new int[] {
+					16844082,
+					16844083,
+					16844095,
+					2130772220,
+					2130772221,
+					2130772222};
+			
+			// aapt resource value: 0
+			public const int FontFamilyFont_android_font = 0;
+			
+			// aapt resource value: 2
+			public const int FontFamilyFont_android_fontStyle = 2;
+			
+			// aapt resource value: 1
+			public const int FontFamilyFont_android_fontWeight = 1;
+			
+			// aapt resource value: 4
+			public const int FontFamilyFont_font = 4;
+			
+			// aapt resource value: 3
+			public const int FontFamilyFont_fontStyle = 3;
+			
+			// aapt resource value: 5
+			public const int FontFamilyFont_fontWeight = 5;
+			
+			public static int[] LinearLayoutCompat = new int[] {
+					16842927,
+					16842948,
+					16843046,
+					16843047,
+					16843048,
+					2130771979,
+					2130772149,
+					2130772150,
+					2130772151};
+			
+			// aapt resource value: 2
+			public const int LinearLayoutCompat_android_baselineAligned = 2;
+			
+			// aapt resource value: 3
+			public const int LinearLayoutCompat_android_baselineAlignedChildIndex = 3;
+			
+			// aapt resource value: 0
+			public const int LinearLayoutCompat_android_gravity = 0;
+			
+			// aapt resource value: 1
+			public const int LinearLayoutCompat_android_orientation = 1;
+			
+			// aapt resource value: 4
+			public const int LinearLayoutCompat_android_weightSum = 4;
+			
+			// aapt resource value: 5
+			public const int LinearLayoutCompat_divider = 5;
+			
+			// aapt resource value: 8
+			public const int LinearLayoutCompat_dividerPadding = 8;
+			
+			// aapt resource value: 6
+			public const int LinearLayoutCompat_measureWithLargestChild = 6;
+			
+			// aapt resource value: 7
+			public const int LinearLayoutCompat_showDividers = 7;
+			
+			public static int[] LinearLayoutCompat_Layout = new int[] {
+					16842931,
+					16842996,
+					16842997,
+					16843137};
+			
+			// aapt resource value: 0
+			public const int LinearLayoutCompat_Layout_android_layout_gravity = 0;
+			
+			// aapt resource value: 2
+			public const int LinearLayoutCompat_Layout_android_layout_height = 2;
+			
+			// aapt resource value: 3
+			public const int LinearLayoutCompat_Layout_android_layout_weight = 3;
+			
+			// aapt resource value: 1
+			public const int LinearLayoutCompat_Layout_android_layout_width = 1;
+			
+			public static int[] ListPopupWindow = new int[] {
+					16843436,
+					16843437};
+			
+			// aapt resource value: 0
+			public const int ListPopupWindow_android_dropDownHorizontalOffset = 0;
+			
+			// aapt resource value: 1
+			public const int ListPopupWindow_android_dropDownVerticalOffset = 1;
+			
+			public static int[] MenuGroup = new int[] {
+					16842766,
+					16842960,
+					16843156,
+					16843230,
+					16843231,
+					16843232};
+			
+			// aapt resource value: 5
+			public const int MenuGroup_android_checkableBehavior = 5;
+			
+			// aapt resource value: 0
+			public const int MenuGroup_android_enabled = 0;
+			
+			// aapt resource value: 1
+			public const int MenuGroup_android_id = 1;
+			
+			// aapt resource value: 3
+			public const int MenuGroup_android_menuCategory = 3;
+			
+			// aapt resource value: 4
+			public const int MenuGroup_android_orderInCategory = 4;
+			
+			// aapt resource value: 2
+			public const int MenuGroup_android_visible = 2;
+			
+			public static int[] MenuItem = new int[] {
+					16842754,
+					16842766,
+					16842960,
+					16843014,
+					16843156,
+					16843230,
+					16843231,
+					16843233,
+					16843234,
+					16843235,
+					16843236,
+					16843237,
+					16843375,
+					2130772152,
+					2130772153,
+					2130772154,
+					2130772155,
+					2130772156,
+					2130772157,
+					2130772158,
+					2130772159,
+					2130772160,
+					2130772161};
+			
+			// aapt resource value: 16
+			public const int MenuItem_actionLayout = 16;
+			
+			// aapt resource value: 18
+			public const int MenuItem_actionProviderClass = 18;
+			
+			// aapt resource value: 17
+			public const int MenuItem_actionViewClass = 17;
+			
+			// aapt resource value: 13
+			public const int MenuItem_alphabeticModifiers = 13;
+			
+			// aapt resource value: 9
+			public const int MenuItem_android_alphabeticShortcut = 9;
+			
+			// aapt resource value: 11
+			public const int MenuItem_android_checkable = 11;
+			
+			// aapt resource value: 3
+			public const int MenuItem_android_checked = 3;
+			
+			// aapt resource value: 1
+			public const int MenuItem_android_enabled = 1;
+			
+			// aapt resource value: 0
+			public const int MenuItem_android_icon = 0;
+			
+			// aapt resource value: 2
+			public const int MenuItem_android_id = 2;
+			
+			// aapt resource value: 5
+			public const int MenuItem_android_menuCategory = 5;
+			
+			// aapt resource value: 10
+			public const int MenuItem_android_numericShortcut = 10;
+			
+			// aapt resource value: 12
+			public const int MenuItem_android_onClick = 12;
+			
+			// aapt resource value: 6
+			public const int MenuItem_android_orderInCategory = 6;
+			
+			// aapt resource value: 7
+			public const int MenuItem_android_title = 7;
+			
+			// aapt resource value: 8
+			public const int MenuItem_android_titleCondensed = 8;
+			
+			// aapt resource value: 4
+			public const int MenuItem_android_visible = 4;
+			
+			// aapt resource value: 19
+			public const int MenuItem_contentDescription = 19;
+			
+			// aapt resource value: 21
+			public const int MenuItem_iconTint = 21;
+			
+			// aapt resource value: 22
+			public const int MenuItem_iconTintMode = 22;
+			
+			// aapt resource value: 14
+			public const int MenuItem_numericModifiers = 14;
+			
+			// aapt resource value: 15
+			public const int MenuItem_showAsAction = 15;
+			
+			// aapt resource value: 20
+			public const int MenuItem_tooltipText = 20;
+			
+			public static int[] MenuView = new int[] {
+					16842926,
+					16843052,
+					16843053,
+					16843054,
+					16843055,
+					16843056,
+					16843057,
+					2130772162,
+					2130772163};
+			
+			// aapt resource value: 4
+			public const int MenuView_android_headerBackground = 4;
+			
+			// aapt resource value: 2
+			public const int MenuView_android_horizontalDivider = 2;
+			
+			// aapt resource value: 5
+			public const int MenuView_android_itemBackground = 5;
+			
+			// aapt resource value: 6
+			public const int MenuView_android_itemIconDisabledAlpha = 6;
+			
+			// aapt resource value: 1
+			public const int MenuView_android_itemTextAppearance = 1;
+			
+			// aapt resource value: 3
+			public const int MenuView_android_verticalDivider = 3;
+			
+			// aapt resource value: 0
+			public const int MenuView_android_windowAnimationStyle = 0;
+			
+			// aapt resource value: 7
+			public const int MenuView_preserveIconSpacing = 7;
+			
+			// aapt resource value: 8
+			public const int MenuView_subMenuArrow = 8;
+			
+			public static int[] PopupWindow = new int[] {
+					16843126,
+					16843465,
+					2130772164};
+			
+			// aapt resource value: 1
+			public const int PopupWindow_android_popupAnimationStyle = 1;
+			
+			// aapt resource value: 0
+			public const int PopupWindow_android_popupBackground = 0;
+			
+			// aapt resource value: 2
+			public const int PopupWindow_overlapAnchor = 2;
+			
+			public static int[] PopupWindowBackgroundState = new int[] {
+					2130772165};
+			
+			// aapt resource value: 0
+			public const int PopupWindowBackgroundState_state_above_anchor = 0;
+			
+			public static int[] RecycleListView = new int[] {
+					2130772166,
+					2130772167};
+			
+			// aapt resource value: 0
+			public const int RecycleListView_paddingBottomNoButtons = 0;
+			
+			// aapt resource value: 1
+			public const int RecycleListView_paddingTopNoTitle = 1;
+			
+			public static int[] SearchView = new int[] {
+					16842970,
+					16843039,
+					16843296,
+					16843364,
+					2130772168,
+					2130772169,
+					2130772170,
+					2130772171,
+					2130772172,
+					2130772173,
+					2130772174,
+					2130772175,
+					2130772176,
+					2130772177,
+					2130772178,
+					2130772179,
+					2130772180};
+			
+			// aapt resource value: 0
+			public const int SearchView_android_focusable = 0;
+			
+			// aapt resource value: 3
+			public const int SearchView_android_imeOptions = 3;
+			
+			// aapt resource value: 2
+			public const int SearchView_android_inputType = 2;
+			
+			// aapt resource value: 1
+			public const int SearchView_android_maxWidth = 1;
+			
+			// aapt resource value: 8
+			public const int SearchView_closeIcon = 8;
+			
+			// aapt resource value: 13
+			public const int SearchView_commitIcon = 13;
+			
+			// aapt resource value: 7
+			public const int SearchView_defaultQueryHint = 7;
+			
+			// aapt resource value: 9
+			public const int SearchView_goIcon = 9;
+			
+			// aapt resource value: 5
+			public const int SearchView_iconifiedByDefault = 5;
+			
+			// aapt resource value: 4
+			public const int SearchView_layout = 4;
+			
+			// aapt resource value: 15
+			public const int SearchView_queryBackground = 15;
+			
+			// aapt resource value: 6
+			public const int SearchView_queryHint = 6;
+			
+			// aapt resource value: 11
+			public const int SearchView_searchHintIcon = 11;
+			
+			// aapt resource value: 10
+			public const int SearchView_searchIcon = 10;
+			
+			// aapt resource value: 16
+			public const int SearchView_submitBackground = 16;
+			
+			// aapt resource value: 14
+			public const int SearchView_suggestionRowLayout = 14;
+			
+			// aapt resource value: 12
+			public const int SearchView_voiceIcon = 12;
+			
+			public static int[] Spinner = new int[] {
+					16842930,
+					16843126,
+					16843131,
+					16843362,
+					2130771997};
+			
+			// aapt resource value: 3
+			public const int Spinner_android_dropDownWidth = 3;
+			
+			// aapt resource value: 0
+			public const int Spinner_android_entries = 0;
+			
+			// aapt resource value: 1
+			public const int Spinner_android_popupBackground = 1;
+			
+			// aapt resource value: 2
+			public const int Spinner_android_prompt = 2;
+			
+			// aapt resource value: 4
+			public const int Spinner_popupTheme = 4;
+			
+			public static int[] SwitchCompat = new int[] {
+					16843044,
+					16843045,
+					16843074,
+					2130772181,
+					2130772182,
+					2130772183,
+					2130772184,
+					2130772185,
+					2130772186,
+					2130772187,
+					2130772188,
+					2130772189,
+					2130772190,
+					2130772191};
+			
+			// aapt resource value: 1
+			public const int SwitchCompat_android_textOff = 1;
+			
+			// aapt resource value: 0
+			public const int SwitchCompat_android_textOn = 0;
+			
+			// aapt resource value: 2
+			public const int SwitchCompat_android_thumb = 2;
+			
+			// aapt resource value: 13
+			public const int SwitchCompat_showText = 13;
+			
+			// aapt resource value: 12
+			public const int SwitchCompat_splitTrack = 12;
+			
+			// aapt resource value: 10
+			public const int SwitchCompat_switchMinWidth = 10;
+			
+			// aapt resource value: 11
+			public const int SwitchCompat_switchPadding = 11;
+			
+			// aapt resource value: 9
+			public const int SwitchCompat_switchTextAppearance = 9;
+			
+			// aapt resource value: 8
+			public const int SwitchCompat_thumbTextPadding = 8;
+			
+			// aapt resource value: 3
+			public const int SwitchCompat_thumbTint = 3;
+			
+			// aapt resource value: 4
+			public const int SwitchCompat_thumbTintMode = 4;
+			
+			// aapt resource value: 5
+			public const int SwitchCompat_track = 5;
+			
+			// aapt resource value: 6
+			public const int SwitchCompat_trackTint = 6;
+			
+			// aapt resource value: 7
+			public const int SwitchCompat_trackTintMode = 7;
+			
+			public static int[] TextAppearance = new int[] {
+					16842901,
+					16842902,
+					16842903,
+					16842904,
+					16842906,
+					16842907,
+					16843105,
+					16843106,
+					16843107,
+					16843108,
+					16843692,
+					2130772013,
+					2130772019};
+			
+			// aapt resource value: 10
+			public const int TextAppearance_android_fontFamily = 10;
+			
+			// aapt resource value: 6
+			public const int TextAppearance_android_shadowColor = 6;
+			
+			// aapt resource value: 7
+			public const int TextAppearance_android_shadowDx = 7;
+			
+			// aapt resource value: 8
+			public const int TextAppearance_android_shadowDy = 8;
+			
+			// aapt resource value: 9
+			public const int TextAppearance_android_shadowRadius = 9;
+			
+			// aapt resource value: 3
+			public const int TextAppearance_android_textColor = 3;
+			
+			// aapt resource value: 4
+			public const int TextAppearance_android_textColorHint = 4;
+			
+			// aapt resource value: 5
+			public const int TextAppearance_android_textColorLink = 5;
+			
+			// aapt resource value: 0
+			public const int TextAppearance_android_textSize = 0;
+			
+			// aapt resource value: 2
+			public const int TextAppearance_android_textStyle = 2;
+			
+			// aapt resource value: 1
+			public const int TextAppearance_android_typeface = 1;
+			
+			// aapt resource value: 12
+			public const int TextAppearance_fontFamily = 12;
+			
+			// aapt resource value: 11
+			public const int TextAppearance_textAllCaps = 11;
+			
+			public static int[] Toolbar = new int[] {
+					16842927,
+					16843072,
+					2130771971,
+					2130771974,
+					2130771978,
+					2130771990,
+					2130771991,
+					2130771992,
+					2130771993,
+					2130771994,
+					2130771995,
+					2130771997,
+					2130772192,
+					2130772193,
+					2130772194,
+					2130772195,
+					2130772196,
+					2130772197,
+					2130772198,
+					2130772199,
+					2130772200,
+					2130772201,
+					2130772202,
+					2130772203,
+					2130772204,
+					2130772205,
+					2130772206,
+					2130772207,
+					2130772208};
+			
+			// aapt resource value: 0
+			public const int Toolbar_android_gravity = 0;
+			
+			// aapt resource value: 1
+			public const int Toolbar_android_minHeight = 1;
+			
+			// aapt resource value: 21
+			public const int Toolbar_buttonGravity = 21;
+			
+			// aapt resource value: 23
+			public const int Toolbar_collapseContentDescription = 23;
+			
+			// aapt resource value: 22
+			public const int Toolbar_collapseIcon = 22;
+			
+			// aapt resource value: 6
+			public const int Toolbar_contentInsetEnd = 6;
+			
+			// aapt resource value: 10
+			public const int Toolbar_contentInsetEndWithActions = 10;
+			
+			// aapt resource value: 7
+			public const int Toolbar_contentInsetLeft = 7;
+			
+			// aapt resource value: 8
+			public const int Toolbar_contentInsetRight = 8;
+			
+			// aapt resource value: 5
+			public const int Toolbar_contentInsetStart = 5;
+			
+			// aapt resource value: 9
+			public const int Toolbar_contentInsetStartWithNavigation = 9;
+			
+			// aapt resource value: 4
+			public const int Toolbar_logo = 4;
+			
+			// aapt resource value: 26
+			public const int Toolbar_logoDescription = 26;
+			
+			// aapt resource value: 20
+			public const int Toolbar_maxButtonHeight = 20;
+			
+			// aapt resource value: 25
+			public const int Toolbar_navigationContentDescription = 25;
+			
+			// aapt resource value: 24
+			public const int Toolbar_navigationIcon = 24;
+			
+			// aapt resource value: 11
+			public const int Toolbar_popupTheme = 11;
+			
+			// aapt resource value: 3
+			public const int Toolbar_subtitle = 3;
+			
+			// aapt resource value: 13
+			public const int Toolbar_subtitleTextAppearance = 13;
+			
+			// aapt resource value: 28
+			public const int Toolbar_subtitleTextColor = 28;
+			
+			// aapt resource value: 2
+			public const int Toolbar_title = 2;
+			
+			// aapt resource value: 14
+			public const int Toolbar_titleMargin = 14;
+			
+			// aapt resource value: 18
+			public const int Toolbar_titleMarginBottom = 18;
+			
+			// aapt resource value: 16
+			public const int Toolbar_titleMarginEnd = 16;
+			
+			// aapt resource value: 15
+			public const int Toolbar_titleMarginStart = 15;
+			
+			// aapt resource value: 17
+			public const int Toolbar_titleMarginTop = 17;
+			
+			// aapt resource value: 19
+			public const int Toolbar_titleMargins = 19;
+			
+			// aapt resource value: 12
+			public const int Toolbar_titleTextAppearance = 12;
+			
+			// aapt resource value: 27
+			public const int Toolbar_titleTextColor = 27;
+			
+			public static int[] View = new int[] {
+					16842752,
+					16842970,
+					2130772209,
+					2130772210,
+					2130772211};
+			
+			// aapt resource value: 1
+			public const int View_android_focusable = 1;
+			
+			// aapt resource value: 0
+			public const int View_android_theme = 0;
+			
+			// aapt resource value: 3
+			public const int View_paddingEnd = 3;
+			
+			// aapt resource value: 2
+			public const int View_paddingStart = 2;
+			
+			// aapt resource value: 4
+			public const int View_theme = 4;
+			
+			public static int[] ViewBackgroundHelper = new int[] {
+					16842964,
+					2130772212,
+					2130772213};
+			
+			// aapt resource value: 0
+			public const int ViewBackgroundHelper_android_background = 0;
+			
+			// aapt resource value: 1
+			public const int ViewBackgroundHelper_backgroundTint = 1;
+			
+			// aapt resource value: 2
+			public const int ViewBackgroundHelper_backgroundTintMode = 2;
+			
+			public static int[] ViewStubCompat = new int[] {
+					16842960,
+					16842994,
+					16842995};
+			
+			// aapt resource value: 0
+			public const int ViewStubCompat_android_id = 0;
+			
+			// aapt resource value: 2
+			public const int ViewStubCompat_android_inflatedId = 2;
+			
+			// aapt resource value: 1
+			public const int ViewStubCompat_android_layout = 1;
+			
+			static Styleable()
+			{
+				global::Android.Runtime.ResourceIdManager.UpdateIdValues();
+			}
+			
+			private Styleable()
 			{
 			}
 		}
