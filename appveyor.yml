@@ -21,7 +21,11 @@ build_script:
 
 artifacts:
 - path: 'artifacts\*.nupkg'
-  name: NuGet Packages
+  name: Nuget Packages
+- path: 'artifacts\*.md'
+  name: Release Notes
+- path: 'artifacts\doc'
+  name: Api Documentation  
 
 deploy:
      # Deploying to NuGet feed 

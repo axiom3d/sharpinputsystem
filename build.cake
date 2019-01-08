@@ -96,15 +96,6 @@ Task("Package")
     {
         GenerateReleaseNotes();
 
-/*
-        GitReleaseNotes(artifactsDirectory.FullPath, new GitReleaseNotesSettings {
-            WorkingDirectory         = artifactsDirectory.FullPath,
-            Verbose                  = true,
-            AllTags                  = true,
-            RepoUrl                  = "https://github.com/axiom3d/sharpinputsystem",
-            RepoBranch               = "master"
-        });
-        */
         MSBuild(solutionFile,
         settings => commonSettings(settings)
                         .WithTarget("Pack")
