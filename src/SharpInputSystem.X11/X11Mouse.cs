@@ -37,7 +37,7 @@ using System.Collections.Generic;
 
 namespace SharpInputSystem
 {
-	public class X11Mouse : Mouse, IDisposable
+	internal class X11Mouse : Mouse, IDisposable
 	{
 		private static readonly ILog log = LogManager.GetLogger( typeof( X11Mouse ) );
 		

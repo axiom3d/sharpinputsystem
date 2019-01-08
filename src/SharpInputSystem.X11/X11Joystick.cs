@@ -36,7 +36,7 @@ using System.Collections.Generic;
 
 namespace SharpInputSystem
 {
-	public class X11Joystick: Joystick
+	internal class X11Joystick: Joystick
 	{
 		public X11Joystick ()
 		{

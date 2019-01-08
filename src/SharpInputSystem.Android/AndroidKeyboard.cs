@@ -2,7 +2,7 @@
 
 /*
 Sharp Input System Library
-Copyright © 2007-2019 Michael Cummings
+Copyright ï¿½ 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -46,7 +46,7 @@ using Common.Logging;
 
 namespace SharpInputSystem
 {
-    public class AndroidKeyboard : Keyboard
+    internal class AndroidKeyboard : Keyboard
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(AndroidKeyboard));
 

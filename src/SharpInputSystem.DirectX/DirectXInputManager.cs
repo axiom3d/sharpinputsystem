@@ -109,16 +109,9 @@ namespace SharpInputSystem.DirectX
             Parameter parameter = args.Find((p) => { return p.first.ToLower() == "window"; });
             if (parameter != null)
             {
-                if (parameter.second is IntPtr)
+                if (parameter.second is IntPtr) {
                     this._hwnd = (IntPtr)parameter.second;
-                /*else if ( parameter.second is Control )
-				{
-					var parent = ( Control ) parameter.second;
-					// if the control is a picturebox, we need to grab its parent form
-					while ( !( parent is Form ) && parent != null )
-						parent = parent.Parent;
-					this._hwnd = parent.Handle;
-				}*/
+                }
                 else
                     throw new Exception("SharpInputSystem.DirectXInputManger requires a Handle to a window.");
             }

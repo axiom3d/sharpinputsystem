@@ -90,4 +90,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!-- Need to mimic .NetStandard2 projects Pack target -->
+  <Target Name="Pack" DependsOnTargets="PackageForAndroid" />
+
 </Project>

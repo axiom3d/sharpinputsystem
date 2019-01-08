@@ -38,7 +38,7 @@ using System.Linq;
 
 namespace SharpInputSystem
 {
-	public sealed class X11Keyboard : Keyboard
+	internal class X11Keyboard : Keyboard
 	{
 		private IntPtr _display;
 		private IntPtr _window;

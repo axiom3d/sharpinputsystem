@@ -39,7 +39,7 @@ using Common.Logging;
 
 namespace SharpInputSystem
 {
-	internal sealed class X11InputManager : InputManager, InputObjectFactory
+	internal class X11InputManager : InputManager, InputObjectFactory
 	{
         private static readonly ILog log = LogManager.GetLogger( typeof( X11InputManager ) );
 		

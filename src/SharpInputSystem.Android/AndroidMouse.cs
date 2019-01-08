@@ -51,7 +51,7 @@ using Common.Logging;
 
 namespace SharpInputSystem
 {
-    public class AndroidMouse : Mouse
+    internal class AndroidMouse : Mouse
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(AndroidMouse));
 
