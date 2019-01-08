@@ -14,8 +14,7 @@
     <FileAlignment>512</FileAlignment>
     <AndroidApplication>true</AndroidApplication>
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
-    <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v8.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
@@ -42,14 +41,6 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Common.Logging.Core, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Common.Logging.Core.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Common.Logging.Portable, Version=3.3.2.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Common.Logging.Portable.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7\Common.Logging.Portable.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="OpenTK" />
     <Reference Include="mscorlib" />
@@ -65,7 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="GettingStarted.Xamarin" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
@@ -84,7 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.Android\SharpInputSystem.Android.csproj">
-      <Project>{188d41fb-7ddb-4d30-bc1f-89ce39dea4e4}</Project>
+      <Project>{864535de-7e55-4073-99a4-4447c09c5077}</Project>
       <Name>SharpInputSystem.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
@@ -93,7 +83,6 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
-  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
      Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
@@ -101,4 +90,7 @@
   <Target Name="AfterBuild">
   </Target>
   -->
+  <!-- Need to mimic .NetStandard2 projects Pack target -->
+  <Target Name="Pack" DependsOnTargets="PackageForAndroid" />
+
 </Project>

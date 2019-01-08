@@ -1,5 +1,5 @@
 
-[![Build status](https://ci.appveyor.com/api/projects/status/q98yyj575t8mv5me/branch/VS2015Upgrade?svg=true)](https://ci.appveyor.com/project/borrillis/sharpinputsystem/branch/VS2015Upgrade)
+[![Build status](https://ci.appveyor.com/api/projects/status/q98yyj575t8mv5me/branch/master?svg=true)](https://ci.appveyor.com/project/borrillis/sharpinputsystem)
 
 # README #
 

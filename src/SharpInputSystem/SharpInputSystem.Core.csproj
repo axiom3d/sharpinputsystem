@@ -1,83 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\..\SharpInputSystem.props" Condition="Exists('..\..\SharpInputSystem.props')" />
+
   <PropertyGroup>
-    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8476C51C-0028-4B79-B9A7-A666E11400CB}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SharpInputSystem.Core</RootNamespace>
-    <AssemblyName>SharpInputSystem.Core</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <TargetFrameworkProfile>Profile5</TargetFrameworkProfile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>$(PackageId).Core</PackageId>
+    <Product>$(Product).Core</Product>
+    <AssemblyTitle>$(AssemblyTitle) Core Assembly</AssemblyTitle>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Compile Include="..\CommonAssemblyInfo.cs">
-      <Link>Properties\CommonAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="Components.cs" />
-    <Compile Include="DeviceInfo.cs" />
-    <Compile Include="Effect.cs" />
-    <Compile Include="Environment.cs" />
-    <Compile Include="Exception.cs" />
-    <Compile Include="ForceFeedback.cs" />
-    <Compile Include="IInputManagerFactory.cs" />
-    <Compile Include="InputManager.cs" />
-    <Compile Include="InputObject.cs" />
-    <Compile Include="InputObjectFactory.cs" />
-    <Compile Include="Joystick.cs" />
-    <Compile Include="JoystickInfo.cs" />
-    <Compile Include="Keyboard.cs" />
-    <Compile Include="KeyboardInfo.cs" />
-    <Compile Include="LibX11.cs" />
-    <Compile Include="Mouse.cs" />
-    <Compile Include="MouseInfo.cs" />
-    <Compile Include="PlatformFactory.cs" />
-    <Compile Include="Platforms.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnixKernel.cs" />
+    <PackageReference Include="Common.Logging" Version="3.4.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Reference Include="Common.Logging.Core">
-      <HintPath>..\..\packages\Common.Logging.Core.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7+wpa81\Common.Logging.Core.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Common.Logging.Portable">
-      <HintPath>..\..\packages\Common.Logging.Portable.3.3.2-Alpha3\lib\portable-win+net40+sl40+wp7\Common.Logging.Portable.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+
 </Project>
