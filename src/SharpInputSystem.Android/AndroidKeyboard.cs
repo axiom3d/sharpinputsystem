@@ -46,7 +46,7 @@ using Common.Logging;
 
 namespace SharpInputSystem
 {
-    internal class AndroidKeyboard : Keyboard
+    public class AndroidKeyboard : Keyboard
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(AndroidKeyboard));
 

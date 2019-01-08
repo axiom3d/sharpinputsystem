@@ -126,6 +126,9 @@ private void GenerateReleaseNotes()
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
+Task("AppVeyor")
+    .IsDependentOn("Package");
+
 Task("Default")
     .IsDependentOn("Package");
 
