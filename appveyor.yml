@@ -1,34 +1,31 @@
 version: 0.5.{build}
 
-image: Visual Studio 2015
-
-assembly_info:
-  patch: true
-  file: src\CommonAssemblyInfo.cs
-  assembly_version: "{version}"
-  assembly_file_version: "{version}"
-  assembly_informational_version: "{version}-alpha"
+image: Visual Studio 2017
 
 branches:
   only:
-  - default
+  - master
+  - develop
 
 configuration:
   - Debug 
   - Release
+
 platform: Any CPU
 
 matrix:
   fast_finish: true
 
-build:
-  parallel: true 
-  project: SharpInputSystem.sln
-  verbosity: minimal
+build_script:
+  - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
 
 artifacts:
-- path: '**\bin\**\*.nupkg'
-  name: NuGet Packages
+- path: 'artifacts\*.nupkg'
+  name: Nuget Packages
+- path: 'artifacts\*.md'
+  name: Release Notes
+- path: 'artifacts\doc'
+  name: Api Documentation  
 
 deploy:
      # Deploying to NuGet feed 

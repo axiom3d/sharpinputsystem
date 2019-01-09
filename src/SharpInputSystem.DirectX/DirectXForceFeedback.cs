@@ -1,4 +1,4 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
@@ -33,7 +33,6 @@ Many thanks to the Phillip Castaneda for maintaining such a high quality project
 
 #region Namespace Declarations
 
-using SWF = System.Windows.Forms;
 using MDI = SharpDX.DirectInput;
 
 #endregion Namespace Declarations
@@ -44,7 +43,7 @@ namespace SharpInputSystem.DirectX
     {
         #region Construction and Destruction
 
-        public DirectXForceFeedback( MDI.Joystick parent, MDI.Capabilities capabilities ) {}
+        public DirectXForceFeedback(MDI.Joystick parent, MDI.Capabilities capabilities) { }
 
         #endregion
 
@@ -71,11 +70,11 @@ namespace SharpInputSystem.DirectX
 
         #region Methods
 
-        public override void Upload( Effect effect ) {}
+        public override void Upload(Effect effect) { }
 
-        public override void Modify( Effect effect ) {}
+        public override void Modify(Effect effect) { }
 
-        public override void Remove( Effect effect ) {}
+        public override void Remove(Effect effect) { }
 
         #endregion Methods
 

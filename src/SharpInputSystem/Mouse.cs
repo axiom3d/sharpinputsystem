@@ -1,31 +1,31 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright © 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
 which can be found at http://www.sourceforge.net/projects/wgois.  
-Many thanks to the Phillip Castaneda for maintaining such a high quality project.
+Many thanks to Phillip Castaneda for maintaining such a high quality project.
 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 */
 
@@ -149,14 +149,14 @@ namespace SharpInputSystem
 
         #region Constructor
 
-        public MouseState( )
+        public MouseState()
         {
             this.Height = this.Width = 50;
             this._buttons = 0;
 
-            this._x = new Axis( );
-            this._y = new Axis( );
-            this._z = new Axis( );
+            this._x = new Axis();
+            this._y = new Axis();
+            this._z = new Axis();
         }
 
         #endregion Constructor
@@ -168,19 +168,19 @@ namespace SharpInputSystem
         /// </summary>
         /// <param name="button"></param>
         /// <returns></returns>
-        public bool IsButtonDown( MouseButtonID button )
+        public bool IsButtonDown(MouseButtonID button)
         {
-            return ( this._buttons & ( 1 << ( int ) button ) ) == 0 ? false : true;
+            return (this._buttons & (1 << (int)button)) == 0 ? false : true;
         }
 
         /// <summary>
         /// Clear all the values
         /// </summary>
-        public void Clear( )
+        public void Clear()
         {
-            this._x.Clear( );
-            this._y.Clear( );
-            this._z.Clear( );
+            this._x.Clear();
+            this._y.Clear();
+            this._z.Clear();
             this._buttons = 0;
         }
 
@@ -207,8 +207,8 @@ namespace SharpInputSystem
 
         #region Constructors
 
-        public MouseEventArgs( InputObject obj, MouseState ms )
-            : base( obj )
+        public MouseEventArgs(InputObject obj, MouseState ms)
+            : base(obj)
         {
             this.State = ms;
         }
@@ -222,9 +222,9 @@ namespace SharpInputSystem
     /// </summary>
     public interface IMouseListener
     {
-        bool MouseMoved( MouseEventArgs arg );
-        bool MousePressed( MouseEventArgs arg, MouseButtonID id );
-        bool MouseReleased( MouseEventArgs arg, MouseButtonID id );
+        bool MouseMoved(MouseEventArgs arg);
+        bool MousePressed(MouseEventArgs arg, MouseButtonID id);
+        bool MouseReleased(MouseEventArgs arg, MouseButtonID id);
     };
 
     /// <summary>
@@ -250,7 +250,7 @@ namespace SharpInputSystem
         /// <summary>
         /// The state of the mouse.
         /// </summary>
-        private MouseState _state = new MouseState( );
+        private MouseState _state = new MouseState();
 
         /// <summary>
         /// Returns the state of the mouse - is valid for both buffered and non buffered mode
