@@ -28,12 +28,8 @@ artifacts:
   name: Api Documentation  
 
 deploy:
-     # Deploying to NuGet feed 
-#- provider: NuGet 
-#  server: https://my.nuget.server/feed 
-#  api_key: 
-#    secure: FYWX6NfjZIVw== 
-#  skip_symbols: false 
-#  symbol_server: https://your.symbol.server/feed 
-#  artifact: MyPackage.nupkg 
+- provider: NuGet
+  server: https://ci.appveyor.com/nuget/borrillis-tqyvjgcr2l7a
+  api_key:
+    secure: XNGX8RcDI1BKC2o5VpEzeP9MeOxJr9BBu6JP+kc8veA=
   
