@@ -7,6 +7,8 @@
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.SWF</AssemblyTitle>
     <Product>$(Product).Test.Console.SWF</Product>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>

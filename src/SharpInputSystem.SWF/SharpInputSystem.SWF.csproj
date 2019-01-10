@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).SWF</PackageId>
     <Product>$(Product).SWF</Product>
     <AssemblyTitle>$(AssemblyTitle) for System Windows Forms</AssemblyTitle>

@@ -1,18 +1,17 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFramework>MonoAndroid81</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>fasle</GeneratePackageOnBuild>
     <PackageId>$(PackageId).Android</PackageId>
     <Product>$(Product).Android</Product>
     <AssemblyTitle>$(AssemblyTitle) for Android</AssemblyTitle>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
     <PackageReference Include="Common.Logging" Version="3.4.1" />
   </ItemGroup>
 
@@ -22,6 +21,4 @@
       <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
-
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
 </Project>

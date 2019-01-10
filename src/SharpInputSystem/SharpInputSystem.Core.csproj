@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).Core</PackageId>
     <Product>$(Product).Core</Product>
     <AssemblyTitle>$(AssemblyTitle) Core Assembly</AssemblyTitle>

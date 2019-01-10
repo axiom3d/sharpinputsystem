@@ -7,6 +7,8 @@
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.X11</AssemblyTitle>
     <Product>$(Product).Test.Console.X11</Product>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).DirectX</PackageId>
     <Product>$(Product).DirectX</Product>
     <AssemblyTitle>$(AssemblyTitle) for DirectX</AssemblyTitle>

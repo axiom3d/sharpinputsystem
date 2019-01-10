@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
     <TargetFramework>MonoAndroid81</TargetFramework>
@@ -7,13 +7,13 @@
     <AssemblyTitle>$(AssemblyTitle).Test.OpenGL.Android</AssemblyTitle>
     <Product>$(Product).Test.OpenGL.Android</Product>
     <PackageId>$(PackageId).Test.OpenGL.Android</PackageId>
+
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
     <AndroidApplication>true</AndroidApplication>
     <OutputType>Library</OutputType>
-    <PackOnBuild>false</PackOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -27,7 +27,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MSBuild.Sdk.Extras" Version="1.4.0" PrivateAssets="All" />
     <PackageReference Include="Common.Logging" Version="3.4.1.0" />
     <PackageReference Include="Common.Logging.Core" Version="3.4.1.0" />
   </ItemGroup>
@@ -59,11 +58,11 @@
     <Reference Include="OpenTK" />
   </ItemGroup>
 
-  <Import Project="$(MSBuildSDKExtrasTargets)" Condition="Exists('$(MSBuildSDKExtrasTargets)')" />
   <!-- Needed to build apk as part of Pack, not nupkg -->
   <PropertyGroup>
-    <IsPackable>false</IsPackable>
-    <PackDependsOn>PackageForAndroid; $(PackDependsOn)</PackDependsOn>
+    <PackDependsOn>PackageForAndroid;</PackDependsOn>
   </PropertyGroup>
 
+  <Target Name="PackageForAndroid"
+	  DependsOnTargets="SetWearAppTargetToPackageForAndroid;_CopyPackage" />
 </Project>

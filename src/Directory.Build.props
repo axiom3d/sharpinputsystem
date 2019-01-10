@@ -59,6 +59,6 @@ The system is written using C# and supports the following API's :
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageIconUrl>https://github.com/axiom3d/sharpinputsystem/blob/master/images/SharpInputSystem-Icon.png</PackageIconUrl>
     <Copyright>Copyright © Michael Cummings</Copyright>
-    <PackageTags>Input</PackageTags>
+    <PackageTags>Input keyboard mouse directx opengl android ios windows uwp</PackageTags>
   </PropertyGroup>
 </Project>
