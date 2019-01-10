@@ -1,31 +1,31 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright © 2007-2011 Michael Cummings
+Copyright © 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
 which can be found at http://www.sourceforge.net/projects/wgois.  
-Many thanks to the Phillip Castaneda for maintaining such a high quality project.
+Many thanks to Phillip Castaneda for maintaining such a high quality project.
 
- Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
- The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
 
- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
 */
 
@@ -234,7 +234,7 @@ namespace SharpInputSystem
             set
             {
                 //Can only be set before a handle was assigned (effect created)
-                if ( this._handle != -1 )
+                if (this._handle != -1)
                     this._axes = value;
             }
         }
@@ -248,7 +248,7 @@ namespace SharpInputSystem
         /// <summary>
         /// hidden so this class cannot be instanced with default constructor
         /// </summary>
-        private Effect( )
+        private Effect()
         {
             this._axes = 1;
         }
@@ -258,8 +258,8 @@ namespace SharpInputSystem
         /// </summary>
         /// <param name="force"></param>
         /// <param name="type"></param>
-        public Effect( EForce effectForce, EType effectType )
-            : this( )
+        public Effect(EForce effectForce, EType effectType)
+            : this()
         {
             this.Force = effectForce;
             this.Type = effectType;
@@ -268,22 +268,22 @@ namespace SharpInputSystem
             this.ReplayLength = INFINITE_TIME;
             this._handle = -1;
 
-            switch ( effectForce )
+            switch (effectForce)
             {
                 case EForce.ConstantForce:
-                    this._forceEffect = new ConstantEffect( );
+                    this._forceEffect = new ConstantEffect();
                     break;
                 case EForce.RampForce:
-                    this._forceEffect = new RampEffect( );
+                    this._forceEffect = new RampEffect();
                     break;
                 case EForce.PeriodicForce:
-                    this._forceEffect = new PeriodicEffect( );
+                    this._forceEffect = new PeriodicEffect();
                     break;
                 case EForce.ConditionalForce:
-                    this._forceEffect = new ConditionalEffect( );
+                    this._forceEffect = new ConditionalEffect();
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException( "effectForce value not supported." );
+                    throw new ArgumentOutOfRangeException("effectForce value not supported.");
             }
         }
 
@@ -293,7 +293,7 @@ namespace SharpInputSystem
     /// <summary>
     /// Base class of all effect property classes
     /// </summary>
-    public interface IForceEffect {}
+    public interface IForceEffect { }
 
     /// <summary>
     /// An optional envelope to be applied to the start/end of an effect. 
@@ -311,7 +311,7 @@ namespace SharpInputSystem
         /// </summary>
         public bool IsUsed
         {
-            get { return ( this._attackLength + this._attackLevel + this._fadeLength + this._fadeLevel != 0 ); }
+            get { return (this._attackLength + this._attackLevel + this._fadeLength + this._fadeLevel != 0); }
         }
 
         #region AttackLength Property
