@@ -121,7 +121,7 @@ Task("AppVeyor")
     .IsDependentOn("Package");
 
 Task("Default")
-    .IsDependentOn("Package");
+    .IsDependentOn("Build");
 
 Task("Build")
     .IsDependentOn("BuildProduct")
