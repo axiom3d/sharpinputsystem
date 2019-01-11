@@ -78,14 +78,10 @@
   <!-- Needed to build apk, not nupkg, as part of Pack target  -->
   <PropertyGroup>
     <PackDependsOn>SignAndroidPackage;</PackDependsOn>
-    <!--
     <PackageForAndroidDependsOn Condition="'$(NoBuild)' == 'true'">SetWearAppTargetToPackageForAndroid;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
     <PackageForAndroidDependsOn Condition="'$(NoBuild)' != 'true'">SetWearAppTargetToPackageForAndroid;Build;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
-    -->
   </PropertyGroup>
-<!--
-  <Target Name="PackageForAndroid" DependsOnTargets="$(PackageForAndroidDependsOn)" />
--->  
+  
   <Target Name="CopyToArtifacts" AfterTargets="SignAndroidPackage">
     <ItemGroup>  
       <ApkFile Include="$(OutDir)\**\*.apk" />  

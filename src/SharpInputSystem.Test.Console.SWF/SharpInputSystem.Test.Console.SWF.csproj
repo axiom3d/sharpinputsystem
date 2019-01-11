@@ -36,4 +36,12 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Import Project="..\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems" Label="Shared" />
+
+  <Target Name="CopyToArtifacts" AfterTargets="Pack">
+    <ItemGroup>  
+      <OutputFiles Include="$(OutDir)\**\*.*" />  
+    </ItemGroup> 
+  	<Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(PackageOutputPath)\Samples\SWF" SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>

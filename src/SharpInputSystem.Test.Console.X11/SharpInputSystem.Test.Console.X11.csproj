@@ -36,4 +36,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Import Project="..\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems" Label="Shared" />
+
+  <Target Name="CopyToArtifacts" AfterTargets="Pack">
+    <Message Importance="High" Text="$(OutDir)" />
+    <ItemGroup>  
+      <OutputFiles Include="$(OutDir)\**\*.*" />  
+    </ItemGroup> 
+  	<Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(PackageOutputPath)\Samples\X11" SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>
