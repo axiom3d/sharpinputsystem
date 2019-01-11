@@ -1,5 +1,5 @@
 
-[![Build status](https://ci.appveyor.com/api/projects/status/q2nq22aiir2l9ucf?svg=true)](https://ci.appveyor.com/project/borrillis/sharpinputsystem-mhdxg)
+[![Build status](https://ci.appveyor.com/api/projects/status/scy7wjq7ppwvll7s?svg=true)](https://ci.appveyor.com/project/borrillis/sharpinputsystem)
 
 # README #
 
