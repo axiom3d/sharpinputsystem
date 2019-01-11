@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\SharpInputSystem.props" Condition="Exists('..\..\SharpInputSystem.props')" />
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
@@ -8,6 +7,8 @@
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.X11</AssemblyTitle>
     <Product>$(Product).Test.Console.X11</Product>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -21,7 +22,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem.X11.csproj">
@@ -36,4 +36,13 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <Import Project="..\SharpInputSystem.Test.Console\SharpInputSystem.Test.Console.Shared.projitems" Label="Shared" />
+
+  <Target Name="CopyToArtifacts" AfterTargets="Pack">
+    <Message Importance="High" Text="$(OutDir)" />
+    <ItemGroup>  
+      <OutputFiles Include="$(OutDir)\**\*.*" />  
+    </ItemGroup> 
+  	<Copy SourceFiles="@(OutputFiles)" DestinationFolder="$(PackageOutputPath)\Samples\X11" SkipUnchangedFiles="true" />
+  </Target>
+
 </Project>

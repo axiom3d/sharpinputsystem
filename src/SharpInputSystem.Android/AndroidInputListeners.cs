@@ -43,7 +43,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Android
 {
     class TouchListener : Java.Lang.Object, View.IOnTouchListener
     {

@@ -1,4 +1,4 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
@@ -44,7 +44,7 @@ using Android.Views;
 using Android.Widget;
 using Common.Logging;
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Android
 {
     public class AndroidKeyboard : Keyboard
     {
