@@ -33,8 +33,21 @@ artifacts:
   name: Api Documentation  
 
 deploy:
+
+- provider: GitHub
+  release: v$(appveyor_build_version)
+  auth_token:
+    secure: IQ7Hw9JoIukDUEwwlSlSg0mOtiuyoxrrWowo52/HBRZvWYjS1X5uFdusv3KtUuJx
+  draft: true
+  prerelease: true
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: true        # deploy on tag push only
+
 - provider: NuGet
   api_key:
     secure: XNGX8RcDI1BKC2o5VpEzeP9MeOxJr9BBu6JP+kc8veA=
   skip_symbols: true
   artifact: /.*\.nupkg/
+  on:
+    branch: master
