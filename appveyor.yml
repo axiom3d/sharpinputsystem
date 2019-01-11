@@ -30,7 +30,9 @@ artifacts:
 - path: 'artifacts\*.md'
   name: Release Notes
 - path: 'artifacts\doc'
-  name: Api Documentation  
+  name: Api Documentation 
+- path: 'artifacts\samples' 
+  name: Samples
 
 deploy:
 

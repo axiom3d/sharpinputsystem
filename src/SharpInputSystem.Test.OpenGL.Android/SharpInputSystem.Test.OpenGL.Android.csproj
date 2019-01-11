@@ -58,11 +58,18 @@
     <Reference Include="OpenTK" />
   </ItemGroup>
 
-  <!-- Needed to build apk as part of Pack, not nupkg -->
+  <!-- Needed to build apk, not nupkg, as part of Pack target  -->
   <PropertyGroup>
     <PackDependsOn>PackageForAndroid;</PackDependsOn>
+    <PackageForAndroidDependsOn Condition="'$(NoBuild)' == 'true'">SetWearAppTargetToPackageForAndroid;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
+    <PackageForAndroidDependsOn Condition="'$(NoBuild)' != 'true'">SetWearAppTargetToPackageForAndroid;Build;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
   </PropertyGroup>
 
-  <Target Name="PackageForAndroid"
-	  DependsOnTargets="SetWearAppTargetToPackageForAndroid;_CopyPackage" />
+  <Target Name="PackageForAndroid" DependsOnTargets="$(PackageForAndroidDependsOn)" />
+  <Target Name="CopyToArtifacts" AfterTargets="_CopyPackage">
+    <ItemGroup>  
+      <ApkFile Include="$(OutDir)\**\*.apk"/>  
+    </ItemGroup> 
+  	<Copy SourceFiles="@(ApkFile)" DestinationFolder="$(PackageOutputPath)\Samples\Android" SkipUnchangedFiles="true" />
+  </Target>
 </Project>
