@@ -1,23 +1,10 @@
-version: 0.5.{build}
-
+# Common configuration for ALL branches
 image: Visual Studio 2017
-
-branches:
-  only:
-  - master
-  - develop
-
-configuration:
-  - Debug 
-  - Release
 
 platform: Any CPU
 
-matrix:
-  fast_finish: true
-
-build_script:
-  - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
+assembly_info:
+  patch: false
 
 artifacts:
 - path: 'artifacts\*.nupkg'
@@ -27,9 +14,31 @@ artifacts:
 - path: 'artifacts\doc'
   name: Api Documentation  
 
-deploy:
-- provider: NuGet
-  server: https://ci.appveyor.com/nuget/borrillis-tqyvjgcr2l7a
-  api_key:
-    secure: XNGX8RcDI1BKC2o5VpEzeP9MeOxJr9BBu6JP+kc8veA=
-  
+build_script:
+  - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
+
+# End of Common section
+for :
+
+# Overides for `master` branch
+-
+  branches:
+    only:
+    - master
+
+  configuration:
+    - Release
+
+  matrix:
+    fast_finish: true
+
+
+# Overrides for `merge/*` (PR) branches
+-
+  branches:
+  only:
+  - master
+
+  configuration:
+    - Debug
+    - Release
