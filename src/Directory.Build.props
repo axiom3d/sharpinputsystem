@@ -31,10 +31,9 @@ THE SOFTWARE.
 
 <Project>
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>2.3.38</Version>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="GitVersionTask" Version="4.0.0-beta*">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>    
   </ItemGroup>
 
   <PropertyGroup Label="Package">
