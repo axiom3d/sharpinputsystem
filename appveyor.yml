@@ -16,6 +16,9 @@ artifacts:
 
 build_script:
   - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
+  
+# Do not build on tags (GitHub and BitBucket)
+skip_tags: true
 
 # End of Common section
 for :
@@ -36,8 +39,8 @@ for :
 # Overrides for `merge/*` (PR) branches
 -
   branches:
-  only:
-  - master
+    only:
+    - master
 
   configuration:
     - Debug
