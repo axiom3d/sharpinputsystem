@@ -16,7 +16,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Test.Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Test.Console.X11", "SharpInputSystem.Test.Console.X11\SharpInputSystem.Test.Console.X11.csproj", "{29045D60-94B4-4574-BDCB-E06D0CA26BFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Test.OpenGL.Android", "SharpInputSystem.Test.OpenGL.Android\SharpInputSystem.Test.OpenGL.Android.csproj", "{332CB19D-024C-4C01-900E-3B706AB895D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Test.OpenGL.Android", "SharpInputSystem.Test.OpenGL.Android\SharpInputSystem.Test.OpenGL.Android.csproj", "{332CB19D-024C-4C01-900E-3B706AB895D6}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Android", "Android", "{A9D8B99F-AC1A-4086-A19C-D8FA4E30602E}"
 EndProject
@@ -30,12 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{8008225F-37A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Core", "SharpInputSystem\SharpInputSystem.Core.csproj", "{8476C51C-0028-4B79-B9A7-A666E11400CB}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Build", ".Build", "{76BC45C3-3858-4BD7-8DE2-CF8D315AD2B2}"
-	ProjectSection(SolutionItems) = preProject
-		SharpInputSystem.props = SharpInputSystem.props
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Android", "SharpInputSystem.Android\SharpInputSystem.Android.csproj", "{864535DE-7E55-4073-99A4-4447C09C5077}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Android", "SharpInputSystem.Android\SharpInputSystem.Android.csproj", "{864535DE-7E55-4073-99A4-4447C09C5077}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -101,6 +96,7 @@ Global
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332CB19D-024C-4C01-900E-3B706AB895D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.Deploy.0 = Release|Any CPU

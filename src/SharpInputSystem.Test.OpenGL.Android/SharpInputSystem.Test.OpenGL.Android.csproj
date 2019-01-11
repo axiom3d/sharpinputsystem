@@ -1,6 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>  
     <TargetFramework>MonoAndroid81</TargetFramework>
 
     <RootNamespace>SharpInputSystem.Test.OpenGL.Android</RootNamespace>
@@ -14,17 +15,34 @@
   <PropertyGroup>
     <AndroidApplication>true</AndroidApplication>
     <OutputType>Library</OutputType>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
+    <AndroidLinkSkip />
+    <AndroidStoreUncompressedFileExtensions />    
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>false</EmbedAssembliesIntoApk>
+    <Debugger>Xamarin</Debugger>
+    <AndroidSupportedAbis />
+    <MandroidI18n />    
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
+    <Debugger>Xamarin</Debugger>
+    <AndroidSupportedAbis>armeabi-v7a;x86</AndroidSupportedAbis>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Common.Logging" Version="3.4.1.0" />
@@ -32,7 +50,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
     <None Include="Resources\AboutResources.txt" />
@@ -60,15 +77,18 @@
 
   <!-- Needed to build apk, not nupkg, as part of Pack target  -->
   <PropertyGroup>
-    <PackDependsOn>PackageForAndroid;</PackDependsOn>
+    <PackDependsOn>SignAndroidPackage;</PackDependsOn>
+    <!--
     <PackageForAndroidDependsOn Condition="'$(NoBuild)' == 'true'">SetWearAppTargetToPackageForAndroid;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
     <PackageForAndroidDependsOn Condition="'$(NoBuild)' != 'true'">SetWearAppTargetToPackageForAndroid;Build;_CopyPackage;CopyToArtifacts</PackageForAndroidDependsOn>
+    -->
   </PropertyGroup>
-
+<!--
   <Target Name="PackageForAndroid" DependsOnTargets="$(PackageForAndroidDependsOn)" />
-  <Target Name="CopyToArtifacts" AfterTargets="_CopyPackage">
+-->  
+  <Target Name="CopyToArtifacts" AfterTargets="SignAndroidPackage">
     <ItemGroup>  
-      <ApkFile Include="$(OutDir)\**\*.apk"/>  
+      <ApkFile Include="$(OutDir)\**\*.apk" />  
     </ItemGroup> 
   	<Copy SourceFiles="@(ApkFile)" DestinationFolder="$(PackageOutputPath)\Samples\Android" SkipUnchangedFiles="true" />
   </Target>

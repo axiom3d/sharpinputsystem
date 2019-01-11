@@ -49,7 +49,7 @@ using Common.Logging;
 
 #endregion Namespace Declarations
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Android
 {
     internal class AndroidMouse : Mouse
     {
