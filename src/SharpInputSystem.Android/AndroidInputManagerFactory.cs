@@ -1,4 +1,4 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
@@ -33,7 +33,7 @@ THE SOFTWARE.
 
 using System;
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Android
 {
 	public class AndroidInputManagerFactory : IInputManagerFactory
 	{

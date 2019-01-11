@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\SharpInputSystem.props" Condition="Exists('..\..\SharpInputSystem.props')" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).Core</PackageId>
     <Product>$(Product).Core</Product>
     <AssemblyTitle>$(AssemblyTitle) Core Assembly</AssemblyTitle>

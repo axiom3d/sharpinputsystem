@@ -31,10 +31,9 @@ THE SOFTWARE.
 
 <Project>
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning">
-      <Version>2.3.38</Version>
-      <PrivateAssets>all</PrivateAssets>
-    </PackageReference>
+    <PackageReference Include="GitVersionTask" Version="4.0.0-beta*">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>    
   </ItemGroup>
 
   <PropertyGroup Label="Package">
@@ -59,6 +58,6 @@ The system is written using C# and supports the following API's :
     <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
     <PackageIconUrl>https://github.com/axiom3d/sharpinputsystem/blob/master/images/SharpInputSystem-Icon.png</PackageIconUrl>
     <Copyright>Copyright © Michael Cummings</Copyright>
-    <PackageTags>Input</PackageTags>
+    <PackageTags>Input keyboard mouse directx opengl android ios windows uwp</PackageTags>
   </PropertyGroup>
 </Project>

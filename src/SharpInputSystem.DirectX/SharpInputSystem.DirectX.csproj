@@ -1,12 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\SharpInputSystem.props" Condition="Exists('..\..\SharpInputSystem.props')" />
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).DirectX</PackageId>
     <Product>$(Product).DirectX</Product>
     <AssemblyTitle>$(AssemblyTitle) for DirectX</AssemblyTitle>

@@ -39,7 +39,7 @@ using Common.Logging;
 using Android.Views;
 using Android.Content;
 
-namespace SharpInputSystem
+namespace SharpInputSystem.Android
 {
 	internal sealed class AndroidInputManager : InputManager, InputObjectFactory
 	{

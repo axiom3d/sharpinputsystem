@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\SharpInputSystem.props" Condition="Exists('..\..\SharpInputSystem.props')" />
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
@@ -7,7 +6,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).SWF</PackageId>
     <Product>$(Product).SWF</Product>
     <AssemblyTitle>$(AssemblyTitle) for System Windows Forms</AssemblyTitle>

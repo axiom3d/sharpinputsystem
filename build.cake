@@ -48,6 +48,9 @@ Task("Clean")
     .Does(() =>
     {
         CleanDirectory(artifactsDirectory);
+        MSBuild(solutionFile,
+            settings => commonSettings(settings)
+                        .WithTarget("Clean"));
     });
 
 Task("Restore")
@@ -97,7 +100,7 @@ Task("Package")
         GenerateReleaseNotes();
 
         MSBuild(solutionFile,
-        settings => commonSettings(settings)
+            settings => commonSettings(settings)
                         .WithTarget("Pack")
                         .WithProperty("NoBuild","true")
                         .WithProperty("IncludeSymbols","true"));
@@ -121,7 +124,7 @@ Task("AppVeyor")
     .IsDependentOn("Package");
 
 Task("Default")
-    .IsDependentOn("Package");
+    .IsDependentOn("Build");
 
 Task("Build")
     .IsDependentOn("BuildProduct")

@@ -1,8 +1,8 @@
-#region MIT/X11 License
+﻿#region MIT/X11 License
 
 /*
 Sharp Input System Library
-Copyright � 2007-2019 Michael Cummings
+Copyright © 2007-2019 Michael Cummings
 
 The overall design, and a majority of the core code contained within 
 this library is a derivative of the open source Open Input System ( OIS ) , 
@@ -42,6 +42,7 @@ using Android.Content;
 using Android.Util;
 using System.Collections.Generic;
 using Common.Logging;
+using SharpInputSystem.Android;
 
 namespace SharpInputSystem.Test.OpenGL.Android
 {
@@ -65,12 +66,14 @@ namespace SharpInputSystem.Test.OpenGL.Android
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            var pl = new ParameterList();
-            pl.Add(new Parameter("WINDOW", this));
-            pl.Add(new Parameter("CONTEXT", this._context));
+            var pl = new ParameterList
+            {
+                new Parameter("WINDOW", this),
+                new Parameter("CONTEXT", this._context)
+            };
 
             //This never returns null.. it will raise an exception on errors
-            _inputManager = InputManager.CreateInputSystem(pl);
+            _inputManager = InputManager.CreateInputSystem(typeof(AndroidInputManagerFactory), pl);
 
             log.Info(String.Format("SIS Version : {0}", _inputManager.Version));
             log.Info(String.Format("Platform : {0}", _inputManager.InputSystemName));
