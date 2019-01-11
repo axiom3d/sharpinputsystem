@@ -1,10 +1,28 @@
-# Common configuration for ALL branches
 image: Visual Studio 2017
+
+branches:
+  only:
+  - master
+
+configuration:
+  - Release
 
 platform: Any CPU
 
 assembly_info:
   patch: false
+
+# Do not build on tags (GitHub and BitBucket)
+skip_tags: true
+
+# Do not check branch build on additional commits when there is an open PR
+skip_branch_with_pr: true
+
+build_script:
+  - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
+
+matrix:
+  fast_finish: true
 
 artifacts:
 - path: 'artifacts\*.nupkg'
@@ -14,37 +32,3 @@ artifacts:
 - path: 'artifacts\doc'
   name: Api Documentation  
 
-build_script:
-  - ps: .\build.ps1 -Script build.cake -Target AppVeyor -Verbosity Diagnostic --settings_skipverification=true
-  
-# Do not build on tags (GitHub and BitBucket)
-skip_tags: true
-
-# Do not check branch build on additional commits when there is an open PR
-skip_branch_with_pr: true
-
-# End of Common section
-for :
-
-# Overides for `master` branch
--
-  branches:
-    only:
-    - master
-
-  configuration:
-    - Release
-
-  matrix:
-    fast_finish: true
-
-
-# Overrides for `merge/*` (PR) branches
--
-  branches:
-    only:
-    - master
-
-  configuration:
-    - Debug
-    - Release
