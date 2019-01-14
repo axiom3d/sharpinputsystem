@@ -1,4 +1,7 @@
-# SharpInputSystem
+Title: SharpInputSystem
+---
+#
+
 > A cross platform object oriented input system meant to be very robust and compatable with many systems and operating systems. Written in C# on .NET.
 
 ## Build Status
@@ -40,7 +43,7 @@ The system is written using C# and supports the following API's :
 
 ## Contributing
 
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
+1. Fork the project (<https://github.com/axiom3d/sharpinputsystem>)
 2. Create your feature branch (`git checkout -b feature/fooBar`)
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)

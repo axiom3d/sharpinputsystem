@@ -48,8 +48,10 @@ Meant to be very robust and compatiable with many systems and operating systems.
 
 The SharpInputSystem is an effort to build an easy to use, cross platform input library capable of handling most input devices. Currently planned devices include Keyboard, Mouse, Joysticks and Feedback devices.
 The system is written using C# and supports the following API's :
-      DirectX9/XInput using SharpDX
-      X11 on Linux using custom P/Invokes
+      DirectX9/XInput using SharpDX on Windows
+      X11 on Linux using custom P/Invokes on Linux
+      Windows Forms on Windows
+      OpenGL on Android
     </PackageDescription>
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/axiom3d/sharpinputsystem</RepositoryUrl>
