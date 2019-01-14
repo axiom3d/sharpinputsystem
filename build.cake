@@ -57,6 +57,7 @@ BuildParameters.SetParameters(context: Context,
                             wyamPublishDirectoryPath: "./BuildArtifacts/gh-pages",
                             shouldPublishDocumentation: true,
                             shouldPurgeCloudflareCache: false);
+
 BuildParameters.PrintParameters(Context);
 
 //////////////////////////////////////////////////////////////////////
