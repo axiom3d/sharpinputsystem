@@ -35,7 +35,7 @@ var buildNumber =
     EnvironmentVariable("BuildNumber") != null ? int.Parse(EnvironmentVariable("BuildNumber")) : 0;
 
 // Define directories.
-var artifactsDirectory = MakeAbsolute(Directory("./artifacts"));
+var artifactsDirectory = MakeAbsolute(Directory("./BuildArtifacts"));
 var solutionFile = "./src/SharpInputSystem.sln";
 
 Func<MSBuildSettings,MSBuildSettings> commonSettings = settings => settings
@@ -54,7 +54,7 @@ BuildParameters.SetParameters(context: Context,
                             wyamRecipe: "Docs",
                             wyamTheme: "Samson",
                             wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
-                            wyamPublishDirectoryPath: "artifacts/doc",
+                            wyamPublishDirectoryPath: "./BuildArtifacts/gh-pages",
                             shouldPublishDocumentation: true,
                             shouldPurgeCloudflareCache: false);
 
@@ -124,9 +124,9 @@ private void GenerateReleaseNotes()
 {
     var releaseNotesExitCode = StartProcess(
         @"tools\GitReleaseNotes.Portable.0.7.1\tools\gitreleasenotes.exe", 
-        new ProcessSettings { Arguments = ". /o artifacts/releasenotes.md" });
-    if (string.IsNullOrEmpty(System.IO.File.ReadAllText("./artifacts/releasenotes.md")))
-        System.IO.File.WriteAllText("./artifacts/releasenotes.md", "No issues closed since last release");
+        new ProcessSettings { Arguments = ". /o BuildArtifacts/releasenotes.md" });
+    if (string.IsNullOrEmpty(System.IO.File.ReadAllText("./BuildArtifacts/releasenotes.md")))
+        System.IO.File.WriteAllText("./BuildArtifacts/releasenotes.md", "No issues closed since last release");
 
     if (releaseNotesExitCode != 0) throw new Exception("Failed to generate release notes");
 }
