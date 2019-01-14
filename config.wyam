@@ -13,7 +13,7 @@ Settings["BaseSiteSearchUrl"] = "https://www.google.com/search";
 Settings["BaseCreateIssueUrl"] = "https://github.com/axiom3d/sharpinputsystem/issues/new?title=Issue%20with%20";
 
 FileSystem.InputPaths.Add("./doc");
-FileSystem.OutputPath = "./artifacts/doc";
+FileSystem.OutputPath = "./BuildArtifacts/Documentation";
 
 // Add any pipeline customizations here
 

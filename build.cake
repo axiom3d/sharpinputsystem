@@ -3,11 +3,13 @@
 #tool nuget:?package=Wyam&version=2.1.1
 #addin nuget:?package=Cake.Wyam&version=2.1.1
 
+#load nuget:https://www.nuget.org/api/v2?package=Cake.Wyam.Recipe&version=0.6.0
+
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
 
-var target = Argument("target", "Default");
+var target = Argument("target", "Build");
 
 // 1. If command line parameter parameter passed, use that.
 // 2. Otherwise if an Environment variable exists, use that.
@@ -33,12 +35,29 @@ var buildNumber =
     EnvironmentVariable("BuildNumber") != null ? int.Parse(EnvironmentVariable("BuildNumber")) : 0;
 
 // Define directories.
-var artifactsDirectory = MakeAbsolute(Directory("./artifacts"));
+var artifactsDirectory = MakeAbsolute(Directory("./BuildArtifacts"));
 var solutionFile = "./src/SharpInputSystem.sln";
 
 Func<MSBuildSettings,MSBuildSettings> commonSettings = settings => settings
     .SetConfiguration(configuration)
     .WithProperty("PackageOutputPath", artifactsDirectory.FullPath);
+
+Environment.SetVariableNames();
+
+BuildParameters.SetParameters(context: Context,
+                            buildSystem: BuildSystem,
+                            title: "SharpInputSystem",
+                            repositoryOwner: "Axiom3D",
+                            repositoryName: "sharpinputsystem",
+                            appVeyorAccountName: "borrillis",
+                            webHost: "axiom3d.github.io/sharpinputsystem",
+                            wyamRecipe: "Docs",
+                            wyamTheme: "Samson",
+                            wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
+                            wyamPublishDirectoryPath: "./BuildArtifacts/gh-pages",
+                            shouldPublishDocumentation: true,
+                            shouldPurgeCloudflareCache: false);
+BuildParameters.PrintParameters(Context);
 
 //////////////////////////////////////////////////////////////////////
 // TASKS
@@ -60,7 +79,7 @@ Task("Restore")
         NuGetRestore(solutionFile);
     });
 
-Task("BuildProduct")
+Task("Build-Product")
     .IsDependentOn("Restore")
     .Does(() =>
     {
@@ -76,12 +95,6 @@ Task("BuildProduct")
             XBuild(solutionFile, settings =>
                 settings.SetConfiguration(configuration));
         }
-    });
-
-Task("BuildDocumentation")
-    .Does(() => 
-    {
-        Wyam();
     });
 
 Task("Test")
@@ -116,19 +129,23 @@ private void GenerateReleaseNotes()
 
     if (releaseNotesExitCode != 0) throw new Exception("Failed to generate release notes");
 }
+
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
-Task("AppVeyor")
+BuildParameters.Tasks.AppVeyorTask
     .IsDependentOn("Package");
 
-Task("Default")
-    .IsDependentOn("Build");
+BuildParameters.Tasks.BuildDocumentationTask
+    .IsDependentOn("Build-Product");
+
+BuildParameters.Tasks.PreviewDocumentationTask
+    .IsDependentOn("Build-Product");
 
 Task("Build")
-    .IsDependentOn("BuildProduct")
-    .IsDependentOn("BuildDocumentation");
+    .IsDependentOn("Build-Product")
+    .IsDependentOn("Build-Documentation");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION
