@@ -56,7 +56,7 @@ BuildParameters.SetParameters(context: Context,
                             wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
                             wyamPublishDirectoryPath: MakeAbsolute(Directory("./BuildArtifacts/gh-pages")),
                             webLinkRoot: "/sharpinputsystem",
-                            webBaseEditUrl: "https://github.com/axiom3d/sharpinputsystem/tree/master/"
+                            webBaseEditUrl: "https://github.com/axiom3d/sharpinputsystem/tree/master/",
                             shouldPublishDocumentation: true,
                             shouldPurgeCloudflareCache: false);
 
