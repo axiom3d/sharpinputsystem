@@ -54,7 +54,7 @@ BuildParameters.SetParameters(context: Context,
                             wyamRecipe: "Docs",
                             wyamTheme: "Samson",
                             wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
-                            wyamPublishDirectoryPath: "./BuildArtifacts/gh-pages",
+                            wyamPublishDirectoryPath: MakeAbsolute(Directory("./BuildArtifacts/gh-pages")),
                             shouldPublishDocumentation: true,
                             shouldPurgeCloudflareCache: false);
 
@@ -134,6 +134,9 @@ private void GenerateReleaseNotes()
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
+
+BuildParameters.Tasks.CleanDocumentationTask
+    .IsDependentOn("Clean");
 
 BuildParameters.Tasks.AppVeyorTask
     .IsDependentOn("Package");
