@@ -2,7 +2,8 @@
 #theme Samson
 
 // Customize your settings and add new ones here
-Settings[Keys.Host] = "axiom3d.github.io/sharpinputsystem";
+Settings[Keys.Host] = "axiom3d.github.io";
+Settings[Keys.LinkRoot] = "/sharpinputsystem";
 Settings[Keys.LinksUseHttps] = true;
 
 Settings[DocsKeys.Title] = "SharpInputSystem";
