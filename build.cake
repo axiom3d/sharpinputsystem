@@ -50,11 +50,13 @@ BuildParameters.SetParameters(context: Context,
                             repositoryOwner: "Axiom3D",
                             repositoryName: "sharpinputsystem",
                             appVeyorAccountName: "borrillis",
-                            webHost: "axiom3d.github.io/sharpinputsystem",
+                            webHost: "axiom3d.github.io",
                             wyamRecipe: "Docs",
                             wyamTheme: "Samson",
                             wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
                             wyamPublishDirectoryPath: MakeAbsolute(Directory("./BuildArtifacts/gh-pages")),
+                            webLinkRoot: "/sharpinputsystem",
+                            webBaseEditUrl: "https://github.com/axiom3d/sharpinputsystem/tree/master/"
                             shouldPublishDocumentation: true,
                             shouldPurgeCloudflareCache: false);
 

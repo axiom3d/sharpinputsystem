@@ -10,7 +10,7 @@ Title: SharpInputSystem
 
 ## About SharpInputSystem
 
-![](assets/SharpInputSystem-Icon.png)
+![](/sharpinputsystem/assets/img/SharpInputSystem-Icon.png)
 
 The SharpInputSystem is an effort to build an easy to use, cross platform input library capable of handling most input devices. Currently planned devices include Keyboard, Mouse, Joysticks and Feedback devices.
 The system is written using C# and supports the following API's :
