@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>https://axiom3d.github.io/sharpinputsystem/</id>
+	<title>SharpInputSystem</title>
+	<link rel="self" href="https://axiom3d.github.io/sharpinputsystem/" />
+	<rights>2019</rights>
+	<updated>2019-01-15T11:00:51Z</updated>
+</feed>

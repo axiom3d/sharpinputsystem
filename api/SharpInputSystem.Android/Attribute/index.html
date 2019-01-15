@@ -1,0 +1,2323 @@
+﻿<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <title>SharpInputSystem - API - Resource.Resource.Attribute Class</title>
+        <link href="/assets/css/mermaid.css" rel="stylesheet">
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+        <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/override.css" rel="stylesheet">
+        <script src="/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>        
+        <script src="/assets/js/app.min.js"></script>         
+        <script src="/assets/js/highlight.pack.js"></script>   
+        <script src="/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/assets/js/mermaid.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/assets/js/html5shiv.min.js"></script>
+        <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        </head><body class="hold-transition wyam layout-boxed  "><span id="forkongithub">
+    <a href="https://github.com/axiom3d/sharpinputsystem">Fork me on GitHub</a>
+</span>
+    
+        
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/" class="logo">
+                            <span>SharpInputSystem</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li class="active"><a href="/api">API</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar ">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+<p><a href="#fields">Fields</a></p>
+<hr class="infobar-hidden">
+</div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    	
+	    <script src="/assets/js/lunr.min.js"></script>
+    <script src="/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
+    </script>
+	
+    <hr>
+
+                    <ul class="sidebar-menu">
+                        
+			<li class="header">Namespace</li>
+		<li><a href="/api/SharpInputSystem.Android">SharpInputSystem<wbr>.Android</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Class Types</li>
+				<li><a href="/api/SharpInputSystem.Android/AndroidInputManagerFactory">Android<wbr>Input<wbr>Manager<wbr>Factory</a></li>
+				<li><a href="/api/SharpInputSystem.Android/AndroidKeyboard">AndroidKeyboard</a></li>
+				<li><a href="/api/SharpInputSystem.Android/Resource">Resource</a></li>
+
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+<section class="content-header">
+			<h3><a href="/api/SharpInputSystem.Android/Resource">Resource</a>.</h3>
+	<h1>Resource<wbr>.Attribute <small>Class</small></h1>
+</section>
+<section class="content">
+	
+	
+	
+		<div class="panel panel-default">
+  			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<dl class="dl-horizontal">		
+
+								<dt>Namespace</dt>
+								<dd><a href="/api/SharpInputSystem.Android">SharpInputSystem<wbr>.Android</a></dd>
+											
+							
+								<dt>Base Types</dt>
+								<dd>
+									<ul class="list-unstyled">										
+											<li>object</li>								
+									</ul>
+								</dd>				
+							
+							
+						</dl>
+					</div>		
+					<div class="col-md-6">
+						<div class="mermaid">
+							graph TD
+	Base0["object"]--&gt;Type
+	Type["Resource.Attribute"]
+class Type type-node
+
+						</div>
+					</div>
+				</div>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>public class Resource.Attribute</code></pre>
+
+
+
+
+
+
+
+
+
+			<h1 id="fields">Fields</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover three-cols">
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Constant Value</th>
+								<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D6191BAB">actionBarDivider</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4E514043">action<wbr>Bar<wbr>Item<wbr>Background</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5CB85BC4">actionBarPopupTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1C825E1D">actionBarSize</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/554126E8">actionBarSplitStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C5F2318A">actionBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/463708CA">actionBarTabBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/10BB272D">actionBarTabStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/123842DF">action<wbr>Bar<wbr>Tab<wbr>Text<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/A7ADF92E">actionBarTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/679C6F04">actionBarWidgetTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/783AF3AE">actionButtonStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C8C0B39A">actionDropDownStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8C824D27">actionLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0A678B4B">action<wbr>Menu<wbr>Text<wbr>Appearance</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F925EF7E">actionMenuTextColor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/22047904">actionModeBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3244F583">action<wbr>Mode<wbr>Close<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B8A890E2">action<wbr>Mode<wbr>Close<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F72937F9">action<wbr>Mode<wbr>Copy<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/114F0EC3">action<wbr>Mode<wbr>Cut<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D980C9ED">action<wbr>Mode<wbr>Find<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/372EC233">action<wbr>Mode<wbr>Paste<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F4CAA0DA">action<wbr>Mode<wbr>Popup<wbr>Window<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B3BC0BC6">action<wbr>Mode<wbr>Select<wbr>All<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/257525E8">action<wbr>Mode<wbr>Share<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0EDBF3FA">action<wbr>Mode<wbr>Split<wbr>Background</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2B1CE452">actionModeStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/A6EE5522">action<wbr>Mode<wbr>Web<wbr>Search<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/065B1011">action<wbr>Overflow<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5B8BF767">action<wbr>Overflow<wbr>Menu<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/93EB6497">actionProviderClass</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D1C0818C">actionViewClass</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D3D4E1B7">activity<wbr>Chooser<wbr>View<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6FDE3A5D">alert<wbr>Dialog<wbr>Button<wbr>Group<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/18A15A94">alert<wbr>Dialog<wbr>Center<wbr>Buttons</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3A76D88A">alertDialogStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5829102E">alertDialogTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0CA63D1C">allowStacking</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E3234274">alpha</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/00F458CA">alphabeticModifiers</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/211B2047">arrowHeadLength</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C478A9AE">arrowShaftLength</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FBBB01E3">auto<wbr>Complete<wbr>Text<wbr>View<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D0B037ED">autoSizeMaxTextSize</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DFCB3A21">autoSizeMinTextSize</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D240AB56">autoSizePresetSizes</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1FEE687A">auto<wbr>Size<wbr>Step<wbr>Granularity</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5BD8F635">autoSizeTextType</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/AB21AD2F">background</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9725F1AC">backgroundSplit</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B9CE4E7D">backgroundStacked</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6409A69D">backgroundTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D8478EFA">backgroundTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/01805388">barLength</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0370C94F">borderless<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5C87853E">buttonBarButtonStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6D541192">button<wbr>Bar<wbr>Negative<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/640BAF20">button<wbr>Bar<wbr>Neutral<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/839DE110">button<wbr>Bar<wbr>Positive<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D527D087">buttonBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9B30B57C">buttonGravity</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/A1CAA521">button<wbr>Panel<wbr>Side<wbr>Layout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2E01A8A7">buttonStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E115E444">buttonStyleSmall</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FD2B8B5F">buttonTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0B824F54">buttonTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/43D0C035">checkboxStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DC611B3A">checkedTextViewStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1198B18D">closeIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FA5BC030">closeItemLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/7002C5F7">collapse<wbr>Content<wbr>Description</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FAEE3B29">collapseIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6052F4C2">color</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F287C5B1">colorAccent</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1260BFFF">color<wbr>Background<wbr>Floating</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/94E0AAB8">colorButtonNormal</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0CB59746">color<wbr>Control<wbr>Activated</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/A59E03BF">color<wbr>Control<wbr>Highlight</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/59B7753F">colorControlNormal</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D14D2B2F">colorError</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/13E6F873">colorPrimary</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/950DE441">colorPrimaryDark</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C4BE4505">color<wbr>Switch<wbr>Thumb<wbr>Normal</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/A0D581AF">commitIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3B0A78D9">contentDescription</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/ABE882A4">contentInsetEnd</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1DD9E57E">content<wbr>Inset<wbr>End<wbr>With<wbr>Actions</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C960A187">contentInsetLeft</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/ED20E615">contentInsetRight</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/7600553E">contentInsetStart</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B61EC4FE">content<wbr>Inset<wbr>Start<wbr>With<wbr>Navigation</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/CF57786D">controlBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F1FC8BF5">custom<wbr>Navigation<wbr>Layout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/21CC7749">defaultQueryHint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1D95F42D">dialog<wbr>Preferred<wbr>Padding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/018941B8">dialogTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3B4556A4">displayOptions</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/28D6AE03">divider</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2A93E6A9">dividerHorizontal</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/421FDE2F">dividerPadding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/185336D7">dividerVertical</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BDE93F73">drawableSize</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C02C51A9">drawerArrowStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/678E61A4">dropdown<wbr>List<wbr>Preferred<wbr>Item<wbr>Height</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E33FD776">drop<wbr>Down<wbr>List<wbr>View<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/AB8DD695">editTextBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/EBDE5A24">editTextColor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/682EB171">editTextStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0C2C40F0">elevation</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F7DC1A75">expand<wbr>Activity<wbr>Overflow<wbr>Button<wbr>Drawable</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B4EC4AA3">font</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B004A2E1">fontFamily</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BDB1432D">font<wbr>Provider<wbr>Authority</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/13B6CD57">fontProviderCerts</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/354A9965">font<wbr>Provider<wbr>Fetch<wbr>Strategy</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D624CBEF">font<wbr>Provider<wbr>Fetch<wbr>Timeout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0E30AF92">fontProviderPackage</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/03DE12B2">fontProviderQuery</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0620B573">fontStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/AA708943">fontWeight</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D78F3803">gapBetweenBars</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BABE73CF">goIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/917C8D61">height</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/ED61737C">hideOnContentScroll</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/63F18E81">homeAsUpIndicator</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/23EE912F">homeLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BDCD4A16">icon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/15DD25BA">iconifiedByDefault</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C0C51606">iconTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DA422A23">iconTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/91DE28DC">imageButtonStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1F696615">indeterminate<wbr>Progress<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/ECA804B4">initialActivityCount</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4B63D7C8">isLightTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DF657F9F">itemPadding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/7CF2FAAE">layout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C6C67FCE">list<wbr>Choice<wbr>Background<wbr>Indicator</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/D933A24D">list<wbr>Divider<wbr>Alert<wbr>Dialog</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/763D30A7">listItemLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B083F8FD">listLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/09A591E7">listMenuViewStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B16553A2">listPopupWindowStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/08784DC9">list<wbr>Preferred<wbr>Item<wbr>Height</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9CB72B64">list<wbr>Preferred<wbr>Item<wbr>Height<wbr>Large</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/31740548">list<wbr>Preferred<wbr>Item<wbr>Height<wbr>Small</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2535848C">list<wbr>Preferred<wbr>Item<wbr>Padding<wbr>Left</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/EBAB51BC">list<wbr>Preferred<wbr>Item<wbr>Padding<wbr>Right</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/757E5097">logo</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F5789ADB">logoDescription</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/C6AC1570">maxButtonHeight</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/12B019BD">measure<wbr>With<wbr>Largest<wbr>Child</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/39B2E27D">multi<wbr>Choice<wbr>Item<wbr>Layout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6DDC75B3">navigation<wbr>Content<wbr>Description</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BC1717A5">navigationIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/CC794957">navigationMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9DFB4455">numericModifiers</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B66157FB">overlapAnchor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0F328749">padding<wbr>Bottom<wbr>No<wbr>Buttons</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/02DFBE8E">paddingEnd</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E5882DF9">paddingStart</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4DC54FAD">paddingTopNoTitle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/435CBAB6">panelBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9432252E">panelMenuListTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B3904A35">panelMenuListWidth</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4AB4FB39">popupMenuStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/AC6A688C">popupTheme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5FA81077">popupWindowStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4AF2CD93">preserveIconSpacing</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/9D4DD3FC">progressBarPadding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6D87D4E5">progressBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/85E7B730">queryBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/06041DF7">queryHint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/EAE853B1">radioButtonStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5C83DFB3">ratingBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3C3DC2DB">rating<wbr>Bar<wbr>Style<wbr>Indicator</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/7E71B6FF">ratingBarStyleSmall</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/747A97D7">searchHintIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5B7EB3DF">searchIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F7BAF795">searchViewStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5CFD9AA3">seekBarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F2CE2ED1">selectable<wbr>Item<wbr>Background</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/EB95BEC7">selectable<wbr>Item<wbr>Background<wbr>Borderless</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4DFF00C8">showAsAction</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/23B3E8D5">showDividers</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/99051891">showText</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3A974FA7">showTitle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5A5F2FAE">single<wbr>Choice<wbr>Item<wbr>Layout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/681C7068">spinBars</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/BB8F68B8">spinner<wbr>Drop<wbr>Down<wbr>Item<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1E630676">spinnerStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/69D34B45">splitTrack</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B57DFB93">srcCompat</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2121A925">state_above_anchor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8DA42FED">subMenuArrow</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/04286838">submitBackground</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/058F9437">subtitle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F21228FB">subtitle<wbr>Text<wbr>Appearance</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/635C49BD">subtitleTextColor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E0ACA2E8">subtitleTextStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8EF72E19">suggestionRowLayout</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FC59DCC6">switchMinWidth</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/ADA7CFE3">switchPadding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/57E65380">switchStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/79696E0B">switchTextAppearance</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1B6B20BC">textAllCaps</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E91AB855">text<wbr>Appearance<wbr>Large<wbr>Popup<wbr>Menu</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FF08E074">text<wbr>Appearance<wbr>List<wbr>Item</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/88081B90">text<wbr>Appearance<wbr>List<wbr>Item<wbr>Secondary</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2646E559">text<wbr>Appearance<wbr>List<wbr>Item<wbr>Small</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DB92B8DF">text<wbr>Appearance<wbr>Popup<wbr>Menu<wbr>Header</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E8B9969C">text<wbr>Appearance<wbr>Search<wbr>Result<wbr>Subtitle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8DCC3CC2">text<wbr>Appearance<wbr>Search<wbr>Result<wbr>Title</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0AB8965B">text<wbr>Appearance<wbr>Small<wbr>Popup<wbr>Menu</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/50CF2DF4">text<wbr>Color<wbr>Alert<wbr>Dialog<wbr>List<wbr>Item</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/11DCA169">textColorSearchUrl</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/81FDD733">theme</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/22EA75A2">thickness</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/CEA8B99A">thumbTextPadding</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/870795C2">thumbTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/51AD653B">thumbTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/7AE887B2">tickMark</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8659E57C">tickMarkTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/F32E1DE6">tickMarkTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/120FD75D">tint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2D4E171D">tintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E262948F">title</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/057BF854">titleMargin</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/DB8F5B78">titleMarginBottom</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FD6DD741">titleMarginEnd</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FFC3306B">titleMargins</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/5E68664F">titleMarginStart</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/8641F25F">titleMarginTop</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/08D8B69D">titleTextAppearance</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/E911520D">titleTextColor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6AE1B958">titleTextStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3346462F">toolbar<wbr>Navigation<wbr>Button<wbr>Style</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/01D398BF">toolbarStyle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/4F10198A">tooltip<wbr>Foreground<wbr>Color</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/85E8CCA0">tooltip<wbr>Frame<wbr>Background</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6047015F">tooltipText</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2FE24172">track</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/B891658B">trackTint</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6D990F71">trackTintMode</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/6DAF6F85">voiceIcon</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/544FB6C9">windowActionBar</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/072C14CB">window<wbr>Action<wbr>Bar<wbr>Overlay</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0AD6550F">window<wbr>Action<wbr>Mode<wbr>Overlay</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/CF570725">window<wbr>Fixed<wbr>Height<wbr>Major</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/FCD7BAE7">window<wbr>Fixed<wbr>Height<wbr>Minor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1918BCCE">window<wbr>Fixed<wbr>Width<wbr>Major</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/2A98010C">window<wbr>Fixed<wbr>Width<wbr>Minor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/3DB387B3">windowMinWidthMajor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/0E333A71">windowMinWidthMinor</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Android/Attribute/1462031D">windowNoTitle</a></td>
+								<td></td>
+								<td>
+									<div></div>
+											<div><small><em>static</em></small></div>
+								</td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
+
+
+
+
+	
+</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).load(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        htmlLabels: false,
+                        useMaxWidth:false
+                    }
+                });  
+                mermaid.init(undefined, ".mermaid")
+                $('svg').addClass('img-responsive');
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    
+</body></html>

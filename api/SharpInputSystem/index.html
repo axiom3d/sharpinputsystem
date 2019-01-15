@@ -1,0 +1,588 @@
+﻿<!DOCTYPE html><html><head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <link rel="icon" href="/assets/img/favicon.ico" type="image/x-icon">
+        <title>SharpInputSystem - API - SharpInputSystem Namespace</title>
+        <link href="/assets/css/mermaid.css" rel="stylesheet">
+        <link href="/assets/css/highlight.css" rel="stylesheet">
+        <link href="/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/assets/css/theme/theme.css" rel="stylesheet">
+        <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
+        <link href="/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href="/assets/css/override.css" rel="stylesheet">
+        <script src="/assets/js/jquery-2.2.3.min.js"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>        
+        <script src="/assets/js/app.min.js"></script>         
+        <script src="/assets/js/highlight.pack.js"></script>   
+        <script src="/assets/js/jquery.slimscroll.min.js"></script>
+        <script src="/assets/js/jquery.sticky-kit.min.js"></script>
+        <script src="/assets/js/mermaid.min.js"></script>
+        <!--[if lt IE 9]>
+        <script src="/assets/js/html5shiv.min.js"></script>
+        <script src="/assets/js/respond.min.js"></script>
+        <![endif]-->  
+
+        </head><body class="hold-transition wyam layout-boxed  "><span id="forkongithub">
+    <a href="https://github.com/axiom3d/sharpinputsystem">Fork me on GitHub</a>
+</span>
+    
+        
+        <div class="top-banner"></div>
+        <div class="wrapper with-container">
+            <!-- Header -->
+            <header class="main-header">   
+                     
+                <a href="/" class="logo">
+                            <span>SharpInputSystem</span>
+                </a>   
+                         
+                <nav class="navbar navbar-static-top" role="navigation">
+                    <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
+                                        
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-down"></i>
+                        </button>
+                    </div>
+            
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                        <ul class="nav navbar-nav">                            
+                                    <li class="active"><a href="/api">API</a></li>
+ 
+                        </ul>       
+                    </div>
+                    <!-- /.navbar-collapse -->
+                
+                    <!-- Navbar Right Menu -->
+                </nav>
+            </header>
+            
+            <!-- Left side column. contains the logo and sidebar -->
+            <aside class="main-sidebar ">
+                <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
+                    	
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#EnumTypes">Enum Types</a></p>
+<p><a href="#ClassTypes">Class Types</a></p>
+<p><a href="#InterfaceTypes">Interface Types</a></p>
+<p><a href="#StructTypes">Struct Types</a></p>
+<p><a href="#Namespaces">Namespaces</a></p>
+<hr class="infobar-hidden">
+</div>
+
+                </section>
+                <section class="sidebar">    
+                                     
+                    	
+	    <script src="/assets/js/lunr.min.js"></script>
+    <script src="/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + htmlEscape(res.title) + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+
+        function htmlEscape(html) {
+            return document.createElement('div')
+                .appendChild(document.createTextNode(html))
+                .parentNode
+                .innerHTML;
+        }
+    </script>
+	
+    <hr>
+
+                    <ul class="sidebar-menu">
+                        
+	<li class="header">Namespaces</li>   
+
+				<li class="treeview active selected">
+				<a href="/api/SharpInputSystem">SharpInputSystem</a> <a href="#" class="expand"></a>
+				<ul class="treeview-menu">
+						<li><a href="/api/SharpInputSystem.Android">SharpInputSystem<wbr>.Android</a></li>
+			<li><a href="/api/SharpInputSystem.DirectX">SharpInputSystem<wbr>.DirectX</a></li>
+			<li><a href="/api/SharpInputSystem.SWF">SharpInputSystem<wbr>.SWF</a></li>
+			<li><a href="/api/SharpInputSystem.X11">SharpInputSystem<wbr>.X11</a></li>
+</ul></li>      
+
+                    </ul>
+                            
+                </section>                
+            </aside>
+            
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                
+
+
+
+<section class="content-header">
+	<h1>SharpInputSystem <small>Namespace</small></h1>
+</section>
+<section class="content">
+	
+	
+	
+
+
+			<h1 id="EnumTypes">Enum Types</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Enum</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem/ComponentType">ComponentType</a></td>
+									<td>
+    type specifier for all components (button, axis, etc)
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/InputType">InputType</a></td>
+									<td>
+    
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/KeyCode">KeyCode</a></td>
+									<td>
+    Keyboard scan codes
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/MouseButtonID">MouseButtonID</a></td>
+									<td>
+    Button ID for mouse devices
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/PlatformApi">PlatformApi</a></td>
+									<td></td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
+			<h1 id="ClassTypes">Class Types</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Class</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem/Axis">Axis</a></td>
+									<td>
+    Base type for all device components (button, axis, etc)
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/BaseJoystickListener">BaseJoystickListener</a></td>
+									<td>
+    To recieve buffered joystick input, derive a class from this, and implement the
+    methods here. Then set the call back to your JoyStick instance with JoyStick::setEventCallback
+    Each JoyStick instance can use the same callback class, as a devID number will be provide
+    to differentiate between connected joysticks. Of course, each can have a seperate
+    callback instead.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Button">Button</a></td>
+									<td>
+    Base type for all device components (button, axis, etc)
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Component">Component</a></td>
+									<td>
+    Base type for all device components (button, axis, etc)
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Effect">Effect</a></td>
+									<td>
+    Force Feedback is a relatively complex set of properties to upload to a device.
+    The best place for information on the different properties, effects, etc is in
+    the DX Documentation and MSDN - there are even pretty graphs ther =)
+    As this class is modeled on the the DX interface you can apply that same
+    knowledge to creating effects via this class on any OS supported by OIS.
+    In anycase, this is the main class you will be using. There is *absolutely* no
+    need to instance any of the supporting ForceEffect classes yourself.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/EffectsList">EffectsList</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/ForceFeedback">ForceFeedback</a></td>
+									<td>
+    Interface class for dealing with Force Feedback devices
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/InputManager">InputManager</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/InputObject">InputObject</a></td>
+									<td>
+    
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/InputObjectEventArgs">InputObjectEventArgs</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Joystick">Joystick</a></td>
+									<td>
+    
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/JoystickEventArgs">JoystickEventArgs</a></td>
+									<td>
+    Specialized for joystick events 
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/JoystickInfo">JoystickInfo</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/JoystickState">JoystickState</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Keyboard">Keyboard</a></td>
+									<td>
+    Keyboard base class. To be implemented by specific system (i.e. DirectX Keyboard)
+    This class is useful as you remain OS independent using this common interface.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/KeyboardInfo">KeyboardInfo</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/KeyEventArgs">KeyEventArgs</a></td>
+									<td>
+    Specialized for key events
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/LibX11">LibX11</a></td>
+									<td>
+    Part of the libX11 library on unix platforms.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Mouse">Mouse</a></td>
+									<td>
+    Mouse base class. To be implemented by specific system (ie. DirectX Mouse)
+    This class is useful as you remain OS independent using this common interface.
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/MouseEventArgs">MouseEventArgs</a></td>
+									<td>
+    Specialized for mouse events 
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/MouseInfo">MouseInfo</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/MouseState">MouseState</a></td>
+									<td>
+    Represents the state of the mouse
+    All members are valid for both buffered and non buffered mode
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/NoopConfigurationReader">Noop<wbr>Configuration<wbr>Reader</a></td>
+									<td>
+    Implementation of <code class="cs">IConfigurationReader</code> that uses the standard .NET 
+    configuration APIs, ConfigurationSettings in 1.x and ConfigurationManager in 2.0
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Pair_2">Pair</a><wbr>&lt;<a href="/api/SharpInputSystem/Pair_2#typeparam-K">K</a>, <wbr><a href="/api/SharpInputSystem/Pair_2#typeparam-T">T</a>&gt;<wbr></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Parameter">Parameter</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/ParameterList">ParameterList</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Pov">Pov</a></td>
+									<td>
+    POV / HAT Joystick component
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Slider">Slider</a></td>
+									<td>
+    A sliding axis
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Vector3">Vector3</a></td>
+									<td>
+    A 3D Vector component (perhaps an orientation, as in the WiiMote)
+    </td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
+			<h1 id="InterfaceTypes">Interface Types</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Interface</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem/DeviceInfo">DeviceInfo</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IForceEffect">IForceEffect</a></td>
+									<td>
+    Base class of all effect property classes
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IInputManagerFactory">IInputManagerFactory</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IInputObjectInterface">I<wbr>Input<wbr>Object<wbr>Interface</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IJoystickListener">IJoystickListener</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IKeyboardListener">IKeyboardListener</a></td>
+									<td>
+    To receive buffered keyboard input, implement this interface in a class. 
+    Then set the call back to your Keyboard instance with Keyboard.SetEventCallback
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/IMouseListener">IMouseListener</a></td>
+									<td>
+    To recieve buffered mouse input, derive a class from this, and implement the
+    methods here. Then set the call back to your Mouse instance with Mouse::setEventCallback
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/InputObjectFactory">InputObjectFactory</a></td>
+									<td>
+    Interface for creating devices - all devices ultimately get enumerated/created via a factory.
+    A factory can create multiple types of objects.
+    </td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
+			<h1 id="StructTypes">Struct Types</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Struct</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem/ConditionalEffect">ConditionalEffect</a></td>
+									<td>
+    Use this class when dealing with Force type of Conditional
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/ConstantEffect">ConstantEffect</a></td>
+									<td>
+    Use this class when dealing with Force type of Constant
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/Envelope">Envelope</a></td>
+									<td>
+    An optional envelope to be applied to the start/end of an effect. 
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/PeriodicEffect">PeriodicEffect</a></td>
+									<td>
+    Use this class when dealing with Force type of Periodic
+    </td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem/RampEffect">RampEffect</a></td>
+									<td>
+    Use this class when dealing with Force type of Ramp
+    </td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+
+			<h1 id="Namespaces">Namespaces</h1>
+			<div class="box">
+				<div class="box-body no-padding table-responsive">
+					<table class="table table-striped table-hover two-cols">
+						<thead>
+							<tr>
+								<th>Namespace</th>
+									<th>Summary</th>
+							</tr>
+						</thead>
+							<tbody><tr>
+								<td><a href="/api/SharpInputSystem.Android">SharpInputSystem<wbr>.Android</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.DirectX">SharpInputSystem<wbr>.DirectX</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.SWF">SharpInputSystem<wbr>.SWF</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.Test">SharpInputSystem<wbr>.Test</a></td>
+									<td></td>
+							</tr>
+							<tr>
+								<td><a href="/api/SharpInputSystem.X11">SharpInputSystem<wbr>.X11</a></td>
+									<td></td>
+							</tr>
+					</tbody></table>
+				</div>
+			</div>
+		
+	
+</section>
+                
+            </div>           
+            
+            <!-- Footer -->
+            <footer class="main-footer">
+            </footer>
+            
+        </div>
+        <div class="wrapper bottom-wrapper">
+            <footer class="bottom-footer">
+                Generated by <a href="https://wyam.io">Wyam</a>
+            </footer>
+        </div>
+        <a href="javascript:" id="return-to-top"><i class="fa fa-chevron-up"></i></a>
+        
+        <script>           
+            // Close the sidebar if we select an anchor link
+            $(".main-sidebar a[href^='#']:not('.expand')").click(function(){
+                $(document.body).removeClass('sidebar-open');
+            });
+            
+            $(document).load(function() {
+                mermaid.initialize(
+                {
+                    flowchart:
+                    {
+                        htmlLabels: false,
+                        useMaxWidth:false
+                    }
+                });  
+                mermaid.init(undefined, ".mermaid")
+                $('svg').addClass('img-responsive');
+                
+                $('pre code').each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });  
+            });
+            hljs.initHighlightingOnLoad();
+
+            // Back to top
+            $(window).scroll(function() {
+                if ($(this).scrollTop() >= 200) {        // If page is scrolled more than 50px
+                    $('#return-to-top').fadeIn(1000);    // Fade in the arrow
+                } else {
+                    $('#return-to-top').fadeOut(1000);   // Else fade out the arrow
+                }
+            });
+            $('#return-to-top').click(function() {      // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop : 0                       // Scroll to top of body
+                }, 500);
+            });
+        </script>
+    
+</body></html>
