@@ -72,7 +72,7 @@ namespace SharpInputSystem
             {
                 if (t.IsClass && !t.IsAbstract)
                 {
-                    yield return t as IInputManagerFactory;
+                    yield return Activator.CreateInstance(t) as IInputManagerFactory;
                 }
             }
         }
