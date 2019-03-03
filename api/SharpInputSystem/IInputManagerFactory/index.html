@@ -145,12 +145,6 @@
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/IKeyboardListener">IKeyboardListener</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/IMouseListener">IMouseListener</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/InputObjectFactory">InputObjectFactory</a></li>
-			<li class="header">Enum Types</li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/ComponentType">ComponentType</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/InputType">InputType</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/KeyCode">KeyCode</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/MouseButtonID">MouseButtonID</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/PlatformApi">PlatformApi</a></li>
 			<li class="header">Class Types</li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Axis">Axis</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/BaseJoystickListener">BaseJoystickListener</a></li>
@@ -181,6 +175,12 @@
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Pov">Pov</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Slider">Slider</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Vector3">Vector3</a></li>
+			<li class="header">Enum Types</li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/ComponentType">ComponentType</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/InputType">InputType</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/KeyCode">KeyCode</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/MouseButtonID">MouseButtonID</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/PlatformApi">PlatformApi</a></li>
 			<li class="header">Struct Types</li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/ConditionalEffect">ConditionalEffect</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/ConstantEffect">ConstantEffect</a></li>
@@ -222,10 +222,10 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory">Android<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
-											<li><a href="/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory">X11<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManagerFactory">S<wbr>W<wbr>F<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem.DirectX/DirectXInputManagerFactory">Direct<wbr>X<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
+											<li><a href="/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory">X11<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
+											<li><a href="/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory">Android<wbr>Input<wbr>Manager<wbr>Factory</a></li>								
 									</ul>
 								</dd>				
 						</dl>
@@ -235,14 +235,14 @@
 							graph TD
 	Type["IInputManagerFactory"]
 class Type type-node
-	Type-.-&gt;Implementing0["AndroidInputManagerFactory"]
-	click Implementing0 "/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory"
-	Type-.-&gt;Implementing1["X11InputManagerFactory"]
-	click Implementing1 "/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory"
-	Type-.-&gt;Implementing2["SWFInputManagerFactory"]
-	click Implementing2 "/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManagerFactory"
-	Type-.-&gt;Implementing3["DirectXInputManagerFactory"]
-	click Implementing3 "/sharpinputsystem/api/SharpInputSystem.DirectX/DirectXInputManagerFactory"
+	Type-.-&gt;Implementing0["SWFInputManagerFactory"]
+	click Implementing0 "/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManagerFactory"
+	Type-.-&gt;Implementing1["DirectXInputManagerFactory"]
+	click Implementing1 "/sharpinputsystem/api/SharpInputSystem.DirectX/DirectXInputManagerFactory"
+	Type-.-&gt;Implementing2["X11InputManagerFactory"]
+	click Implementing2 "/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory"
+	Type-.-&gt;Implementing3["AndroidInputManagerFactory"]
+	click Implementing3 "/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory"
 
 						</div>
 					</div>
