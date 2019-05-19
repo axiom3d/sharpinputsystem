@@ -1,10 +1,11 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
 #tool nuget:?package=GitReleaseNotes.Portable&version=0.7.1
 #tool nuget:?package=Wyam&version=2.1.1
+#tool nuget:https://www.nuget.org/api/v2?package=JetBrains.ReSharper.CommandLineTools&version=2018.1.0
+
 #addin nuget:?package=Cake.Wyam&version=2.1.1
 
 #load nuget:https://www.nuget.org/api/v2?package=Cake.Wyam.Recipe&version=0.6.0
-
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -86,20 +87,22 @@ Task("Build-Product")
     .IsDependentOn("Restore")
     .Does(() =>
     {
-        if(IsRunningOnWindows())
-        {
-            // Use MSBuild
-            MSBuild(solutionFile, settings =>
-                settings.SetConfiguration(configuration));
-        }
-        else
-        {
-            // Use XBuild
-            XBuild(solutionFile, settings =>
-                settings.SetConfiguration(configuration));
-        }
+        MSBuild(solutionFile, settings =>
+            settings.SetConfiguration(configuration));
     });
 
+Task("InspectCode")
+    .Description("Inspect the code using Resharper's rule set")
+    .Does(() =>
+{
+    var settings = new InspectCodeSettings() {
+        SolutionWideAnalysis = true,
+        OutputFile = $"{artifactsDirectory}/inspectcode.xml",
+        ThrowExceptionOnFindingViolations = true
+    };
+    InspectCode(solutionFile, settings);
+});
+   
 Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
@@ -113,7 +116,9 @@ Task("Package")
     .IsDependentOn("Test")
     .Does(() => 
     {
-        GenerateReleaseNotes();
+        if (!configuration.Contains("OSX")) {
+            GenerateReleaseNotes();
+        }
 
         MSBuild(solutionFile,
             settings => commonSettings(settings)
@@ -125,7 +130,7 @@ Task("Package")
 private void GenerateReleaseNotes()
 {
     var releaseNotesExitCode = StartProcess(
-        @"tools\GitReleaseNotes.Portable.0.7.1\tools\gitreleasenotes.exe", 
+        @"tools\GitReleaseNotes.Portable.0.7.1\tools\GitReleaseNotes.exe", 
         new ProcessSettings { Arguments = ". /o BuildArtifacts/releasenotes.md" });
     if (string.IsNullOrEmpty(System.IO.File.ReadAllText("./BuildArtifacts/releasenotes.md")))
         System.IO.File.WriteAllText("./BuildArtifacts/releasenotes.md", "No issues closed since last release");
@@ -152,6 +157,12 @@ BuildParameters.Tasks.PreviewDocumentationTask
 Task("Build")
     .IsDependentOn("Build-Product")
     .IsDependentOn("Build-Documentation");
+
+Task("Validate")
+    .Description("Validate code quality using Resharper CLI. tools.")
+    //.IsDependentOn("Analyse-Dependencies")
+    //.IsDependentOn("DupFinder")
+    .IsDependentOn("InspectCode");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION

@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.X11</AssemblyTitle>
     <Product>$(Product).Test.Console.X11</Product>
@@ -25,11 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.X11\SharpInputSystem.X11.csproj">
-      <Name>SharpInputSystem.X11</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
-      <Project>{8476C51C-0028-4B79-B9A7-A666E11400CB}</Project>
-      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
