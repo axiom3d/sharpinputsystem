@@ -55,15 +55,17 @@ Param(
 # PowerShell will not set this by default (until maybe .NET 4.6.x). This
 # will typically produce a message for PowerShell v2 (just an info
 # message though)
-try {
-    # Set TLS 1.2 (3072), then TLS 1.1 (768), then TLS 1.0 (192), finally SSL 3.0 (48)
-    # Use integers because the enumeration values for TLS 1.2 and TLS 1.1 won't
-    # exist in .NET 4.0, even though they are addressable if .NET 4.5+ is
-    # installed (.NET 4.5 is an in-place upgrade).
-    [System.Net.ServicePointManager]::SecurityProtocol = 3072 -bor 768 -bor 192 -bor 48
-  } catch {
-    Write-Output 'Unable to set PowerShell to use TLS 1.2 and TLS 1.1 due to old .NET Framework installed. If you see underlying connection closed or trust errors, you may need to upgrade to .NET Framework 4.5+ and PowerShell v3'
-  }
+if ($PSVersionTable.PSEdition -ne "Core") {
+    try {
+        # Set TLS 1.2 (3072), then TLS 1.1 (768), then TLS 1.0 (192), finally SSL 3.0 (48)
+        # Use integers because the enumeration values for TLS 1.2 and TLS 1.1 won't
+        # exist in .NET 4.0, even though they are addressable if .NET 4.5+ is
+        # installed (.NET 4.5 is an in-place upgrade).
+        [System.Net.ServicePointManager]::SecurityProtocol = 3072 -bor 768 -bor 192 -bor 48
+    } catch {
+        Write-Output 'Unable to set PowerShell to use TLS 1.2 and TLS 1.1 due to old .NET Framework installed. If you see underlying connection closed or trust errors, you may need to upgrade to .NET Framework 4.5+ and PowerShell v3'
+    }
+}
 
 [Reflection.Assembly]::LoadWithPartialName("System.Security") | Out-Null
 function MD5HashFile([string] $filePath)
@@ -116,6 +118,14 @@ $PACKAGES_CONFIG_MD5 = Join-Path $TOOLS_DIR "packages.config.md5sum"
 $ADDINS_PACKAGES_CONFIG = Join-Path $ADDINS_DIR "packages.config"
 $MODULES_PACKAGES_CONFIG = Join-Path $MODULES_DIR "packages.config"
 
+# https://stackoverflow.com/questions/44770702/build-nuget-package-on-linux-that-targets-net-framework
+$MSBUILD_FRAMEWORKPATHOVERRIDE="/usr/lib/mono/4.6.2-api/"
+
+if (($PSVersionTable.PSEdition -eq "Core" -and $PSVersionTable.Platform -ne "Win32NT") -and !(Test-Path($MSBUILD_FRAMEWORKPATHOVERRIDE))) {
+    Throw "Mono version 5+ required to build on non-Windows platforms"
+}
+$env:FrameworkPathOverride = $MSBUILD_FRAMEWORKPATHOVERRIDE
+
 # Make sure tools folder exists
 if ((Test-Path $PSScriptRoot) -and !(Test-Path $TOOLS_DIR)) {
     Write-Verbose -Message "Creating tools directory..."
@@ -157,7 +167,7 @@ if (!(Test-Path $NUGET_EXE)) {
 
 if ($PSVersionTable.PSEdition -eq "Core" -and $PSVersionTable.Platform -ne "Win32NT") 
 {
-    $CMD = "mono  "
+    $CMD = "mono "
 } 
 else 
 {
