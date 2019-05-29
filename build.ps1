@@ -258,6 +258,7 @@ $cakeArguments += $ScriptArgs
 
 # Start Cake
 Write-Host "Running build script..."
-&$CMD $CAKE_EXE $cakeArguments
+Invoke-Expression "$CMD`"$CAKE_EXE`" $cakeArguments"   
+
 Write-Verbose -Message ($CakeOutput | out-string)
 exit $LASTEXITCODE
