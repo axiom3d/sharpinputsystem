@@ -153,7 +153,7 @@ BuildParameters.Tasks.PreviewDocumentationTask
 
 Task("Build")
     .IsDependentOn("Build-Product")
-    /* .IsDependentOn("Build-Documentation") */;
+    .IsDependentOn("Build-Documentation");
 
 Task("Validate")
     .Description("Validate code quality using Resharper CLI. tools.")
