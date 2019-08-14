@@ -39,356 +39,62 @@ var searchModule = function() {
     a(
         {
             id:0,
-            title:"LibX XEvent",
-            content:"LibX XEvent",
+            title:"AndroidKeyboard",
+            content:"AndroidKeyboard",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/XEvent',
-            title:"LibX11.XEvent",
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/AndroidKeyboard',
+            title:"AndroidKeyboard",
             description:""
         }
     );
     a(
         {
             id:1,
-            title:"LibX",
-            content:"LibX",
+            title:"Keyboard ShiftState",
+            content:"Keyboard ShiftState",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/LibX11',
-            title:"LibX11",
+            url:'/sharpinputsystem/api/SharpInputSystem/ShiftState',
+            title:"Keyboard.ShiftState",
             description:""
         }
     );
     a(
         {
             id:2,
-            title:"InputObject",
-            content:"InputObject",
+            title:"MouseInfo",
+            content:"MouseInfo",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/InputObject',
-            title:"InputObject",
+            url:'/sharpinputsystem/api/SharpInputSystem/MouseInfo',
+            title:"MouseInfo",
             description:""
         }
     );
     a(
         {
             id:3,
-            title:"Resource Boolean",
-            content:"Resource Boolean",
+            title:"Pov",
+            content:"Pov",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Boolean',
-            title:"Resource.Boolean",
+            url:'/sharpinputsystem/api/SharpInputSystem/Pov',
+            title:"Pov",
             description:""
         }
     );
     a(
         {
             id:4,
-            title:"Joystick",
-            content:"Joystick",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Joystick',
-            title:"Joystick",
-            description:""
-        }
-    );
-    a(
-        {
-            id:5,
-            title:"Resource Integer",
-            content:"Resource Integer",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Integer',
-            title:"Resource.Integer",
-            description:""
-        }
-    );
-    a(
-        {
-            id:6,
-            title:"LibX XEventName",
-            content:"LibX XEventName",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/XEventName',
-            title:"LibX11.XEventName",
-            description:""
-        }
-    );
-    a(
-        {
-            id:7,
-            title:"InputManagerFactory",
-            content:"InputManagerFactory",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory',
-            title:"X11InputManagerFactory",
-            description:""
-        }
-    );
-    a(
-        {
-            id:8,
-            title:"Mouse",
-            content:"Mouse",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Mouse',
-            title:"Mouse",
-            description:""
-        }
-    );
-    a(
-        {
-            id:9,
-            title:"EffectsList",
-            content:"EffectsList",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/EffectsList',
-            title:"EffectsList",
-            description:""
-        }
-    );
-    a(
-        {
-            id:10,
-            title:"LibX KeySym",
-            content:"LibX KeySym",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/KeySym',
-            title:"LibX11.KeySym",
-            description:""
-        }
-    );
-    a(
-        {
-            id:11,
-            title:"KeyEventArgs",
-            content:"KeyEventArgs",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/KeyEventArgs',
-            title:"KeyEventArgs",
-            description:""
-        }
-    );
-    a(
-        {
-            id:12,
-            title:"Pov Position",
-            content:"Pov Position",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Position',
-            title:"Pov.Position",
-            description:""
-        }
-    );
-    a(
-        {
-            id:13,
-            title:"Resource Attribute",
-            content:"Resource Attribute",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Attribute',
-            title:"Resource.Attribute",
-            description:""
-        }
-    );
-    a(
-        {
-            id:14,
-            title:"SWFKeyboard",
-            content:"SWFKeyboard",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFKeyboard',
-            title:"SWFKeyboard",
-            description:""
-        }
-    );
-    a(
-        {
-            id:15,
-            title:"Pair",
-            content:"Pair",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Pair_2',
-            title:"Pair<K, T>",
-            description:""
-        }
-    );
-    a(
-        {
-            id:16,
-            title:"ConstantEffect",
-            content:"ConstantEffect",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/ConstantEffect',
-            title:"ConstantEffect",
-            description:""
-        }
-    );
-    a(
-        {
-            id:17,
-            title:"MouseButtonID",
-            content:"MouseButtonID",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/MouseButtonID',
-            title:"MouseButtonID",
-            description:""
-        }
-    );
-    a(
-        {
-            id:18,
-            title:"SWFInputManager",
-            content:"SWFInputManager",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManager',
-            title:"SWFInputManager",
-            description:""
-        }
-    );
-    a(
-        {
-            id:19,
-            title:"Resource",
-            content:"Resource",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Resource',
-            title:"Resource",
-            description:""
-        }
-    );
-    a(
-        {
-            id:20,
-            title:"Keyboard TextTranslationMode",
-            content:"Keyboard TextTranslationMode",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/TextTranslationMode',
-            title:"Keyboard.TextTranslationMode",
-            description:""
-        }
-    );
-    a(
-        {
-            id:21,
-            title:"Resource Color",
-            content:"Resource Color",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Color',
-            title:"Resource.Color",
-            description:""
-        }
-    );
-    a(
-        {
-            id:22,
-            title:"Resource Layout",
-            content:"Resource Layout",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Layout',
-            title:"Resource.Layout",
-            description:""
-        }
-    );
-    a(
-        {
-            id:23,
-            title:"ComponentType",
-            content:"ComponentType",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/ComponentType',
-            title:"ComponentType",
-            description:""
-        }
-    );
-    a(
-        {
-            id:24,
-            title:"IKeyboardListener",
-            content:"IKeyboardListener",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/IKeyboardListener',
-            title:"IKeyboardListener",
-            description:""
-        }
-    );
-    a(
-        {
-            id:25,
             title:"LibX Buttons",
             content:"LibX Buttons",
             description:'',
@@ -402,105 +108,133 @@ var searchModule = function() {
     );
     a(
         {
-            id:26,
-            title:"Effect EForce",
-            content:"Effect EForce",
+            id:5,
+            title:"Resource Layout",
+            content:"Resource Layout",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/EForce',
-            title:"Effect.EForce",
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Layout',
+            title:"Resource.Layout",
             description:""
         }
     );
     a(
         {
-            id:27,
-            title:"Button",
-            content:"Button",
+            id:6,
+            title:"ConstantEffect",
+            content:"ConstantEffect",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/Button',
-            title:"Button",
+            url:'/sharpinputsystem/api/SharpInputSystem/ConstantEffect',
+            title:"ConstantEffect",
             description:""
         }
     );
     a(
         {
-            id:28,
-            title:"JoystickEventArgs",
-            content:"JoystickEventArgs",
+            id:7,
+            title:"PlatformApi",
+            content:"PlatformApi",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/JoystickEventArgs',
-            title:"JoystickEventArgs",
+            url:'/sharpinputsystem/api/SharpInputSystem/PlatformApi',
+            title:"PlatformApi",
             description:""
         }
     );
     a(
         {
-            id:29,
-            title:"IInputManagerFactory",
-            content:"IInputManagerFactory",
+            id:8,
+            title:"Resource Integer",
+            content:"Resource Integer",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/IInputManagerFactory',
-            title:"IInputManagerFactory",
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Integer',
+            title:"Resource.Integer",
             description:""
         }
     );
     a(
         {
-            id:30,
-            title:"SWFInputManagerFactory",
-            content:"SWFInputManagerFactory",
+            id:9,
+            title:"Pov Position",
+            content:"Pov Position",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManagerFactory',
-            title:"SWFInputManagerFactory",
+            url:'/sharpinputsystem/api/SharpInputSystem/Position',
+            title:"Pov.Position",
             description:""
         }
     );
     a(
         {
-            id:31,
-            title:"BaseJoystickListener",
-            content:"BaseJoystickListener",
+            id:10,
+            title:"InputManagerFactory",
+            content:"InputManagerFactory",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/BaseJoystickListener',
-            title:"BaseJoystickListener",
+            url:'/sharpinputsystem/api/SharpInputSystem.X11/X11InputManagerFactory',
+            title:"X11InputManagerFactory",
             description:""
         }
     );
     a(
         {
-            id:32,
-            title:"Component",
-            content:"Component",
+            id:11,
+            title:"JoystickInfo",
+            content:"JoystickInfo",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/Component',
-            title:"Component",
+            url:'/sharpinputsystem/api/SharpInputSystem/JoystickInfo',
+            title:"JoystickInfo",
             description:""
         }
     );
     a(
         {
-            id:33,
+            id:12,
+            title:"Resource Styleable",
+            content:"Resource Styleable",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Styleable',
+            title:"Resource.Styleable",
+            description:""
+        }
+    );
+    a(
+        {
+            id:13,
+            title:"EffectsList",
+            content:"EffectsList",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/EffectsList',
+            title:"EffectsList",
+            description:""
+        }
+    );
+    a(
+        {
+            id:14,
             title:"Effect EDirection",
             content:"Effect EDirection",
             description:'',
@@ -514,7 +248,119 @@ var searchModule = function() {
     );
     a(
         {
-            id:34,
+            id:15,
+            title:"Vector",
+            content:"Vector",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Vector3',
+            title:"Vector3",
+            description:""
+        }
+    );
+    a(
+        {
+            id:16,
+            title:"PeriodicEffect",
+            content:"PeriodicEffect",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/PeriodicEffect',
+            title:"PeriodicEffect",
+            description:""
+        }
+    );
+    a(
+        {
+            id:17,
+            title:"JoystickEventArgs",
+            content:"JoystickEventArgs",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/JoystickEventArgs',
+            title:"JoystickEventArgs",
+            description:""
+        }
+    );
+    a(
+        {
+            id:18,
+            title:"KeyboardInfo",
+            content:"KeyboardInfo",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/KeyboardInfo',
+            title:"KeyboardInfo",
+            description:""
+        }
+    );
+    a(
+        {
+            id:19,
+            title:"InputManager",
+            content:"InputManager",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/InputManager',
+            title:"InputManager",
+            description:""
+        }
+    );
+    a(
+        {
+            id:20,
+            title:"Button",
+            content:"Button",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Button',
+            title:"Button",
+            description:""
+        }
+    );
+    a(
+        {
+            id:21,
+            title:"KeyCode",
+            content:"KeyCode",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/KeyCode',
+            title:"KeyCode",
+            description:""
+        }
+    );
+    a(
+        {
+            id:22,
+            title:"ForceFeedback",
+            content:"ForceFeedback",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/ForceFeedback',
+            title:"ForceFeedback",
+            description:""
+        }
+    );
+    a(
+        {
+            id:23,
             title:"LibX XColor",
             content:"LibX XColor",
             description:'',
@@ -528,29 +374,183 @@ var searchModule = function() {
     );
     a(
         {
-            id:35,
-            title:"ConditionalEffect",
-            content:"ConditionalEffect",
+            id:24,
+            title:"LibX XMotionEvent",
+            content:"LibX XMotionEvent",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/ConditionalEffect',
-            title:"ConditionalEffect",
+            url:'/sharpinputsystem/api/SharpInputSystem/XMotionEvent',
+            title:"LibX11.XMotionEvent",
+            description:""
+        }
+    );
+    a(
+        {
+            id:25,
+            title:"SWFInputManagerFactory",
+            content:"SWFInputManagerFactory",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManagerFactory',
+            title:"SWFInputManagerFactory",
+            description:""
+        }
+    );
+    a(
+        {
+            id:26,
+            title:"SWFMouse",
+            content:"SWFMouse",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFMouse',
+            title:"SWFMouse",
+            description:""
+        }
+    );
+    a(
+        {
+            id:27,
+            title:"InputObjectFactory",
+            content:"InputObjectFactory",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/InputObjectFactory',
+            title:"InputObjectFactory",
+            description:""
+        }
+    );
+    a(
+        {
+            id:28,
+            title:"SWFInputManager",
+            content:"SWFInputManager",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFInputManager',
+            title:"SWFInputManager",
+            description:""
+        }
+    );
+    a(
+        {
+            id:29,
+            title:"InputObject",
+            content:"InputObject",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/InputObject',
+            title:"InputObject",
+            description:""
+        }
+    );
+    a(
+        {
+            id:30,
+            title:"IForceEffect",
+            content:"IForceEffect",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/IForceEffect',
+            title:"IForceEffect",
+            description:""
+        }
+    );
+    a(
+        {
+            id:31,
+            title:"JoystickState",
+            content:"JoystickState",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/JoystickState',
+            title:"JoystickState",
+            description:""
+        }
+    );
+    a(
+        {
+            id:32,
+            title:"IInputObjectInterface",
+            content:"IInputObjectInterface",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/IInputObjectInterface',
+            title:"IInputObjectInterface",
+            description:""
+        }
+    );
+    a(
+        {
+            id:33,
+            title:"AndroidInputManagerFactory",
+            content:"AndroidInputManagerFactory",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory',
+            title:"AndroidInputManagerFactory",
+            description:""
+        }
+    );
+    a(
+        {
+            id:34,
+            title:"Axis",
+            content:"Axis",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Axis',
+            title:"Axis",
+            description:""
+        }
+    );
+    a(
+        {
+            id:35,
+            title:"Resource Animation",
+            content:"Resource Animation",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Animation',
+            title:"Resource.Animation",
             description:""
         }
     );
     a(
         {
             id:36,
-            title:"LibX XAnyEvent",
-            content:"LibX XAnyEvent",
+            title:"LibX XKeyEvent",
+            content:"LibX XKeyEvent",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/XAnyEvent',
-            title:"LibX11.XAnyEvent",
+            url:'/sharpinputsystem/api/SharpInputSystem/XKeyEvent',
+            title:"LibX11.XKeyEvent",
             description:""
         }
     );
@@ -571,104 +571,76 @@ var searchModule = function() {
     a(
         {
             id:38,
-            title:"PeriodicEffect",
-            content:"PeriodicEffect",
+            title:"MouseState",
+            content:"MouseState",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/PeriodicEffect',
-            title:"PeriodicEffect",
+            url:'/sharpinputsystem/api/SharpInputSystem/MouseState',
+            title:"MouseState",
             description:""
         }
     );
     a(
         {
             id:39,
-            title:"Keyboard",
-            content:"Keyboard",
+            title:"Slider",
+            content:"Slider",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/Keyboard',
-            title:"Keyboard",
+            url:'/sharpinputsystem/api/SharpInputSystem/Slider',
+            title:"Slider",
             description:""
         }
     );
     a(
         {
             id:40,
-            title:"Resource Id",
-            content:"Resource Id",
+            title:"IInputManagerFactory",
+            content:"IInputManagerFactory",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Id',
-            title:"Resource.Id",
+            url:'/sharpinputsystem/api/SharpInputSystem/IInputManagerFactory',
+            title:"IInputManagerFactory",
             description:""
         }
     );
     a(
         {
             id:41,
-            title:"InputObjectFactory",
-            content:"InputObjectFactory",
+            title:"BaseJoystickListener",
+            content:"BaseJoystickListener",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/InputObjectFactory',
-            title:"InputObjectFactory",
+            url:'/sharpinputsystem/api/SharpInputSystem/BaseJoystickListener',
+            title:"BaseJoystickListener",
             description:""
         }
     );
     a(
         {
             id:42,
-            title:"MouseInfo",
-            content:"MouseInfo",
+            title:"Envelope",
+            content:"Envelope",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/MouseInfo',
-            title:"MouseInfo",
+            url:'/sharpinputsystem/api/SharpInputSystem/Envelope',
+            title:"Envelope",
             description:""
         }
     );
     a(
         {
             id:43,
-            title:"Resource Style",
-            content:"Resource Style",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Style',
-            title:"Resource.Style",
-            description:""
-        }
-    );
-    a(
-        {
-            id:44,
-            title:"KeyCode",
-            content:"KeyCode",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/KeyCode',
-            title:"KeyCode",
-            description:""
-        }
-    );
-    a(
-        {
-            id:45,
             title:"InputType",
             content:"InputType",
             description:'',
@@ -677,6 +649,34 @@ var searchModule = function() {
         {
             url:'/sharpinputsystem/api/SharpInputSystem/InputType',
             title:"InputType",
+            description:""
+        }
+    );
+    a(
+        {
+            id:44,
+            title:"ConditionalEffect",
+            content:"ConditionalEffect",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/ConditionalEffect',
+            title:"ConditionalEffect",
+            description:""
+        }
+    );
+    a(
+        {
+            id:45,
+            title:"MouseButtonID",
+            content:"MouseButtonID",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/MouseButtonID',
+            title:"MouseButtonID",
             description:""
         }
     );
@@ -697,104 +697,6 @@ var searchModule = function() {
     a(
         {
             id:47,
-            title:"IInputObjectInterface",
-            content:"IInputObjectInterface",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/IInputObjectInterface',
-            title:"IInputObjectInterface",
-            description:""
-        }
-    );
-    a(
-        {
-            id:48,
-            title:"MouseState",
-            content:"MouseState",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/MouseState',
-            title:"MouseState",
-            description:""
-        }
-    );
-    a(
-        {
-            id:49,
-            title:"RampEffect",
-            content:"RampEffect",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/RampEffect',
-            title:"RampEffect",
-            description:""
-        }
-    );
-    a(
-        {
-            id:50,
-            title:"Slider",
-            content:"Slider",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Slider',
-            title:"Slider",
-            description:""
-        }
-    );
-    a(
-        {
-            id:51,
-            title:"InputManager",
-            content:"InputManager",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/InputManager',
-            title:"InputManager",
-            description:""
-        }
-    );
-    a(
-        {
-            id:52,
-            title:"NoopConfigurationReader",
-            content:"NoopConfigurationReader",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/NoopConfigurationReader',
-            title:"NoopConfigurationReader",
-            description:""
-        }
-    );
-    a(
-        {
-            id:53,
-            title:"InputObjectEventArgs",
-            content:"InputObjectEventArgs",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/InputObjectEventArgs',
-            title:"InputObjectEventArgs",
-            description:""
-        }
-    );
-    a(
-        {
-            id:54,
             title:"Effect",
             content:"Effect",
             description:'',
@@ -808,357 +710,21 @@ var searchModule = function() {
     );
     a(
         {
-            id:55,
-            title:"IJoystickListener",
-            content:"IJoystickListener",
+            id:48,
+            title:"Keyboard TextTranslationMode",
+            content:"Keyboard TextTranslationMode",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/IJoystickListener',
-            title:"IJoystickListener",
+            url:'/sharpinputsystem/api/SharpInputSystem/TextTranslationMode',
+            title:"Keyboard.TextTranslationMode",
             description:""
         }
     );
     a(
         {
-            id:56,
-            title:"KeyboardInfo",
-            content:"KeyboardInfo",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/KeyboardInfo',
-            title:"KeyboardInfo",
-            description:""
-        }
-    );
-    a(
-        {
-            id:57,
-            title:"LibX XButtonEvent",
-            content:"LibX XButtonEvent",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/XButtonEvent',
-            title:"LibX11.XButtonEvent",
-            description:""
-        }
-    );
-    a(
-        {
-            id:58,
-            title:"Keyboard ShiftState",
-            content:"Keyboard ShiftState",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/ShiftState',
-            title:"Keyboard.ShiftState",
-            description:""
-        }
-    );
-    a(
-        {
-            id:59,
-            title:"LibX XMotionEvent",
-            content:"LibX XMotionEvent",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/XMotionEvent',
-            title:"LibX11.XMotionEvent",
-            description:""
-        }
-    );
-    a(
-        {
-            id:60,
-            title:"MouseEventArgs",
-            content:"MouseEventArgs",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/MouseEventArgs',
-            title:"MouseEventArgs",
-            description:""
-        }
-    );
-    a(
-        {
-            id:61,
-            title:"AndroidKeyboard",
-            content:"AndroidKeyboard",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/AndroidKeyboard',
-            title:"AndroidKeyboard",
-            description:""
-        }
-    );
-    a(
-        {
-            id:62,
-            title:"JoystickState",
-            content:"JoystickState",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/JoystickState',
-            title:"JoystickState",
-            description:""
-        }
-    );
-    a(
-        {
-            id:63,
-            title:"LibX XKeyboardState AutoRepeats",
-            content:"LibX XKeyboardState AutoRepeats",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/AutoRepeats',
-            title:"LibX11.XKeyboardState.AutoRepeats",
-            description:""
-        }
-    );
-    a(
-        {
-            id:64,
-            title:"Resource Styleable",
-            content:"Resource Styleable",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Styleable',
-            title:"Resource.Styleable",
-            description:""
-        }
-    );
-    a(
-        {
-            id:65,
-            title:"Resource Animation",
-            content:"Resource Animation",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/Animation',
-            title:"Resource.Animation",
-            description:""
-        }
-    );
-    a(
-        {
-            id:66,
-            title:"ForceFeedback",
-            content:"ForceFeedback",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/ForceFeedback',
-            title:"ForceFeedback",
-            description:""
-        }
-    );
-    a(
-        {
-            id:67,
-            title:"IForceEffect",
-            content:"IForceEffect",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/IForceEffect',
-            title:"IForceEffect",
-            description:""
-        }
-    );
-    a(
-        {
-            id:68,
-            title:"DeviceInfo",
-            content:"DeviceInfo",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/DeviceInfo',
-            title:"DeviceInfo",
-            description:""
-        }
-    );
-    a(
-        {
-            id:69,
-            title:"IMouseListener",
-            content:"IMouseListener",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/IMouseListener',
-            title:"IMouseListener",
-            description:""
-        }
-    );
-    a(
-        {
-            id:70,
-            title:"LibX XKeyboardState",
-            content:"LibX XKeyboardState",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/XKeyboardState',
-            title:"LibX11.XKeyboardState",
-            description:""
-        }
-    );
-    a(
-        {
-            id:71,
-            title:"AndroidInputManagerFactory",
-            content:"AndroidInputManagerFactory",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/AndroidInputManagerFactory',
-            title:"AndroidInputManagerFactory",
-            description:""
-        }
-    );
-    a(
-        {
-            id:72,
-            title:"LibX XKeyEvent",
-            content:"LibX XKeyEvent",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/XKeyEvent',
-            title:"LibX11.XKeyEvent",
-            description:""
-        }
-    );
-    a(
-        {
-            id:73,
-            title:"Vector",
-            content:"Vector",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Vector3',
-            title:"Vector3",
-            description:""
-        }
-    );
-    a(
-        {
-            id:74,
-            title:"DirectXInputManagerFactory",
-            content:"DirectXInputManagerFactory",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.DirectX/DirectXInputManagerFactory',
-            title:"DirectXInputManagerFactory",
-            description:""
-        }
-    );
-    a(
-        {
-            id:75,
-            title:"ParameterList",
-            content:"ParameterList",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/ParameterList',
-            title:"ParameterList",
-            description:""
-        }
-    );
-    a(
-        {
-            id:76,
-            title:"JoystickInfo",
-            content:"JoystickInfo",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/JoystickInfo',
-            title:"JoystickInfo",
-            description:""
-        }
-    );
-    a(
-        {
-            id:77,
-            title:"Pov",
-            content:"Pov",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem/Pov',
-            title:"Pov",
-            description:""
-        }
-    );
-    a(
-        {
-            id:78,
-            title:"Resource String",
-            content:"Resource String",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.Android/String',
-            title:"Resource.String",
-            description:""
-        }
-    );
-    a(
-        {
-            id:79,
-            title:"SWFMouse",
-            content:"SWFMouse",
-            description:'',
-            tags:''
-        },
-        {
-            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFMouse',
-            title:"SWFMouse",
-            description:""
-        }
-    );
-    a(
-        {
-            id:80,
+            id:49,
             title:"Effect EType",
             content:"Effect EType",
             description:'',
@@ -1172,21 +738,245 @@ var searchModule = function() {
     );
     a(
         {
-            id:81,
-            title:"Envelope",
-            content:"Envelope",
+            id:50,
+            title:"Resource Color",
+            content:"Resource Color",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/Envelope',
-            title:"Envelope",
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Color',
+            title:"Resource.Color",
             description:""
         }
     );
     a(
         {
-            id:82,
+            id:51,
+            title:"ParameterList",
+            content:"ParameterList",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/ParameterList',
+            title:"ParameterList",
+            description:""
+        }
+    );
+    a(
+        {
+            id:52,
+            title:"Pair",
+            content:"Pair",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Pair_2',
+            title:"Pair<K, T>",
+            description:""
+        }
+    );
+    a(
+        {
+            id:53,
+            title:"DeviceInfo",
+            content:"DeviceInfo",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/DeviceInfo',
+            title:"DeviceInfo",
+            description:""
+        }
+    );
+    a(
+        {
+            id:54,
+            title:"MouseEventArgs",
+            content:"MouseEventArgs",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/MouseEventArgs',
+            title:"MouseEventArgs",
+            description:""
+        }
+    );
+    a(
+        {
+            id:55,
+            title:"LibX XEvent",
+            content:"LibX XEvent",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/XEvent',
+            title:"LibX11.XEvent",
+            description:""
+        }
+    );
+    a(
+        {
+            id:56,
+            title:"SWFKeyboard",
+            content:"SWFKeyboard",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.SWF/SWFKeyboard',
+            title:"SWFKeyboard",
+            description:""
+        }
+    );
+    a(
+        {
+            id:57,
+            title:"IKeyboardListener",
+            content:"IKeyboardListener",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/IKeyboardListener',
+            title:"IKeyboardListener",
+            description:""
+        }
+    );
+    a(
+        {
+            id:58,
+            title:"Resource",
+            content:"Resource",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Resource',
+            title:"Resource",
+            description:""
+        }
+    );
+    a(
+        {
+            id:59,
+            title:"Effect EForce",
+            content:"Effect EForce",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/EForce',
+            title:"Effect.EForce",
+            description:""
+        }
+    );
+    a(
+        {
+            id:60,
+            title:"Mouse",
+            content:"Mouse",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Mouse',
+            title:"Mouse",
+            description:""
+        }
+    );
+    a(
+        {
+            id:61,
+            title:"ComponentType",
+            content:"ComponentType",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/ComponentType',
+            title:"ComponentType",
+            description:""
+        }
+    );
+    a(
+        {
+            id:62,
+            title:"Resource Attribute",
+            content:"Resource Attribute",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Attribute',
+            title:"Resource.Attribute",
+            description:""
+        }
+    );
+    a(
+        {
+            id:63,
+            title:"Resource Boolean",
+            content:"Resource Boolean",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Boolean',
+            title:"Resource.Boolean",
+            description:""
+        }
+    );
+    a(
+        {
+            id:64,
+            title:"Resource Style",
+            content:"Resource Style",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Style',
+            title:"Resource.Style",
+            description:""
+        }
+    );
+    a(
+        {
+            id:65,
+            title:"RampEffect",
+            content:"RampEffect",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/RampEffect',
+            title:"RampEffect",
+            description:""
+        }
+    );
+    a(
+        {
+            id:66,
+            title:"DirectXInputManagerFactory",
+            content:"DirectXInputManagerFactory",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.DirectX/DirectXInputManagerFactory',
+            title:"DirectXInputManagerFactory",
+            description:""
+        }
+    );
+    a(
+        {
+            id:67,
             title:"Resource Drawable",
             content:"Resource Drawable",
             description:'',
@@ -1200,29 +990,239 @@ var searchModule = function() {
     );
     a(
         {
-            id:83,
-            title:"PlatformApi",
-            content:"PlatformApi",
+            id:68,
+            title:"LibX",
+            content:"LibX",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/PlatformApi',
-            title:"PlatformApi",
+            url:'/sharpinputsystem/api/SharpInputSystem/LibX11',
+            title:"LibX11",
+            description:""
+        }
+    );
+    a(
+        {
+            id:69,
+            title:"Component",
+            content:"Component",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Component',
+            title:"Component",
+            description:""
+        }
+    );
+    a(
+        {
+            id:70,
+            title:"KeyEventArgs",
+            content:"KeyEventArgs",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/KeyEventArgs',
+            title:"KeyEventArgs",
+            description:""
+        }
+    );
+    a(
+        {
+            id:71,
+            title:"Resource Id",
+            content:"Resource Id",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/Id',
+            title:"Resource.Id",
+            description:""
+        }
+    );
+    a(
+        {
+            id:72,
+            title:"LibX XAnyEvent",
+            content:"LibX XAnyEvent",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/XAnyEvent',
+            title:"LibX11.XAnyEvent",
+            description:""
+        }
+    );
+    a(
+        {
+            id:73,
+            title:"InputObjectEventArgs",
+            content:"InputObjectEventArgs",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/InputObjectEventArgs',
+            title:"InputObjectEventArgs",
+            description:""
+        }
+    );
+    a(
+        {
+            id:74,
+            title:"LibX XKeyboardState AutoRepeats",
+            content:"LibX XKeyboardState AutoRepeats",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/AutoRepeats',
+            title:"LibX11.XKeyboardState.AutoRepeats",
+            description:""
+        }
+    );
+    a(
+        {
+            id:75,
+            title:"NoopConfigurationReader",
+            content:"NoopConfigurationReader",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/NoopConfigurationReader',
+            title:"NoopConfigurationReader",
+            description:""
+        }
+    );
+    a(
+        {
+            id:76,
+            title:"Resource String",
+            content:"Resource String",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem.Android/String',
+            title:"Resource.String",
+            description:""
+        }
+    );
+    a(
+        {
+            id:77,
+            title:"Joystick",
+            content:"Joystick",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Joystick',
+            title:"Joystick",
+            description:""
+        }
+    );
+    a(
+        {
+            id:78,
+            title:"IJoystickListener",
+            content:"IJoystickListener",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/IJoystickListener',
+            title:"IJoystickListener",
+            description:""
+        }
+    );
+    a(
+        {
+            id:79,
+            title:"LibX XKeyboardState",
+            content:"LibX XKeyboardState",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/XKeyboardState',
+            title:"LibX11.XKeyboardState",
+            description:""
+        }
+    );
+    a(
+        {
+            id:80,
+            title:"LibX XEventName",
+            content:"LibX XEventName",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/XEventName',
+            title:"LibX11.XEventName",
+            description:""
+        }
+    );
+    a(
+        {
+            id:81,
+            title:"LibX KeySym",
+            content:"LibX KeySym",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/KeySym',
+            title:"LibX11.KeySym",
+            description:""
+        }
+    );
+    a(
+        {
+            id:82,
+            title:"LibX XButtonEvent",
+            content:"LibX XButtonEvent",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/XButtonEvent',
+            title:"LibX11.XButtonEvent",
+            description:""
+        }
+    );
+    a(
+        {
+            id:83,
+            title:"Keyboard",
+            content:"Keyboard",
+            description:'',
+            tags:''
+        },
+        {
+            url:'/sharpinputsystem/api/SharpInputSystem/Keyboard',
+            title:"Keyboard",
             description:""
         }
     );
     a(
         {
             id:84,
-            title:"Axis",
-            content:"Axis",
+            title:"IMouseListener",
+            content:"IMouseListener",
             description:'',
             tags:''
         },
         {
-            url:'/sharpinputsystem/api/SharpInputSystem/Axis',
-            title:"Axis",
+            url:'/sharpinputsystem/api/SharpInputSystem/IMouseListener',
+            title:"IMouseListener",
             description:""
         }
     );
