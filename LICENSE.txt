@@ -1,6 +1,6 @@
-Sharp Input System Library
 Copyright © 2007-2019 Michael Cummings
 
+Sharp Input System Library
 The overall design, and a majority of the core code contained within
 this library is a derivative of the open source Open Input System ( OIS ) ,
 which can be found at http://www.sourceforge.net/projects/wgois.
