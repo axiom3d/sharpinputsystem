@@ -2,8 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>net462</TargetFramework>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
-
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.DirectX</AssemblyTitle>
     <Product>$(Product).Test.Console.DirectX</Product>
@@ -25,12 +23,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.DirectX\SharpInputSystem.DirectX.csproj">
-      <Project>{26bd5281-c74c-4bdb-9e9e-6e66d99fac31}</Project>
-      <Name>SharpInputSystem.DirectX</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
-      <Project>{8476C51C-0028-4B79-B9A7-A666E11400CB}</Project>
-      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

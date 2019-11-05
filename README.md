@@ -25,7 +25,7 @@ The system is written using C# and supports the following API's :
 
 - OpenGL
 - DirectX
-- Windows Forms 
+- Windows Forms
 - UWP
 - Xamarin (Android, iOS and Mac)
 - .NET Standard 2.0

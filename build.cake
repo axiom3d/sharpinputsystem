@@ -1,10 +1,11 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
 #tool nuget:?package=GitReleaseNotes.Portable&version=0.7.1
 #tool nuget:?package=Wyam&version=2.1.1
+#tool nuget:https://www.nuget.org/api/v2?package=JetBrains.ReSharper.CommandLineTools&version=2018.1.0
+
 #addin nuget:?package=Cake.Wyam&version=2.1.1
 
 #load nuget:https://www.nuget.org/api/v2?package=Cake.Wyam.Recipe&version=0.6.0
-
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -35,12 +36,8 @@ var buildNumber =
     EnvironmentVariable("BuildNumber") != null ? int.Parse(EnvironmentVariable("BuildNumber")) : 0;
 
 // Define directories.
-var artifactsDirectory = MakeAbsolute(Directory("./BuildArtifacts"));
+var artifactsDirectory = MakeAbsolute(Directory("./artifacts"));
 var solutionFile = "./src/SharpInputSystem.sln";
-
-Func<MSBuildSettings,MSBuildSettings> commonSettings = settings => settings
-    .SetConfiguration(configuration)
-    .WithProperty("PackageOutputPath", artifactsDirectory.FullPath);
 
 Environment.SetVariableNames();
 
@@ -54,7 +51,7 @@ BuildParameters.SetParameters(context: Context,
                             wyamRecipe: "Docs",
                             wyamTheme: "Samson",
                             wyamSourceFiles: MakeAbsolute(Directory("./")).FullPath + "/**/{!bin,!obj,!packages,!*.Tests,}/**/*.cs",
-                            wyamPublishDirectoryPath: MakeAbsolute(Directory("./BuildArtifacts/gh-pages")),
+                            wyamPublishDirectoryPath: Directory($"{artifactsDirectory}/gh-pages"),
                             webLinkRoot: "/sharpinputsystem",
                             webBaseEditUrl: "https://github.com/axiom3d/sharpinputsystem/tree/master/",
                             shouldPublishDocumentation: true,
@@ -70,42 +67,48 @@ Task("Clean")
     .Does(() =>
     {
         CleanDirectory(artifactsDirectory);
-        MSBuild(solutionFile,
-            settings => commonSettings(settings)
-                        .WithTarget("Clean"));
+        DotNetCoreClean(solutionFile, new DotNetCoreCleanSettings {
+            Configuration = configuration
+        });
     });
 
 Task("Restore")
     .IsDependentOn("Clean")
     .Does(() =>
     {
-        NuGetRestore(solutionFile);
+        DotNetCoreRestore(solutionFile, new DotNetCoreRestoreSettings {
+            
+        });
     });
 
 Task("Build-Product")
     .IsDependentOn("Restore")
     .Does(() =>
     {
-        if(IsRunningOnWindows())
-        {
-            // Use MSBuild
-            MSBuild(solutionFile, settings =>
-                settings.SetConfiguration(configuration));
-        }
-        else
-        {
-            // Use XBuild
-            XBuild(solutionFile, settings =>
-                settings.SetConfiguration(configuration));
-        }
+        DotNetCoreBuild(solutionFile, new DotNetCoreBuildSettings {
+            Configuration = configuration,
+            NoRestore = true
+        });
     });
 
+Task("InspectCode")
+    .Description("Inspect the code using Resharper's rule set")
+    .Does(() =>
+{
+    var settings = new InspectCodeSettings() {
+        SolutionWideAnalysis = true,
+        OutputFile = $"{artifactsDirectory}/inspectcode.xml",
+        ThrowExceptionOnFindingViolations = true
+    };
+    InspectCode(solutionFile, settings);
+});
+   
 Task("Test")
     .IsDependentOn("Build")
     .Does(() =>
     {
-        NUnit3("./src/**/bin/" + configuration + "/*.Tests.dll", new NUnit3Settings {
-            NoResults = true
+        DotNetCoreTest(solutionFile, new DotNetCoreTestSettings {
+            Configuration = configuration
             });
     });
 
@@ -113,25 +116,23 @@ Task("Package")
     .IsDependentOn("Test")
     .Does(() => 
     {
-        GenerateReleaseNotes();
-
-        MSBuild(solutionFile,
-            settings => commonSettings(settings)
-                        .WithTarget("Pack")
-                        .WithProperty("NoBuild","true")
-                        .WithProperty("IncludeSymbols","true"));
+        DotNetCorePack(solutionFile, new DotNetCorePackSettings {
+            Configuration = configuration,
+            OutputDirectory = artifactsDirectory.FullPath
+        });
     });
 
-private void GenerateReleaseNotes()
-{
-    var releaseNotesExitCode = StartProcess(
-        @"tools\GitReleaseNotes.Portable.0.7.1\tools\gitreleasenotes.exe", 
-        new ProcessSettings { Arguments = ". /o BuildArtifacts/releasenotes.md" });
-    if (string.IsNullOrEmpty(System.IO.File.ReadAllText("./BuildArtifacts/releasenotes.md")))
-        System.IO.File.WriteAllText("./BuildArtifacts/releasenotes.md", "No issues closed since last release");
+Task("GenerateReleaseNotes")
+    .Does(() => 
+    {
+        var releaseNotesExitCode = StartProcess(
+            @"tools\GitReleaseNotes.Portable.0.7.1\tools\GitReleaseNotes.exe", 
+            new ProcessSettings { Arguments = $". /o ./artifacts/releasenotes.md" });
+        if (string.IsNullOrEmpty(System.IO.File.ReadAllText($"{artifactsDirectory}/releasenotes.md")))
+            System.IO.File.WriteAllText($"{artifactsDirectory}/releasenotes.md", "No issues closed since last release");
 
-    if (releaseNotesExitCode != 0) throw new Exception("Failed to generate release notes");
-}
+        if (releaseNotesExitCode != 0) throw new Exception("Failed to generate release notes");
+    });
 
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
@@ -141,6 +142,7 @@ BuildParameters.Tasks.CleanDocumentationTask
     .IsDependentOn("Clean");
 
 BuildParameters.Tasks.AppVeyorTask
+    .IsDependentOn("GenerateReleaseNotes")
     .IsDependentOn("Package");
 
 BuildParameters.Tasks.BuildDocumentationTask
@@ -152,6 +154,12 @@ BuildParameters.Tasks.PreviewDocumentationTask
 Task("Build")
     .IsDependentOn("Build-Product")
     .IsDependentOn("Build-Documentation");
+
+Task("Validate")
+    .Description("Validate code quality using Resharper CLI. tools.")
+    //.IsDependentOn("Analyse-Dependencies")
+    //.IsDependentOn("DupFinder")
+    .IsDependentOn("InspectCode");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION

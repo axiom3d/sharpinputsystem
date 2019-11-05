@@ -31,7 +31,7 @@ THE SOFTWARE.
 
 <Project>
   <ItemGroup>
-    <PackageReference Include="GitVersionTask" Version="4.0.0-beta*">
+    <PackageReference Include="GitVersionTask" Version="4.0.0-beta*" Condition=" '$(OS)' != 'Unix' " >
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>    
   </ItemGroup>

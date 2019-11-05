@@ -25,13 +25,13 @@ matrix:
   fast_finish: true
 
 artifacts:
-- path: 'BuildArtifacts\*.nupkg'
+- path: 'artifacts\*.nupkg'
   name: Nuget Packages
-- path: 'BuildArtifacts\*.md'
+- path: 'artifacts\*.md'
   name: Release Notes
-- path: 'BuildArtifacts\Documentation'
+- path: 'artifacts\Documentation'
   name: Api Documentation 
-- path: 'BuildArtifacts\samples' 
+- path: 'artifacts\samples' 
   name: Samples
 
 deploy:

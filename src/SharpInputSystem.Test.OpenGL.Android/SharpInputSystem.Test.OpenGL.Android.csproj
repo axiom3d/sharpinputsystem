@@ -1,7 +1,7 @@
 ﻿<Project Sdk="MSBuild.Sdk.Extras">
 
   <PropertyGroup>
-    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>  
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC};{9A19103F-16F7-4668-BE54-9A1E7A4F7556}</ProjectTypeGuids>  
     <TargetFramework>MonoAndroid81</TargetFramework>
 
     <RootNamespace>SharpInputSystem.Test.OpenGL.Android</RootNamespace>
@@ -62,12 +62,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem.Android\SharpInputSystem.Android.csproj">
-      <Project>{864535de-7e55-4073-99a4-4447c09c5077}</Project>
-      <Name>SharpInputSystem.Android</Name>
     </ProjectReference>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
-      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
-      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
 

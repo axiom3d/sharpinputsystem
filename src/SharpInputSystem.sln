@@ -28,7 +28,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "X11", "X11", "{862A5AF7-237
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iOS", "iOS", "{8008225F-37A8-4D01-805C-4E6BC1002378}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Core", "SharpInputSystem\SharpInputSystem.Core.csproj", "{8476C51C-0028-4B79-B9A7-A666E11400CB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpInputSystem.Core", "SharpInputSystem\SharpInputSystem.Core.csproj", "{8476C51C-0028-4B79-B9A7-A666E11400CB}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharpInputSystem.Android", "SharpInputSystem.Android\SharpInputSystem.Android.csproj", "{864535DE-7E55-4073-99A4-4447C09C5077}"
 EndProject
@@ -43,6 +43,8 @@ Global
 		AppStore|Any CPU = AppStore|Any CPU
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Linux_Debug|Any CPU = Linux_Debug|Any CPU
+		Linux_Release|Any CPU = Linux_Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +55,10 @@ Global
 		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26BD5281-C74C-4BDB-9E9E-6E66D99FAC31}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +67,10 @@ Global
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12FE049-DFB1-476A-A726-CEABA59C93B4}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +79,10 @@ Global
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7611F78-E15A-4CFA-A491-86459129C7D8}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,6 +91,10 @@ Global
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414B57C9-4B95-4503-AD7B-99426D6FC47D}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,6 +103,10 @@ Global
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CC3BE20-4B0B-48A6-8771-8C0684B59208}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +115,10 @@ Global
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29045D60-94B4-4574-BDCB-E06D0CA26BFA}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -100,6 +126,8 @@ Global
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.Build.0 = Release|Any CPU
 		{332CB19D-024C-4C01-900E-3B706AB895D6}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{332CB19D-024C-4C01-900E-3B706AB895D6}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{332CB19D-024C-4C01-900E-3B706AB895D6}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -108,6 +136,10 @@ Global
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Linux_Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8476C51C-0028-4B79-B9A7-A666E11400CB}.Linux_Release|Any CPU.Build.0 = Release|Any CPU
 		{864535DE-7E55-4073-99A4-4447C09C5077}.Ad-Hoc|Any CPU.ActiveCfg = Release|Any CPU
 		{864535DE-7E55-4073-99A4-4447C09C5077}.Ad-Hoc|Any CPU.Build.0 = Release|Any CPU
 		{864535DE-7E55-4073-99A4-4447C09C5077}.AppStore|Any CPU.ActiveCfg = Release|Any CPU
@@ -116,6 +148,8 @@ Global
 		{864535DE-7E55-4073-99A4-4447C09C5077}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{864535DE-7E55-4073-99A4-4447C09C5077}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{864535DE-7E55-4073-99A4-4447C09C5077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{864535DE-7E55-4073-99A4-4447C09C5077}.Linux_Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{864535DE-7E55-4073-99A4-4447C09C5077}.Linux_Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,5 +176,10 @@ Global
 		{29045D60-94B4-4574-BDCB-E06D0CA26BFA} = {862A5AF7-237F-4C74-B9E0-0D432C3934A6}
 		{188D41FB-7DDB-4D30-BC1F-89CE39DEA4E4} = {A9D8B99F-AC1A-4086-A19C-D8FA4E30602E}
 		{332CB19D-024C-4C01-900E-3B706AB895D6} = {A9D8B99F-AC1A-4086-A19C-D8FA4E30602E}
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
 	EndGlobalSection
 EndGlobal

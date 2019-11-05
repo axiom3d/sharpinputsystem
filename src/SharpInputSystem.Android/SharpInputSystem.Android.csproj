@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <GeneratePackageOnBuild>fasle</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>$(PackageId).Android</PackageId>
     <Product>$(Product).Android</Product>
     <AssemblyTitle>$(AssemblyTitle) for Android</AssemblyTitle>
@@ -17,8 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SharpInputSystem\SharpInputSystem.Core.csproj">
-      <Project>{8476c51c-0028-4b79-b9a7-a666e11400cb}</Project>
-      <Name>SharpInputSystem.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
