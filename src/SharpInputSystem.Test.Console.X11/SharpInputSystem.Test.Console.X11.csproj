@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net462</TargetFramework>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFramework>net461</TargetFramework>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
 
     <RootNamespace>SharpInputSystem.Test.Console</RootNamespace>
     <AssemblyTitle>$(AssemblyTitle).Test.Console.X11</AssemblyTitle>

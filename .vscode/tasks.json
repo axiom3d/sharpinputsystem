@@ -1,37 +1,23 @@
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558
     // for the documentation about the tasks.json format
-    "version": "0.1.0",
-    "command": "msbuild",    
-    "args": [
-        // Ask msbuild to generate full paths for file names.
-        "/m",
-        "/property:GenerateFullPaths=true",
-        "/p:NuProjPath=..\\..\\packages\\NuProj.0.10.4-beta-gf7fc34e7d8\\tools"
-    ],
-    "taskSelector": "/t:",
-    "showOutput": "silent",
+    "version": "2.0.0",
     "tasks": [
         {
-            "taskName": "build",
-            // Show the output window only if unrecognized errors occur.
-            "showOutput": "silent",
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "taskName": "rebuild",
-            // Show the output window only if unrecognized errors occur.
-            "showOutput": "silent",
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "taskName": "clean",
-            // Show the output window only if unrecognized errors occur.
-            "showOutput": "silent",
-            // Use the standard MS compiler pattern to detect errors, warnings and infos
+            "label": "build",
+            "command": "dotnet",
+            "type": "shell",
+            "args": [
+                "cake",
+                "build.cake",
+                // Ask dotnet build to generate full paths for file names.
+                //"/property:GenerateFullPaths=true"
+            ],
+            "group": "build",
+            "presentation": {
+                "reveal": "silent"
+            },
             "problemMatcher": "$msCompile"
         }
-    ]    
+    ]
 }
