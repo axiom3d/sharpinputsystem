@@ -31,12 +31,36 @@ The system is written using C# and supports the following API's :
 - .NET Standard 2.0
 
 ### Building from source
+- Pre-requisites
 
-- Windows
-> ./build.cmd
+> - [Visual Studio Code](https://code.visualstudio.com/download)
+> - [DotNet Core 2.2 SDK](https://dotnet.microsoft.com/download)
+> - [.Net Framework Developer Pack 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49978)
+> - [Mono 5.2.0](https://download.mono-project.com/archive/5.2.0/)
 
-- Mac/Linux
-> ./build.sh
+- Restore DotNet Tools
+
+    ```sh
+    dotnet tool restore
+    ```
+
+- Initialize the build tooling
+
+    ```sh
+    dotnet cake --bootstrap
+    ```
+
+- Restore packages and dependencies
+
+    ```sh
+    dotnet restore src/SharpInputSystem.sln
+    ```
+
+- Build SharpInputSystem
+
+    ```sh
+    dotnet cake
+    ```
 
 ## Contributing
 
