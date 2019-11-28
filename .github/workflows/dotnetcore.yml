@@ -12,7 +12,7 @@ jobs:
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 2.2.108
+        dotnet-version: 3.0.100
     - name: Restore DotNet Tooling
       run: dotnet tool restore
     - name: Initialize build tooling
