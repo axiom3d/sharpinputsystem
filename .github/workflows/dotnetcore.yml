@@ -1,0 +1,23 @@
+name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 2.2.108
+    - name: Restore DotNet Tooling
+      run: dotnet tool restore
+    - name: Initialize build tooling
+      run: dotnet cake --bootstrap
+    - name: Restore Packages and Dependencies
+      run: dotnet restore src/SharpInputSystem.sln
+    - name: Build SharpInputSystem
+      run: dotnet cake
