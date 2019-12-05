@@ -135,6 +135,12 @@
 			<li class="header">Namespace</li>
 		<li><a href="/sharpinputsystem/api/SharpInputSystem">SharpInputSystem</a></li>
 		<li role="separator" class="divider"></li>
+			<li class="header">Enum Types</li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/ComponentType">ComponentType</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/InputType">InputType</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/KeyCode">KeyCode</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/MouseButtonID">MouseButtonID</a></li>
+				<li><a href="/sharpinputsystem/api/SharpInputSystem/PlatformApi">PlatformApi</a></li>
 			<li class="header">Class Types</li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Axis">Axis</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/BaseJoystickListener">BaseJoystickListener</a></li>
@@ -165,12 +171,6 @@
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Pov">Pov</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Slider">Slider</a></li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/Vector3">Vector3</a></li>
-			<li class="header">Enum Types</li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/ComponentType">ComponentType</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/InputType">InputType</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/KeyCode">KeyCode</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/MouseButtonID">MouseButtonID</a></li>
-				<li><a href="/sharpinputsystem/api/SharpInputSystem/PlatformApi">PlatformApi</a></li>
 			<li class="header">Interface Types</li>
 				<li><a href="/sharpinputsystem/api/SharpInputSystem/DeviceInfo">DeviceInfo</a></li>
 				<li class="selected"><a href="/sharpinputsystem/api/SharpInputSystem/IForceEffect">IForceEffect</a></li>
@@ -225,10 +225,10 @@
 								<dt>Implementing Types</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li><a href="/sharpinputsystem/api/SharpInputSystem/ConditionalEffect">ConditionalEffect</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem/ConstantEffect">ConstantEffect</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem/Envelope">Envelope</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem/PeriodicEffect">PeriodicEffect</a></li>								
+											<li><a href="/sharpinputsystem/api/SharpInputSystem/ConditionalEffect">ConditionalEffect</a></li>								
 											<li><a href="/sharpinputsystem/api/SharpInputSystem/RampEffect">RampEffect</a></li>								
 									</ul>
 								</dd>				
@@ -239,14 +239,14 @@
 							graph BT
 	Type["IForceEffect"]
 class Type type-node
-	Implementing0["ConditionalEffect"]-.-&gt;Type
-	click Implementing0 "/sharpinputsystem/api/SharpInputSystem/ConditionalEffect"
-	Implementing1["ConstantEffect"]-.-&gt;Type
-	click Implementing1 "/sharpinputsystem/api/SharpInputSystem/ConstantEffect"
-	Implementing2["Envelope"]-.-&gt;Type
-	click Implementing2 "/sharpinputsystem/api/SharpInputSystem/Envelope"
-	Implementing3["PeriodicEffect"]-.-&gt;Type
-	click Implementing3 "/sharpinputsystem/api/SharpInputSystem/PeriodicEffect"
+	Implementing0["ConstantEffect"]-.-&gt;Type
+	click Implementing0 "/sharpinputsystem/api/SharpInputSystem/ConstantEffect"
+	Implementing1["Envelope"]-.-&gt;Type
+	click Implementing1 "/sharpinputsystem/api/SharpInputSystem/Envelope"
+	Implementing2["PeriodicEffect"]-.-&gt;Type
+	click Implementing2 "/sharpinputsystem/api/SharpInputSystem/PeriodicEffect"
+	Implementing3["ConditionalEffect"]-.-&gt;Type
+	click Implementing3 "/sharpinputsystem/api/SharpInputSystem/ConditionalEffect"
 	Implementing4["RampEffect"]-.-&gt;Type
 	click Implementing4 "/sharpinputsystem/api/SharpInputSystem/RampEffect"
 
