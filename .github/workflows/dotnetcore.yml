@@ -4,11 +4,10 @@ on: [push]
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [macos-latest, windows-latest, ubuntu-18.04]  
-
+        platform: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.platform }}
 
     steps:
     - uses: actions/checkout@v1
@@ -16,11 +15,11 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.0.100
-    - name: Restore DotNet Tooling
+    - name: Restore dotnet tools
       run: dotnet tool restore
     - name: Initialize build tooling
       run: dotnet cake --bootstrap
-    - name: Restore Packages and Dependencies
+    - name: Restore packages and dependencies
       run: dotnet restore src/SharpInputSystem.sln
     - name: Build SharpInputSystem
       run: dotnet cake
