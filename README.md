@@ -1,9 +1,11 @@
 # SharpInputSystem
+
 > A cross platform object oriented input system meant to be very robust and compatable with many systems and operating systems. Written in C# on .NET.
 
 ## Build Status
 
 [![Build status](https://ci.appveyor.com/api/projects/status/scy7wjq7ppwvll7s?svg=true)](https://ci.appveyor.com/project/borrillis/sharpinputsystem)
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)<!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 ## About SharpInputSystem
 
@@ -69,6 +71,25 @@ The system is written using C# and supports the following API's :
 3. Commit your changes (`git commit -am 'Add some fooBar'`)
 4. Push to the branch (`git push origin feature/fooBar`)
 5. Create a new Pull Request
+
+## Contributors ✨
+
+Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tr>
+    <td align="center"><a href="http://michaelcummings.net"><img src="https://avatars2.githubusercontent.com/u/757221?v=4" width="100px;" alt="Michael Cummings"/><br /><sub><b>Michael Cummings</b></sub></a><br /><a href="https://github.com/axiom3d/sharpinputsystem/commits?author=borrillis" title="Code">💻</a> <a href="https://github.com/axiom3d/sharpinputsystem/commits?author=borrillis" title="Documentation">📖</a></td>
+  </tr>
+</table>
+
+<!-- markdownlint-enable -->
+<!-- prettier-ignore-end -->
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
 
 ### Who do I talk to?
 

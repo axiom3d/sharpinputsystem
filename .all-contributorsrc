@@ -1,0 +1,25 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "borrillis",
+      "name": "Michael Cummings",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/757221?v=4",
+      "profile": "http://michaelcummings.net",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "sharpinputsystem",
+  "projectOwner": "axiom3d",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
