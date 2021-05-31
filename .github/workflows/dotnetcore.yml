@@ -1,0 +1,36 @@
+name: .NET Core
+
+on: [push]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [macos-latest, windows-latest]
+        dotnet: [ '3.0.100', '3.1.100' ]
+    runs-on: ${{ matrix.platform }}
+    
+    steps:
+      - name: Get the sources
+        uses: actions/checkout@v1
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ matrix.dotnet }}
+          
+      - name: Restore dotnet tools
+        run: dotnet tool restore
+
+      - name: Initialize build tooling
+        uses: cake-build/cake-action@v1
+        with:
+          cake-bootstrap: true
+
+      - name: Restore packages and dependencies
+        run: dotnet restore src/SharpInputSystem.sln
+
+      - name: Build SharpInputSystem
+        uses: cake-build/cake-action@v1
+        with:
+          target: Build
