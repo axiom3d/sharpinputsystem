@@ -6,7 +6,7 @@ jobs:
   build:
     strategy:
       matrix:
-        platform: [macos-latest, windows-latest, ubuntu-latest]
+        platform: [macos-latest, windows-latest]
         dotnet: [ '3.0.100', '3.1.100' ]
     runs-on: ${{ matrix.platform }}
     
@@ -26,7 +26,7 @@ jobs:
         uses: cake-build/cake-action@v1
         with:
           cake-bootstrap: true
-          
+
       - name: Restore packages and dependencies
         run: dotnet restore src/SharpInputSystem.sln
 
